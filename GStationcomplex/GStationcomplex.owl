@@ -1,0 +1,88 @@
+@prefix : <https://w3id.org/netbeheer/def/GStationcomplex#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix obda: <https://w3id.org/obda/vocabulary#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix gstat: <https://w3id.org/netbeheer/def/GStationcomplex#> .
+@base <https://w3id.org/netbeheer/def/GStationcomplex#> .
+
+<https://w3id.org/netbeheer/def/GStationcomplex#> rdf:type owl:Ontology ;
+                                                   owl:versionIRI <https://w3id.org/netbeheer/def/GStationcomplex/1.0.0> ;
+                                                   owl:imports <https://w3id.org/netbeheer/def/KernObjecten/1.0.> ;
+                                                   rdfs:comment "Deze ontologie beschrijft hoogover de functionele opbouw van een Stationcomplex in het Gasnet."@nl ;
+                                                   rdfs:label "Stationcomplex Gas"@nl .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/netbeheer/def/GStationcomplex#BehoortTotGInstallatie
+gstat:BehoortTotGInstallatie rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf <https://w3id.org/netbeheer/def/KernObjecten#BehoortTot> ;
+                             rdf:type owl:FunctionalProperty ;
+                             rdfs:domain [ rdf:type owl:Restriction ;
+                                           owl:onProperty <https://w3id.org/netbeheer/def/KernObjecten#BehoortTot> ;
+                                           owl:someValuesFrom <https://w3id.org/netbeheer/def/KernObjecten#GasSysteemFunctie>
+                                         ] ;
+                             rdfs:range [ rdf:type owl:Restriction ;
+                                          owl:onProperty gstat:BehoortTotRegelstraat ;
+                                          owl:someValuesFrom gstat:GInstalaltie
+                                        ] .
+
+
+###  https://w3id.org/netbeheer/def/GStationcomplex#BehoortTotGStationcomplex
+gstat:BehoortTotGStationcomplex rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf <https://w3id.org/netbeheer/def/KernObjecten#BehoortTot> ;
+                                rdf:type owl:FunctionalProperty ;
+                                rdfs:domain [ rdf:type owl:Restriction ;
+                                              owl:onProperty <https://w3id.org/netbeheer/def/KernObjecten#BehoortTot> ;
+                                              owl:someValuesFrom <https://w3id.org/netbeheer/def/KernObjecten#GasSysteemFunctie>
+                                            ] ;
+                                rdfs:range [ rdf:type owl:Restriction ;
+                                             owl:onProperty gstat:BehoortTotRegelstraat ;
+                                             owl:someValuesFrom gstat:GStationcomplex
+                                           ] .
+
+
+###  https://w3id.org/netbeheer/def/GStationcomplex#BehoortTotRegelstraat
+gstat:BehoortTotRegelstraat rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf <https://w3id.org/netbeheer/def/KernObjecten#BehoortTot> ;
+                            rdf:type owl:FunctionalProperty ;
+                            rdfs:domain [ rdf:type owl:Restriction ;
+                                          owl:onProperty <https://w3id.org/netbeheer/def/KernObjecten#BehoortTot> ;
+                                          owl:someValuesFrom <https://w3id.org/netbeheer/def/KernObjecten#GasSysteemFunctie>
+                                        ] ;
+                            rdfs:range [ rdf:type owl:Restriction ;
+                                         owl:onProperty gstat:BehoortTotRegelstraat ;
+                                         owl:someValuesFrom gstat:GRegelstraat
+                                       ] .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/netbeheer/def/GStationcomplex#GInstalaltie
+gstat:GInstalaltie rdf:type owl:Class ;
+                   rdfs:subClassOf <https://w3id.org/netbeheer/def/KernObjecten#GasSysteemFunctie> ;
+                   rdfs:comment "De verzameling van afsluiters en een regelstraat die als 1 functioneel geheel onderdeel is van de bedrijfsvoering gas"@nl ;
+                   rdfs:label "Installatie Gas"@nl .
+
+
+###  https://w3id.org/netbeheer/def/GStationcomplex#GRegelstraat
+gstat:GRegelstraat rdf:type owl:Class ;
+                   rdfs:subClassOf <https://w3id.org/netbeheer/def/KernObjecten#GasSysteemFunctie> ;
+                   rdfs:comment "De regelstraat heeft als doel de gasdruk te transformeren en in die context de gas stroom te monitoren en beveiligen"@nl ;
+                   rdfs:label "Regelstraat Gas"@nl .
+
+
+###  https://w3id.org/netbeheer/def/GStationcomplex#GStationcomplex
+gstat:GStationcomplex rdf:type owl:Class ;
+                      rdfs:subClassOf <https://w3id.org/netbeheer/def/KernObjecten#GasSysteemFunctie> ;
+                      rdfs:comment "Een verzameling van apparatuur, niet direct gebruikt voor opwekking of verbruik, waar grote volumes gas wordt doorgegeven met het doel te de toevoer te in/uitschakelenn en/of de de eigenschappen ervan te wijzigen."@nl ;
+                      rdfs:label "Stationcomplex Gas"@nl .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
