@@ -35,34 +35,34 @@
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/al12686/ontologies/2019/8/untitled-ontology-13#BehoortTot
-<http://www.semanticweb.org/al12686/ontologies/2019/8/untitled-ontology-13#BehoortTot> rdf:type owl:ObjectProperty ;
-                                                                                       owl:inverseOf <http://www.semanticweb.org/al12686/ontologies/2019/8/untitled-ontology-13#Bevat> ;
-                                                                                       rdfs:domain [ rdf:type owl:Restriction ;
-                                                                                                     owl:onProperty <http://www.semanticweb.org/al12686/ontologies/2019/8/untitled-ontology-13#Bevat> ;
-                                                                                                     owl:someValuesFrom <http://www.semanticweb.org/al12686/ontologies/2019/8/untitled-ontology-13#GeidentificeerdObject>
-                                                                                                   ] ;
-                                                                                       rdfs:range [ rdf:type owl:Restriction ;
-                                                                                                    owl:onProperty <http://www.semanticweb.org/al12686/ontologies/2019/8/untitled-ontology-13#Bevat> ;
-                                                                                                    owl:someValuesFrom <http://www.semanticweb.org/al12686/ontologies/2019/8/untitled-ontology-13#GeidentificeerdObject>
-                                                                                                  ] ;
-                                                                                       rdfs:comment "meest generieke relatie van een element naar een verzameling"@nl .
+###  https://w3id.org/netbeheer/def/KernObjecten#BehoortTot
+kern:BehoortTot rdf:type owl:ObjectProperty ;
+                owl:inverseOf kern:Bevat ;
+                rdfs:domain [ rdf:type owl:Restriction ;
+                              owl:onProperty kern:Bevat ;
+                              owl:someValuesFrom kern:GeidentificeerdObject
+                            ] ;
+                rdfs:range [ rdf:type owl:Restriction ;
+                             owl:onProperty kern:Bevat ;
+                             owl:someValuesFrom kern:GeidentificeerdObject
+                           ] ;
+                rdfs:comment "meest generieke relatie van een element naar een verzameling"@nl .
 
 
-###  http://www.semanticweb.org/al12686/ontologies/2019/8/untitled-ontology-13#Bevat
-<http://www.semanticweb.org/al12686/ontologies/2019/8/untitled-ontology-13#Bevat> rdf:type owl:ObjectProperty ,
-                                                                                           owl:TransitiveProperty ;
-                                                                                  rdfs:domain [ rdf:type owl:Restriction ;
-                                                                                                owl:onProperty <http://www.semanticweb.org/al12686/ontologies/2019/8/untitled-ontology-13#BehoortTot> ;
-                                                                                                owl:someValuesFrom <http://www.semanticweb.org/al12686/ontologies/2019/8/untitled-ontology-13#GeidentificeerdObject>
-                                                                                              ] ;
-                                                                                  rdfs:range [ rdf:type owl:Restriction ;
-                                                                                               owl:onProperty <http://www.semanticweb.org/al12686/ontologies/2019/8/untitled-ontology-13#BehoortTot> ;
-                                                                                               owl:someValuesFrom <http://www.semanticweb.org/al12686/ontologies/2019/8/untitled-ontology-13#GeidentificeerdObject>
-                                                                                             ] ;
-                                                                                  <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
-                                                                                  <http://purl.org/dc/elements/1.1/date> "2019-09-18T07:28:38Z"^^xsd:dateTime ;
-                                                                                  rdfs:comment "Meest generieke relatie van een verzameling naar een element."@nl .
+###  https://w3id.org/netbeheer/def/KernObjecten#Bevat
+kern:Bevat rdf:type owl:ObjectProperty ,
+                    owl:TransitiveProperty ;
+           rdfs:domain [ rdf:type owl:Restriction ;
+                         owl:onProperty kern:BehoortTot ;
+                         owl:someValuesFrom kern:GeidentificeerdObject
+                       ] ;
+           rdfs:range [ rdf:type owl:Restriction ;
+                        owl:onProperty kern:BehoortTot ;
+                        owl:someValuesFrom kern:GeidentificeerdObject
+                      ] ;
+           <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
+           <http://purl.org/dc/elements/1.1/date> "2019-09-18T07:28:38Z"^^xsd:dateTime ;
+           rdfs:comment "Meest generieke relatie van een verzameling naar een element."@nl .
 
 
 ###  https://w3id.org/netbeheer/def/KernObjecten#VervultFuncties
@@ -93,19 +93,21 @@ kern:WordtIngevultDoorAssets rdf:type owl:ObjectProperty ;
 
 
 #################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/netbeheer/def/KernObjecten#mRID
+kern:mRID rdf:type owl:DatatypeProperty ;
+          rdfs:comment "Master Recource Identifier, de 'digital twin' sleutel die verweist naar het ding in de werkelijkheid"@nl .
+
+
+#################################################################
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/al12686/ontologies/2019/8/untitled-ontology-13#GeidentificeerdObject
-<http://www.semanticweb.org/al12686/ontologies/2019/8/untitled-ontology-13#GeidentificeerdObject> rdf:type owl:Class ;
-                                                                                                  <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
-                                                                                                  <http://purl.org/dc/elements/1.1/date> "2019-09-18T07:14:57Z"^^xsd:dateTime ;
-                                                                                                  rdfs:comment "Root object for all (intended) master data objects" .
-
-
 ###  https://w3id.org/netbeheer/def/KernObjecten#Asset
 kern:Asset rdf:type owl:Class ;
-           rdfs:subClassOf <http://www.semanticweb.org/al12686/ontologies/2019/8/untitled-ontology-13#GeidentificeerdObject> ;
+           rdfs:subClassOf kern:GeidentificeerdObject ;
            rdfs:comment "Een fysieke resource, die onderhouden wordt, die kan slijten, die wordt ingekocht."@nl .
 
 
@@ -116,13 +118,20 @@ kern:ElektriciteitSysteemFunctie rdf:type owl:Class ;
 
 ###  https://w3id.org/netbeheer/def/KernObjecten#EnergieSysteemFunctie
 kern:EnergieSysteemFunctie rdf:type owl:Class ;
-                           rdfs:subClassOf <http://www.semanticweb.org/al12686/ontologies/2019/8/untitled-ontology-13#GeidentificeerdObject> ;
+                           rdfs:subClassOf kern:GeidentificeerdObject ;
                            rdfs:comment "Een functionele entiteit in het energie systeem. Deze funcitie wordt ingevuld door een asset"@nl .
 
 
 ###  https://w3id.org/netbeheer/def/KernObjecten#GasSysteemFunctie
 kern:GasSysteemFunctie rdf:type owl:Class ;
                        rdfs:subClassOf kern:EnergieSysteemFunctie .
+
+
+###  https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject
+kern:GeidentificeerdObject rdf:type owl:Class ;
+                           <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
+                           <http://purl.org/dc/elements/1.1/date> "2019-09-18T07:14:57Z"^^xsd:dateTime ;
+                           rdfs:comment "Root object for all (intended) master data objects" .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
