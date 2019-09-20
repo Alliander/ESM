@@ -3,7 +3,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix kern: <https://w3id.org/netbeheer/def/KernObjecten#> .
+@prefix kern: <https://w3id.org/netbeheer/def/KernObjecten> .
 @prefix obda: <https://w3id.org/obda/vocabulary#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <https://w3id.org/netbeheer/def/KernObjecten> .
@@ -36,60 +36,60 @@
 #################################################################
 
 ###  https://w3id.org/netbeheer/def/KernObjecten#BehoortTot
-kern:BehoortTot rdf:type owl:ObjectProperty ;
-                owl:inverseOf kern:Bevat ;
-                rdfs:domain [ rdf:type owl:Restriction ;
-                              owl:onProperty kern:Bevat ;
-                              owl:someValuesFrom kern:GeidentificeerdObject
-                            ] ;
-                rdfs:range [ rdf:type owl:Restriction ;
-                             owl:onProperty kern:Bevat ;
-                             owl:someValuesFrom kern:GeidentificeerdObject
-                           ] ;
-                rdfs:comment "meest generieke relatie van een element naar een verzameling"@nl .
+:BehoortTot rdf:type owl:ObjectProperty ;
+            owl:inverseOf :Bevat ;
+            rdfs:domain [ rdf:type owl:Restriction ;
+                          owl:onProperty :Bevat ;
+                          owl:someValuesFrom :GeidentificeerdObject
+                        ] ;
+            rdfs:range [ rdf:type owl:Restriction ;
+                         owl:onProperty :Bevat ;
+                         owl:someValuesFrom :GeidentificeerdObject
+                       ] ;
+            rdfs:comment "meest generieke relatie van een element naar een verzameling"@nl .
 
 
 ###  https://w3id.org/netbeheer/def/KernObjecten#Bevat
-kern:Bevat rdf:type owl:ObjectProperty ,
-                    owl:TransitiveProperty ;
-           rdfs:domain [ rdf:type owl:Restriction ;
-                         owl:onProperty kern:BehoortTot ;
-                         owl:someValuesFrom kern:GeidentificeerdObject
-                       ] ;
-           rdfs:range [ rdf:type owl:Restriction ;
-                        owl:onProperty kern:BehoortTot ;
-                        owl:someValuesFrom kern:GeidentificeerdObject
-                      ] ;
-           <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
-           <http://purl.org/dc/elements/1.1/date> "2019-09-18T07:28:38Z"^^xsd:dateTime ;
-           rdfs:comment "Meest generieke relatie van een verzameling naar een element."@nl .
+:Bevat rdf:type owl:ObjectProperty ,
+                owl:TransitiveProperty ;
+       rdfs:domain [ rdf:type owl:Restriction ;
+                     owl:onProperty :BehoortTot ;
+                     owl:someValuesFrom :GeidentificeerdObject
+                   ] ;
+       rdfs:range [ rdf:type owl:Restriction ;
+                    owl:onProperty :BehoortTot ;
+                    owl:someValuesFrom :GeidentificeerdObject
+                  ] ;
+       <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
+       <http://purl.org/dc/elements/1.1/date> "2019-09-18T07:28:38Z"^^xsd:dateTime ;
+       rdfs:comment "Meest generieke relatie van een verzameling naar een element."@nl .
 
 
 ###  https://w3id.org/netbeheer/def/KernObjecten#VervultFuncties
-kern:VervultFuncties rdf:type owl:ObjectProperty ;
-                     owl:inverseOf kern:WordtIngevultDoorAssets ;
-                     rdfs:domain [ rdf:type owl:Restriction ;
-                                   owl:onProperty kern:WordtIngevultDoorAssets ;
-                                   owl:someValuesFrom kern:EnergieSysteemFunctie
-                                 ] ;
-                     rdfs:range [ rdf:type owl:Restriction ;
-                                  owl:onProperty kern:WordtIngevultDoorAssets ;
-                                  owl:someValuesFrom kern:EnergieSysteemFunctie
-                                ] ;
-                     rdfs:comment "Relatie die asset aan z'n functie koppelt"@nl .
+:VervultFuncties rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :WordtIngevultDoorAssets ;
+                 rdfs:domain [ rdf:type owl:Restriction ;
+                               owl:onProperty :WordtIngevultDoorAssets ;
+                               owl:someValuesFrom :EnergieSysteemFunctie
+                             ] ;
+                 rdfs:range [ rdf:type owl:Restriction ;
+                              owl:onProperty :WordtIngevultDoorAssets ;
+                              owl:someValuesFrom :EnergieSysteemFunctie
+                            ] ;
+                 rdfs:comment "Relatie die asset aan z'n functie koppelt"@nl .
 
 
 ###  https://w3id.org/netbeheer/def/KernObjecten#WordtIngevultDoorAssets
-kern:WordtIngevultDoorAssets rdf:type owl:ObjectProperty ;
-                             rdfs:domain [ rdf:type owl:Restriction ;
-                                           owl:onProperty kern:WordtIngevultDoorAssets ;
-                                           owl:someValuesFrom kern:EnergieSysteemFunctie
-                                         ] ;
-                             rdfs:range [ rdf:type owl:Restriction ;
-                                          owl:onProperty kern:WordtIngevultDoorAssets ;
-                                          owl:someValuesFrom kern:Asset
-                                        ] ;
-                             rdfs:comment "Relatie die een EnergieSysteemFunctie koppelt aan de Assets waarmee de functie geimplementeerd is"@nl .
+:WordtIngevultDoorAssets rdf:type owl:ObjectProperty ;
+                         rdfs:domain [ rdf:type owl:Restriction ;
+                                       owl:onProperty :WordtIngevultDoorAssets ;
+                                       owl:someValuesFrom :EnergieSysteemFunctie
+                                     ] ;
+                         rdfs:range [ rdf:type owl:Restriction ;
+                                      owl:onProperty :WordtIngevultDoorAssets ;
+                                      owl:someValuesFrom :Asset
+                                    ] ;
+                         rdfs:comment "Relatie die een EnergieSysteemFunctie koppelt aan de Assets waarmee de functie geimplementeerd is"@nl .
 
 
 #################################################################
@@ -97,8 +97,8 @@ kern:WordtIngevultDoorAssets rdf:type owl:ObjectProperty ;
 #################################################################
 
 ###  https://w3id.org/netbeheer/def/KernObjecten#mRID
-kern:mRID rdf:type owl:DatatypeProperty ;
-          rdfs:comment "Master Recource Identifier, de 'digital twin' sleutel die verweist naar het ding in de werkelijkheid"@nl .
+:mRID rdf:type owl:DatatypeProperty ;
+      rdfs:comment "Master Recource Identifier, de 'digital twin' sleutel die verweist naar het ding in de werkelijkheid"@nl .
 
 
 #################################################################
@@ -106,32 +106,32 @@ kern:mRID rdf:type owl:DatatypeProperty ;
 #################################################################
 
 ###  https://w3id.org/netbeheer/def/KernObjecten#Asset
-kern:Asset rdf:type owl:Class ;
-           rdfs:subClassOf kern:GeidentificeerdObject ;
-           rdfs:comment "Een fysieke resource, die onderhouden wordt, die kan slijten, die wordt ingekocht."@nl .
+:Asset rdf:type owl:Class ;
+       rdfs:subClassOf :GeidentificeerdObject ;
+       rdfs:comment "Een fysieke resource, die onderhouden wordt, die kan slijten, die wordt ingekocht."@nl .
 
 
 ###  https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie
-kern:ElektriciteitSysteemFunctie rdf:type owl:Class ;
-                                 rdfs:subClassOf kern:EnergieSysteemFunctie .
+:ElektriciteitSysteemFunctie rdf:type owl:Class ;
+                             rdfs:subClassOf :EnergieSysteemFunctie .
 
 
 ###  https://w3id.org/netbeheer/def/KernObjecten#EnergieSysteemFunctie
-kern:EnergieSysteemFunctie rdf:type owl:Class ;
-                           rdfs:subClassOf kern:GeidentificeerdObject ;
-                           rdfs:comment "Een functionele entiteit in het energie systeem. Deze funcitie wordt ingevuld door een asset"@nl .
+:EnergieSysteemFunctie rdf:type owl:Class ;
+                       rdfs:subClassOf :GeidentificeerdObject ;
+                       rdfs:comment "Een functionele entiteit in het energie systeem. Deze funcitie wordt ingevuld door een asset"@nl .
 
 
 ###  https://w3id.org/netbeheer/def/KernObjecten#GasSysteemFunctie
-kern:GasSysteemFunctie rdf:type owl:Class ;
-                       rdfs:subClassOf kern:EnergieSysteemFunctie .
+:GasSysteemFunctie rdf:type owl:Class ;
+                   rdfs:subClassOf :EnergieSysteemFunctie .
 
 
 ###  https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject
-kern:GeidentificeerdObject rdf:type owl:Class ;
-                           <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
-                           <http://purl.org/dc/elements/1.1/date> "2019-09-18T07:14:57Z"^^xsd:dateTime ;
-                           rdfs:comment "Root object for all (intended) master data objects" .
+:GeidentificeerdObject rdf:type owl:Class ;
+                       <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
+                       <http://purl.org/dc/elements/1.1/date> "2019-09-18T07:14:57Z"^^xsd:dateTime ;
+                       rdfs:comment "Root object for all (intended) master data objects" .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
