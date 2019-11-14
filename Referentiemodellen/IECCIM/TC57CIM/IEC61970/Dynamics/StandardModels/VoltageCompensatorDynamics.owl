@@ -1,0 +1,196 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#GenICompensationForGenJ_VcompIEEEType2
+:GenICompensationForGenJ_VcompIEEEType2 rdf:type owl:ObjectProperty ;
+                                        rdfs:domain :GenICompensationForGenJ ;
+                                        rdfs:range :VCompIEEEType2 ;
+                                        rdfs:comment "Compensation of this voltage compensator's generator for current flow out of another generator.The standard IEEE Type 2 voltage compensator of this compensation." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#GenICompensationForGenJ_rcij
+:GenICompensationForGenJ_rcij rdf:type owl:ObjectProperty ;
+                              rdfs:domain :GenICompensationForGenJ ;
+                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                              rdfs:comment "<font color=\"#0f0f0f\">Resistive component of compensation of generator associated with this IEEE Type 2 voltage compensator for current flow out of another generator (Rcij).</font>" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#GenICompensationForGenJ_xcij
+:GenICompensationForGenJ_xcij rdf:type owl:ObjectProperty ;
+                              rdfs:domain :GenICompensationForGenJ ;
+                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                              rdfs:comment "<font color=\"#0f0f0f\">Reactive component of compensation of generator associated with this IEEE Type 2 voltage compensator for current flow out of another generator (Xcij).</font>" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VCompIEEEType1_rc
+:VCompIEEEType1_rc rdf:type owl:ObjectProperty ;
+                   rdfs:domain :VCompIEEEType1 ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                   rdfs:comment "<font color=\"#0f0f0f\">Resistive component of compensation of a generator (Rc).</font>" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VCompIEEEType1_tr
+:VCompIEEEType1_tr rdf:type owl:ObjectProperty ;
+                   rdfs:domain :VCompIEEEType1 ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                   rdfs:comment "<font color=\"#0f0f0f\">Time constant which is used for the combined voltage sensing and compensation signal (Tr).</font>" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VCompIEEEType1_xc
+:VCompIEEEType1_xc rdf:type owl:ObjectProperty ;
+                   rdfs:domain :VCompIEEEType1 ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                   rdfs:comment "<font color=\"#0f0f0f\">Reactive component of compensation of a generator (Xc).</font>" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VCompIEEEType2_GenICompensationForGenJ
+:VCompIEEEType2_GenICompensationForGenJ rdf:type owl:ObjectProperty ;
+                                        owl:inverseOf :GenICompensationForGenJ_VcompIEEEType2 ;
+                                        rdf:type owl:FunctionalProperty ;
+                                        rdfs:domain :VCompIEEEType2 ;
+                                        rdfs:range :GenICompensationForGenJ ;
+                                        rdfs:comment "Compensation of this voltage compensator's generator for current flow out of another generator.The standard IEEE Type 2 voltage compensator of this compensation." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VCompIEEEType2_tr
+:VCompIEEEType2_tr rdf:type owl:ObjectProperty ;
+                   rdfs:domain :VCompIEEEType2 ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                   rdfs:comment "<font color=\"#0f0f0f\">Time constant which is used for the combined voltage sensing and compensation signal (Tr).</font>" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#GenICompensationForGenJ
+:GenICompensationForGenJ rdf:type owl:Class ;
+                         rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :GenICompensationForGenJ_VcompIEEEType2 ;
+                                           owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                           owl:onClass :GenICompensationForGenJ
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :GenICompensationForGenJ_rcij ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :GenICompensationForGenJ_xcij ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :GenICompensationForGenJ_rcij ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :GenICompensationForGenJ_xcij ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                         ] ;
+                         rdfs:comment "This class provides the resistive and reactive components of compensation for the generator associated with the IEEE Type 2 voltage compensator for current flow out of one of the other generators in the interconnection." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VCompIEEEType1
+:VCompIEEEType1 rdf:type owl:Class ;
+                rdfs:subClassOf :VoltageCompensatorDynamics ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :VCompIEEEType1_rc ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :VCompIEEEType1_tr ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :VCompIEEEType1_xc ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :VCompIEEEType1_rc ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :VCompIEEEType1_tr ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :VCompIEEEType1_xc ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ;
+                rdfs:comment """<font color=\"#0f0f0f\">The class represents the terminal voltage transducer and the load compensator as defined in the IEEE Std 421.5-2005, Section 4. This model is common to all excitation system models described in the IEEE Standard. </font>
+
+Reference: IEEE Standard 421.5-2005 Section 4. """ .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VCompIEEEType2
+:VCompIEEEType2 rdf:type owl:Class ;
+                rdfs:subClassOf :VoltageCompensatorDynamics ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :VCompIEEEType2_tr ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :VCompIEEEType2_GenICompensationForGenJ ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :VCompIEEEType2
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :VCompIEEEType2_tr ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                ] ;
+                rdfs:comment """<font color=\"#0f0f0f\">The class represents the terminal voltage transducer and the load compensator as defined in the IEEE Std 421.5-2005, Section 4. This model is designed to cover the following types of compensation: </font>
+<ul>
+ <li><font color=\"#0f0f0f\">reactive droop</font></li>
+ <li><font color=\"#0f0f0f\">transformer-drop or line-drop compensation</font></li>
+ <li><font color=\"#0f0f0f\">reactive differential compensation known also as cross-current compensation.</font></li>
+</ul>
+<font color=\"#0f0f0f\">
+</font><font color=\"#0f0f0f\">Reference: IEEE Standard 421.5-2005, Section 4.</font>""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VoltageCompensatorDynamics
+:VoltageCompensatorDynamics rdf:type owl:Class ;
+                            rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock> ;
+                            rdfs:comment "Voltage compensator function block whose behaviour is described by reference to a standard model <font color=\"#0f0f0f\">or by definition of a user-defined model.</font>" .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

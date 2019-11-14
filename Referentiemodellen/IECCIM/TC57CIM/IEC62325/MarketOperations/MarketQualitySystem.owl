@@ -1,0 +1,945 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketType
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketType> rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo> rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AggregatedPnode_TradingHubValues
+:AggregatedPnode_TradingHubValues rdf:type owl:ObjectProperty ;
+                                  owl:inverseOf :TradingHubValues_AggregatedPnode ;
+                                  rdf:type owl:FunctionalProperty ;
+                                  rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#AggregatedPnode> ;
+                                  rdfs:range :TradingHubValues ;
+                                  rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AllocationResultValues_AllocationResult
+:AllocationResultValues_AllocationResult rdf:type owl:ObjectProperty ;
+                                         owl:inverseOf :AllocationResult_AllocationResultValues ;
+                                         rdfs:domain :AllocationResultValues ;
+                                         rdfs:range :AllocationResult ;
+                                         rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AllocationResult_AllocationResultValues
+:AllocationResult_AllocationResultValues rdf:type owl:ObjectProperty ,
+                                                  owl:FunctionalProperty ;
+                                         rdfs:domain :AllocationResult ;
+                                         rdfs:range :AllocationResultValues ;
+                                         rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryCost_AuxillaryValues
+:AuxiliaryCost_AuxillaryValues rdf:type owl:ObjectProperty ,
+                                        owl:FunctionalProperty ;
+                               rdfs:domain :AuxiliaryCost ;
+                               rdfs:range :AuxiliaryValues ;
+                               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryObject_RegisteredGenerator
+:AuxiliaryObject_RegisteredGenerator rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :AuxiliaryObject ;
+                                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RegisteredGenerator> ;
+                                     rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryObject_RegisteredLoad
+:AuxiliaryObject_RegisteredLoad rdf:type owl:ObjectProperty ;
+                                rdfs:domain :AuxiliaryObject ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RegisteredLoad> ;
+                                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryValues_AuxillaryCost
+:AuxiliaryValues_AuxillaryCost rdf:type owl:ObjectProperty ;
+                               owl:inverseOf :AuxiliaryCost_AuxillaryValues ;
+                               rdfs:domain :AuxiliaryValues ;
+                               rdfs:range :AuxiliaryCost ;
+                               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryValues_FiveMinAuxillaryData
+:AuxiliaryValues_FiveMinAuxillaryData rdf:type owl:ObjectProperty ;
+                                      owl:inverseOf :FiveMinAuxiliaryData_AuxillaryValues ;
+                                      rdfs:domain :AuxiliaryValues ;
+                                      rdfs:range :FiveMinAuxiliaryData ;
+                                      rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryValues_TenMinAuxillaryData
+:AuxiliaryValues_TenMinAuxillaryData rdf:type owl:ObjectProperty ;
+                                     owl:inverseOf :TenMinAuxiliaryData_AuxillaryData ;
+                                     rdfs:domain :AuxiliaryValues ;
+                                     rdfs:range :TenMinAuxiliaryData ;
+                                     rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#ExpectedEnergyValues_ExpectedEnergy
+:ExpectedEnergyValues_ExpectedEnergy rdf:type owl:ObjectProperty ;
+                                     owl:inverseOf :ExpectedEnergy_ExpectedEnergyValues ;
+                                     rdfs:domain :ExpectedEnergyValues ;
+                                     rdfs:range :ExpectedEnergy ;
+                                     rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#ExpectedEnergy_ExpectedEnergyValues
+:ExpectedEnergy_ExpectedEnergyValues rdf:type owl:ObjectProperty ,
+                                              owl:FunctionalProperty ;
+                                     rdfs:domain :ExpectedEnergy ;
+                                     rdfs:range :ExpectedEnergyValues ;
+                                     rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#FiveMinAuxiliaryData_AuxillaryValues
+:FiveMinAuxiliaryData_AuxillaryValues rdf:type owl:ObjectProperty ,
+                                               owl:FunctionalProperty ;
+                                      rdfs:domain :FiveMinAuxiliaryData ;
+                                      rdfs:range :AuxiliaryValues ;
+                                      rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#RegisteredGenerator_AuxillaryObject
+:RegisteredGenerator_AuxillaryObject rdf:type owl:ObjectProperty ;
+                                     owl:inverseOf :AuxiliaryObject_RegisteredGenerator ;
+                                     rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RegisteredGenerator> ;
+                                     rdfs:range :AuxiliaryObject ;
+                                     rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#RegisteredLoad_AuxillaryObject
+:RegisteredLoad_AuxillaryObject rdf:type owl:ObjectProperty ;
+                                owl:inverseOf :AuxiliaryObject_RegisteredLoad ;
+                                rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RegisteredLoad> ;
+                                rdfs:range :AuxiliaryObject ;
+                                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#TenMinAuxiliaryData_AuxillaryData
+:TenMinAuxiliaryData_AuxillaryData rdf:type owl:ObjectProperty ,
+                                            owl:FunctionalProperty ;
+                                   rdfs:domain :TenMinAuxiliaryData ;
+                                   rdfs:range :AuxiliaryValues ;
+                                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#TradingHubPrice_TradingHubValues
+:TradingHubPrice_TradingHubValues rdf:type owl:ObjectProperty ,
+                                           owl:FunctionalProperty ;
+                                  rdfs:domain :TradingHubPrice ;
+                                  rdfs:range :TradingHubValues ;
+                                  rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#TradingHubValues_AggregatedPnode
+:TradingHubValues_AggregatedPnode rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :TradingHubValues ;
+                                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#AggregatedPnode> ;
+                                  rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#TradingHubValues_TradingHubPrice
+:TradingHubValues_TradingHubPrice rdf:type owl:ObjectProperty ;
+                                  owl:inverseOf :TradingHubPrice_TradingHubValues ;
+                                  rdfs:domain :TradingHubValues ;
+                                  rdfs:range :TradingHubPrice ;
+                                  rdfs:comment "" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AllocationResultValues_aggregateType
+:AllocationResultValues_aggregateType rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :AllocationResultValues ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:comment """\"1\" --  \"Detail\",
+\"2\" --  \"Aggregate by Market service type\", in which case, the \"AllocationEnergyType\" field will not be filled;
+\"3\" --  \"Aggregate by \"AllocationEnergyType\", in which case \"MarketServiceType\" will not be filled.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AllocationResultValues_allocationMwHour
+:AllocationResultValues_allocationMwHour rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :AllocationResultValues ;
+                                         rdfs:range xsd:float .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AllocationResultValues_allocationPrice
+:AllocationResultValues_allocationPrice rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain :AllocationResultValues ;
+                                        rdfs:range xsd:float .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AllocationResultValues_energyTypeCode
+:AllocationResultValues_energyTypeCode rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :AllocationResultValues ;
+                                       rdfs:range xsd:string .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AllocationResultValues_marketServiceType
+:AllocationResultValues_marketServiceType rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :AllocationResultValues ;
+                                          rdfs:range xsd:string ;
+                                          rdfs:comment """Choices are: 
+ME - Market Energy Capacity; 
+SR - Spinning Reserve Capacity; 
+NR - Non-Spinning Reserve Capacity; 
+DAC - Day Ahead Capacity; 
+DEC - Derate Capacity
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AllocationResult_intervalStartTime
+:AllocationResult_intervalStartTime rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :AllocationResult ;
+                                    rdfs:range xsd:dateTime .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AllocationResult_updateTimeStamp
+:AllocationResult_updateTimeStamp rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :AllocationResult ;
+                                  rdfs:range xsd:dateTime .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AllocationResult_updateUser
+:AllocationResult_updateUser rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :AllocationResult ;
+                             rdfs:range xsd:string .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryCost_intervalStartTime
+:AuxiliaryCost_intervalStartTime rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :AuxiliaryCost ;
+                                 rdfs:range xsd:dateTime .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryCost_marketType
+:AuxiliaryCost_marketType rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :AuxiliaryCost ;
+                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketType> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryCost_updateTimeStamp
+:AuxiliaryCost_updateTimeStamp rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :AuxiliaryCost ;
+                               rdfs:range xsd:dateTime .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryCost_updateUser
+:AuxiliaryCost_updateUser rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :AuxiliaryCost ;
+                          rdfs:range xsd:string .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryValues_availUndispatchedQ
+:AuxiliaryValues_availUndispatchedQ rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :AuxiliaryValues ;
+                                    rdfs:range xsd:float .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryValues_incrementalORAvail
+:AuxiliaryValues_incrementalORAvail rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :AuxiliaryValues ;
+                                    rdfs:range xsd:float .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryValues_maxExpostCapacity
+:AuxiliaryValues_maxExpostCapacity rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain :AuxiliaryValues ;
+                                   rdfs:range xsd:float .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryValues_minExpostCapacity
+:AuxiliaryValues_minExpostCapacity rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain :AuxiliaryValues ;
+                                   rdfs:range xsd:float .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryValues_noLoadCost
+:AuxiliaryValues_noLoadCost rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :AuxiliaryValues ;
+                            rdfs:range xsd:float .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryValues_noLoadCostEligibilityFlag
+:AuxiliaryValues_noLoadCostEligibilityFlag rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :AuxiliaryValues ;
+                                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryValues_startUpCost
+:AuxiliaryValues_startUpCost rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :AuxiliaryValues ;
+                             rdfs:range xsd:float .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryValues_startUpCostEligibilityFlag
+:AuxiliaryValues_startUpCostEligibilityFlag rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain :AuxiliaryValues ;
+                                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#ExpectedEnergyValues_energyTypeCode
+:ExpectedEnergyValues_energyTypeCode rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :ExpectedEnergyValues ;
+                                     rdfs:range xsd:string .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#ExpectedEnergyValues_expectedMwh
+:ExpectedEnergyValues_expectedMwh rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :ExpectedEnergyValues ;
+                                  rdfs:range xsd:float .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#ExpectedEnergy_intervalStartTime
+:ExpectedEnergy_intervalStartTime rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :ExpectedEnergy ;
+                                  rdfs:range xsd:dateTime .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#ExpectedEnergy_updateTimeStamp
+:ExpectedEnergy_updateTimeStamp rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :ExpectedEnergy ;
+                                rdfs:range xsd:dateTime .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#ExpectedEnergy_updateUser
+:ExpectedEnergy_updateUser rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :ExpectedEnergy ;
+                           rdfs:range xsd:string .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#FiveMinAuxiliaryData_intervalStartTime
+:FiveMinAuxiliaryData_intervalStartTime rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain :FiveMinAuxiliaryData ;
+                                        rdfs:range xsd:dateTime .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#FiveMinAuxiliaryData_updateTimeStamp
+:FiveMinAuxiliaryData_updateTimeStamp rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :FiveMinAuxiliaryData ;
+                                      rdfs:range xsd:dateTime .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#FiveMinAuxiliaryData_updateUser
+:FiveMinAuxiliaryData_updateUser rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :FiveMinAuxiliaryData ;
+                                 rdfs:range xsd:string .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#TenMinAuxiliaryData_intervalStartTime
+:TenMinAuxiliaryData_intervalStartTime rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :TenMinAuxiliaryData ;
+                                       rdfs:range xsd:dateTime .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#TenMinAuxiliaryData_updateTimeStamp
+:TenMinAuxiliaryData_updateTimeStamp rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :TenMinAuxiliaryData ;
+                                     rdfs:range xsd:dateTime .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#TenMinAuxiliaryData_updateUser
+:TenMinAuxiliaryData_updateUser rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :TenMinAuxiliaryData ;
+                                rdfs:range xsd:string .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#TradingHubPrice_intervalStartTime
+:TradingHubPrice_intervalStartTime rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain :TradingHubPrice ;
+                                   rdfs:range xsd:dateTime .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#TradingHubPrice_marketType
+:TradingHubPrice_marketType rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :TradingHubPrice ;
+                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketType> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#TradingHubPrice_updateTimeStamp
+:TradingHubPrice_updateTimeStamp rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :TradingHubPrice ;
+                                 rdfs:range xsd:dateTime .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#TradingHubPrice_updateUser
+:TradingHubPrice_updateUser rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :TradingHubPrice ;
+                            rdfs:range xsd:string .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#TradingHubValues_price
+:TradingHubValues_price rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :TradingHubValues ;
+                        rdfs:range xsd:float ;
+                        rdfs:comment """Utilizes the Market type. For DA, the price is hourly. For RTM the price is a 5 minute price.
+""" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AllocationResult
+:AllocationResult rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AllocationResult_AllocationResultValues ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :AllocationResult
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AllocationResult_intervalStartTime ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:dateTime
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AllocationResult_updateTimeStamp ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:dateTime
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AllocationResult_updateUser ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AllocationResult_intervalStartTime ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:dateTime
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AllocationResult_updateTimeStamp ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:dateTime
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AllocationResult_updateUser ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ;
+                  rdfs:comment """Models Market clearing results.  Indicates market horizon, interval based. Used by a market quality system for billing and settlement purposes
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AllocationResultValues
+:AllocationResultValues rdf:type owl:Class ;
+                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                          owl:onProperty :AllocationResultValues_AllocationResult ;
+                                          owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass :AllocationResultValues
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :AllocationResultValues_aggregateType ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:string
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :AllocationResultValues_allocationMwHour ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:float
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :AllocationResultValues_allocationPrice ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:float
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :AllocationResultValues_energyTypeCode ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:string
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :AllocationResultValues_marketServiceType ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:string
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :AllocationResultValues_aggregateType ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:string
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :AllocationResultValues_allocationMwHour ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:float
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :AllocationResultValues_allocationPrice ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:float
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :AllocationResultValues_energyTypeCode ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:string
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :AllocationResultValues_marketServiceType ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:string
+                                        ] ;
+                        rdfs:comment """Models Market clearing results in terms of price and MW values
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryCost
+:AuxiliaryCost rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AuxiliaryCost_AuxillaryValues ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :AuxiliaryCost
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AuxiliaryCost_intervalStartTime ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AuxiliaryCost_marketType ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketType>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AuxiliaryCost_updateTimeStamp ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AuxiliaryCost_updateUser ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AuxiliaryCost_intervalStartTime ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AuxiliaryCost_marketType ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketType>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AuxiliaryCost_updateTimeStamp ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AuxiliaryCost_updateUser ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ;
+               rdfs:comment """Models Market clearing results for Auxillary costs
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryObject
+:AuxiliaryObject rdf:type owl:Class ;
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryObject_RegisteredGenerator ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :AuxiliaryObject
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryObject_RegisteredLoad ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :AuxiliaryObject
+                                 ] ;
+                 rdfs:comment """Models Auxillary Values
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#AuxiliaryValues
+:AuxiliaryValues rdf:type owl:Class ;
+                 rdfs:subClassOf :AuxiliaryObject ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_AuxillaryCost ;
+                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :AuxiliaryValues
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_FiveMinAuxillaryData ;
+                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :AuxiliaryValues
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_TenMinAuxillaryData ;
+                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :AuxiliaryValues
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_availUndispatchedQ ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:float
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_incrementalORAvail ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:float
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_maxExpostCapacity ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:float
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_minExpostCapacity ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:float
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_noLoadCost ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:float
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_noLoadCostEligibilityFlag ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_startUpCost ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:float
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_startUpCostEligibilityFlag ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_availUndispatchedQ ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:float
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_incrementalORAvail ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:float
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_maxExpostCapacity ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:float
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_minExpostCapacity ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:float
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_noLoadCost ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:float
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_noLoadCostEligibilityFlag ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_startUpCost ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:float
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AuxiliaryValues_startUpCostEligibilityFlag ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                 ] ;
+                 rdfs:comment """Models Auxillary Values
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#ExpectedEnergy
+:ExpectedEnergy rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ExpectedEnergy_ExpectedEnergyValues ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ExpectedEnergy
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ExpectedEnergy_intervalStartTime ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:dateTime
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ExpectedEnergy_updateTimeStamp ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:dateTime
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ExpectedEnergy_updateUser ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:string
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ExpectedEnergy_intervalStartTime ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:dateTime
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ExpectedEnergy_updateTimeStamp ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:dateTime
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ExpectedEnergy_updateUser ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:string
+                                ] ;
+                rdfs:comment """Model Expected Energy  from Market Clearing, interval based
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#ExpectedEnergyValues
+:ExpectedEnergyValues rdf:type owl:Class ;
+                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                        owl:onProperty :ExpectedEnergyValues_ExpectedEnergy ;
+                                        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :ExpectedEnergyValues
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :ExpectedEnergyValues_energyTypeCode ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:string
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :ExpectedEnergyValues_expectedMwh ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:float
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :ExpectedEnergyValues_energyTypeCode ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:string
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :ExpectedEnergyValues_expectedMwh ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:float
+                                      ] ;
+                      rdfs:comment """Model Expected Energy  from Market Clearing
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#FiveMinAuxiliaryData
+:FiveMinAuxiliaryData rdf:type owl:Class ;
+                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                        owl:onProperty :FiveMinAuxiliaryData_AuxillaryValues ;
+                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :FiveMinAuxiliaryData
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :FiveMinAuxiliaryData_intervalStartTime ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:dateTime
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :FiveMinAuxiliaryData_updateTimeStamp ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:dateTime
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :FiveMinAuxiliaryData_updateUser ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:string
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :FiveMinAuxiliaryData_intervalStartTime ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:dateTime
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :FiveMinAuxiliaryData_updateTimeStamp ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:dateTime
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :FiveMinAuxiliaryData_updateUser ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:string
+                                      ] ;
+                      rdfs:comment """Models 5-Minutes Auxillary Data
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#TenMinAuxiliaryData
+:TenMinAuxiliaryData rdf:type owl:Class ;
+                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                       owl:onProperty :TenMinAuxiliaryData_AuxillaryData ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass :TenMinAuxiliaryData
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :TenMinAuxiliaryData_intervalStartTime ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:dateTime
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :TenMinAuxiliaryData_updateTimeStamp ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:dateTime
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :TenMinAuxiliaryData_updateUser ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :TenMinAuxiliaryData_intervalStartTime ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:dateTime
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :TenMinAuxiliaryData_updateTimeStamp ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:dateTime
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :TenMinAuxiliaryData_updateUser ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ;
+                     rdfs:comment """Models 10-Minutes Auxillary Data
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#TradingHubPrice
+:TradingHubPrice rdf:type owl:Class ;
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TradingHubPrice_TradingHubValues ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :TradingHubPrice
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TradingHubPrice_intervalStartTime ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TradingHubPrice_marketType ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketType>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TradingHubPrice_updateTimeStamp ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TradingHubPrice_updateUser ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:string
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TradingHubPrice_intervalStartTime ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TradingHubPrice_marketType ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketType>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TradingHubPrice_updateTimeStamp ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TradingHubPrice_updateUser ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:string
+                                 ] ;
+                 rdfs:comment """Models prices at Trading Hubs, interval based
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketQualitySystem#TradingHubValues
+:TradingHubValues rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty :TradingHubValues_AggregatedPnode ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :TradingHubValues
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :TradingHubValues_TradingHubPrice ;
+                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :TradingHubValues
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :TradingHubValues_price ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:float
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :TradingHubValues_price ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:float
+                                  ] ;
+                  rdfs:comment """Models prices at Trading Hubs
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#AggregatedPnode
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#AggregatedPnode> rdf:type owl:Class ;
+                                                                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                            owl:onProperty :AggregatedPnode_TradingHubValues ;
+                                                                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#AggregatedPnode>
+                                                                                                          ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RegisteredGenerator
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RegisteredGenerator> rdf:type owl:Class ;
+                                                                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                owl:onProperty :RegisteredGenerator_AuxillaryObject ;
+                                                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RegisteredGenerator>
+                                                                                                              ] ,
+                                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                                owl:onProperty :RegisteredGenerator_AuxillaryObject ;
+                                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RegisteredGenerator>
+                                                                                                              ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RegisteredLoad
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RegisteredLoad> rdf:type owl:Class ;
+                                                                                         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                           owl:onProperty :RegisteredLoad_AuxillaryObject ;
+                                                                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RegisteredLoad>
+                                                                                                         ] ,
+                                                                                                         [ rdf:type owl:Restriction ;
+                                                                                                           owl:onProperty :RegisteredLoad_AuxillaryObject ;
+                                                                                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RegisteredLoad>
+                                                                                                         ] .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

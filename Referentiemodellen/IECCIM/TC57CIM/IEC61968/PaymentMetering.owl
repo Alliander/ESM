@@ -1,0 +1,2427 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#ChargeKind
+:ChargeKind rdf:type rdfs:Datatype ;
+            owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                  owl:oneOf [ rdf:type rdf:List ;
+                                              rdf:first "auxiliaryCharge" ;
+                                              rdf:rest [ rdf:type rdf:List ;
+                                                         rdf:first "consumptionCharge" ;
+                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                    rdf:first "demandCharge" ;
+                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                               rdf:first "other" ;
+                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                          rdf:first "taxCharge" ;
+                                                                                          rdf:rest rdf:nil
+                                                                                        ]
+                                                                             ]
+                                                                  ]
+                                                       ]
+                                            ]
+                                ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#ChequeKind
+:ChequeKind rdf:type rdfs:Datatype ;
+            owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                  owl:oneOf [ rdf:type rdf:List ;
+                                              rdf:first "bankOrder" ;
+                                              rdf:rest [ rdf:type rdf:List ;
+                                                         rdf:first "other" ;
+                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                    rdf:first "postalOrder" ;
+                                                                    rdf:rest rdf:nil
+                                                                  ]
+                                                       ]
+                                            ]
+                                ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#SupplierKind
+:SupplierKind rdf:type rdfs:Datatype ;
+              owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                    owl:oneOf [ rdf:type rdf:List ;
+                                                rdf:first "other" ;
+                                                rdf:rest [ rdf:type rdf:List ;
+                                                           rdf:first "retailer" ;
+                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                      rdf:first "utility" ;
+                                                                      rdf:rest rdf:nil
+                                                                    ]
+                                                         ]
+                                              ]
+                                  ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#TenderKind
+:TenderKind rdf:type rdfs:Datatype ;
+            owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                  owl:oneOf [ rdf:type rdf:List ;
+                                              rdf:first "card" ;
+                                              rdf:rest [ rdf:type rdf:List ;
+                                                         rdf:first "cash" ;
+                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                    rdf:first "cheque" ;
+                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                               rdf:first "other" ;
+                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                          rdf:first "unspecified" ;
+                                                                                          rdf:rest rdf:nil
+                                                                                        ]
+                                                                             ]
+                                                                  ]
+                                                       ]
+                                            ]
+                                ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#TransactionKind
+:TransactionKind rdf:type rdfs:Datatype ;
+                 owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                       owl:oneOf [ rdf:type rdf:List ;
+                                                   rdf:first "accountPayment" ;
+                                                   rdf:rest [ rdf:type rdf:List ;
+                                                              rdf:first "auxiliaryChargePayment" ;
+                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                         rdf:first "diversePayment" ;
+                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                    rdf:first "meterConfigurationToken" ;
+                                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                                               rdf:first "other" ;
+                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                          rdf:first "serviceChargePayment" ;
+                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                     rdf:first "taxChargePayment" ;
+                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                rdf:first "tokenCancellation" ;
+                                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                           rdf:first "tokenExchange" ;
+                                                                                                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                      rdf:first "tokenFreeIssue" ;
+                                                                                                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                 rdf:first "tokenGrant" ;
+                                                                                                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                            rdf:first "tokenSalePayment" ;
+                                                                                                                                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                       rdf:first "transactionReversal" ;
+                                                                                                                                                                                       rdf:rest rdf:nil
+                                                                                                                                                                                     ]
+                                                                                                                                                                          ]
+                                                                                                                                                               ]
+                                                                                                                                                    ]
+                                                                                                                                         ]
+                                                                                                                              ]
+                                                                                                                   ]
+                                                                                                        ]
+                                                                                             ]
+                                                                                  ]
+                                                                       ]
+                                                            ]
+                                                 ]
+                                     ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Currency
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Currency> rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier> rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AccountMovement_amount
+:AccountMovement_amount rdf:type owl:ObjectProperty ;
+                        rdfs:domain :AccountMovement ;
+                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                        rdfs:comment "Amount that was credited to/debited from an account. For example: payment received/interest charge on arrears." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AccountingUnit_energyUnit
+:AccountingUnit_energyUnit rdf:type owl:ObjectProperty ;
+                           rdfs:domain :AccountingUnit ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy> ;
+                           rdfs:comment "Unit of service." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAccount_AuxiliaryAgreement
+:AuxiliaryAccount_AuxiliaryAgreement rdf:type owl:ObjectProperty ;
+                                     owl:inverseOf :AuxiliaryAgreement_AuxiliaryAccounts ;
+                                     rdfs:domain :AuxiliaryAccount ;
+                                     rdfs:range :AuxiliaryAgreement ;
+                                     rdfs:comment "Auxiliary agreement regulating this account.All auxiliary accounts regulated by this agreement." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAccount_Charges
+:AuxiliaryAccount_Charges rdf:type owl:ObjectProperty ;
+                          rdfs:domain :AuxiliaryAccount ;
+                          rdfs:range :Charge ;
+                          rdfs:comment "All auxiliary accounts to which this charge has to be levied.All charges levied on this account." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAccount_PaymentTransactions
+:AuxiliaryAccount_PaymentTransactions rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :AuxiliaryAccount ;
+                                      rdfs:range :Transaction ;
+                                      rdfs:comment "Auxiliary account for this payment transaction.All payments against this account." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAccount_balance
+:AuxiliaryAccount_balance rdf:type owl:ObjectProperty ;
+                          rdfs:domain :AuxiliaryAccount ;
+                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                          rdfs:comment "The total amount currently remaining on this account that is required to be paid in order to settle the account to zero. This excludes any due amounts not yet paid." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAccount_due
+:AuxiliaryAccount_due rdf:type owl:ObjectProperty ;
+                      rdfs:domain :AuxiliaryAccount ;
+                      rdfs:range :Due ;
+                      rdfs:comment "Current amounts now due for payment on this account." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAccount_lastCredit
+:AuxiliaryAccount_lastCredit rdf:type owl:ObjectProperty ;
+                             rdfs:domain :AuxiliaryAccount ;
+                             rdfs:range :AccountMovement ;
+                             rdfs:comment "Details of the last credit transaction performed on this account." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAccount_lastDebit
+:AuxiliaryAccount_lastDebit rdf:type owl:ObjectProperty ;
+                            rdfs:domain :AuxiliaryAccount ;
+                            rdfs:range :AccountMovement ;
+                            rdfs:comment "Details of the last debit transaction performed on this account." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAccount_principleAmount
+:AuxiliaryAccount_principleAmount rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :AuxiliaryAccount ;
+                                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                                  rdfs:comment "The initial principle amount, with which this account was instantiated." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement_AuxiliaryAccounts
+:AuxiliaryAgreement_AuxiliaryAccounts rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :AuxiliaryAgreement ;
+                                      rdfs:range :AuxiliaryAccount ;
+                                      rdfs:comment "Auxiliary agreement regulating this account.All auxiliary accounts regulated by this agreement." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement_arrearsInterest
+:AuxiliaryAgreement_arrearsInterest rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :AuxiliaryAgreement ;
+                                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
+                                    rdfs:comment """The interest per annum to be charged prorata on 'AuxiliaryAccount.dueArrears' at the end of each 'payCycle'.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement_fixedAmount
+:AuxiliaryAgreement_fixedAmount rdf:type owl:ObjectProperty ;
+                                rdfs:domain :AuxiliaryAgreement ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                                rdfs:comment "The fixed amount that has to be collected from each vending transaction towards settlement of this auxiliary agreement. Note that there may be multiple tokens vended per vending transaction, but this is not relevant." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement_minAmount
+:AuxiliaryAgreement_minAmount rdf:type owl:ObjectProperty ;
+                              rdfs:domain :AuxiliaryAgreement ;
+                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                              rdfs:comment "The minimum amount that has to be paid at any transaction towards settling this auxiliary agreement or reducing the balance." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement_vendPortion
+:AuxiliaryAgreement_vendPortion rdf:type owl:ObjectProperty ;
+                                rdfs:domain :AuxiliaryAgreement ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
+                                rdfs:comment "The percentage of the transaction amount that has to be collected from each vending transaction towards settlement of this auxiliary agreement when payments are not in arrears. Note that there may be multiple tokens vended per vending transaction, but this is not relevant." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement_vendPortionArrear
+:AuxiliaryAgreement_vendPortionArrear rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :AuxiliaryAgreement ;
+                                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
+                                      rdfs:comment "The percentage of the transaction amount that has to be collected from each vending transaction towards settlement of this auxiliary agreement when payments are in arrears. Note that there may be multiple tokens vended per vending transaction, but this is not relevant." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#BankAccount_ServiceSupplier
+:BankAccount_ServiceSupplier rdf:type owl:ObjectProperty ;
+                             owl:inverseOf :ServiceSupplier_BankAccounts ;
+                             rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BankAccount> ;
+                             rdfs:range :ServiceSupplier ;
+                             rdfs:comment "ServiceSupplier that is owner of this BankAccount.All BackAccounts this ServiceSupplier owns." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Card_Tender
+:Card_Tender rdf:type owl:ObjectProperty ;
+             rdfs:domain :Card ;
+             rdfs:range :Tender ;
+             rdfs:comment "Card used to tender payment.Payment tender this card is being used for." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#CashierShift_Cashier
+:CashierShift_Cashier rdf:type owl:ObjectProperty ;
+                      owl:inverseOf :Cashier_CashierShifts ;
+                      rdfs:domain :CashierShift ;
+                      rdfs:range :Cashier ;
+                      rdfs:comment "Cashier operating this shift.All shifts operated by this cashier." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#CashierShift_PointOfSale
+:CashierShift_PointOfSale rdf:type owl:ObjectProperty ;
+                          rdfs:domain :CashierShift ;
+                          rdfs:range :PointOfSale ;
+                          rdfs:comment "All shifts this point of sale operated in.Point of sale that is in operation during this shift." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#CashierShift_Receipts
+:CashierShift_Receipts rdf:type owl:ObjectProperty ;
+                       rdfs:domain :CashierShift ;
+                       rdfs:range :Receipt ;
+                       rdfs:comment "Cashier shift during which this receipt was recorded.All Receipts recorded for this Shift." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#CashierShift_Transactions
+:CashierShift_Transactions rdf:type owl:ObjectProperty ;
+                           rdfs:domain :CashierShift ;
+                           rdfs:range :Transaction ;
+                           rdfs:comment "Cashier shift during which this transaction was recorded.All transactions recorded during this cashier shift." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#CashierShift_cashFloat
+:CashierShift_cashFloat rdf:type owl:ObjectProperty ;
+                        rdfs:domain :CashierShift ;
+                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                        rdfs:comment "The amount of cash that the cashier brings to start the shift and that will be taken away at the end of the shift; i.e. the cash float does not get banked." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Cashier_CashierShifts
+:Cashier_CashierShifts rdf:type owl:ObjectProperty ;
+                       rdfs:domain :Cashier ;
+                       rdfs:range :CashierShift ;
+                       rdfs:comment "Cashier operating this shift.All shifts operated by this cashier." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Cashier_electronicAddress
+:Cashier_electronicAddress rdf:type owl:ObjectProperty ;
+                           rdfs:domain :Cashier ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress> ;
+                           rdfs:comment "Electronic address." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Charge_AuxiliaryAccounts
+:Charge_AuxiliaryAccounts rdf:type owl:ObjectProperty ;
+                          owl:inverseOf :AuxiliaryAccount_Charges ;
+                          rdfs:domain :Charge ;
+                          rdfs:range :AuxiliaryAccount ;
+                          rdfs:comment "All auxiliary accounts to which this charge has to be levied.All charges levied on this account." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Charge_ChildCharges
+:Charge_ChildCharges rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Charge ;
+                     rdfs:range :Charge ;
+                     rdfs:comment "Parent of this charge sub-component.All sub-components of this complex charge." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Charge_ConsumptionTariffIntervals
+:Charge_ConsumptionTariffIntervals rdf:type owl:ObjectProperty ;
+                                   owl:inverseOf :ConsumptionTariffInterval_Charges ;
+                                   rdfs:domain :Charge ;
+                                   rdfs:range :ConsumptionTariffInterval ;
+                                   rdfs:comment "Tariff intervals to which this consumption-based charge has to be levied.All charges used to define this consumption tariff interval." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Charge_ParentCharge
+:Charge_ParentCharge rdf:type owl:ObjectProperty ;
+                     owl:inverseOf :Charge_ChildCharges ;
+                     rdfs:domain :Charge ;
+                     rdfs:range :Charge ;
+                     rdfs:comment "Parent of this charge sub-component.All sub-components of this complex charge." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Charge_TimeTariffIntervals
+:Charge_TimeTariffIntervals rdf:type owl:ObjectProperty ;
+                            owl:inverseOf :TimeTariffInterval_Charges ;
+                            rdfs:domain :Charge ;
+                            rdfs:range :TimeTariffInterval ;
+                            rdfs:comment "Tariff intervals to which this time-based charge has to be levied.All charges used to define this time tariff interval." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Charge_fixedPortion
+:Charge_fixedPortion rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Charge ;
+                     rdfs:range :AccountingUnit ;
+                     rdfs:comment "The fixed portion of this charge element." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Charge_variablePortion
+:Charge_variablePortion rdf:type owl:ObjectProperty ;
+                        rdfs:domain :Charge ;
+                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
+                        rdfs:comment "The variable portion of this charge element, calculated as a percentage of the total amount of a parent charge." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Cheque_Tender
+:Cheque_Tender rdf:type owl:ObjectProperty ;
+               rdfs:domain :Cheque ;
+               rdfs:range :Tender ;
+               rdfs:comment "Cheque used to tender payment.Payment tender the cheque is being used for." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Cheque_bankAccountDetail
+:Cheque_bankAccountDetail rdf:type owl:ObjectProperty ;
+                          rdfs:domain :Cheque ;
+                          rdfs:range :BankAccountDetail ;
+                          rdfs:comment "Details of the account holder and bank." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#ConsumptionTariffInterval_Charges
+:ConsumptionTariffInterval_Charges rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :ConsumptionTariffInterval ;
+                                   rdfs:range :Charge ;
+                                   rdfs:comment "Tariff intervals to which this consumption-based charge has to be levied.All charges used to define this consumption tariff interval." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#ConsumptionTariffInterval_TariffProfiles
+:ConsumptionTariffInterval_TariffProfiles rdf:type owl:ObjectProperty ;
+                                          owl:inverseOf :TariffProfile_ConsumptionTariffIntervals ;
+                                          rdfs:domain :ConsumptionTariffInterval ;
+                                          rdfs:range :TariffProfile ;
+                                          rdfs:comment "All tariff profiles defined by this consumption tariff interval.All consumption tariff intervals used to define this tariff profile." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#ConsumptionTariffInterval_TouTariffIntervals
+:ConsumptionTariffInterval_TouTariffIntervals rdf:type owl:ObjectProperty ;
+                                              rdfs:domain :ConsumptionTariffInterval ;
+                                              rdfs:range :TimeTariffInterval ;
+                                              rdfs:comment "All consumption tariff intervals that introduce variation in this time of use tariff interval; allows to express e.g., peak hour prices that are different with different consumption blocks.All time of use tariff intervals influenced by this consumption tariff interval." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Due_arrears
+:Due_arrears rdf:type owl:ObjectProperty ;
+             rdfs:domain :Due ;
+             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+             rdfs:comment "Part of 'current' that constitutes the arrears portion." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Due_charges
+:Due_charges rdf:type owl:ObjectProperty ;
+             rdfs:domain :Due ;
+             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+             rdfs:comment "Part of 'current' that constitutes the charge portion: 'charges' = 'Charge.fixedPortion' + 'Charge.variablePortion'." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Due_current
+:Due_current rdf:type owl:ObjectProperty ;
+             rdfs:domain :Due ;
+             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+             rdfs:comment "Current total amount now due: current = principle + arrears + interest + charges. Typically the rule for settlement priority is: interest dues, then arrears dues, then current dues, then charge dues." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Due_interest
+:Due_interest rdf:type owl:ObjectProperty ;
+              rdfs:domain :Due ;
+              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+              rdfs:comment "Part of 'current' that constitutes the interest portion." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Due_principle
+:Due_principle rdf:type owl:ObjectProperty ;
+               rdfs:domain :Due ;
+               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+               rdfs:comment "Part of 'current' that constitutes the portion of the principle amount currently due." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#LineDetail_amount
+:LineDetail_amount rdf:type owl:ObjectProperty ;
+                   rdfs:domain :LineDetail ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                   rdfs:comment "Amount for this line item." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#LineDetail_rounding
+:LineDetail_rounding rdf:type owl:ObjectProperty ;
+                     rdfs:domain :LineDetail ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                     rdfs:comment "Totalised monetary value of all errors due to process rounding or truncating that is not reflected in 'amount'." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#MerchantAccount_MerchantAgreement
+:MerchantAccount_MerchantAgreement rdf:type owl:ObjectProperty ;
+                                   owl:inverseOf :MerchantAgreement_MerchantAccounts ;
+                                   rdfs:domain :MerchantAccount ;
+                                   rdfs:range :MerchantAgreement ;
+                                   rdfs:comment "Merchant agreement that instantiated this merchant account.All merchant accounts instantiated as a result of this merchant agreement." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#MerchantAccount_Transactors
+:MerchantAccount_Transactors rdf:type owl:ObjectProperty ;
+                             rdfs:domain :MerchantAccount ;
+                             rdfs:range :Transactor ;
+                             rdfs:comment "All merchant accounts registered with this transactor.All transactors this merchant account is registered with." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#MerchantAccount_VendorShifts
+:MerchantAccount_VendorShifts rdf:type owl:ObjectProperty ;
+                              rdfs:domain :MerchantAccount ;
+                              rdfs:range :VendorShift ;
+                              rdfs:comment "Merchant account this vendor shift periodically debits (based on aggregated transactions).All vendor shifts that operate on this merchant account." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#MerchantAccount_currentBalance
+:MerchantAccount_currentBalance rdf:type owl:ObjectProperty ;
+                                rdfs:domain :MerchantAccount ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                                rdfs:comment "The current operating balance of this account." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#MerchantAccount_provisionalBalance
+:MerchantAccount_provisionalBalance rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :MerchantAccount ;
+                                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                                    rdfs:comment "The balance of this account after taking into account any pending debits from VendorShift.merchantDebitAmount and pending credits from BankStatement.merchantCreditAmount or credits (see also BankStatement attributes and VendorShift attributes)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#MerchantAgreement_MerchantAccounts
+:MerchantAgreement_MerchantAccounts rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :MerchantAgreement ;
+                                    rdfs:range :MerchantAccount ;
+                                    rdfs:comment "Merchant agreement that instantiated this merchant account.All merchant accounts instantiated as a result of this merchant agreement." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#PointOfSale_CashierShifts
+:PointOfSale_CashierShifts rdf:type owl:ObjectProperty ;
+                           owl:inverseOf :CashierShift_PointOfSale ;
+                           rdfs:domain :PointOfSale ;
+                           rdfs:range :CashierShift ;
+                           rdfs:comment "All shifts this point of sale operated in.Point of sale that is in operation during this shift." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Receipt_CashierShift
+:Receipt_CashierShift rdf:type owl:ObjectProperty ;
+                      owl:inverseOf :CashierShift_Receipts ;
+                      rdfs:domain :Receipt ;
+                      rdfs:range :CashierShift ;
+                      rdfs:comment "Cashier shift during which this receipt was recorded.All Receipts recorded for this Shift." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Receipt_Tenders
+:Receipt_Tenders rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :Tender_Receipt ;
+                 rdf:type owl:FunctionalProperty ;
+                 rdfs:domain :Receipt ;
+                 rdfs:range :Tender ;
+                 rdfs:comment "All payments received in the form of tenders recorded by this receipt.Receipt that recorded this receiving of a payment in the form of tenders." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Receipt_Transactions
+:Receipt_Transactions rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Receipt ;
+                      rdfs:range :Transaction ;
+                      rdfs:comment "The receipted payment for which this transaction has been recorded.All transactions recorded for this receipted payment." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Receipt_VendorShift
+:Receipt_VendorShift rdf:type owl:ObjectProperty ;
+                     owl:inverseOf :VendorShift_Receipts ;
+                     rdfs:domain :Receipt ;
+                     rdfs:range :VendorShift ;
+                     rdfs:comment "Vendor shift during which this receipt was recorded.All receipts recorded during this vendor shift." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Receipt_line
+:Receipt_line rdf:type owl:ObjectProperty ;
+              rdfs:domain :Receipt ;
+              rdfs:range :LineDetail ;
+              rdfs:comment "Receipted amount with rounding, date and note." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#ServiceSupplier_BankAccounts
+:ServiceSupplier_BankAccounts rdf:type owl:ObjectProperty ;
+                              rdfs:domain :ServiceSupplier ;
+                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BankAccount> ;
+                              rdfs:comment "ServiceSupplier that is owner of this BankAccount.All BackAccounts this ServiceSupplier owns." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Shift_activityInterval
+:Shift_activityInterval rdf:type owl:ObjectProperty ;
+                        rdfs:domain :Shift ;
+                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
+                        rdfs:comment "Interval for activity of this shift." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Shift_receiptsGrandTotalBankable
+:Shift_receiptsGrandTotalBankable rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :Shift ;
+                                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                                  rdfs:comment """Total of amounts receipted during this shift that can be manually banked (cash and cheques for example). Values are obtained from Receipt attributes:
+=sum(Receipt.receiptAmount) for all Receipt.bankable = true.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Shift_receiptsGrandTotalNonBankable
+:Shift_receiptsGrandTotalNonBankable rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :Shift ;
+                                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                                     rdfs:comment """Total of amounts receipted during this shift that cannot be manually banked (card payments for example). Values are obtained from Receipt attributes:
+=sum(Receipt.receiptAmount) for all Receipt.bankable = false.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Shift_receiptsGrandTotalRounding
+:Shift_receiptsGrandTotalRounding rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :Shift ;
+                                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                                  rdfs:comment """Cumulative amount in error due to process rounding not reflected in receiptsGrandTotal. Values are obtained from Receipt attributes:
+=sum(Receipt.receiptRounding).""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Shift_transactionsGrandTotal
+:Shift_transactionsGrandTotal rdf:type owl:ObjectProperty ;
+                              rdfs:domain :Shift ;
+                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                              rdfs:comment """Cumulative total of transacted amounts during this shift. Values are obtained from transaction:
+=sum('Transaction.transactionAmount'). It also has to be reconciled against transaction summary:
+=sum('TransactionSummary.transactionsTotal').""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Shift_transactionsGrandTotalRounding
+:Shift_transactionsGrandTotalRounding rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :Shift ;
+                                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                                      rdfs:comment """Cumulative amount in error due to process rounding not reflected in transactionsGandTotal. Values are obtained from Transaction attributes:
+=sum(Transaction.transactionRounding).""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#TariffProfile_ConsumptionTariffIntervals
+:TariffProfile_ConsumptionTariffIntervals rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :TariffProfile ;
+                                          rdfs:range :ConsumptionTariffInterval ;
+                                          rdfs:comment "All tariff profiles defined by this consumption tariff interval.All consumption tariff intervals used to define this tariff profile." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#TariffProfile_TimeTariffIntervals
+:TariffProfile_TimeTariffIntervals rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :TariffProfile ;
+                                   rdfs:range :TimeTariffInterval ;
+                                   rdfs:comment "All tariff profiles defined by this time tariff interval.All time tariff intervals used to define this tariff profile." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Tender_Card
+:Tender_Card rdf:type owl:ObjectProperty ;
+             owl:inverseOf :Card_Tender ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain :Tender ;
+             rdfs:range :Card ;
+             rdfs:comment "Card used to tender payment.Payment tender this card is being used for." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Tender_Cheque
+:Tender_Cheque rdf:type owl:ObjectProperty ;
+               owl:inverseOf :Cheque_Tender ;
+               rdf:type owl:FunctionalProperty ;
+               rdfs:domain :Tender ;
+               rdfs:range :Cheque ;
+               rdfs:comment "Cheque used to tender payment.Payment tender the cheque is being used for." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Tender_Receipt
+:Tender_Receipt rdf:type owl:ObjectProperty ;
+                rdfs:domain :Tender ;
+                rdfs:range :Receipt ;
+                rdfs:comment "All payments received in the form of tenders recorded by this receipt.Receipt that recorded this receiving of a payment in the form of tenders." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Tender_amount
+:Tender_amount rdf:type owl:ObjectProperty ;
+               rdfs:domain :Tender ;
+               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+               rdfs:comment "Amount tendered by customer." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Tender_change
+:Tender_change rdf:type owl:ObjectProperty ;
+               rdfs:domain :Tender ;
+               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+               rdfs:comment "Difference between amount tendered by customer and the amount charged by point of sale." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#TimeTariffInterval_Charges
+:TimeTariffInterval_Charges rdf:type owl:ObjectProperty ;
+                            rdfs:domain :TimeTariffInterval ;
+                            rdfs:range :Charge ;
+                            rdfs:comment "Tariff intervals to which this time-based charge has to be levied.All charges used to define this time tariff interval." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#TimeTariffInterval_ConsumptionTariffIntervals
+:TimeTariffInterval_ConsumptionTariffIntervals rdf:type owl:ObjectProperty ;
+                                               owl:inverseOf :ConsumptionTariffInterval_TouTariffIntervals ;
+                                               rdfs:domain :TimeTariffInterval ;
+                                               rdfs:range :ConsumptionTariffInterval ;
+                                               rdfs:comment "All consumption tariff intervals that introduce variation in this time of use tariff interval; allows to express e.g., peak hour prices that are different with different consumption blocks.All time of use tariff intervals influenced by this consumption tariff interval." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#TimeTariffInterval_TariffProfiles
+:TimeTariffInterval_TariffProfiles rdf:type owl:ObjectProperty ;
+                                   owl:inverseOf :TariffProfile_TimeTariffIntervals ;
+                                   rdfs:domain :TimeTariffInterval ;
+                                   rdfs:range :TariffProfile ;
+                                   rdfs:comment "All tariff profiles defined by this time tariff interval.All time tariff intervals used to define this tariff profile." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#TimeTariffInterval_startTime
+:TimeTariffInterval_startTime rdf:type owl:ObjectProperty ;
+                              rdfs:domain :TimeTariffInterval ;
+                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Time> ;
+                              rdfs:comment """A real time marker that defines the starting time (typically it is the time of day) for this interval. The interval extends to the start of the next interval or until it is reset to the start of the first interval by TariffProfile.tariffCycle.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction_AuxiliaryAccount
+:Transaction_AuxiliaryAccount rdf:type owl:ObjectProperty ;
+                              owl:inverseOf :AuxiliaryAccount_PaymentTransactions ;
+                              rdfs:domain :Transaction ;
+                              rdfs:range :AuxiliaryAccount ;
+                              rdfs:comment "Auxiliary account for this payment transaction.All payments against this account." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction_CashierShift
+:Transaction_CashierShift rdf:type owl:ObjectProperty ;
+                          owl:inverseOf :CashierShift_Transactions ;
+                          rdfs:domain :Transaction ;
+                          rdfs:range :CashierShift ;
+                          rdfs:comment "Cashier shift during which this transaction was recorded.All transactions recorded during this cashier shift." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction_Receipt
+:Transaction_Receipt rdf:type owl:ObjectProperty ;
+                     owl:inverseOf :Receipt_Transactions ;
+                     rdfs:domain :Transaction ;
+                     rdfs:range :Receipt ;
+                     rdfs:comment "The receipted payment for which this transaction has been recorded.All transactions recorded for this receipted payment." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction_VendorShift
+:Transaction_VendorShift rdf:type owl:ObjectProperty ;
+                         owl:inverseOf :VendorShift_Transactions ;
+                         rdfs:domain :Transaction ;
+                         rdfs:range :VendorShift ;
+                         rdfs:comment "Vendor shift during which this transaction was recorded.All transactions recorded during this vendor shift." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction_line
+:Transaction_line rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Transaction ;
+                  rdfs:range :LineDetail ;
+                  rdfs:comment "Transaction amount, rounding, date and note for this transaction line." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction_serviceUnitsEnergy
+:Transaction_serviceUnitsEnergy rdf:type owl:ObjectProperty ;
+                                rdfs:domain :Transaction ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy> ;
+                                rdfs:comment "Actual amount of service units that is being paid for." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction_serviceUnitsError
+:Transaction_serviceUnitsError rdf:type owl:ObjectProperty ;
+                               rdfs:domain :Transaction ;
+                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy> ;
+                               rdfs:comment "Number of service units not reflected in 'serviceUnitsEnergy' due to process rounding or truncating errors." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transactor_MerchantAccounts
+:Transactor_MerchantAccounts rdf:type owl:ObjectProperty ;
+                             owl:inverseOf :MerchantAccount_Transactors ;
+                             rdfs:domain :Transactor ;
+                             rdfs:range :MerchantAccount ;
+                             rdfs:comment "All merchant accounts registered with this transactor.All transactors this merchant account is registered with." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#VendorShift_MerchantAccount
+:VendorShift_MerchantAccount rdf:type owl:ObjectProperty ;
+                             owl:inverseOf :MerchantAccount_VendorShifts ;
+                             rdfs:domain :VendorShift ;
+                             rdfs:range :MerchantAccount ;
+                             rdfs:comment "Merchant account this vendor shift periodically debits (based on aggregated transactions).All vendor shifts that operate on this merchant account." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#VendorShift_Receipts
+:VendorShift_Receipts rdf:type owl:ObjectProperty ;
+                      rdfs:domain :VendorShift ;
+                      rdfs:range :Receipt ;
+                      rdfs:comment "Vendor shift during which this receipt was recorded.All receipts recorded during this vendor shift." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#VendorShift_Transactions
+:VendorShift_Transactions rdf:type owl:ObjectProperty ;
+                          rdfs:domain :VendorShift ;
+                          rdfs:range :Transaction ;
+                          rdfs:comment "Vendor shift during which this transaction was recorded.All transactions recorded during this vendor shift." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#VendorShift_Vendor
+:VendorShift_Vendor rdf:type owl:ObjectProperty ;
+                    owl:inverseOf :Vendor_VendorShifts ;
+                    rdfs:domain :VendorShift ;
+                    rdfs:range :Vendor ;
+                    rdfs:comment "Vendor that opens and owns this vendor shift.All vendor shifts opened and owned by this vendor." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#VendorShift_merchantDebitAmount
+:VendorShift_merchantDebitAmount rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :VendorShift ;
+                                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                                 rdfs:comment "The amount that is to be debited from the merchant account for this vendor shift. This amount reflects the sum(PaymentTransaction.transactionAmount)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Vendor_VendorShifts
+:Vendor_VendorShifts rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Vendor ;
+                     rdfs:range :VendorShift ;
+                     rdfs:comment "Vendor that opens and owns this vendor shift.All vendor shifts opened and owned by this vendor." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  AccountMovement_dateTime
+<AccountMovement_dateTime> rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :AccountMovement ;
+                           rdfs:range xsd:dateTime ;
+                           rdfs:comment """Date and time when the credit/debit transaction was performed.
+""" .
+
+
+###  Cheque_date
+<Cheque_date> rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Cheque ;
+              rdfs:range xsd:date ;
+              rdfs:comment """Date when cheque becomes valid.
+""" .
+
+
+###  LineDetail_dateTime
+<LineDetail_dateTime> rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :LineDetail ;
+                      rdfs:range xsd:dateTime ;
+                      rdfs:comment """Date and time when this line was created in the application process.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AccountMovement_reason
+:AccountMovement_reason rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :AccountMovement ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "Reason for credit/debit transaction on an account. Example: payment received/arrears interest levied." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AccountingUnit_monetaryUnit
+:AccountingUnit_monetaryUnit rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :AccountingUnit ;
+                             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Currency> ;
+                             rdfs:comment "Unit of currency." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AccountingUnit_multiplier
+:AccountingUnit_multiplier rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :AccountingUnit ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier> ;
+                           rdfs:comment "Multiplier for the 'energyUnit' or 'monetaryUnit'." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AccountingUnit_value
+:AccountingUnit_value rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :AccountingUnit ;
+                      rdfs:range xsd:float ;
+                      rdfs:comment "Value expressed in applicable units." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement_auxCycle
+:AuxiliaryAgreement_auxCycle rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :AuxiliaryAgreement ;
+                             rdfs:range xsd:string ;
+                             rdfs:comment """The frequency for automatically recurring auxiliary charges, where 'AuxiliaryAccount.initialCharge' is recursively added to 'AuxiliaryAccount.dueCurrent' at the start of each 'auxCycle'. For example: on a specified date and time; hourly; daily; weekly; monthly; 3-monthly; 6-monthly; 12-monthly; etc.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement_auxPriorityCode
+:AuxiliaryAgreement_auxPriorityCode rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :AuxiliaryAgreement ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:comment """The coded priority indicating the priority that this auxiliary agreement has above other auxiliary agreements (associated with the same customer agreement) when it comes to competing for settlement from a payment transaction or token purchase.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement_payCycle
+:AuxiliaryAgreement_payCycle rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :AuxiliaryAgreement ;
+                             rdfs:range xsd:string ;
+                             rdfs:comment "The contractually expected payment frequency (by the customer). Examples are: ad-hoc; on specified date; hourly, daily, weekly, monthly. etc." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement_subType
+:AuxiliaryAgreement_subType rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :AuxiliaryAgreement ;
+                            rdfs:range xsd:string ;
+                            rdfs:comment """Sub-classification of the inherited 'type' for this AuxiliaryAgreement.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#BankAccountDetail_accountNumber
+:BankAccountDetail_accountNumber rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :BankAccountDetail ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:comment "Operational account reference number." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#BankAccountDetail_bankName
+:BankAccountDetail_bankName rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :BankAccountDetail ;
+                            rdfs:range xsd:string ;
+                            rdfs:comment "Name of bank where account is held." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#BankAccountDetail_branchCode
+:BankAccountDetail_branchCode rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :BankAccountDetail ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment "Branch of bank where account is held." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#BankAccountDetail_holderID
+:BankAccountDetail_holderID rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :BankAccountDetail ;
+                            rdfs:range xsd:string ;
+                            rdfs:comment "National identity number (or equivalent) of account holder." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#BankAccountDetail_holderName
+:BankAccountDetail_holderName rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :BankAccountDetail ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment "Name of account holder." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Card_accountHolderName
+:Card_accountHolderName rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Card ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "Name of account holder." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Card_cvNumber
+:Card_cvNumber rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Card ;
+               rdfs:range xsd:string ;
+               rdfs:comment "The card verification number." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Card_expiryDate
+:Card_expiryDate rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Card ;
+                 rdfs:range xsd:date ;
+                 rdfs:comment """The date when this card expires.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Card_pan
+:Card_pan rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Card ;
+          rdfs:range xsd:string ;
+          rdfs:comment "The primary account number." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Charge_kind
+:Charge_kind rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Charge ;
+             rdfs:range :ChargeKind ;
+             rdfs:comment "The kind of charge to be applied." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Cheque_chequeNumber
+:Cheque_chequeNumber rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Cheque ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment "Cheque reference number as printed on the cheque." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Cheque_kind
+:Cheque_kind rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Cheque ;
+             rdfs:range :ChequeKind ;
+             rdfs:comment "Kind of cheque." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Cheque_micrNumber
+:Cheque_micrNumber rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Cheque ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "The magnetic ink character recognition number printed on the cheque." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#ConsumptionTariffInterval_sequenceNumber
+:ConsumptionTariffInterval_sequenceNumber rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :ConsumptionTariffInterval ;
+                                          rdfs:range xsd:nonNegativeInteger ;
+                                          rdfs:comment "A sequential reference that defines the identity of this interval and its relative position with respect to other intervals in a sequence of intervals." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#ConsumptionTariffInterval_startValue
+:ConsumptionTariffInterval_startValue rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :ConsumptionTariffInterval ;
+                                      rdfs:range xsd:float ;
+                                      rdfs:comment "The lowest level of consumption that defines the starting point of this interval. The interval extends to the start of the next interval or until it is reset to the start of the first interval by TariffProfile.tariffCycle." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#LineDetail_note
+:LineDetail_note rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :LineDetail ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "Free format note relevant to this line." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#PointOfSale_location
+:PointOfSale_location rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :PointOfSale ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "Local description for where this point of sale is physically located." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Receipt_isBankable
+:Receipt_isBankable rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Receipt ;
+                    rdfs:range xsd:boolean ;
+                    rdfs:comment "True if this receipted payment is manually bankable, otherwise it is an electronic funds transfer." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#ServiceSupplier_issuerIdentificationNumber
+:ServiceSupplier_issuerIdentificationNumber rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain :ServiceSupplier ;
+                                            rdfs:range xsd:string ;
+                                            rdfs:comment "Unique transaction reference prefix number issued to an entity by the International Organization for Standardization for the purpose of tagging onto electronic financial transactions, as defined in ISO/IEC 7812-1 and ISO/IEC 7812-2." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#ServiceSupplier_kind
+:ServiceSupplier_kind rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :ServiceSupplier ;
+                      rdfs:range :SupplierKind ;
+                      rdfs:comment "Kind of supplier." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#TariffProfile_tariffCycle
+:TariffProfile_tariffCycle rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :TariffProfile ;
+                           rdfs:range xsd:string ;
+                           rdfs:comment "The frequency at which the tariff charge schedule is repeated. Examples are: once off on a specified date and time; hourly; daily; weekly; monthly; 3-monthly; 6-monthly; 12-monthly; etc. At the end of each cycle, the business rules are reset to start from the beginning again." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Tender_kind
+:Tender_kind rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Tender ;
+             rdfs:range :TenderKind ;
+             rdfs:comment "Kind of tender from customer." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#TimeTariffInterval_sequenceNumber
+:TimeTariffInterval_sequenceNumber rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain :TimeTariffInterval ;
+                                   rdfs:range xsd:nonNegativeInteger ;
+                                   rdfs:comment "A sequential reference that defines the identity of this interval and its relative position with respect to other intervals in a sequence of intervals." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction_diverseReference
+:Transaction_diverseReference rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :Transaction ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment "Formal reference for use with diverse payment (traffic fine for example)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction_donorReference
+:Transaction_donorReference rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :Transaction ;
+                            rdfs:range xsd:string ;
+                            rdfs:comment "Reference to the entity that is the source of 'amount' (for example: customer for token purchase; or supplier for free issue token)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction_kind
+:Transaction_kind rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Transaction ;
+                  rdfs:range :TransactionKind ;
+                  rdfs:comment "Kind of transaction." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction_receiverReference
+:Transaction_receiverReference rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :Transaction ;
+                               rdfs:range xsd:string ;
+                               rdfs:comment "Reference to the entity that is the recipient of 'amount' (for example, supplier for service charge payment; or tax receiver for VAT)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction_reversedId
+:Transaction_reversedId rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Transaction ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "(if 'kind' is transactionReversal) Reference to the original transaction that is being reversed by this transaction." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#VendorShift_posted
+:VendorShift_posted rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :VendorShift ;
+                    rdfs:range xsd:boolean ;
+                    rdfs:comment """If true, merchantDebitAmount has been debited from MerchantAccount; typically happens at the end of VendorShift when it closes.
+""" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Agreement
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Agreement> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BankAccount
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BankAccount> rdf:type owl:Class ;
+                                                                             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                               owl:onProperty :BankAccount_ServiceSupplier ;
+                                                                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BankAccount>
+                                                                                             ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AccountMovement
+:AccountMovement rdf:type owl:Class ;
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AccountMovement_amount ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AccountMovement_amount ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty <AccountMovement_dateTime> ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AccountMovement_reason ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:string
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty <AccountMovement_dateTime> ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :AccountMovement_reason ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:string
+                                 ] ;
+                 rdfs:comment """Credit/debit movements for an account.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AccountingUnit
+:AccountingUnit rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty :AccountingUnit_energyUnit ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :AccountingUnit_energyUnit ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :AccountingUnit_monetaryUnit ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Currency>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :AccountingUnit_multiplier ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :AccountingUnit_value ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:float
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :AccountingUnit_monetaryUnit ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Currency>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :AccountingUnit_multiplier ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :AccountingUnit_value ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:float
+                                ] ;
+                rdfs:comment "Unit for accounting; use either 'energyUnit' or 'currencyUnit' to specify the unit for 'value'." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAccount
+:AuxiliaryAccount rdf:type owl:Class ;
+                  rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AuxiliaryAccount_AuxiliaryAgreement ;
+                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :AuxiliaryAccount
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AuxiliaryAccount_Charges ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :AuxiliaryAccount
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AuxiliaryAccount_PaymentTransactions ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :AuxiliaryAccount
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AuxiliaryAccount_balance ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AuxiliaryAccount_due ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :Due
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AuxiliaryAccount_lastCredit ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :AccountMovement
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AuxiliaryAccount_lastDebit ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :AccountMovement
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AuxiliaryAccount_principleAmount ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AuxiliaryAccount_PaymentTransactions ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :AuxiliaryAccount
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AuxiliaryAccount_balance ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AuxiliaryAccount_due ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :Due
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AuxiliaryAccount_lastCredit ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :AccountMovement
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AuxiliaryAccount_lastDebit ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :AccountMovement
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AuxiliaryAccount_principleAmount ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                  ] ;
+                  rdfs:comment """Variable and dynamic part of auxiliary agreement, generally representing the current state of the account related to the outstanding balance defined in auxiliary agreement.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement
+:AuxiliaryAgreement rdf:type owl:Class ;
+                    rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Agreement> ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_AuxiliaryAccounts ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :AuxiliaryAgreement
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_arrearsInterest ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_fixedAmount ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_minAmount ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_vendPortion ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_vendPortionArrear ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_AuxiliaryAccounts ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :AuxiliaryAgreement
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_arrearsInterest ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_fixedAmount ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_minAmount ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_vendPortion ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_vendPortionArrear ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_auxCycle ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_auxPriorityCode ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_payCycle ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_subType ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_auxCycle ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_auxPriorityCode ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_payCycle ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :AuxiliaryAgreement_subType ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ;
+                    rdfs:comment """An ad-hoc auxiliary account agreement associated with a customer agreement, not part of the customer's account, but typically subject to formal agreement between customer and supplier (utility). Typically this is used to collect revenue owed by the customer for other services or arrears accrued with the utility for other services. It is typically linked to a prepaid token purchase transaction, thus forcing the customer to make a payment towards settlement of the auxiliary account balance whenever the customer needs to purchase a prepaid token for electricity.
+The present status of the auxiliary agreement can be defined in the context of the utility's business rules, for example: enabled, disabled, pending, over recovered, under recovered, written off, etc.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#BankAccountDetail
+:BankAccountDetail rdf:type owl:Class ;
+                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                     owl:onProperty :BankAccountDetail_accountNumber ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :BankAccountDetail_bankName ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :BankAccountDetail_branchCode ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :BankAccountDetail_holderID ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :BankAccountDetail_holderName ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :BankAccountDetail_accountNumber ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :BankAccountDetail_bankName ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :BankAccountDetail_branchCode ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :BankAccountDetail_holderID ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :BankAccountDetail_holderName ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ;
+                   rdfs:comment "Details of a bank account." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Card
+:Card rdf:type owl:Class ;
+      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                        owl:onProperty :Card_Tender ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Card
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Card_Tender ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Card
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Card_accountHolderName ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Card_cvNumber ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Card_expiryDate ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:date
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Card_pan ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Card_accountHolderName ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Card_cvNumber ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Card_expiryDate ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:date
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Card_pan ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ] ;
+      rdfs:comment """Documentation of the tender when it is a type of card (credit, debit, etc).
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Cashier
+:Cashier rdf:type owl:Class ;
+         rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Cashier_CashierShifts ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Cashier
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Cashier_electronicAddress ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Cashier_CashierShifts ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Cashier
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Cashier_electronicAddress ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress>
+                         ] ;
+         rdfs:comment "The operator of the point of sale for the duration of CashierShift. Cashier is under the exclusive management control of Vendor." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#CashierShift
+:CashierShift rdf:type owl:Class ;
+              rdfs:subClassOf :Shift ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :CashierShift_Cashier ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :CashierShift
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :CashierShift_PointOfSale ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :CashierShift
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :CashierShift_Receipts ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :CashierShift
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :CashierShift_Transactions ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :CashierShift
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :CashierShift_cashFloat ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :CashierShift_Receipts ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :CashierShift
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :CashierShift_Transactions ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :CashierShift
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :CashierShift_cashFloat ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                              ] ;
+              rdfs:comment "The operating shift for a cashier, during which the cashier may transact against the cashier shift, subject to vendor shift being open." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Charge
+:Charge rdf:type owl:Class ;
+        rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Charge_AuxiliaryAccounts ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Charge
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Charge_ChildCharges ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Charge
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Charge_ConsumptionTariffIntervals ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Charge
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Charge_ParentCharge ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Charge
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Charge_TimeTariffIntervals ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Charge
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Charge_fixedPortion ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :AccountingUnit
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Charge_variablePortion ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Charge_ChildCharges ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Charge
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Charge_fixedPortion ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :AccountingUnit
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Charge_variablePortion ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Charge_kind ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange :ChargeKind
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Charge_kind ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange :ChargeKind
+                        ] ;
+        rdfs:comment "A charge element associated with other entities such as tariff structures, auxiliary agreements or other charge elements. The total charge amount applicable to this instance of charge is the sum of fixed and variable portion." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Cheque
+:Cheque rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :Cheque_Tender ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Cheque
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Cheque_bankAccountDetail ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :BankAccountDetail
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Cheque_Tender ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Cheque
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Cheque_bankAccountDetail ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :BankAccountDetail
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty <Cheque_date> ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:date
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Cheque_chequeNumber ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Cheque_kind ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange :ChequeKind
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Cheque_micrNumber ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty <Cheque_date> ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:date
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Cheque_chequeNumber ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Cheque_kind ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange :ChequeKind
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Cheque_micrNumber ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ;
+        rdfs:comment """The actual tender when it is a type of cheque.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#ConsumptionTariffInterval
+:ConsumptionTariffInterval rdf:type owl:Class ;
+                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConsumptionTariffInterval_Charges ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onClass :ConsumptionTariffInterval
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConsumptionTariffInterval_TariffProfiles ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onClass :ConsumptionTariffInterval
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConsumptionTariffInterval_TouTariffIntervals ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onClass :ConsumptionTariffInterval
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConsumptionTariffInterval_sequenceNumber ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:nonNegativeInteger
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConsumptionTariffInterval_startValue ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:float
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConsumptionTariffInterval_sequenceNumber ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:nonNegativeInteger
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConsumptionTariffInterval_startValue ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:float
+                                           ] ;
+                           rdfs:comment "One of a sequence of intervals defined in terms of consumption quantity of a service such as electricity, water, gas, etc. It is typically used in association with TariffProfile to define the steps or blocks in a step tariff structure, where startValue simultaneously defines the entry value of this step and the closing value of the previous step. Where consumption is &gt;= startValue it falls within this interval and where consumption is &lt; startValue it falls within the previous interval." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Due
+:Due rdf:type owl:Class ;
+     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                       owl:onProperty :Due_arrears ;
+                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :Due_charges ;
+                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :Due_current ;
+                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :Due_interest ;
+                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :Due_principle ;
+                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :Due_arrears ;
+                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :Due_charges ;
+                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :Due_current ;
+                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :Due_interest ;
+                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :Due_principle ;
+                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                     ] ;
+     rdfs:comment "Details on amounts due for an account." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#LineDetail
+:LineDetail rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :LineDetail_amount ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LineDetail_rounding ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LineDetail_amount ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LineDetail_rounding ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty <LineDetail_dateTime> ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LineDetail_note ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty <LineDetail_dateTime> ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LineDetail_note ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ;
+            rdfs:comment """Details on an amount line, with rounding, date and note.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#MerchantAccount
+:MerchantAccount rdf:type owl:Class ;
+                 rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :MerchantAccount_MerchantAgreement ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :MerchantAccount
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :MerchantAccount_Transactors ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :MerchantAccount
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :MerchantAccount_VendorShifts ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :MerchantAccount
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :MerchantAccount_currentBalance ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :MerchantAccount_provisionalBalance ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :MerchantAccount_VendorShifts ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :MerchantAccount
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :MerchantAccount_currentBalance ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :MerchantAccount_provisionalBalance ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                 ] ;
+                 rdfs:comment "The operating account controlled by merchant agreement, against which the vendor may vend tokens or receipt payments. Transactions via vendor shift debit the account and bank deposits via bank statement credit the account." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#MerchantAgreement
+:MerchantAgreement rdf:type owl:Class ;
+                   rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Agreement> ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :MerchantAgreement_MerchantAccounts ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :MerchantAgreement
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :MerchantAgreement_MerchantAccounts ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :MerchantAgreement
+                                   ] ;
+                   rdfs:comment "A formal controlling contractual agreement between supplier and merchant, in terms of which the merchant is authorised to vend tokens and receipt payments on behalf of the supplier. The merchant is accountable to the supplier for revenue collected at point of sale." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#PointOfSale
+:PointOfSale rdf:type owl:Class ;
+             rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :PointOfSale_CashierShifts ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :PointOfSale
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :PointOfSale_CashierShifts ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :PointOfSale
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :PointOfSale_location ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :PointOfSale_location ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] ;
+             rdfs:comment "Logical point where transactions take place with operational interaction between cashier and the payment system; in certain cases the point of sale interacts directly with the end customer, in which case the cashier might not be a real person: for example a self-service kiosk or over the internet." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Receipt
+:Receipt rdf:type owl:Class ;
+         rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Receipt_CashierShift ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Receipt
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Receipt_Transactions ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Receipt
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Receipt_VendorShift ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Receipt
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Receipt_line ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :LineDetail
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Receipt_Tenders ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Receipt
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Receipt_Transactions ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Receipt
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Receipt_line ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :LineDetail
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Receipt_isBankable ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:boolean
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Receipt_isBankable ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:boolean
+                         ] ;
+         rdfs:comment """Record of total receipted payment from customer.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#ServiceSupplier
+:ServiceSupplier rdf:type owl:Class ;
+                 rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ServiceSupplier_BankAccounts ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :ServiceSupplier
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ServiceSupplier_BankAccounts ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :ServiceSupplier
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ServiceSupplier_issuerIdentificationNumber ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:string
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ServiceSupplier_kind ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange :SupplierKind
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ServiceSupplier_issuerIdentificationNumber ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:string
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ServiceSupplier_kind ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange :SupplierKind
+                                 ] ;
+                 rdfs:comment "Organisation that provides services to customers." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Shift
+:Shift rdf:type owl:Class ;
+       rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Shift_activityInterval ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Shift_receiptsGrandTotalBankable ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Shift_receiptsGrandTotalNonBankable ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Shift_receiptsGrandTotalRounding ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Shift_transactionsGrandTotal ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Shift_transactionsGrandTotalRounding ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Shift_activityInterval ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Shift_receiptsGrandTotalBankable ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Shift_receiptsGrandTotalNonBankable ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Shift_receiptsGrandTotalRounding ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Shift_transactionsGrandTotal ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Shift_transactionsGrandTotalRounding ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                       ] ;
+       rdfs:comment """Generally referring to a period of operation or work performed. Whether the shift is open/closed can be derived from attributes 'activityInterval.start' and 'activityInterval.end'.
+The grand total for receipts (i.e., cumulative total of all actual receipted amounts during this shift; bankable + non-bankable; excludes rounding error totals) can be derived from receipt:
+=sum('Receipt.receiptAmount'); includes bankable and non-bankable receipts.
+It also has to be reconciled against:
+=sum('receiptsGrandTotalBankable' + 'receiptsGrandTotalNonBankable')
+and against receipt summary:
+=sum('ReceiptSummary.receiptsTotal').
+The attributes with \"GrandTotal\" defined in this class may need to be used when the source data is periodically flushed from the system and then these cannot be derived.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#TariffProfile
+:TariffProfile rdf:type owl:Class ;
+               rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :TariffProfile_ConsumptionTariffIntervals ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :TariffProfile
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :TariffProfile_TimeTariffIntervals ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :TariffProfile
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :TariffProfile_tariffCycle ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :TariffProfile_tariffCycle ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ;
+               rdfs:comment "A schedule of charges; structure associated with Tariff that allows the definition of complex tarif structures such as step and time of use when used in conjunction with TimeTariffInterval and Charge. Inherited 'status.value' is defined in the context of the utility's business rules, for example: active, inactive, etc." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Tender
+:Tender rdf:type owl:Class ;
+        rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Tender_Receipt ;
+                          owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Tender
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Tender_amount ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Tender_change ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Tender_Card ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Tender
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Tender_Cheque ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Tender
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Tender_amount ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Tender_change ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Tender_kind ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange :TenderKind
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Tender_kind ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange :TenderKind
+                        ] ;
+        rdfs:comment """Tender is what is \"offered\" by the customer towards making a payment and is often more than the required payment (hence the need for 'change'). The payment is thus that part of the Tender that goes towards settlement of a particular transaction.
+Tender is modelled as an aggregation of Cheque and Card. Both these tender types can exist in a single tender bid thus 'accountHolderName' has to exist separately in each of Cheque and Card as each could have a different account holder name.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#TimeTariffInterval
+:TimeTariffInterval rdf:type owl:Class ;
+                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                      owl:onProperty :TimeTariffInterval_Charges ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :TimeTariffInterval
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :TimeTariffInterval_ConsumptionTariffIntervals ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :TimeTariffInterval
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :TimeTariffInterval_TariffProfiles ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :TimeTariffInterval
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :TimeTariffInterval_startTime ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Time>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :TimeTariffInterval_startTime ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Time>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :TimeTariffInterval_sequenceNumber ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :TimeTariffInterval_sequenceNumber ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:nonNegativeInteger
+                                    ] ;
+                    rdfs:comment """One of a sequence of time intervals defined in terms of real time. It is typically used in association with TariffProfile to define the intervals in a time of use tariff structure, where startDateTime simultaneously determines the starting point of this interval and the ending point of the previous interval.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction
+:Transaction rdf:type owl:Class ;
+             rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_AuxiliaryAccount ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Transaction
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_CashierShift ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Transaction
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_Receipt ;
+                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Transaction
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_VendorShift ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Transaction
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_line ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :LineDetail
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_serviceUnitsEnergy ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_serviceUnitsError ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_line ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :LineDetail
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_serviceUnitsEnergy ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_serviceUnitsError ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_diverseReference ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_donorReference ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_kind ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange :TransactionKind
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_receiverReference ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_reversedId ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_diverseReference ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_donorReference ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_kind ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange :TransactionKind
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_receiverReference ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Transaction_reversedId ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] ;
+             rdfs:comment "The record of details of payment for service or token sale." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transactor
+:Transactor rdf:type owl:Class ;
+            rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :Transactor_MerchantAccounts ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Transactor
+                            ] ;
+            rdfs:comment "The entity that ultimately executes the transaction and which is in control of the process; typically this is embodied in secure software running on a server that may employ secure hardware encryption devices for secure transaction processing." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Vendor
+:Vendor rdf:type owl:Class ;
+        rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Vendor_VendorShifts ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Vendor
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Vendor_VendorShifts ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Vendor
+                        ] ;
+        rdfs:comment "The entity that owns the point of sale and contracts with the cashier to receipt payments and vend tokens using the payment system. The vendor has a private contract with and is managed by the merchant which is a type of organisation. The vendor is accountable to the merchant for revenue collected, and the merchant is in turn accountable to the supplier." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#VendorShift
+:VendorShift rdf:type owl:Class ;
+             rdfs:subClassOf :Shift ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VendorShift_MerchantAccount ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :VendorShift
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VendorShift_Receipts ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :VendorShift
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VendorShift_Transactions ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :VendorShift
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VendorShift_Vendor ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :VendorShift
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VendorShift_merchantDebitAmount ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VendorShift_Receipts ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :VendorShift
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VendorShift_Transactions ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :VendorShift
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VendorShift_merchantDebitAmount ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VendorShift_posted ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:boolean
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VendorShift_posted ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:boolean
+                             ] ;
+             rdfs:comment "The operating shift for a vendor during which the vendor may transact against the merchant's account. It aggregates transactions and receipts during the shift and periodically debits a merchant account. The totals in vendor shift should always be the sum of totals aggregated in all cashier shifts that were open under the particular vendor shift." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Time
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Time> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

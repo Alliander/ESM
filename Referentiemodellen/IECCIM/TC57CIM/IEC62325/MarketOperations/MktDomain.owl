@@ -1,0 +1,1343 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ActionType
+:ActionType rdf:type rdfs:Datatype ;
+            owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                  owl:oneOf [ rdf:type rdf:List ;
+                                              rdf:first "CANCEL" ;
+                                              rdf:rest rdf:nil
+                                            ]
+                                ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#AnalogLimitType
+:AnalogLimitType rdf:type rdfs:Datatype ;
+                 owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                       owl:oneOf [ rdf:type rdf:List ;
+                                                   rdf:first "BranchLongTerm" ;
+                                                   rdf:rest [ rdf:type rdf:List ;
+                                                              rdf:first "BranchMediumTerm" ;
+                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                         rdf:first "BranchShortTerm" ;
+                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                    rdf:first "VoltageHigh" ;
+                                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                                               rdf:first "VoltageLow" ;
+                                                                                               rdf:rest rdf:nil
+                                                                                             ]
+                                                                                  ]
+                                                                       ]
+                                                            ]
+                                                 ]
+                                     ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#AnodeType
+:AnodeType rdf:type rdfs:Datatype ;
+           owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                 owl:oneOf [ rdf:type rdf:List ;
+                                             rdf:first "ACA" ;
+                                             rdf:rest [ rdf:type rdf:List ;
+                                                        rdf:first "AGR" ;
+                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                   rdf:first "ALR" ;
+                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                              rdf:first "ASR" ;
+                                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                                         rdf:first "ECA" ;
+                                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                                    rdf:first "LFZ" ;
+                                                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                                                               rdf:first "LTAC" ;
+                                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                                          rdf:first "POD" ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first "REG" ;
+                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first "RUC" ;
+                                                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                           rdf:first "SYS" ;
+                                                                                                                                                           rdf:rest rdf:nil
+                                                                                                                                                         ]
+                                                                                                                                              ]
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                                                             ]
+                                                                                                  ]
+                                                                                       ]
+                                                                            ]
+                                                                 ]
+                                                      ]
+                                           ]
+                               ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ApnodeType
+:ApnodeType rdf:type rdfs:Datatype ;
+            owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                  owl:oneOf [ rdf:type rdf:List ;
+                                              rdf:first "AG" ;
+                                              rdf:rest [ rdf:type rdf:List ;
+                                                         rdf:first "BUS" ;
+                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                    rdf:first "CA" ;
+                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                               rdf:first "CPZ" ;
+                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                          rdf:first "DCA" ;
+                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                     rdf:first "DPZ" ;
+                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                rdf:first "EHV" ;
+                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                           rdf:first "GA" ;
+                                                                                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                      rdf:first "GH" ;
+                                                                                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                 rdf:first "INT" ;
+                                                                                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                            rdf:first "SYS" ;
+                                                                                                                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                       rdf:first "TH" ;
+                                                                                                                                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                  rdf:first "ZN" ;
+                                                                                                                                                                                  rdf:rest rdf:nil
+                                                                                                                                                                                ]
+                                                                                                                                                                     ]
+                                                                                                                                                          ]
+                                                                                                                                               ]
+                                                                                                                                    ]
+                                                                                                                         ]
+                                                                                                              ]
+                                                                                                   ]
+                                                                                        ]
+                                                                             ]
+                                                                  ]
+                                                       ]
+                                            ]
+                                ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#AreaControlMode
+:AreaControlMode rdf:type rdfs:Datatype ;
+                 owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                       owl:oneOf [ rdf:type rdf:List ;
+                                                   rdf:first "CF" ;
+                                                   rdf:rest [ rdf:type rdf:List ;
+                                                              rdf:first "CTL" ;
+                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                         rdf:first "OFF" ;
+                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                    rdf:first "TLB" ;
+                                                                                    rdf:rest rdf:nil
+                                                                                  ]
+                                                                       ]
+                                                            ]
+                                                 ]
+                                     ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#AutomaticDispInstTypeCommitment
+:AutomaticDispInstTypeCommitment rdf:type rdfs:Datatype ;
+                                 owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                                       owl:oneOf [ rdf:type rdf:List ;
+                                                                   rdf:first "SHUT_DOWN" ;
+                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                              rdf:first "START_UP" ;
+                                                                              rdf:rest rdf:nil
+                                                                            ]
+                                                                 ]
+                                                     ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#AutomaticDispatchMode
+:AutomaticDispatchMode rdf:type rdfs:Datatype ;
+                       owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                             owl:oneOf [ rdf:type rdf:List ;
+                                                         rdf:first "CONTINGENCY" ;
+                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                    rdf:first "INTERVAL" ;
+                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                               rdf:first "MANUAL" ;
+                                                                               rdf:rest rdf:nil
+                                                                             ]
+                                                                  ]
+                                                       ]
+                                           ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#BidCalculationBasis
+:BidCalculationBasis rdf:type rdfs:Datatype ;
+                     owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                           owl:oneOf [ rdf:type rdf:List ;
+                                                       rdf:first "COST_BASED" ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first "LMP_BASED" ;
+                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                             rdf:first "NEGOTIATED" ;
+                                                                             rdf:rest rdf:nil
+                                                                           ]
+                                                                ]
+                                                     ]
+                                         ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#BidMitigationStatus
+:BidMitigationStatus rdf:type rdfs:Datatype ;
+                     owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                           owl:oneOf [ rdf:type rdf:List ;
+                                                       rdf:first "B" ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first "L" ;
+                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                             rdf:first "M" ;
+                                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                                        rdf:first "O" ;
+                                                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                                                   rdf:first "R" ;
+                                                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                                                              rdf:first "S" ;
+                                                                                                              rdf:rest rdf:nil
+                                                                                                            ]
+                                                                                                 ]
+                                                                                      ]
+                                                                           ]
+                                                                ]
+                                                     ]
+                                         ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#BidMitigationType
+:BidMitigationType rdf:type rdfs:Datatype ;
+                   owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                         owl:oneOf [ rdf:type rdf:List ;
+                                                     rdf:first "F" ;
+                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                rdf:first "I" ;
+                                                                rdf:rest rdf:nil
+                                                              ]
+                                                   ]
+                                       ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#BidType
+:BidType rdf:type rdfs:Datatype ;
+         owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                               owl:oneOf [ rdf:type rdf:List ;
+                                           rdf:first "DEFAULT_ENERGY_BID" ;
+                                           rdf:rest [ rdf:type rdf:List ;
+                                                      rdf:first "DEFAULT_MINIMUM_LOAD_BID" ;
+                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                 rdf:first "DEFAULT_STARTUP_BID" ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ]
+                             ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#BidTypeRMR
+:BidTypeRMR rdf:type rdfs:Datatype ;
+            owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                  owl:oneOf [ rdf:type rdf:List ;
+                                              rdf:first "QUALIFIED_PREDISPATCH" ;
+                                              rdf:rest [ rdf:type rdf:List ;
+                                                         rdf:first "REQUIREMENTS" ;
+                                                         rdf:rest rdf:nil
+                                                       ]
+                                            ]
+                                ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRCategoryType
+:CRRCategoryType rdf:type rdfs:Datatype ;
+                 owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                       owl:oneOf [ rdf:type rdf:List ;
+                                                   rdf:first "NSR" ;
+                                                   rdf:rest [ rdf:type rdf:List ;
+                                                              rdf:first "PTP" ;
+                                                              rdf:rest rdf:nil
+                                                            ]
+                                                 ]
+                                     ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRHedgeType
+:CRRHedgeType rdf:type rdfs:Datatype ;
+              owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                    owl:oneOf [ rdf:type rdf:List ;
+                                                rdf:first "OBLIGATION" ;
+                                                rdf:rest [ rdf:type rdf:List ;
+                                                           rdf:first "OPTION" ;
+                                                           rdf:rest rdf:nil
+                                                         ]
+                                              ]
+                                  ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRRoleType
+:CRRRoleType rdf:type rdfs:Datatype ;
+             owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                   owl:oneOf [ rdf:type rdf:List ;
+                                               rdf:first "BUYER" ;
+                                               rdf:rest [ rdf:type rdf:List ;
+                                                          rdf:first "OWNER" ;
+                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                     rdf:first "SELLER" ;
+                                                                     rdf:rest rdf:nil
+                                                                   ]
+                                                        ]
+                                             ]
+                                 ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRSegmentType
+:CRRSegmentType rdf:type rdfs:Datatype ;
+                owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                      owl:oneOf [ rdf:type rdf:List ;
+                                                  rdf:first "AUC" ;
+                                                  rdf:rest [ rdf:type rdf:List ;
+                                                             rdf:first "CAP" ;
+                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                        rdf:first "CF" ;
+                                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                                   rdf:first "CVR" ;
+                                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                                              rdf:first "ETC" ;
+                                                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                                                         rdf:first "LSE" ;
+                                                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                                                    rdf:first "MT" ;
+                                                                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                                                                               rdf:first "TOR" ;
+                                                                                                                               rdf:rest rdf:nil
+                                                                                                                             ]
+                                                                                                                  ]
+                                                                                                       ]
+                                                                                            ]
+                                                                                 ]
+                                                                      ]
+                                                           ]
+                                                ]
+                                    ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CheckOutType
+:CheckOutType rdf:type rdfs:Datatype ;
+              owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                    owl:oneOf [ rdf:type rdf:List ;
+                                                rdf:first "AFTER_THE_FACT" ;
+                                                rdf:rest [ rdf:type rdf:List ;
+                                                           rdf:first "PRE_HOUR" ;
+                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                      rdf:first "PRE_SCHEDULE" ;
+                                                                      rdf:rest rdf:nil
+                                                                    ]
+                                                         ]
+                                              ]
+                                  ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CommitmentType
+:CommitmentType rdf:type rdfs:Datatype ;
+                owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                      owl:oneOf [ rdf:type rdf:List ;
+                                                  rdf:first "ISO" ;
+                                                  rdf:rest [ rdf:type rdf:List ;
+                                                             rdf:first "SELF" ;
+                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                        rdf:first "UC" ;
+                                                                        rdf:rest rdf:nil
+                                                                      ]
+                                                           ]
+                                                ]
+                                    ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ConstraintLimitType
+:ConstraintLimitType rdf:type rdfs:Datatype ;
+                     owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                           owl:oneOf [ rdf:type rdf:List ;
+                                                       rdf:first "MAXIMUM" ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first "MINIMUM" ;
+                                                                  rdf:rest rdf:nil
+                                                                ]
+                                                     ]
+                                         ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ConstraintRampType
+:ConstraintRampType rdf:type rdfs:Datatype ;
+                    owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                          owl:oneOf [ rdf:type rdf:List ;
+                                                      rdf:first "SLOW" ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                        ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ContractType
+:ContractType rdf:type rdfs:Datatype ;
+              owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                    owl:oneOf [ rdf:type rdf:List ;
+                                                rdf:first "CVR" ;
+                                                rdf:rest [ rdf:type rdf:List ;
+                                                           rdf:first "ETC" ;
+                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                      rdf:first "O" ;
+                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                 rdf:first "RMR" ;
+                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                            rdf:first "RMT" ;
+                                                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                                                       rdf:first "TE" ;
+                                                                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                                                                  rdf:first "TI" ;
+                                                                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                                                                             rdf:first "TOR" ;
+                                                                                                                             rdf:rest rdf:nil
+                                                                                                                           ]
+                                                                                                                ]
+                                                                                                     ]
+                                                                                          ]
+                                                                               ]
+                                                                    ]
+                                                         ]
+                                              ]
+                                  ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CostBasis
+:CostBasis rdf:type rdfs:Datatype ;
+           owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                 owl:oneOf [ rdf:type rdf:List ;
+                                             rdf:first "BIDC" ;
+                                             rdf:rest [ rdf:type rdf:List ;
+                                                        rdf:first "PRXC" ;
+                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                   rdf:first "REGC" ;
+                                                                   rdf:rest rdf:nil
+                                                                 ]
+                                                      ]
+                                           ]
+                               ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#DispatchResponseType
+:DispatchResponseType rdf:type rdfs:Datatype ;
+                      owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                            owl:oneOf [ rdf:type rdf:List ;
+                                                        rdf:first "ACCEPT" ;
+                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                   rdf:first "DECLINE" ;
+                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                              rdf:first "NON_RESPONSE" ;
+                                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                                         rdf:first "PARTIAL" ;
+                                                                                         rdf:rest rdf:nil
+                                                                                       ]
+                                                                            ]
+                                                                 ]
+                                                      ]
+                                          ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#EnergyPriceIndexType
+:EnergyPriceIndexType rdf:type rdfs:Datatype ;
+                      owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                            owl:oneOf [ rdf:type rdf:List ;
+                                                        rdf:first "BOTH" ;
+                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                   rdf:first "RETAIL" ;
+                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                              rdf:first "WHOLESALE" ;
+                                                                              rdf:rest rdf:nil
+                                                                            ]
+                                                                 ]
+                                                      ]
+                                          ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#EnergyProductType
+:EnergyProductType rdf:type rdfs:Datatype ;
+                   owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                         owl:oneOf [ rdf:type rdf:List ;
+                                                     rdf:first "DYN" ;
+                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                rdf:first "FIRM" ;
+                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                           rdf:first "NFRM" ;
+                                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                                      rdf:first "WHL" ;
+                                                                                      rdf:rest rdf:nil
+                                                                                    ]
+                                                                         ]
+                                                              ]
+                                                   ]
+                                       ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#EnergyTransactionType
+:EnergyTransactionType rdf:type rdfs:Datatype ;
+                       owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                             owl:oneOf [ rdf:type rdf:List ;
+                                                         rdf:first "approve" ;
+                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                    rdf:first "deny" ;
+                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                               rdf:first "study" ;
+                                                                               rdf:rest rdf:nil
+                                                                             ]
+                                                                  ]
+                                                       ]
+                                           ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#EquipmentStatusType
+:EquipmentStatusType rdf:type rdfs:Datatype ;
+                     owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                           owl:oneOf [ rdf:type rdf:List ;
+                                                       rdf:first "In" ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first "Out" ;
+                                                                  rdf:rest rdf:nil
+                                                                ]
+                                                     ]
+                                         ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ExecutionType
+:ExecutionType rdf:type rdfs:Datatype ;
+               owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                     owl:oneOf [ rdf:type rdf:List ;
+                                                 rdf:first "DA" ;
+                                                 rdf:rest [ rdf:type rdf:List ;
+                                                            rdf:first "HASP" ;
+                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                       rdf:first "RTD" ;
+                                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                                  rdf:first "RTPD" ;
+                                                                                  rdf:rest rdf:nil
+                                                                                ]
+                                                                     ]
+                                                          ]
+                                               ]
+                                   ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#FlagTypeRMR
+:FlagTypeRMR rdf:type rdfs:Datatype ;
+             owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                   owl:oneOf [ rdf:type rdf:List ;
+                                               rdf:first "1" ;
+                                               rdf:rest [ rdf:type rdf:List ;
+                                                          rdf:first "2" ;
+                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                     rdf:first "N" ;
+                                                                     rdf:rest rdf:nil
+                                                                   ]
+                                                        ]
+                                             ]
+                                 ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#FlowDirectionType
+:FlowDirectionType rdf:type rdfs:Datatype ;
+                   owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                         owl:oneOf [ rdf:type rdf:List ;
+                                                     rdf:first "Forward" ;
+                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                rdf:first "Reverse" ;
+                                                                rdf:rest rdf:nil
+                                                              ]
+                                                   ]
+                                       ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#FuelSource
+:FuelSource rdf:type rdfs:Datatype ;
+            owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                  owl:oneOf [ rdf:type rdf:List ;
+                                              rdf:first "BGAS" ;
+                                              rdf:rest [ rdf:type rdf:List ;
+                                                         rdf:first "BIOM" ;
+                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                    rdf:first "COAL" ;
+                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                               rdf:first "DIST" ;
+                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                          rdf:first "GAS" ;
+                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                     rdf:first "GEOT" ;
+                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                rdf:first "HRCV" ;
+                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                           rdf:first "NG" ;
+                                                                                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                      rdf:first "NNG" ;
+                                                                                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                 rdf:first "NONE" ;
+                                                                                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                            rdf:first "NUCL" ;
+                                                                                                                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                       rdf:first "OIL" ;
+                                                                                                                                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                  rdf:first "OTHR" ;
+                                                                                                                                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                             rdf:first "SOLR" ;
+                                                                                                                                                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                                        rdf:first "WAST" ;
+                                                                                                                                                                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                                                   rdf:first "WATR" ;
+                                                                                                                                                                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                                                              rdf:first "WIND" ;
+                                                                                                                                                                                                                              rdf:rest rdf:nil
+                                                                                                                                                                                                                            ]
+                                                                                                                                                                                                                 ]
+                                                                                                                                                                                                      ]
+                                                                                                                                                                                           ]
+                                                                                                                                                                                ]
+                                                                                                                                                                     ]
+                                                                                                                                                          ]
+                                                                                                                                               ]
+                                                                                                                                    ]
+                                                                                                                         ]
+                                                                                                              ]
+                                                                                                   ]
+                                                                                        ]
+                                                                             ]
+                                                                  ]
+                                                       ]
+                                            ]
+                                ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#InterTieDirection
+:InterTieDirection rdf:type rdfs:Datatype ;
+                   owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                         owl:oneOf [ rdf:type rdf:List ;
+                                                     rdf:first "E" ;
+                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                rdf:first "I" ;
+                                                                rdf:rest rdf:nil
+                                                              ]
+                                                   ]
+                                       ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#LoadForecastType
+:LoadForecastType rdf:type rdfs:Datatype ;
+                  owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                        owl:oneOf [ rdf:type rdf:List ;
+                                                    rdf:first "LFZ" ;
+                                                    rdf:rest [ rdf:type rdf:List ;
+                                                               rdf:first "LZMS" ;
+                                                               rdf:rest rdf:nil
+                                                             ]
+                                                  ]
+                                      ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MPMTestIdentifierType
+:MPMTestIdentifierType rdf:type rdfs:Datatype ;
+                       owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                             owl:oneOf [ rdf:type rdf:List ;
+                                                         rdf:first "1" ;
+                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                    rdf:first "2" ;
+                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                               rdf:first "3" ;
+                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                          rdf:first "4" ;
+                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                     rdf:first "5" ;
+                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                rdf:first "6" ;
+                                                                                                                rdf:rest rdf:nil
+                                                                                                              ]
+                                                                                                   ]
+                                                                                        ]
+                                                                             ]
+                                                                  ]
+                                                       ]
+                                           ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MPMTestMethodType
+:MPMTestMethodType rdf:type rdfs:Datatype ;
+                   owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                         owl:oneOf [ rdf:type rdf:List ;
+                                                     rdf:first "ALTERNATE" ;
+                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                rdf:first "NORMAL" ;
+                                                                rdf:rest rdf:nil
+                                                              ]
+                                                   ]
+                                       ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MPMTestOutcome
+:MPMTestOutcome rdf:type rdfs:Datatype ;
+                owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                      owl:oneOf [ rdf:type rdf:List ;
+                                                  rdf:first "D" ;
+                                                  rdf:rest [ rdf:type rdf:List ;
+                                                             rdf:first "F" ;
+                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                        rdf:first "P" ;
+                                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                                   rdf:first "S" ;
+                                                                                   rdf:rest rdf:nil
+                                                                                 ]
+                                                                      ]
+                                                           ]
+                                                ]
+                                    ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MQSCHGType
+:MQSCHGType rdf:type rdfs:Datatype ;
+            owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                  owl:oneOf [ rdf:type rdf:List ;
+                                              rdf:first "ADD" ;
+                                              rdf:rest [ rdf:type rdf:List ;
+                                                         rdf:first "CHG" ;
+                                                         rdf:rest rdf:nil
+                                                       ]
+                                            ]
+                                ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MQSInstructionSource
+:MQSInstructionSource rdf:type rdfs:Datatype ;
+                      owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                            owl:oneOf [ rdf:type rdf:List ;
+                                                        rdf:first "ACT" ;
+                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                   rdf:first "INS" ;
+                                                                   rdf:rest rdf:nil
+                                                                 ]
+                                                      ]
+                                          ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketEventStatusKind
+:MarketEventStatusKind rdf:type rdfs:Datatype ;
+                       owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                             owl:oneOf [ rdf:type rdf:List ;
+                                                         rdf:first "active" ;
+                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                    rdf:first "cancelled" ;
+                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                               rdf:first "completed" ;
+                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                          rdf:first "planned" ;
+                                                                                          rdf:rest rdf:nil
+                                                                                        ]
+                                                                             ]
+                                                                  ]
+                                                       ]
+                                           ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketProductSelfSchedType
+:MarketProductSelfSchedType rdf:type rdfs:Datatype ;
+                            owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                                  owl:oneOf [ rdf:type rdf:List ;
+                                                              rdf:first "ETC" ;
+                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                         rdf:first "LPT" ;
+                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                    rdf:first "PT" ;
+                                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                                               rdf:first "RA" ;
+                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                          rdf:first "RGMR" ;
+                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                     rdf:first "RMR" ;
+                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                rdf:first "RMT" ;
+                                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                           rdf:first "SP" ;
+                                                                                                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                      rdf:first "TOR" ;
+                                                                                                                                                      rdf:rest rdf:nil
+                                                                                                                                                    ]
+                                                                                                                                         ]
+                                                                                                                              ]
+                                                                                                                   ]
+                                                                                                        ]
+                                                                                             ]
+                                                                                  ]
+                                                                       ]
+                                                            ]
+                                                ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketProductType
+:MarketProductType rdf:type rdfs:Datatype ;
+                   owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                         owl:oneOf [ rdf:type rdf:List ;
+                                                     rdf:first "EN" ;
+                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                rdf:first "LFD" ;
+                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                           rdf:first "LFU" ;
+                                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                                      rdf:first "NR" ;
+                                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                                 rdf:first "RC" ;
+                                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                                            rdf:first "RD" ;
+                                                                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                                                                       rdf:first "REG" ;
+                                                                                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                  rdf:first "RU" ;
+                                                                                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                             rdf:first "SR" ;
+                                                                                                                                             rdf:rest rdf:nil
+                                                                                                                                           ]
+                                                                                                                                ]
+                                                                                                                     ]
+                                                                                                          ]
+                                                                                               ]
+                                                                                    ]
+                                                                         ]
+                                                              ]
+                                                   ]
+                                       ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketType
+:MarketType rdf:type rdfs:Datatype ;
+            owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                  owl:oneOf [ rdf:type rdf:List ;
+                                              rdf:first "DAM" ;
+                                              rdf:rest [ rdf:type rdf:List ;
+                                                         rdf:first "HAM" ;
+                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                    rdf:first "RTM" ;
+                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                               rdf:first "RUC" ;
+                                                                               rdf:rest rdf:nil
+                                                                             ]
+                                                                  ]
+                                                       ]
+                                            ]
+                                ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MktAccountKind
+:MktAccountKind rdf:type rdfs:Datatype ;
+                owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                      owl:oneOf [ rdf:type rdf:List ;
+                                                  rdf:first "estimate" ;
+                                                  rdf:rest [ rdf:type rdf:List ;
+                                                             rdf:first "normal" ;
+                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                        rdf:first "reversal" ;
+                                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                                   rdf:first "statistical" ;
+                                                                                   rdf:rest rdf:nil
+                                                                                 ]
+                                                                      ]
+                                                           ]
+                                                ]
+                                    ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MktBillMediaKind
+:MktBillMediaKind rdf:type rdfs:Datatype ;
+                  owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                        owl:oneOf [ rdf:type rdf:List ;
+                                                    rdf:first "electronic" ;
+                                                    rdf:rest [ rdf:type rdf:List ;
+                                                               rdf:first "other" ;
+                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                          rdf:first "paper" ;
+                                                                          rdf:rest rdf:nil
+                                                                        ]
+                                                             ]
+                                                  ]
+                                      ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MktInvoiceLineItemKind
+:MktInvoiceLineItemKind rdf:type rdfs:Datatype ;
+                        owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                              owl:oneOf [ rdf:type rdf:List ;
+                                                          rdf:first "initial" ;
+                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                     rdf:first "other" ;
+                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                rdf:first "recalculation" ;
+                                                                                rdf:rest rdf:nil
+                                                                              ]
+                                                                   ]
+                                                        ]
+                                            ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#OnOff
+:OnOff rdf:type rdfs:Datatype ;
+       owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                             owl:oneOf [ rdf:type rdf:List ;
+                                         rdf:first "OFF" ;
+                                         rdf:rest [ rdf:type rdf:List ;
+                                                    rdf:first "ON" ;
+                                                    rdf:rest rdf:nil
+                                                  ]
+                                       ]
+                           ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ParticipationCategoryMPM
+:ParticipationCategoryMPM rdf:type rdfs:Datatype ;
+                          owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                                owl:oneOf [ rdf:type rdf:List ;
+                                                            rdf:first "L" ;
+                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                       rdf:first "N" ;
+                                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                                  rdf:first "S" ;
+                                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                                             rdf:first "Y" ;
+                                                                                             rdf:rest rdf:nil
+                                                                                           ]
+                                                                                ]
+                                                                     ]
+                                                          ]
+                                              ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#PassIndicatorType
+:PassIndicatorType rdf:type rdfs:Datatype ;
+                   owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                         owl:oneOf [ rdf:type rdf:List ;
+                                                     rdf:first "DA" ;
+                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                rdf:first "HA-SCUC" ;
+                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                           rdf:first "MPM-1" ;
+                                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                                      rdf:first "MPM-2" ;
+                                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                                 rdf:first "MPM-3" ;
+                                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                                            rdf:first "MPM-4" ;
+                                                                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                                                                       rdf:first "RTED" ;
+                                                                                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                  rdf:first "RTPD" ;
+                                                                                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                             rdf:first "RUC" ;
+                                                                                                                                             rdf:rest rdf:nil
+                                                                                                                                           ]
+                                                                                                                                ]
+                                                                                                                     ]
+                                                                                                          ]
+                                                                                               ]
+                                                                                    ]
+                                                                         ]
+                                                              ]
+                                                   ]
+                                       ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#PurposeFlagType
+:PurposeFlagType rdf:type rdfs:Datatype ;
+                 owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                       owl:oneOf [ rdf:type rdf:List ;
+                                                   rdf:first "M" ;
+                                                   rdf:rest [ rdf:type rdf:List ;
+                                                              rdf:first "R" ;
+                                                              rdf:rest rdf:nil
+                                                            ]
+                                                 ]
+                                     ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#RampCurveType
+:RampCurveType rdf:type rdfs:Datatype ;
+               owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                     owl:oneOf [ rdf:type rdf:List ;
+                                                 rdf:first "0" ;
+                                                 rdf:rest [ rdf:type rdf:List ;
+                                                            rdf:first "1" ;
+                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                       rdf:first "2" ;
+                                                                       rdf:rest rdf:nil
+                                                                     ]
+                                                          ]
+                                               ]
+                                   ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#RampModeType
+:RampModeType rdf:type rdfs:Datatype ;
+              owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                    owl:oneOf [ rdf:type rdf:List ;
+                                                rdf:first "0" ;
+                                                rdf:rest [ rdf:type rdf:List ;
+                                                           rdf:first "1" ;
+                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                      rdf:first "2" ;
+                                                                      rdf:rest rdf:nil
+                                                                    ]
+                                                         ]
+                                              ]
+                                  ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#RampRateCondition
+:RampRateCondition rdf:type rdfs:Datatype ;
+                   owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                         owl:oneOf [ rdf:type rdf:List ;
+                                                     rdf:first "BEST" ;
+                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                rdf:first "NA" ;
+                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                           rdf:first "NORMAL" ;
+                                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                                      rdf:first "WORST" ;
+                                                                                      rdf:rest rdf:nil
+                                                                                    ]
+                                                                         ]
+                                                              ]
+                                                   ]
+                                       ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#RampRateType
+:RampRateType rdf:type rdfs:Datatype ;
+              owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                    owl:oneOf [ rdf:type rdf:List ;
+                                                rdf:first "INTERTIE" ;
+                                                rdf:rest [ rdf:type rdf:List ;
+                                                           rdf:first "LD_DROP" ;
+                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                      rdf:first "LD_PICKUP" ;
+                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                 rdf:first "OP" ;
+                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                            rdf:first "OP_RES" ;
+                                                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                                                       rdf:first "REG" ;
+                                                                                                       rdf:rest rdf:nil
+                                                                                                     ]
+                                                                                          ]
+                                                                               ]
+                                                                    ]
+                                                         ]
+                                              ]
+                                  ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ReserveRequirementType
+:ReserveRequirementType rdf:type rdfs:Datatype ;
+                        owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                              owl:oneOf [ rdf:type rdf:List ;
+                                                          rdf:first "CONT" ;
+                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                     rdf:first "OPRSV" ;
+                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                rdf:first "REG" ;
+                                                                                rdf:rest rdf:nil
+                                                                              ]
+                                                                   ]
+                                                        ]
+                                            ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ResourceAncillaryServiceType
+:ResourceAncillaryServiceType rdf:type rdfs:Datatype ;
+                              owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                                    owl:oneOf [ rdf:type rdf:List ;
+                                                                rdf:first "BLACKSTART" ;
+                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                           rdf:first "DSR" ;
+                                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                                      rdf:first "NONSPIN" ;
+                                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                                 rdf:first "PIRP" ;
+                                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                                            rdf:first "REGDN" ;
+                                                                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                                                                       rdf:first "REGUP" ;
+                                                                                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                  rdf:first "RMR" ;
+                                                                                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                             rdf:first "RRSPIN" ;
+                                                                                                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                        rdf:first "RUC" ;
+                                                                                                                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                   rdf:first "SYNCCOND" ;
+                                                                                                                                                                   rdf:rest rdf:nil
+                                                                                                                                                                 ]
+                                                                                                                                                      ]
+                                                                                                                                           ]
+                                                                                                                                ]
+                                                                                                                     ]
+                                                                                                          ]
+                                                                                               ]
+                                                                                    ]
+                                                                         ]
+                                                              ]
+                                                  ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ResourceAssnType
+:ResourceAssnType rdf:type rdfs:Datatype ;
+                  owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                        owl:oneOf [ rdf:type rdf:List ;
+                                                    rdf:first "CSNK" ;
+                                                    rdf:rest [ rdf:type rdf:List ;
+                                                               rdf:first "CSRC" ;
+                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                          rdf:first "LSE" ;
+                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                     rdf:first "RMR" ;
+                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                rdf:first "SC" ;
+                                                                                                rdf:rest rdf:nil
+                                                                                              ]
+                                                                                   ]
+                                                                        ]
+                                                             ]
+                                                  ]
+                                      ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ResourceCapacityType
+:ResourceCapacityType rdf:type rdfs:Datatype ;
+                      owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                            owl:oneOf [ rdf:type rdf:List ;
+                                                        rdf:first "FO" ;
+                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                   rdf:first "MO" ;
+                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                              rdf:first "NR" ;
+                                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                                         rdf:first "RA" ;
+                                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                                    rdf:first "RD" ;
+                                                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                                                               rdf:first "RMR" ;
+                                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                                          rdf:first "RU" ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first "SR" ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                                                             ]
+                                                                                                  ]
+                                                                                       ]
+                                                                            ]
+                                                                 ]
+                                                      ]
+                                          ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ResourceLimitIndicator
+:ResourceLimitIndicator rdf:type rdfs:Datatype ;
+                        owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                              owl:oneOf [ rdf:type rdf:List ;
+                                                          rdf:first "LOWER" ;
+                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                     rdf:first "UPPER" ;
+                                                                     rdf:rest rdf:nil
+                                                                   ]
+                                                        ]
+                                            ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ResourceRegistrationStatus
+:ResourceRegistrationStatus rdf:type rdfs:Datatype ;
+                            owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                                  owl:oneOf [ rdf:type rdf:List ;
+                                                              rdf:first "Active" ;
+                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                         rdf:first "Decommissioned" ;
+                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                    rdf:first "Mothballed" ;
+                                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                                               rdf:first "Planned" ;
+                                                                                               rdf:rest rdf:nil
+                                                                                             ]
+                                                                                  ]
+                                                                       ]
+                                                            ]
+                                                ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ResultsConstraintType
+:ResultsConstraintType rdf:type rdfs:Datatype ;
+                       owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                             owl:oneOf [ rdf:type rdf:List ;
+                                                         rdf:first "Actual" ;
+                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                    rdf:first "Contingency" ;
+                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                               rdf:first "FG_act" ;
+                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                          rdf:first "Interface" ;
+                                                                                          rdf:rest rdf:nil
+                                                                                        ]
+                                                                             ]
+                                                                  ]
+                                                       ]
+                                           ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#SelfSchedReferenceType
+:SelfSchedReferenceType rdf:type rdfs:Datatype ;
+                        owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                              owl:oneOf [ rdf:type rdf:List ;
+                                                          rdf:first "ETC" ;
+                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                     rdf:first "TOR" ;
+                                                                     rdf:rest rdf:nil
+                                                                   ]
+                                                        ]
+                                            ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#SelfScheduleBreakdownType
+:SelfScheduleBreakdownType rdf:type rdfs:Datatype ;
+                           owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                                 owl:oneOf [ rdf:type rdf:List ;
+                                                             rdf:first "ETC" ;
+                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                        rdf:first "LPT" ;
+                                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                                   rdf:first "TOR" ;
+                                                                                   rdf:rest rdf:nil
+                                                                                 ]
+                                                                      ]
+                                                           ]
+                                               ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#SwitchStatusType
+:SwitchStatusType rdf:type rdfs:Datatype ;
+                  owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                        owl:oneOf [ rdf:type rdf:List ;
+                                                    rdf:first "Closed" ;
+                                                    rdf:rest [ rdf:type rdf:List ;
+                                                               rdf:first "Open" ;
+                                                               rdf:rest rdf:nil
+                                                             ]
+                                                  ]
+                                      ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#TRType
+:TRType rdf:type rdfs:Datatype ;
+        owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                              owl:oneOf [ rdf:type rdf:List ;
+                                          rdf:first "CHAIN" ;
+                                          rdf:rest [ rdf:type rdf:List ;
+                                                     rdf:first "INDIVIDUAL" ;
+                                                     rdf:rest rdf:nil
+                                                   ]
+                                        ]
+                            ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#TimeOfUse
+:TimeOfUse rdf:type rdfs:Datatype ;
+           owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                 owl:oneOf [ rdf:type rdf:List ;
+                                             rdf:first "24HR" ;
+                                             rdf:rest [ rdf:type rdf:List ;
+                                                        rdf:first "OFF" ;
+                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                   rdf:first "ON" ;
+                                                                   rdf:rest rdf:nil
+                                                                 ]
+                                                      ]
+                                           ]
+                               ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#TradeType
+:TradeType rdf:type rdfs:Datatype ;
+           owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                 owl:oneOf [ rdf:type rdf:List ;
+                                             rdf:first "AST" ;
+                                             rdf:rest [ rdf:type rdf:List ;
+                                                        rdf:first "IST" ;
+                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                   rdf:first "UCT" ;
+                                                                   rdf:rest rdf:nil
+                                                                 ]
+                                                      ]
+                                           ]
+                               ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#UnitType
+:UnitType rdf:type rdfs:Datatype ;
+          owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                owl:oneOf [ rdf:type rdf:List ;
+                                            rdf:first "CCYC" ;
+                                            rdf:rest [ rdf:type rdf:List ;
+                                                       rdf:first "GTUR" ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first "HYDR" ;
+                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                             rdf:first "OTHR" ;
+                                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                                        rdf:first "PHOT" ;
+                                                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                                                   rdf:first "PTUR" ;
+                                                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                                                              rdf:first "RECP" ;
+                                                                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                                                                         rdf:first "STUR" ;
+                                                                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                    rdf:first "SYNC" ;
+                                                                                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                               rdf:first "WIND" ;
+                                                                                                                                               rdf:rest rdf:nil
+                                                                                                                                             ]
+                                                                                                                                  ]
+                                                                                                                       ]
+                                                                                                            ]
+                                                                                                 ]
+                                                                                      ]
+                                                                           ]
+                                                                ]
+                                                     ]
+                                          ]
+                              ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo
+:YesNo rdf:type rdfs:Datatype ;
+       owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                             owl:oneOf [ rdf:type rdf:List ;
+                                         rdf:first "NO" ;
+                                         rdf:rest [ rdf:type rdf:List ;
+                                                    rdf:first "YES" ;
+                                                    rdf:rest rdf:nil
+                                                  ]
+                                       ]
+                           ] .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

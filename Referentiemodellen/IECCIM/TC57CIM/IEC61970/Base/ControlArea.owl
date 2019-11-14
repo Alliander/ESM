@@ -1,0 +1,288 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlAreaTypeKind
+:ControlAreaTypeKind rdf:type rdfs:Datatype ;
+                     owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                           owl:oneOf [ rdf:type rdf:List ;
+                                                       rdf:first "AGC" ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first "Forecast" ;
+                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                             rdf:first "Interchange" ;
+                                                                             rdf:rest rdf:nil
+                                                                           ]
+                                                                ]
+                                                     ]
+                                         ] .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltGeneratingUnitMeas_ControlAreaGeneratingUnit
+:AltGeneratingUnitMeas_ControlAreaGeneratingUnit rdf:type owl:ObjectProperty ;
+                                                 rdfs:domain :AltGeneratingUnitMeas ;
+                                                 rdfs:range :ControlAreaGeneratingUnit ;
+                                                 rdfs:comment "The link to prioritized measurements for this GeneratingUnit.The control aread generating unit to which the prioritized measurement assignment is applied." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltTieMeas_TieFlow
+:AltTieMeas_TieFlow rdf:type owl:ObjectProperty ;
+                    rdfs:domain :AltTieMeas ;
+                    rdfs:range :TieFlow ;
+                    rdfs:comment "The primary and alternate tie flow measurements associated with the tie flow.The tie flow of the alternate measurements." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlAreaGeneratingUnit_AltGeneratingUnitMeas
+:ControlAreaGeneratingUnit_AltGeneratingUnitMeas rdf:type owl:ObjectProperty ;
+                                                 owl:inverseOf :AltGeneratingUnitMeas_ControlAreaGeneratingUnit ;
+                                                 rdf:type owl:FunctionalProperty ;
+                                                 rdfs:domain :ControlAreaGeneratingUnit ;
+                                                 rdfs:range :AltGeneratingUnitMeas ;
+                                                 rdfs:comment "The link to prioritized measurements for this GeneratingUnit.The control aread generating unit to which the prioritized measurement assignment is applied." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlAreaGeneratingUnit_ControlArea
+:ControlAreaGeneratingUnit_ControlArea rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :ControlAreaGeneratingUnit ;
+                                       rdfs:range :ControlArea ;
+                                       rdfs:comment "The generating unit specificaitons for the control area.The parent control area for the generating unit specifications." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea_ControlAreaGeneratingUnit
+:ControlArea_ControlAreaGeneratingUnit rdf:type owl:ObjectProperty ;
+                                       owl:inverseOf :ControlAreaGeneratingUnit_ControlArea ;
+                                       rdf:type owl:FunctionalProperty ;
+                                       rdfs:domain :ControlArea ;
+                                       rdfs:range :ControlAreaGeneratingUnit ;
+                                       rdfs:comment "The generating unit specificaitons for the control area.The parent control area for the generating unit specifications." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea_TieFlow
+:ControlArea_TieFlow rdf:type owl:ObjectProperty ;
+                     owl:inverseOf :TieFlow_ControlArea ;
+                     rdf:type owl:FunctionalProperty ;
+                     rdfs:domain :ControlArea ;
+                     rdfs:range :TieFlow ;
+                     rdfs:comment "The tie flows associated with the control area.The control area of the tie flows." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea_netInterchange
+:ControlArea_netInterchange rdf:type owl:ObjectProperty ;
+                            rdfs:domain :ControlArea ;
+                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
+                            rdfs:comment "The specified positive net interchange into the control area, i.e. positive sign means flow in to the area." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea_pTolerance
+:ControlArea_pTolerance rdf:type owl:ObjectProperty ;
+                        rdfs:domain :ControlArea ;
+                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
+                        rdfs:comment "Active power net interchange tolerance" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#TieFlow_AltTieMeas
+:TieFlow_AltTieMeas rdf:type owl:ObjectProperty ;
+                    owl:inverseOf :AltTieMeas_TieFlow ;
+                    rdf:type owl:FunctionalProperty ;
+                    rdfs:domain :TieFlow ;
+                    rdfs:range :AltTieMeas ;
+                    rdfs:comment "The primary and alternate tie flow measurements associated with the tie flow.The tie flow of the alternate measurements." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#TieFlow_ControlArea
+:TieFlow_ControlArea rdf:type owl:ObjectProperty ;
+                     rdfs:domain :TieFlow ;
+                     rdfs:range :ControlArea ;
+                     rdfs:comment "The tie flows associated with the control area.The control area of the tie flows." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltGeneratingUnitMeas_priority
+:AltGeneratingUnitMeas_priority rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :AltGeneratingUnitMeas ;
+                                rdfs:range xsd:nonNegativeInteger ;
+                                rdfs:comment "Priority of a measurement usage.   Lower numbers have first priority." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltTieMeas_priority
+:AltTieMeas_priority rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :AltTieMeas ;
+                     rdfs:range xsd:nonNegativeInteger ;
+                     rdfs:comment "Priority of a measurement usage.   Lower numbers have first priority." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea_type
+:ControlArea_type rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :ControlArea ;
+                  rdfs:range :ControlAreaTypeKind ;
+                  rdfs:comment "The primary type of control area definition used to determine if this is used for automatic generation control, for planning interchange control, or other purposes.   A control area specified with primary type of automatic generation control could still be forecast and used as an interchange area in power flow analysis." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#TieFlow_positiveFlowIn
+:TieFlow_positiveFlowIn rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :TieFlow ;
+                        rdfs:range xsd:boolean ;
+                        rdfs:comment "True if the flow into the terminal (load convention) is also flow into the control area.  For example, this attribute should be true if using the tie line terminal further away from the control area. For example to represent a tie to a shunt component (like a load or generator) in another area, this is the near end of a branch and this attribute would be specified as false." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltGeneratingUnitMeas
+:AltGeneratingUnitMeas rdf:type owl:Class ;
+                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                         owl:onProperty :AltGeneratingUnitMeas_ControlAreaGeneratingUnit ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :AltGeneratingUnitMeas
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :AltGeneratingUnitMeas_priority ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:nonNegativeInteger
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :AltGeneratingUnitMeas_priority ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:nonNegativeInteger
+                                       ] ;
+                       rdfs:comment "A prioritized measurement to be used for the generating unit in the control area specificaiton." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltTieMeas
+:AltTieMeas rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :AltTieMeas_TieFlow ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :AltTieMeas
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :AltTieMeas_priority ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :AltTieMeas_priority ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:nonNegativeInteger
+                            ] ;
+            rdfs:comment "A prioritized measurement to be used for the tie flow as part of the control area specification." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea
+:ControlArea rdf:type owl:Class ;
+             rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource> ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :ControlArea_netInterchange ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :ControlArea_pTolerance ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :ControlArea_ControlAreaGeneratingUnit ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :ControlArea
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :ControlArea_TieFlow ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :ControlArea
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :ControlArea_netInterchange ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :ControlArea_pTolerance ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :ControlArea_type ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange :ControlAreaTypeKind
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :ControlArea_type ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange :ControlAreaTypeKind
+                             ] ;
+             rdfs:comment "A control area is a grouping of generating units and/or loads and a cutset of tie lines (as terminals) which may be used for a variety of purposes including automatic generation control, powerflow solution area interchange control specification, and input to load forecasting.   Note that any number of overlapping control area specifications can be superimposed on the physical model." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlAreaGeneratingUnit
+:ControlAreaGeneratingUnit rdf:type owl:Class ;
+                           rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ControlAreaGeneratingUnit_ControlArea ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onClass :ControlAreaGeneratingUnit
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ControlAreaGeneratingUnit_AltGeneratingUnitMeas ;
+                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onClass :ControlAreaGeneratingUnit
+                                           ] ;
+                           rdfs:comment "A control area generating unit. This class is needed so that alternate control area definitions may include the same generating unit.   Note only one instance within a control area should reference a specific generating unit." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#TieFlow
+:TieFlow rdf:type owl:Class ;
+         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                           owl:onProperty :TieFlow_ControlArea ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :TieFlow
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :TieFlow_AltTieMeas ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :TieFlow
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :TieFlow_positiveFlowIn ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:boolean
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :TieFlow_positiveFlowIn ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:boolean
+                         ] ;
+         rdfs:comment "A flow specification in terms of location and direction for a control area." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

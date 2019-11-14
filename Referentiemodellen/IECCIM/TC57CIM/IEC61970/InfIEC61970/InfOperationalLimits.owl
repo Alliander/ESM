@@ -1,0 +1,456 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#EquipmentLimitSeriesComponent_SeriesEquipmentDependentLimit
+:EquipmentLimitSeriesComponent_SeriesEquipmentDependentLimit rdf:type owl:ObjectProperty ;
+                                                             rdfs:domain :EquipmentLimitSeriesComponent ;
+                                                             rdfs:range :SeriesEquipmentDependentLimit ;
+                                                             rdfs:comment "Equipment linkages that participates in the limit calculation.Calculation in which the refernce to equipment applies." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#LimitScalingLimit_limitScalingPercent
+:LimitScalingLimit_limitScalingPercent rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :LimitScalingLimit ;
+                                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
+                                       rdfs:comment """The associated source limit is scaled by this value to compute the limit of the dependency model.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#OperatonalLimitTypeScaling_scalingPercent
+:OperatonalLimitTypeScaling_scalingPercent rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :OperatonalLimitTypeScaling ;
+                                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
+                                           rdfs:comment """The percentage scaling of the source limit to compute the target limit.  Applys to operational limits within an operaitonal limit set when both source and target operational limit types exist.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledActivePowerLimitValue_value
+:ScheduledActivePowerLimitValue_value rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :ScheduledActivePowerLimitValue ;
+                                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledApparentPowerLimitValue_value
+:ScheduledApparentPowerLimitValue_value rdf:type owl:ObjectProperty ;
+                                        rdfs:domain :ScheduledApparentPowerLimitValue ;
+                                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower> ;
+                                        rdfs:comment "The apparent power limit value for the scheduled time." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledCurrentLimitValue_value
+:ScheduledCurrentLimitValue_value rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :ScheduledCurrentLimitValue ;
+                                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                                  rdfs:comment "The current flow limit value applicable at the scheduled time." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledLimitDependency_ScheduledLimitValues
+:ScheduledLimitDependency_ScheduledLimitValues rdf:type owl:ObjectProperty ;
+                                               owl:inverseOf :ScheduledLimitValue_ScheduledLimitDependency ;
+                                               rdf:type owl:FunctionalProperty ;
+                                               rdfs:domain :ScheduledLimitDependency ;
+                                               rdfs:range :ScheduledLimitValue ;
+                                               rdfs:comment "The scheduled limit values for this limit dependency." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledLimitValue_ScheduledLimitDependency
+:ScheduledLimitValue_ScheduledLimitDependency rdf:type owl:ObjectProperty ;
+                                              rdfs:domain :ScheduledLimitValue ;
+                                              rdfs:range :ScheduledLimitDependency ;
+                                              rdfs:comment "The scheduled limit values for this limit dependency." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledVoltageLimitValue_value
+:ScheduledVoltageLimitValue_value rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :ScheduledVoltageLimitValue ;
+                                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                                  rdfs:comment "The voltage limit value for the scheduled time." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#SeriesEquipmentDependentLimit_EquipmentLimitSeriesComponent
+:SeriesEquipmentDependentLimit_EquipmentLimitSeriesComponent rdf:type owl:ObjectProperty ;
+                                                             owl:inverseOf :EquipmentLimitSeriesComponent_SeriesEquipmentDependentLimit ;
+                                                             rdf:type owl:FunctionalProperty ;
+                                                             rdfs:domain :SeriesEquipmentDependentLimit ;
+                                                             rdfs:range :EquipmentLimitSeriesComponent ;
+                                                             rdfs:comment "Equipment linkages that participates in the limit calculation.Calculation in which the refernce to equipment applies." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#TemperatureDependentLimitPoint_TemperatureDependentLimitTable
+:TemperatureDependentLimitPoint_TemperatureDependentLimitTable rdf:type owl:ObjectProperty ;
+                                                               rdfs:domain :TemperatureDependentLimitPoint ;
+                                                               rdfs:range :TemperatureDependentLimitTable ;
+                                                               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#TemperatureDependentLimitPoint_limitPercent
+:TemperatureDependentLimitPoint_limitPercent rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :TemperatureDependentLimitPoint ;
+                                             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
+                                             rdfs:comment """The scaling of the operational limit in percent.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#TemperatureDependentLimitPoint_temperature
+:TemperatureDependentLimitPoint_temperature rdf:type owl:ObjectProperty ;
+                                            rdfs:domain :TemperatureDependentLimitPoint ;
+                                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Temperature> ;
+                                            rdfs:comment """The temperature of the table point.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#TemperatureDependentLimitTable_TemperatureLimitTablePoint
+:TemperatureDependentLimitTable_TemperatureLimitTablePoint rdf:type owl:ObjectProperty ;
+                                                           owl:inverseOf :TemperatureDependentLimitPoint_TemperatureDependentLimitTable ;
+                                                           rdf:type owl:FunctionalProperty ;
+                                                           rdfs:domain :TemperatureDependentLimitTable ;
+                                                           rdfs:range :TemperatureDependentLimitPoint ;
+                                                           rdfs:comment "" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#TemperaturePolynomialLimit_coefficient0
+:TemperaturePolynomialLimit_coefficient0 rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :TemperaturePolynomialLimit ;
+                                         rdfs:range xsd:float ;
+                                         rdfs:comment """The polinomial coefficent of power 0.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#TemperaturePolynomialLimit_coefficient1
+:TemperaturePolynomialLimit_coefficient1 rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :TemperaturePolynomialLimit ;
+                                         rdfs:range xsd:float ;
+                                         rdfs:comment """The polinomial coefficent of power 1.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#TemperaturePolynomialLimit_coefficient2
+:TemperaturePolynomialLimit_coefficient2 rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :TemperaturePolynomialLimit ;
+                                         rdfs:range xsd:float ;
+                                         rdfs:comment """The polinomial coefficent of power 2.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#TemperaturePolynomialLimit_coefficient3
+:TemperaturePolynomialLimit_coefficient3 rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :TemperaturePolynomialLimit ;
+                                         rdfs:range xsd:float ;
+                                         rdfs:comment """The polinomial coefficent of power 3.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#TemperaturePolynomialLimit_coefficient4
+:TemperaturePolynomialLimit_coefficient4 rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :TemperaturePolynomialLimit ;
+                                         rdfs:range xsd:float ;
+                                         rdfs:comment """The polinomial coefficent of power 4.
+""" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Temperature
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Temperature> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#EnvironmentalDependentLimit
+:EnvironmentalDependentLimit rdf:type owl:Class ;
+                             rdfs:subClassOf :LimitDependency ;
+                             rdfs:comment "This is a environmental based limit dependency model for calculating operational limits." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#EquipmentLimitSeriesComponent
+:EquipmentLimitSeriesComponent rdf:type owl:Class ;
+                               rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :EquipmentLimitSeriesComponent_SeriesEquipmentDependentLimit ;
+                                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass :EquipmentLimitSeriesComponent
+                                               ] ;
+                               rdfs:comment "This represents one instance of an equipment that contributes to the calculation of an operational limit." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#LimitDependency
+:LimitDependency rdf:type owl:Class ;
+                 rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ;
+                 rdfs:comment "A limit calculation model used to compute an operational limit based on external input such as temperature. These are intended to be shared among operational limits with the same calculation form that apply to a piece of equipment.." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#LimitScalingLimit
+:LimitScalingLimit rdf:type owl:Class ;
+                   rdfs:subClassOf :LimitDependency ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :LimitScalingLimit_limitScalingPercent ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :LimitScalingLimit_limitScalingPercent ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                   ] ;
+                   rdfs:comment "Specifies an operational  limit is calculated by scaling another operational limit." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#OperatonalLimitTypeScaling
+:OperatonalLimitTypeScaling rdf:type owl:Class ;
+                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                              owl:onProperty :OperatonalLimitTypeScaling_scalingPercent ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :OperatonalLimitTypeScaling_scalingPercent ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                            ] ;
+                            rdfs:comment "One operational limit type scales values of another operational limit type when under the same operational limit set.    This applies to any operational limit assigned to the target operational limit type and without other limit dependency models. " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledActivePowerLimitValue
+:ScheduledActivePowerLimitValue rdf:type owl:Class ;
+                                rdfs:subClassOf :ScheduledLimitValue ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :ScheduledActivePowerLimitValue_value ;
+                                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :ScheduledActivePowerLimitValue_value ;
+                                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                                                ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledApparentPowerLimitValue
+:ScheduledApparentPowerLimitValue rdf:type owl:Class ;
+                                  rdfs:subClassOf :ScheduledLimitValue ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :ScheduledApparentPowerLimitValue_value ;
+                                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower>
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :ScheduledApparentPowerLimitValue_value ;
+                                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower>
+                                                  ] ;
+                                  rdfs:comment "A time scheduled value for apparent power limit." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledCurrentLimitValue
+:ScheduledCurrentLimitValue rdf:type owl:Class ;
+                            rdfs:subClassOf :ScheduledLimitValue ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :ScheduledCurrentLimitValue_value ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :ScheduledCurrentLimitValue_value ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                            ] ;
+                            rdfs:comment "A current limit that is scheduled." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledLimitDependency
+:ScheduledLimitDependency rdf:type owl:Class ;
+                          rdfs:subClassOf :LimitDependency ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :ScheduledLimitDependency_ScheduledLimitValues ;
+                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass :ScheduledLimitDependency
+                                          ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledLimitValue
+:ScheduledLimitValue rdf:type owl:Class ;
+                     rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :ScheduledLimitValue_ScheduledLimitDependency ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onClass :ScheduledLimitValue
+                                     ] ;
+                     rdfs:comment "A limit that is applicable during a scheduled time period." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledVoltageLimitValue
+:ScheduledVoltageLimitValue rdf:type owl:Class ;
+                            rdfs:subClassOf :ScheduledLimitValue ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :ScheduledVoltageLimitValue_value ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :ScheduledVoltageLimitValue_value ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                            ] ;
+                            rdfs:comment "A voltage limit value for a scheduled time." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#SeriesEquipmentDependentLimit
+:SeriesEquipmentDependentLimit rdf:type owl:Class ;
+                               rdfs:subClassOf :LimitDependency ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :SeriesEquipmentDependentLimit_EquipmentLimitSeriesComponent ;
+                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass :SeriesEquipmentDependentLimit
+                                               ] ;
+                               rdfs:comment """Limit based on most restrictive series equipment limit.
+A specification of  of equipment that determines the calculated operational limit values based upon other equipment and their ratings.  The most restrictive limit connected in series within the group is used.   The physical connection based on switch status for example may also impact which elements in the group are considered. Any equipment in the group that are presently connected in series with the equipment of the directly associated operational limit are used.   This provides a means to indicate which potentially series equipment limits are considered for a computed operational limit. The operational limit of the same operational limit type is assumed to be used from the grouped equipment.   It is also possible to make assumptions or calculations regarding how flow might split if the equipment is not simply in series.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#TemperatureDependentLimitPoint
+:TemperatureDependentLimitPoint rdf:type owl:Class ;
+                                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :TemperatureDependentLimitPoint_TemperatureDependentLimitTable ;
+                                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                  owl:onClass :TemperatureDependentLimitPoint
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :TemperatureDependentLimitPoint_limitPercent ;
+                                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :TemperatureDependentLimitPoint_temperature ;
+                                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Temperature>
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :TemperatureDependentLimitPoint_limitPercent ;
+                                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :TemperatureDependentLimitPoint_temperature ;
+                                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Temperature>
+                                                ] ;
+                                rdfs:comment "A point on a table of limit verses temperature." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#TemperatureDependentLimitTable
+:TemperatureDependentLimitTable rdf:type owl:Class ;
+                                rdfs:subClassOf :EnvironmentalDependentLimit ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :TemperatureDependentLimitTable_TemperatureLimitTablePoint ;
+                                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                  owl:onClass :TemperatureDependentLimitTable
+                                                ] ;
+                                rdfs:comment "This is a table lookup that provides limit values corresponding to a temperature input." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#TemperaturePolynomialLimit
+:TemperaturePolynomialLimit rdf:type owl:Class ;
+                            rdfs:subClassOf :EnvironmentalDependentLimit ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :TemperaturePolynomialLimit_coefficient0 ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:float
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :TemperaturePolynomialLimit_coefficient1 ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:float
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :TemperaturePolynomialLimit_coefficient2 ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:float
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :TemperaturePolynomialLimit_coefficient3 ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:float
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :TemperaturePolynomialLimit_coefficient4 ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:float
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :TemperaturePolynomialLimit_coefficient0 ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:float
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :TemperaturePolynomialLimit_coefficient1 ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:float
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :TemperaturePolynomialLimit_coefficient2 ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:float
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :TemperaturePolynomialLimit_coefficient3 ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:float
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :TemperaturePolynomialLimit_coefficient4 ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:float
+                                            ] ;
+                            rdfs:comment "This describes the coefficients of a polynomial function that has temperature as input and calculates limit values as output." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#WeatherStation
+:WeatherStation rdf:type owl:Class ;
+                rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource> ;
+                rdfs:comment """This represents a source of ambient temperature.
+""" .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

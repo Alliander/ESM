@@ -1,0 +1,713 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingKind
+:CustomerBillingKind rdf:type rdfs:Datatype ;
+                     owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                           owl:oneOf [ rdf:type rdf:List ;
+                                                       rdf:first "consolidatedEss" ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first "consolidatedUdc" ;
+                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                             rdf:first "other" ;
+                                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                                        rdf:first "separateEssUdc" ;
+                                                                                        rdf:rest rdf:nil
+                                                                                      ]
+                                                                           ]
+                                                                ]
+                                                     ]
+                                         ] .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo_ErpInvoiceLineItems
+:CustomerBillingInfo_ErpInvoiceLineItems rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :CustomerBillingInfo ;
+                                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem> ;
+                                         rdfs:comment "Customer billing for services rendered." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo_lastPaymentAmt
+:CustomerBillingInfo_lastPaymentAmt rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :CustomerBillingInfo ;
+                                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                                    rdfs:comment "Amount of the last payment received from the customer. It is retained in the Customer Billing system, although the details of each payment are tracked in the ERP system." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo_outBalance
+:CustomerBillingInfo_outBalance rdf:type owl:ObjectProperty ;
+                                rdfs:domain :CustomerBillingInfo ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                                rdfs:comment "Outstanding balance on the CustomerAccount as of the statement date." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo_pymtPlanAmt
+:CustomerBillingInfo_pymtPlanAmt rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :CustomerBillingInfo ;
+                                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                                 rdfs:comment "Monthly amortized amount due during each billing cycle for the CustomerAccount balance for which the Payment Plan is set-up." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#ErpInvoiceLineItem_CustomerBillingInfos
+:ErpInvoiceLineItem_CustomerBillingInfos rdf:type owl:ObjectProperty ;
+                                         owl:inverseOf :CustomerBillingInfo_ErpInvoiceLineItems ;
+                                         rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem> ;
+                                         rdfs:range :CustomerBillingInfo ;
+                                         rdfs:comment "Customer billing for services rendered." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#ErpInvoiceLineItem_WorkBillingInfos
+:ErpInvoiceLineItem_WorkBillingInfos rdf:type owl:ObjectProperty ;
+                                     owl:inverseOf :WorkBillingInfo_ErpLineItems ;
+                                     rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem> ;
+                                     rdfs:range :WorkBillingInfo ;
+                                     rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#PowerQualityPricing_emergencyHighVoltLimit
+:PowerQualityPricing_emergencyHighVoltLimit rdf:type owl:ObjectProperty ;
+                                            rdfs:domain :PowerQualityPricing ;
+                                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                                            rdfs:comment " Emergency high voltage limit." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#PowerQualityPricing_emergencyLowVoltLimit
+:PowerQualityPricing_emergencyLowVoltLimit rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :PowerQualityPricing ;
+                                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                                           rdfs:comment " Emergency low voltage limit." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#PowerQualityPricing_normalHighVoltLimit
+:PowerQualityPricing_normalHighVoltLimit rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :PowerQualityPricing ;
+                                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                                         rdfs:comment " Normal high voltage limit." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#PowerQualityPricing_normalLowVoltLimit
+:PowerQualityPricing_normalLowVoltLimit rdf:type owl:ObjectProperty ;
+                                        rdfs:domain :PowerQualityPricing ;
+                                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                                        rdfs:comment " Normal low voltage limit." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#PowerQualityPricing_valueUninterruptedServiceEnergy
+:PowerQualityPricing_valueUninterruptedServiceEnergy rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain :PowerQualityPricing ;
+                                                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CostPerEnergyUnit> ;
+                                                     rdfs:comment """Value of uninterrupted service (Cost per energy).
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#ServiceGuarantee_applicationPeriod
+:ServiceGuarantee_applicationPeriod rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :ServiceGuarantee ;
+                                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
+                                    rdfs:comment "Period in which this service guantee applies." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#ServiceGuarantee_payAmount
+:ServiceGuarantee_payAmount rdf:type owl:ObjectProperty ;
+                            rdfs:domain :ServiceGuarantee ;
+                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                            rdfs:comment "Amount to be paid by the service provider to the customer for each violation of the 'serviceRequirement'." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo_ErpLineItems
+:WorkBillingInfo_ErpLineItems rdf:type owl:ObjectProperty ;
+                              rdfs:domain :WorkBillingInfo ;
+                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem> ;
+                              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo_costEstimate
+:WorkBillingInfo_costEstimate rdf:type owl:ObjectProperty ;
+                              rdfs:domain :WorkBillingInfo ;
+                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                              rdfs:comment "Estimated cost for work. " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo_deposit
+:WorkBillingInfo_deposit rdf:type owl:ObjectProperty ;
+                         rdfs:domain :WorkBillingInfo ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                         rdfs:comment "Amount of price on deposit." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo_workPrice
+:WorkBillingInfo_workPrice rdf:type owl:ObjectProperty ;
+                           rdfs:domain :WorkBillingInfo ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                           rdfs:comment "Amount of bill." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#ComplianceEvent_deadline
+:ComplianceEvent_deadline rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :ComplianceEvent ;
+                          rdfs:range xsd:dateTime ;
+                          rdfs:comment """The deadline for compliance.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo_billingDate
+:CustomerBillingInfo_billingDate rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :CustomerBillingInfo ;
+                                 rdfs:range xsd:date ;
+                                 rdfs:comment """Business date designated for the billing run which produced this CustomerBillingInfo. 
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo_dueDate
+:CustomerBillingInfo_dueDate rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :CustomerBillingInfo ;
+                             rdfs:range xsd:date ;
+                             rdfs:comment """Calculated date upon which a customer billing amount is due, used in the invoicing process to determine when a Customer's Payment is delinquent. It takes into consideration the regulatory criteria and the Customer's requested due date. In the absence of a Customer requested due date, the due date is typically calculated from the regulated number of days and the 'billingDate'.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo_kind
+:CustomerBillingInfo_kind rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :CustomerBillingInfo ;
+                          rdfs:range :CustomerBillingKind ;
+                          rdfs:comment "Kind of bill customer receives." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo_lastPaymentDate
+:CustomerBillingInfo_lastPaymentDate rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :CustomerBillingInfo ;
+                                     rdfs:range xsd:date ;
+                                     rdfs:comment """Date of the last payment received from the customer. It is retained in the Customer Billing system, although the details of each payment are tracked in the ERP system.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo_pymtPlanType
+:CustomerBillingInfo_pymtPlanType rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :CustomerBillingInfo ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:comment "Type of payment plan." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#PowerQualityPricing_powerFactorMin
+:PowerQualityPricing_powerFactorMin rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :PowerQualityPricing ;
+                                    rdfs:range xsd:float ;
+                                    rdfs:comment "Threshold minimum power factor for this PricingStructure, specified in instances where a special charge is levied if the actual power factor for a Service falls below the value specified here." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#PowerQualityPricing_valueUninterruptedServiceP
+:PowerQualityPricing_valueUninterruptedServiceP rdf:type owl:DatatypeProperty ;
+                                                rdfs:domain :PowerQualityPricing ;
+                                                rdfs:range xsd:float ;
+                                                rdfs:comment "Value of uninterrupted service (Cost per active power)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#PowerQualityPricing_voltImbalanceViolCost
+:PowerQualityPricing_voltImbalanceViolCost rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :PowerQualityPricing ;
+                                           rdfs:range xsd:float ;
+                                           rdfs:comment " Voltage imbalance violation cost (Cost per unit Voltage)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#PowerQualityPricing_voltLimitViolCost
+:PowerQualityPricing_voltLimitViolCost rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :PowerQualityPricing ;
+                                       rdfs:range xsd:float ;
+                                       rdfs:comment " Voltage limit violation cost (Cost per unit Voltage)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#ServiceGuarantee_automaticPay
+:ServiceGuarantee_automaticPay rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :ServiceGuarantee ;
+                               rdfs:range xsd:boolean ;
+                               rdfs:comment "True if utility must autmatically pay the specified amount whenever the condition is not satisified, otherwise customer must make a claim to receive payment." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#ServiceGuarantee_serviceRequirement
+:ServiceGuarantee_serviceRequirement rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :ServiceGuarantee ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:comment "Explanation of the requirement and conditions for satisfying it." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#StandardIndustryCode_code
+:StandardIndustryCode_code rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :StandardIndustryCode ;
+                           rdfs:range xsd:string ;
+                           rdfs:comment "Standard alphanumeric code assigned to a particular product/service within an industry." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo_discount
+:WorkBillingInfo_discount rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :WorkBillingInfo ;
+                          rdfs:range xsd:float ;
+                          rdfs:comment "Discount from standard price." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo_dueDateTime
+:WorkBillingInfo_dueDateTime rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :WorkBillingInfo ;
+                             rdfs:range xsd:dateTime ;
+                             rdfs:comment """Date and time by which payment for bill is expected from client.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo_issueDateTime
+:WorkBillingInfo_issueDateTime rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :WorkBillingInfo ;
+                               rdfs:range xsd:dateTime ;
+                               rdfs:comment """Date and time bill was issued to client.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo_receivedDateTime
+:WorkBillingInfo_receivedDateTime rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :WorkBillingInfo ;
+                                  rdfs:range xsd:dateTime ;
+                                  rdfs:comment """Date payment was received from client.
+""" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Agreement
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Agreement> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#ComplianceEvent
+:ComplianceEvent rdf:type owl:Class ;
+                 rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord> ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ComplianceEvent_deadline ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ComplianceEvent_deadline ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ;
+                 rdfs:comment """Compliance events are used for reporting regulatory or contract compliance issues and/or variances. These might be created as a consequence of local business processes and associated rules. It is anticipated that this class will be customised extensively to meet local implementation needs.
+Use inherited 'type' to indicate that, for example, expected performance will not be met or reported as mandated.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo
+:CustomerBillingInfo rdf:type owl:Class ;
+                     rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CustomerBillingInfo_ErpInvoiceLineItems ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onClass :CustomerBillingInfo
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CustomerBillingInfo_lastPaymentAmt ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CustomerBillingInfo_outBalance ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CustomerBillingInfo_pymtPlanAmt ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CustomerBillingInfo_lastPaymentAmt ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CustomerBillingInfo_outBalance ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CustomerBillingInfo_pymtPlanAmt ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CustomerBillingInfo_billingDate ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:date
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CustomerBillingInfo_dueDate ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:date
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CustomerBillingInfo_kind ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange :CustomerBillingKind
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CustomerBillingInfo_lastPaymentDate ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:date
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CustomerBillingInfo_pymtPlanType ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CustomerBillingInfo_billingDate ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:date
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CustomerBillingInfo_dueDate ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:date
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CustomerBillingInfo_kind ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange :CustomerBillingKind
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CustomerBillingInfo_lastPaymentDate ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:date
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CustomerBillingInfo_pymtPlanType ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ;
+                     rdfs:comment """The creation of the monthly customer billing statements is the method employed to notify Customers of charges, adjustments and credits applied to their account for Services and Products. The actuall billing occurs through an ErpInvoice. The CustomerBillingInfo includes information from the payment, collection, meter reading, installed meter, service, site, customer, customer account, customer agreement, services and pricing subject areas. Each component price shows up as a separate line item on the ErpInvoice.
+The Customer Billing Statement may include collection and account messages, marketing/civic event messages and bill inserts.
+One Customer Billing Statement is produced for all Agreements under a CustomerAccount per billing cycle date defined in 'CustomerAccount.billingCycle'.
+The history of CustomerBillingInfo, Invoices and Payments is to be maintained in associated ActivityRecords.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#ExternalCustomerAgreement
+:ExternalCustomerAgreement rdf:type owl:Class ;
+                           rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Agreement> ;
+                           rdfs:comment "A type of customer agreement involving an external agency. For example, a customer may form a contracts with an Energy Service Supplier if Direct Access is permitted." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#PowerQualityPricing
+:PowerQualityPricing rdf:type owl:Class ;
+                     rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_emergencyHighVoltLimit ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_emergencyLowVoltLimit ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_normalHighVoltLimit ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_normalLowVoltLimit ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_valueUninterruptedServiceEnergy ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CostPerEnergyUnit>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_emergencyHighVoltLimit ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_emergencyLowVoltLimit ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_normalHighVoltLimit ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_normalLowVoltLimit ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_valueUninterruptedServiceEnergy ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CostPerEnergyUnit>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_powerFactorMin ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:float
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_valueUninterruptedServiceP ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:float
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_voltImbalanceViolCost ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:float
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_voltLimitViolCost ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:float
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_powerFactorMin ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:float
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_valueUninterruptedServiceP ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:float
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_voltImbalanceViolCost ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:float
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PowerQualityPricing_voltLimitViolCost ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:float
+                                     ] ;
+                     rdfs:comment """Pricing can be based on power quality.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#ServiceGuarantee
+:ServiceGuarantee rdf:type owl:Class ;
+                  rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ServiceGuarantee_applicationPeriod ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ServiceGuarantee_payAmount ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ServiceGuarantee_applicationPeriod ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ServiceGuarantee_payAmount ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ServiceGuarantee_automaticPay ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:boolean
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ServiceGuarantee_serviceRequirement ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ServiceGuarantee_automaticPay ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:boolean
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ServiceGuarantee_serviceRequirement ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ;
+                  rdfs:comment """A service guarantee, often imposed by a regulator, defines conditions that, if not satisfied, will result in the utility making a monetary payment to the customer. Note that guarantee's identifier is in the 'name' attribute and the status of the guarantee is in the 'Status.status' attribute.
+Example service requirements include:
+1) If power is not restored within 24 hours, customers can claim $50 for residential customers or $100 for commercial and industrial customers. In addition for each extra period of 12 hours the customer's supply has not been activated, the customer can claim $25.
+2) If a customer has a question about their electricity bill, the utility will investigate and respond to the inquiry within 15 working days. If utility fails to meet its guarantee, utility will automatically pay the customer $50.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#StandardIndustryCode
+:StandardIndustryCode rdf:type owl:Class ;
+                      rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :StandardIndustryCode_code ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:string
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :StandardIndustryCode_code ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:string
+                                      ] ;
+                      rdfs:comment """The Standard Industrial Classification (SIC) are the codes that identify the type of products/service an industry is involved in, and used for statutory reporting purposes. For example, in the USA these codes are located by the federal government, and then published in a book entitled \"The Standard Industrial Classification Manual\". The codes are arranged in a hierarchical structure.
+Note that Residential Service Agreements are not classified according to the SIC codes.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#SubscribePowerCurve
+:SubscribePowerCurve rdf:type owl:Class ;
+                     rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Curve> ;
+                     rdfs:comment "Price curve for specifying the cost of energy (X) at points in time (y1) according to a prcing structure, which is based on a tariff." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo
+:WorkBillingInfo rdf:type owl:Class ;
+                 rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :WorkBillingInfo_ErpLineItems ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :WorkBillingInfo
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :WorkBillingInfo_costEstimate ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :WorkBillingInfo_deposit ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :WorkBillingInfo_workPrice ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :WorkBillingInfo_costEstimate ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :WorkBillingInfo_deposit ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :WorkBillingInfo_workPrice ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :WorkBillingInfo_discount ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:float
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :WorkBillingInfo_dueDateTime ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :WorkBillingInfo_issueDateTime ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :WorkBillingInfo_receivedDateTime ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :WorkBillingInfo_discount ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:float
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :WorkBillingInfo_dueDateTime ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :WorkBillingInfo_issueDateTime ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :WorkBillingInfo_receivedDateTime ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ;
+                 rdfs:comment """Billing information for work performed for the customer. The history of Work Billing Info, Invoices, and Payments is to be maintained in associated ActivityRecords.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem> rdf:type owl:Class ;
+                                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                          owl:onProperty :ErpInvoiceLineItem_CustomerBillingInfos ;
+                                                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem>
+                                                                                                        ] ,
+                                                                                                        [ rdf:type owl:Restriction ;
+                                                                                                          owl:onProperty :ErpInvoiceLineItem_WorkBillingInfos ;
+                                                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem>
+                                                                                                        ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Curve
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Curve> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CostPerEnergyUnit
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CostPerEnergyUnit> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

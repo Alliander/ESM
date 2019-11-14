@@ -1,0 +1,89 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/AlternateModels#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/AlternateModels#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/AlternateModels#> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/AlternateModels#AlternateModelGroup_AlternateModel
+:AlternateModelGroup_AlternateModel rdf:type owl:ObjectProperty ;
+                                    owl:inverseOf :AlternateModel_AlternateModelGroup ;
+                                    rdf:type owl:FunctionalProperty ;
+                                    rdfs:domain :AlternateModelGroup ;
+                                    rdfs:range :AlternateModel ;
+                                    rdfs:comment "An alternate model that can be one possiblity among alternates.The group of alternate models for which one alternate is used." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/AlternateModels#AlternateModel_AlternateModelGroup
+:AlternateModel_AlternateModelGroup rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :AlternateModel ;
+                                    rdfs:range :AlternateModelGroup ;
+                                    rdfs:comment "An alternate model that can be one possiblity among alternates.The group of alternate models for which one alternate is used." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/AlternateModels#AlternateModel_Dataset
+:AlternateModel_Dataset rdf:type owl:ObjectProperty ;
+                        rdfs:domain :AlternateModel ;
+                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset> ;
+                        rdfs:comment "The alternate model using the data.The data belonging to the alternate model." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/AlternateModels#Dataset_AlternateModel
+:Dataset_AlternateModel rdf:type owl:ObjectProperty ;
+                        owl:inverseOf :AlternateModel_Dataset ;
+                        rdf:type owl:FunctionalProperty ;
+                        rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset> ;
+                        rdfs:range :AlternateModel ;
+                        rdfs:comment "The alternate model using the data.The data belonging to the alternate model." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/AlternateModels#AlternateModel
+:AlternateModel rdf:type owl:Class ;
+                rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :AlternateModel_AlternateModelGroup ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :AlternateModel
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :AlternateModel_Dataset ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :AlternateModel
+                                ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/AlternateModels#AlternateModelGroup
+:AlternateModelGroup rdf:type owl:Class ;
+                     rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :AlternateModelGroup_AlternateModel ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass :AlternateModelGroup
+                                     ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset> rdf:type owl:Class ;
+                                                                                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                                     owl:onProperty :Dataset_AlternateModel ;
+                                                                                                                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset>
+                                                                                                                                   ] .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

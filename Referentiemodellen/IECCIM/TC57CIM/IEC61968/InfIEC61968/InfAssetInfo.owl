@@ -1,0 +1,1703 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CompositeSwitchKind
+:CompositeSwitchKind rdf:type rdfs:Datatype ;
+                     owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                           owl:oneOf [ rdf:type rdf:List ;
+                                                       rdf:first "escoThrowOver" ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first "gral" ;
+                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                             rdf:first "other" ;
+                                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                                        rdf:first "ral" ;
+                                                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                                                   rdf:first "regulatorBypass" ;
+                                                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                                                              rdf:first "throwOver" ;
+                                                                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                                                                         rdf:first "ugMultiSwitch" ;
+                                                                                                                         rdf:rest rdf:nil
+                                                                                                                       ]
+                                                                                                            ]
+                                                                                                 ]
+                                                                                      ]
+                                                                           ]
+                                                                ]
+                                                     ]
+                                         ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#FaultIndicatorResetKind
+:FaultIndicatorResetKind rdf:type rdfs:Datatype ;
+                         owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                               owl:oneOf [ rdf:type rdf:List ;
+                                                           rdf:first "automatic" ;
+                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                      rdf:first "manual" ;
+                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                 rdf:first "other" ;
+                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                            rdf:first "remote" ;
+                                                                                            rdf:rest rdf:nil
+                                                                                          ]
+                                                                               ]
+                                                                    ]
+                                                         ]
+                                             ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OilPreservationKind
+:OilPreservationKind rdf:type rdfs:Datatype ;
+                     owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                           owl:oneOf [ rdf:type rdf:List ;
+                                                       rdf:first "conservator" ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first "freeBreathing" ;
+                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                             rdf:first "nitrogenBlanket" ;
+                                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                                        rdf:first "other" ;
+                                                                                        rdf:rest rdf:nil
+                                                                                      ]
+                                                                           ]
+                                                                ]
+                                                     ]
+                                         ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#RegulationBranchKind
+:RegulationBranchKind rdf:type rdfs:Datatype ;
+                      owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                            owl:oneOf [ rdf:type rdf:List ;
+                                                        rdf:first "breaker" ;
+                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                   rdf:first "fuse" ;
+                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                              rdf:first "line" ;
+                                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                                         rdf:first "other" ;
+                                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                                    rdf:first "recloser" ;
+                                                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                                                               rdf:first "sectionner" ;
+                                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                                          rdf:first "switch" ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first "transformer" ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                                                             ]
+                                                                                                  ]
+                                                                                       ]
+                                                                            ]
+                                                                 ]
+                                                      ]
+                                          ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#ShuntImpedanceControlKind
+:ShuntImpedanceControlKind rdf:type rdfs:Datatype ;
+                           owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                                 owl:oneOf [ rdf:type rdf:List ;
+                                                             rdf:first "fixed" ;
+                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                        rdf:first "localOnly" ;
+                                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                                   rdf:first "remoteOnly" ;
+                                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                                              rdf:first "remoteWithLocalOverride" ;
+                                                                                              rdf:rest rdf:nil
+                                                                                            ]
+                                                                                 ]
+                                                                      ]
+                                                           ]
+                                               ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#ShuntImpedanceLocalControlKind
+:ShuntImpedanceLocalControlKind rdf:type rdfs:Datatype ;
+                                owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                                      owl:oneOf [ rdf:type rdf:List ;
+                                                                  rdf:first "current" ;
+                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                             rdf:first "none" ;
+                                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                                        rdf:first "powerFactor" ;
+                                                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                                                   rdf:first "reactivePower" ;
+                                                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                                                              rdf:first "temperature" ;
+                                                                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                                                                         rdf:first "time" ;
+                                                                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                    rdf:first "voltage" ;
+                                                                                                                                    rdf:rest rdf:nil
+                                                                                                                                  ]
+                                                                                                                       ]
+                                                                                                            ]
+                                                                                                 ]
+                                                                                      ]
+                                                                           ]
+                                                                ]
+                                                    ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#TransformerConstructionKind
+:TransformerConstructionKind rdf:type rdfs:Datatype ;
+                             owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                                   owl:oneOf [ rdf:type rdf:List ;
+                                                               rdf:first "aerial" ;
+                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                          rdf:first "dryType" ;
+                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                     rdf:first "network" ;
+                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                rdf:first "onePhase" ;
+                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                           rdf:first "overhead" ;
+                                                                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                                                                      rdf:first "padmountDeadFront" ;
+                                                                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                 rdf:first "padmountFeedThrough" ;
+                                                                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                            rdf:first "padmountLiveFront" ;
+                                                                                                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                       rdf:first "padmountLoopThrough" ;
+                                                                                                                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                  rdf:first "padmounted" ;
+                                                                                                                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                             rdf:first "subway" ;
+                                                                                                                                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                        rdf:first "threePhase" ;
+                                                                                                                                                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                                   rdf:first "underground" ;
+                                                                                                                                                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                                              rdf:first "unknown" ;
+                                                                                                                                                                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                                                         rdf:first "vault" ;
+                                                                                                                                                                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                                                                    rdf:first "vaultThreePhase" ;
+                                                                                                                                                                                                                                    rdf:rest rdf:nil
+                                                                                                                                                                                                                                  ]
+                                                                                                                                                                                                                       ]
+                                                                                                                                                                                                            ]
+                                                                                                                                                                                                 ]
+                                                                                                                                                                                      ]
+                                                                                                                                                                           ]
+                                                                                                                                                                ]
+                                                                                                                                                     ]
+                                                                                                                                          ]
+                                                                                                                               ]
+                                                                                                                    ]
+                                                                                                         ]
+                                                                                              ]
+                                                                                   ]
+                                                                        ]
+                                                             ]
+                                                 ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#TransformerCoreKind
+:TransformerCoreKind rdf:type rdfs:Datatype ;
+                     owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                           owl:oneOf [ rdf:type rdf:List ;
+                                                       rdf:first "core" ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first "shell" ;
+                                                                  rdf:rest rdf:nil
+                                                                ]
+                                                     ]
+                                         ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#TransformerFunctionKind
+:TransformerFunctionKind rdf:type rdfs:Datatype ;
+                         owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                               owl:oneOf [ rdf:type rdf:List ;
+                                                           rdf:first "autotransformer" ;
+                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                      rdf:first "other" ;
+                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                 rdf:first "powerTransformer" ;
+                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                            rdf:first "secondaryTransformer" ;
+                                                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                                                       rdf:first "voltageRegulator" ;
+                                                                                                       rdf:rest rdf:nil
+                                                                                                     ]
+                                                                                          ]
+                                                                               ]
+                                                                    ]
+                                                         ]
+                                             ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#WindingInsulationKind
+:WindingInsulationKind rdf:type rdfs:Datatype ;
+                       owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                             owl:oneOf [ rdf:type rdf:List ;
+                                                         rdf:first "nomex" ;
+                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                    rdf:first "other" ;
+                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                               rdf:first "paper" ;
+                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                          rdf:first "thermallyUpgradedPaper" ;
+                                                                                          rdf:rest rdf:nil
+                                                                                        ]
+                                                                             ]
+                                                                  ]
+                                                       ]
+                                           ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode> rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#AssetModelCatalogueItem_AssetModelCatalogue
+:AssetModelCatalogueItem_AssetModelCatalogue rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :AssetModelCatalogueItem ;
+                                             rdfs:range :AssetModelCatalogue ;
+                                             rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#AssetModelCatalogueItem_ErpPOLineItems
+:AssetModelCatalogueItem_ErpPOLineItems rdf:type owl:ObjectProperty ;
+                                        rdfs:domain :AssetModelCatalogueItem ;
+                                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPOLineItem> ;
+                                        rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#AssetModelCatalogueItem_ErpQuoteLineItems
+:AssetModelCatalogueItem_ErpQuoteLineItems rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :AssetModelCatalogueItem ;
+                                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpQuoteLineItem> ;
+                                           rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#AssetModelCatalogueItem_unitCost
+:AssetModelCatalogueItem_unitCost rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :AssetModelCatalogueItem ;
+                                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                                  rdfs:comment "Unit cost for an asset model from a specific supplier, either for a unit cost or cost per unit length. Cost is for material or asset only and does not include labor to install/construct or configure it." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#AssetModelCatalogue_AssetModelCatalogueItems
+:AssetModelCatalogue_AssetModelCatalogueItems rdf:type owl:ObjectProperty ;
+                                              owl:inverseOf :AssetModelCatalogueItem_AssetModelCatalogue ;
+                                              rdf:type owl:FunctionalProperty ;
+                                              rdfs:domain :AssetModelCatalogue ;
+                                              rdfs:range :AssetModelCatalogueItem ;
+                                              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#AssetModelCatalogue_status
+:AssetModelCatalogue_status rdf:type owl:ObjectProperty ;
+                            rdfs:domain :AssetModelCatalogue ;
+                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#BreakerInfo_phaseTrip
+:BreakerInfo_phaseTrip rdf:type owl:ObjectProperty ;
+                       rdfs:domain :BreakerInfo ;
+                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                       rdfs:comment "Phase trip rating." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CompositeSwitchInfo_interruptingRating
+:CompositeSwitchInfo_interruptingRating rdf:type owl:ObjectProperty ;
+                                        rdfs:domain :CompositeSwitchInfo ;
+                                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                                        rdfs:comment "Breaking capacity, or short circuit rating, is the maximum rated current which the device can safely interrupt at the rated voltage." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CompositeSwitchInfo_ratedVoltage
+:CompositeSwitchInfo_ratedVoltage rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :CompositeSwitchInfo ;
+                                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                                  rdfs:comment "Rated voltage." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CurrentTransformerInfo_accuracyLimit
+:CurrentTransformerInfo_accuracyLimit rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :CurrentTransformerInfo ;
+                                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                                      rdfs:comment "Accuracy limit." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CurrentTransformerInfo_kneePointCurrent
+:CurrentTransformerInfo_kneePointCurrent rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :CurrentTransformerInfo ;
+                                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                                         rdfs:comment "Maximum primary current where the CT still displays linear characteristicts." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CurrentTransformerInfo_kneePointVoltage
+:CurrentTransformerInfo_kneePointVoltage rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :CurrentTransformerInfo ;
+                                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                                         rdfs:comment "Maximum voltage across the secondary terminals where the CT still displays linear characteristicts." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CurrentTransformerInfo_maxRatio
+:CurrentTransformerInfo_maxRatio rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :CurrentTransformerInfo ;
+                                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio> ;
+                                 rdfs:comment "Maximum ratio between the primary and secondary current." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CurrentTransformerInfo_nominalRatio
+:CurrentTransformerInfo_nominalRatio rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :CurrentTransformerInfo ;
+                                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio> ;
+                                     rdfs:comment """Nominal ratio between the primary and secondary current; i.e. 100:5.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CurrentTransformerInfo_primaryFlsRating
+:CurrentTransformerInfo_primaryFlsRating rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :CurrentTransformerInfo ;
+                                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                                         rdfs:comment "Full load secondary (FLS) rating for primary winding." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CurrentTransformerInfo_primaryRatio
+:CurrentTransformerInfo_primaryRatio rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :CurrentTransformerInfo ;
+                                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio> ;
+                                     rdfs:comment "Ratio for the primary winding tap changer." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CurrentTransformerInfo_ratedCurrent
+:CurrentTransformerInfo_ratedCurrent rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :CurrentTransformerInfo ;
+                                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                                     rdfs:comment "Rated current on the primary side." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CurrentTransformerInfo_secondaryFlsRating
+:CurrentTransformerInfo_secondaryFlsRating rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :CurrentTransformerInfo ;
+                                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                                           rdfs:comment "Full load secondary (FLS) rating for secondary winding." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CurrentTransformerInfo_secondaryRatio
+:CurrentTransformerInfo_secondaryRatio rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :CurrentTransformerInfo ;
+                                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio> ;
+                                       rdfs:comment "Ratio for the secondary winding tap changer." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CurrentTransformerInfo_tertiaryFlsRating
+:CurrentTransformerInfo_tertiaryFlsRating rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :CurrentTransformerInfo ;
+                                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                                          rdfs:comment "Full load secondary (FLS) rating for tertiary winding." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CurrentTransformerInfo_tertiaryRatio
+:CurrentTransformerInfo_tertiaryRatio rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :CurrentTransformerInfo ;
+                                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio> ;
+                                      rdfs:comment "Ratio for the tertiary winding tap changer." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#ErpPOLineItem_AssetModelCatalogueItem
+:ErpPOLineItem_AssetModelCatalogueItem rdf:type owl:ObjectProperty ;
+                                       owl:inverseOf :AssetModelCatalogueItem_ErpPOLineItems ;
+                                       rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPOLineItem> ;
+                                       rdfs:range :AssetModelCatalogueItem ;
+                                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#ErpQuoteLineItem_AssetModelCatalogueItem
+:ErpQuoteLineItem_AssetModelCatalogueItem rdf:type owl:ObjectProperty ;
+                                          owl:inverseOf :AssetModelCatalogueItem_ErpQuoteLineItems ;
+                                          rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpQuoteLineItem> ;
+                                          rdfs:range :AssetModelCatalogueItem ;
+                                          rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldSwitchInfo_dielectricStrength
+:OldSwitchInfo_dielectricStrength rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :OldSwitchInfo ;
+                                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                                  rdfs:comment "The maximum rms voltage that may be applied across an open contact without breaking down the dielectric properties of the switch in the open position." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldSwitchInfo_makingCapacity
+:OldSwitchInfo_makingCapacity rdf:type owl:ObjectProperty ;
+                              rdfs:domain :OldSwitchInfo ;
+                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                              rdfs:comment "The highest value of current the switch can make at the rated voltage under specified operating conditions without suffering significant deterioration of its performance." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldSwitchInfo_minimumCurrent
+:OldSwitchInfo_minimumCurrent rdf:type owl:ObjectProperty ;
+                              rdfs:domain :OldSwitchInfo ;
+                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                              rdfs:comment "The lowest value of current that the switch can make, carry and break in uninterrupted duty at the rated voltage under specified operating conditions without suffering significant deterioration of its performance." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldSwitchInfo_withstandCurrent
+:OldSwitchInfo_withstandCurrent rdf:type owl:ObjectProperty ;
+                                rdfs:domain :OldSwitchInfo ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                                rdfs:comment "The highest value of current the switch can carry in the closed position at the rated voltage under specified operating conditions without suffering significant deterioration of its performance." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldTransformerEndInfo_dayOverLoadRating
+:OldTransformerEndInfo_dayOverLoadRating rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :OldTransformerEndInfo ;
+                                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower> ;
+                                         rdfs:comment """Overload rating for 24 hours.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldTransformerEndInfo_hourOverLoadRating
+:OldTransformerEndInfo_hourOverLoadRating rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :OldTransformerEndInfo ;
+                                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower> ;
+                                          rdfs:comment """Overload rating for 1 hour.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldTransformerEndInfo_solidInsulationWeight
+:OldTransformerEndInfo_solidInsulationWeight rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :OldTransformerEndInfo ;
+                                             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Weight> ;
+                                             rdfs:comment "Weight of solid insultation in transformer." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldTransformerTankInfo_coreCoilsWeight
+:OldTransformerTankInfo_coreCoilsWeight rdf:type owl:ObjectProperty ;
+                                        rdfs:domain :OldTransformerTankInfo ;
+                                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Weight> ;
+                                        rdfs:comment "Weight of core and coils in transformer." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldTransformerTankInfo_neutralBIL
+:OldTransformerTankInfo_neutralBIL rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :OldTransformerTankInfo ;
+                                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                                   rdfs:comment """Basic insulation level of neutral.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#PotentialTransformerInfo_nominalRatio
+:PotentialTransformerInfo_nominalRatio rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :PotentialTransformerInfo ;
+                                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#PotentialTransformerInfo_primaryRatio
+:PotentialTransformerInfo_primaryRatio rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :PotentialTransformerInfo ;
+                                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio> ;
+                                       rdfs:comment "Ratio for the primary winding tap changer." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#PotentialTransformerInfo_ratedVoltage
+:PotentialTransformerInfo_ratedVoltage rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :PotentialTransformerInfo ;
+                                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                                       rdfs:comment "Rated voltage on the primary side." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#PotentialTransformerInfo_secondaryRatio
+:PotentialTransformerInfo_secondaryRatio rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :PotentialTransformerInfo ;
+                                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio> ;
+                                         rdfs:comment "Ratio for the secondary winding tap changer." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#PotentialTransformerInfo_tertiaryRatio
+:PotentialTransformerInfo_tertiaryRatio rdf:type owl:ObjectProperty ;
+                                        rdfs:domain :PotentialTransformerInfo ;
+                                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio> ;
+                                        rdfs:comment "Ratio for the tertiary winding tap changer." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#ProtectionEquipmentInfo_groundTrip
+:ProtectionEquipmentInfo_groundTrip rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :ProtectionEquipmentInfo ;
+                                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                                    rdfs:comment "Actual ground trip for this type of relay, if applicable." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#ProtectionEquipmentInfo_phaseTrip
+:ProtectionEquipmentInfo_phaseTrip rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :ProtectionEquipmentInfo ;
+                                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                                   rdfs:comment "Actual phase trip for this type of relay, if applicable." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#RecloserInfo_groundTripRating
+:RecloserInfo_groundTripRating rdf:type owl:ObjectProperty ;
+                               rdfs:domain :RecloserInfo ;
+                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                               rdfs:comment "Ground trip rating." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#RecloserInfo_phaseTripRating
+:RecloserInfo_phaseTripRating rdf:type owl:ObjectProperty ;
+                              rdfs:domain :RecloserInfo ;
+                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                              rdfs:comment "Phase trip rating." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#SurgeArresterInfo_continuousOperatingVoltage
+:SurgeArresterInfo_continuousOperatingVoltage rdf:type owl:ObjectProperty ;
+                                              rdfs:domain :SurgeArresterInfo ;
+                                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                                              rdfs:comment "Maximum continuous power frequency voltage allowed on the surge arrester." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#SurgeArresterInfo_lightningImpulseDischargeVoltage
+:SurgeArresterInfo_lightningImpulseDischargeVoltage rdf:type owl:ObjectProperty ;
+                                                    rdfs:domain :SurgeArresterInfo ;
+                                                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                                                    rdfs:comment "Residual voltage during an 8x20 microsecond current impulse at the nominal discharge current level." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#SurgeArresterInfo_nominalDischargeCurrent
+:SurgeArresterInfo_nominalDischargeCurrent rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :SurgeArresterInfo ;
+                                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                                           rdfs:comment "The lightning discharge current used to classify the arrester. Choices are limited to 1.5, 2.5, 5, 10, and 20 kA by IEC 60099." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#SurgeArresterInfo_pressureReliefClass
+:SurgeArresterInfo_pressureReliefClass rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :SurgeArresterInfo ;
+                                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                                       rdfs:comment "Fault current level at which all parts of the failed arrester lie within a circle prescribed by IEC 60099." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#SurgeArresterInfo_ratedVoltage
+:SurgeArresterInfo_ratedVoltage rdf:type owl:ObjectProperty ;
+                                rdfs:domain :SurgeArresterInfo ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                                rdfs:comment "The temporary overvoltage (TOV) level at power frequency that the surge arrester withstands for 10 seconds." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#SurgeArresterInfo_steepFrontDischargeVoltage
+:SurgeArresterInfo_steepFrontDischargeVoltage rdf:type owl:ObjectProperty ;
+                                              rdfs:domain :SurgeArresterInfo ;
+                                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                                              rdfs:comment "Residual voltage during a current impulse with front time of 1 microsecond, and magnitude equal to the nominal discharge current level." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#SurgeArresterInfo_switchingImpulseDischargeVoltage
+:SurgeArresterInfo_switchingImpulseDischargeVoltage rdf:type owl:ObjectProperty ;
+                                                    rdfs:domain :SurgeArresterInfo ;
+                                                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                                                    rdfs:comment "Residual voltage during a current impulse with front time of at least 30 microseconds, and magnitude specified in IEC 60099 for the line discharge class. Does not apply to line discharge class 0." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CompositeSwitchInfo_ganged
+:CompositeSwitchInfo_ganged rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :CompositeSwitchInfo ;
+                            rdfs:range xsd:boolean ;
+                            rdfs:comment """True if multi-phase switch controls all phases concurrently.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CompositeSwitchInfo_initOpMode
+:CompositeSwitchInfo_initOpMode rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :CompositeSwitchInfo ;
+                                rdfs:range xsd:string ;
+                                rdfs:comment "Initial operating mode, with the following values: Automatic, Manual." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CompositeSwitchInfo_kind
+:CompositeSwitchInfo_kind rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :CompositeSwitchInfo ;
+                          rdfs:range :CompositeSwitchKind ;
+                          rdfs:comment "Kind of composite switch." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CompositeSwitchInfo_phaseCode
+:CompositeSwitchInfo_phaseCode rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :CompositeSwitchInfo ;
+                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode> ;
+                               rdfs:comment "Phases carried, if applicable." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CompositeSwitchInfo_phaseCount
+:CompositeSwitchInfo_phaseCount rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :CompositeSwitchInfo ;
+                                rdfs:range xsd:nonNegativeInteger ;
+                                rdfs:comment "Supported number of phases, typically 0, 1 or 3." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CompositeSwitchInfo_remote
+:CompositeSwitchInfo_remote rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :CompositeSwitchInfo ;
+                            rdfs:range xsd:boolean ;
+                            rdfs:comment " True if device is capable of being operated by remote control." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CompositeSwitchInfo_switchStateCount
+:CompositeSwitchInfo_switchStateCount rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :CompositeSwitchInfo ;
+                                      rdfs:range xsd:nonNegativeInteger ;
+                                      rdfs:comment "Number of switch states represented by the composite switch." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CurrentTransformerInfo_accuracyClass
+:CurrentTransformerInfo_accuracyClass rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :CurrentTransformerInfo ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:comment "CT accuracy classification." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CurrentTransformerInfo_coreCount
+:CurrentTransformerInfo_coreCount rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :CurrentTransformerInfo ;
+                                  rdfs:range xsd:nonNegativeInteger ;
+                                  rdfs:comment "Number of cores." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CurrentTransformerInfo_ctClass
+:CurrentTransformerInfo_ctClass rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :CurrentTransformerInfo ;
+                                rdfs:range xsd:string .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CurrentTransformerInfo_usage
+:CurrentTransformerInfo_usage rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :CurrentTransformerInfo ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment """Usage: eg. metering, protection, etc.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#FaultIndicatorInfo_resetKind
+:FaultIndicatorInfo_resetKind rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :FaultIndicatorInfo ;
+                              rdfs:range :FaultIndicatorResetKind ;
+                              rdfs:comment "Kind of reset mechanisim of this fault indicator." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldSwitchInfo_loadBreak
+:OldSwitchInfo_loadBreak rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :OldSwitchInfo ;
+                         rdfs:range xsd:boolean ;
+                         rdfs:comment "True if switch has load breaking capabiity. Unless specified false, this is always assumed to be true for breakers and reclosers." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldSwitchInfo_poleCount
+:OldSwitchInfo_poleCount rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :OldSwitchInfo ;
+                         rdfs:range xsd:nonNegativeInteger ;
+                         rdfs:comment "Number of poles (i.e. of current carrying conductors that are switched)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldSwitchInfo_remote
+:OldSwitchInfo_remote rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :OldSwitchInfo ;
+                      rdfs:range xsd:boolean ;
+                      rdfs:comment " True if device is capable of being operated by remote control." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldTransformerEndInfo_windingInsulationKind
+:OldTransformerEndInfo_windingInsulationKind rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain :OldTransformerEndInfo ;
+                                             rdfs:range :WindingInsulationKind ;
+                                             rdfs:comment """Type of insultation used for transformer windings.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldTransformerTankInfo_constructionKind
+:OldTransformerTankInfo_constructionKind rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :OldTransformerTankInfo ;
+                                         rdfs:range :TransformerConstructionKind ;
+                                         rdfs:comment "Kind of construction for this transformer." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldTransformerTankInfo_coreKind
+:OldTransformerTankInfo_coreKind rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :OldTransformerTankInfo ;
+                                 rdfs:range :TransformerCoreKind ;
+                                 rdfs:comment "Core kind of this transformer product." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldTransformerTankInfo_function
+:OldTransformerTankInfo_function rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :OldTransformerTankInfo ;
+                                 rdfs:range :TransformerFunctionKind ;
+                                 rdfs:comment "Function of this transformer." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldTransformerTankInfo_oilPreservationKind
+:OldTransformerTankInfo_oilPreservationKind rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain :OldTransformerTankInfo ;
+                                            rdfs:range :OilPreservationKind ;
+                                            rdfs:comment "Kind of oil preservation system." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#PotentialTransformerInfo_accuracyClass
+:PotentialTransformerInfo_accuracyClass rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain :PotentialTransformerInfo ;
+                                        rdfs:range xsd:string .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#PotentialTransformerInfo_ptClass
+:PotentialTransformerInfo_ptClass rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :PotentialTransformerInfo ;
+                                  rdfs:range xsd:string .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#RecloserInfo_groundTripCapable
+:RecloserInfo_groundTripCapable rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :RecloserInfo ;
+                                rdfs:range xsd:boolean ;
+                                rdfs:comment "True if device has ground trip capability." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#RecloserInfo_groundTripNormalEnabled
+:RecloserInfo_groundTripNormalEnabled rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :RecloserInfo ;
+                                      rdfs:range xsd:boolean ;
+                                      rdfs:comment "True if normal status of ground trip is enabled." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#RecloserInfo_recloseLockoutCount
+:RecloserInfo_recloseLockoutCount rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :RecloserInfo ;
+                                  rdfs:range xsd:nonNegativeInteger ;
+                                  rdfs:comment "Total number of phase reclose operations." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#SurgeArresterInfo_isPolymer
+:SurgeArresterInfo_isPolymer rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :SurgeArresterInfo ;
+                             rdfs:range xsd:boolean ;
+                             rdfs:comment "If true, the arrester has a polymer housing, porcelain otherwise." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#SurgeArresterInfo_lineDischargeClass
+:SurgeArresterInfo_lineDischargeClass rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :SurgeArresterInfo ;
+                                      rdfs:range xsd:nonNegativeInteger ;
+                                      rdfs:comment "Determines the arrester energy discharge capability.  Choices are limited to 0 (none) through 5 (highest) by IEC 60099. Classes 1..3 require a 10-kA nominal discharge current. Classes 4..5 require a 20-kA nominal discharge current. Lower nominal discharge currents must use class 0." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/AssetInfo#SwitchInfo
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/AssetInfo#SwitchInfo> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/AssetInfo#TransformerEndInfo
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/AssetInfo#TransformerEndInfo> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/AssetInfo#TransformerTankInfo
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/AssetInfo#TransformerTankInfo> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetInfo
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetInfo> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#AssetModelCatalogue
+:AssetModelCatalogue rdf:type owl:Class ;
+                     rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :AssetModelCatalogue_status ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :AssetModelCatalogue_AssetModelCatalogueItems ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass :AssetModelCatalogue
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :AssetModelCatalogue_status ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                     ] ;
+                     rdfs:comment "Catalogue of available types of products and materials that are used to build or install, maintain or operate an Asset. Each catalogue item is for a specific product (AssetModel) available from a specific supplier." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#AssetModelCatalogueItem
+:AssetModelCatalogueItem rdf:type owl:Class ;
+                         rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :AssetModelCatalogueItem_AssetModelCatalogue ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onClass :AssetModelCatalogueItem
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :AssetModelCatalogueItem_ErpPOLineItems ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onClass :AssetModelCatalogueItem
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :AssetModelCatalogueItem_ErpQuoteLineItems ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onClass :AssetModelCatalogueItem
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :AssetModelCatalogueItem_unitCost ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :AssetModelCatalogueItem_ErpPOLineItems ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass :AssetModelCatalogueItem
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :AssetModelCatalogueItem_ErpQuoteLineItems ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass :AssetModelCatalogueItem
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :AssetModelCatalogueItem_unitCost ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                         ] ;
+                         rdfs:comment "Provides pricing and other relevant information about a specific manufacturer's product (i.e., AssetModel), and its price from a given supplier. A single AssetModel may be availble from multiple suppliers. Note that manufacturer and supplier are both types of organisation, which the association is inherited from Document." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#BreakerInfo
+:BreakerInfo rdf:type owl:Class ;
+             rdfs:subClassOf :OldSwitchInfo ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :BreakerInfo_phaseTrip ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :BreakerInfo_phaseTrip ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                             ] ;
+             rdfs:comment """Properties of breaker assets.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CompositeSwitchInfo
+:CompositeSwitchInfo rdf:type owl:Class ;
+                     rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetInfo> ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_interruptingRating ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_ratedVoltage ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_interruptingRating ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_ratedVoltage ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_ganged ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:boolean
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_initOpMode ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_kind ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange :CompositeSwitchKind
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_phaseCode ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_phaseCount ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:nonNegativeInteger
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_remote ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:boolean
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_switchStateCount ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:nonNegativeInteger
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_ganged ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:boolean
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_initOpMode ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_kind ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange :CompositeSwitchKind
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_phaseCode ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode>
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_phaseCount ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:nonNegativeInteger
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_remote ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:boolean
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :CompositeSwitchInfo_switchStateCount ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:nonNegativeInteger
+                                     ] ;
+                     rdfs:comment """Properties of a composite switch.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#CurrentTransformerInfo
+:CurrentTransformerInfo rdf:type owl:Class ;
+                        rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetInfo> ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_accuracyLimit ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_kneePointCurrent ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_kneePointVoltage ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_maxRatio ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_nominalRatio ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_primaryFlsRating ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_primaryRatio ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_ratedCurrent ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_secondaryFlsRating ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_secondaryRatio ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_tertiaryFlsRating ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_tertiaryRatio ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_accuracyLimit ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_kneePointCurrent ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_kneePointVoltage ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_maxRatio ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_nominalRatio ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_primaryFlsRating ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_primaryRatio ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_ratedCurrent ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_secondaryFlsRating ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_secondaryRatio ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_tertiaryFlsRating ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_tertiaryRatio ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_accuracyClass ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:string
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_coreCount ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:nonNegativeInteger
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_ctClass ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:string
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_usage ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:string
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_accuracyClass ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:string
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_coreCount ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:nonNegativeInteger
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_ctClass ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:string
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CurrentTransformerInfo_usage ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:string
+                                        ] ;
+                        rdfs:comment """Properties of current transformer asset.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#FaultIndicatorInfo
+:FaultIndicatorInfo rdf:type owl:Class ;
+                    rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetInfo> ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :FaultIndicatorInfo_resetKind ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange :FaultIndicatorResetKind
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :FaultIndicatorInfo_resetKind ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange :FaultIndicatorResetKind
+                                    ] ;
+                    rdfs:comment "Parameters of fault indicator asset." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldSwitchInfo
+:OldSwitchInfo rdf:type owl:Class ;
+               rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/AssetInfo#SwitchInfo> ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :OldSwitchInfo_dielectricStrength ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :OldSwitchInfo_makingCapacity ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :OldSwitchInfo_minimumCurrent ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :OldSwitchInfo_withstandCurrent ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :OldSwitchInfo_dielectricStrength ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :OldSwitchInfo_makingCapacity ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :OldSwitchInfo_minimumCurrent ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :OldSwitchInfo_withstandCurrent ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :OldSwitchInfo_loadBreak ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:boolean
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :OldSwitchInfo_poleCount ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :OldSwitchInfo_remote ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:boolean
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :OldSwitchInfo_loadBreak ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:boolean
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :OldSwitchInfo_poleCount ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :OldSwitchInfo_remote ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:boolean
+                               ] ;
+               rdfs:comment """Properties of switch assets.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldTransformerEndInfo
+:OldTransformerEndInfo rdf:type owl:Class ;
+                       rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/AssetInfo#TransformerEndInfo> ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :OldTransformerEndInfo_dayOverLoadRating ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :OldTransformerEndInfo_hourOverLoadRating ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :OldTransformerEndInfo_solidInsulationWeight ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Weight>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :OldTransformerEndInfo_dayOverLoadRating ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :OldTransformerEndInfo_hourOverLoadRating ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :OldTransformerEndInfo_solidInsulationWeight ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Weight>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :OldTransformerEndInfo_windingInsulationKind ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange :WindingInsulationKind
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :OldTransformerEndInfo_windingInsulationKind ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange :WindingInsulationKind
+                                       ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#OldTransformerTankInfo
+:OldTransformerTankInfo rdf:type owl:Class ;
+                        rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/AssetInfo#TransformerTankInfo> ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :OldTransformerTankInfo_coreCoilsWeight ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Weight>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :OldTransformerTankInfo_neutralBIL ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :OldTransformerTankInfo_coreCoilsWeight ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Weight>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :OldTransformerTankInfo_neutralBIL ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :OldTransformerTankInfo_constructionKind ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange :TransformerConstructionKind
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :OldTransformerTankInfo_coreKind ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange :TransformerCoreKind
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :OldTransformerTankInfo_function ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange :TransformerFunctionKind
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :OldTransformerTankInfo_oilPreservationKind ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange :OilPreservationKind
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :OldTransformerTankInfo_constructionKind ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange :TransformerConstructionKind
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :OldTransformerTankInfo_coreKind ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange :TransformerCoreKind
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :OldTransformerTankInfo_function ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange :TransformerFunctionKind
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :OldTransformerTankInfo_oilPreservationKind ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange :OilPreservationKind
+                                        ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#PotentialTransformerInfo
+:PotentialTransformerInfo rdf:type owl:Class ;
+                          rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetInfo> ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PotentialTransformerInfo_nominalRatio ;
+                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PotentialTransformerInfo_primaryRatio ;
+                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PotentialTransformerInfo_ratedVoltage ;
+                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PotentialTransformerInfo_secondaryRatio ;
+                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PotentialTransformerInfo_tertiaryRatio ;
+                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PotentialTransformerInfo_nominalRatio ;
+                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PotentialTransformerInfo_primaryRatio ;
+                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PotentialTransformerInfo_ratedVoltage ;
+                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PotentialTransformerInfo_secondaryRatio ;
+                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PotentialTransformerInfo_tertiaryRatio ;
+                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio>
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PotentialTransformerInfo_accuracyClass ;
+                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                            owl:onDataRange xsd:string
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PotentialTransformerInfo_ptClass ;
+                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                            owl:onDataRange xsd:string
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PotentialTransformerInfo_accuracyClass ;
+                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onDataRange xsd:string
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PotentialTransformerInfo_ptClass ;
+                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onDataRange xsd:string
+                                          ] ;
+                          rdfs:comment """Properties of potential transformer asset.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#ProtectionEquipmentInfo
+:ProtectionEquipmentInfo rdf:type owl:Class ;
+                         rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetInfo> ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ProtectionEquipmentInfo_groundTrip ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ProtectionEquipmentInfo_phaseTrip ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ProtectionEquipmentInfo_groundTrip ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ProtectionEquipmentInfo_phaseTrip ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                         ] ;
+                         rdfs:comment "Properties of protection equipment asset." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#RecloserInfo
+:RecloserInfo rdf:type owl:Class ;
+              rdfs:subClassOf :OldSwitchInfo ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RecloserInfo_groundTripRating ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RecloserInfo_phaseTripRating ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RecloserInfo_groundTripRating ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RecloserInfo_phaseTripRating ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RecloserInfo_groundTripCapable ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RecloserInfo_groundTripNormalEnabled ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RecloserInfo_recloseLockoutCount ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:nonNegativeInteger
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RecloserInfo_groundTripCapable ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RecloserInfo_groundTripNormalEnabled ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RecloserInfo_recloseLockoutCount ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:nonNegativeInteger
+                              ] ;
+              rdfs:comment """Properties of recloser assets.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#SurgeArresterInfo
+:SurgeArresterInfo rdf:type owl:Class ;
+                   rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetInfo> ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_continuousOperatingVoltage ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_lightningImpulseDischargeVoltage ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_nominalDischargeCurrent ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_pressureReliefClass ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_ratedVoltage ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_steepFrontDischargeVoltage ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_switchingImpulseDischargeVoltage ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_continuousOperatingVoltage ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_lightningImpulseDischargeVoltage ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_nominalDischargeCurrent ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_pressureReliefClass ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_ratedVoltage ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_steepFrontDischargeVoltage ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_switchingImpulseDischargeVoltage ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_isPolymer ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:boolean
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_lineDischargeClass ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_isPolymer ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:boolean
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :SurgeArresterInfo_lineDischargeClass ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:nonNegativeInteger
+                                   ] ;
+                   rdfs:comment "Properties of surge arrester." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#Text
+:Text rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#InfAssetInfo : InfAuxiliaryEquipmentInfo
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#InfAssetInfo : InfAuxiliaryEquipmentInfo> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#InfAssetInfo : InfElectricalInfo
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#InfAssetInfo : InfElectricalInfo> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#InfAssetInfo : InfTransformerInfo
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#InfAssetInfo : InfTransformerInfo> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPOLineItem
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPOLineItem> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty :ErpPOLineItem_AssetModelCatalogueItem ;
+                                                                                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPOLineItem>
+                                                                                                   ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpQuoteLineItem
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpQuoteLineItem> rdf:type owl:Class ;
+                                                                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty :ErpQuoteLineItem_AssetModelCatalogueItem ;
+                                                                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                        owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpQuoteLineItem>
+                                                                                                      ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Weight
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Weight> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

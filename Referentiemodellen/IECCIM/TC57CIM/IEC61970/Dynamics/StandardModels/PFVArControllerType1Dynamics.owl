@@ -1,0 +1,332 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArControllerType1Dynamics_VoltageAdjusterDynamics
+:PFVArControllerType1Dynamics_VoltageAdjusterDynamics rdf:type owl:ObjectProperty ;
+                                                      owl:inverseOf :VoltageAdjusterDynamics_PFVArControllerType1Dynamics ;
+                                                      rdf:type owl:FunctionalProperty ;
+                                                      rdfs:domain :PFVArControllerType1Dynamics ;
+                                                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VoltageAdjusterDynamics> ;
+                                                      rdfs:comment "Voltage adjuster model associated with this Power Factor or VA controller Type I model.Power Factor or VAr controller Type I model with which this voltage adjuster is associated." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArType1IEEEPFController_tpfc
+:PFVArType1IEEEPFController_tpfc rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :PFVArType1IEEEPFController ;
+                                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                                 rdfs:comment "PF controller time delay (<i>T</i><i><sub>PFC</sub></i>).  Typical Value = 5." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArType1IEEEPFController_vitmin
+:PFVArType1IEEEPFController_vitmin rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :PFVArType1IEEEPFController ;
+                                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                   rdfs:comment "Minimum machine terminal current needed to enable pf/var controller (<i>V</i><i><sub>ITMIN</sub></i>)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArType1IEEEPFController_vpf
+:PFVArType1IEEEPFController_vpf rdf:type owl:ObjectProperty ;
+                                rdfs:domain :PFVArType1IEEEPFController ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                rdfs:comment "Synchronous machine power factor (<i>V</i><i><sub>PF</sub></i>)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArType1IEEEPFController_vpfref
+:PFVArType1IEEEPFController_vpfref rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :PFVArType1IEEEPFController ;
+                                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                   rdfs:comment "PF controller reference (<i>V</i><i><sub>PFREF</sub></i>)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArType1IEEEPFController_vvtmax
+:PFVArType1IEEEPFController_vvtmax rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :PFVArType1IEEEPFController ;
+                                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                   rdfs:comment "Maximum machine terminal voltage needed for pf/var controller to be enabled (<i>V</i><i><sub>VTMAX</sub></i>)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArType1IEEEPFController_vvtmin
+:PFVArType1IEEEPFController_vvtmin rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :PFVArType1IEEEPFController ;
+                                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                   rdfs:comment "Minimum machine terminal voltage needed to enable pf/var controller (<i>V</i><i><sub>VTMIN</sub></i>)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArType1IEEEVArController_tvarc
+:PFVArType1IEEEVArController_tvarc rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :PFVArType1IEEEVArController ;
+                                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                                   rdfs:comment "Var controller time delay (<i>T</i><i><sub>VARC</sub></i>).  Typical Value = 5." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArType1IEEEVArController_vvar
+:PFVArType1IEEEVArController_vvar rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :PFVArType1IEEEVArController ;
+                                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                  rdfs:comment "Synchronous machine power factor (<i>V</i><i><sub>VAR</sub></i>)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArType1IEEEVArController_vvarref
+:PFVArType1IEEEVArController_vvarref rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :PFVArType1IEEEVArController ;
+                                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                     rdfs:comment "Var controller reference (<i>V</i><i><sub>VARREF</sub></i>)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArType1IEEEVArController_vvtmax
+:PFVArType1IEEEVArController_vvtmax rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :PFVArType1IEEEVArController ;
+                                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                    rdfs:comment "Maximum machine terminal voltage needed for pf/var controller to be enabled (<i>V</i><i><sub>VTMAX</sub></i>)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArType1IEEEVArController_vvtmin
+:PFVArType1IEEEVArController_vvtmin rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :PFVArType1IEEEVArController ;
+                                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                    rdfs:comment "Minimum machine terminal voltage needed to enable pf/var controller (<i>V</i><i><sub>VTMIN</sub></i>)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#VoltageAdjusterDynamics_PFVArControllerType1Dynamics
+:VoltageAdjusterDynamics_PFVArControllerType1Dynamics rdf:type owl:ObjectProperty ;
+                                                      rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VoltageAdjusterDynamics> ;
+                                                      rdfs:range :PFVArControllerType1Dynamics ;
+                                                      rdfs:comment "Voltage adjuster model associated with this Power Factor or VA controller Type I model.Power Factor or VAr controller Type I model with which this voltage adjuster is associated." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArType1IEEEPFController_ovex
+:PFVArType1IEEEPFController_ovex rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :PFVArType1IEEEPFController ;
+                                 rdfs:range xsd:boolean ;
+                                 rdfs:comment """Overexcitation Flag (<i>OVEX</i>)
+true = overexcited
+false = underexcited.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArType1IEEEPFController_vpfcbw
+:PFVArType1IEEEPFController_vpfcbw rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain :PFVArType1IEEEPFController ;
+                                   rdfs:range xsd:float ;
+                                   rdfs:comment "PF controller dead band (<i>V</i><i><sub>PFC_BW</sub></i>).  Typical Value = 0.05." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArType1IEEEVArController_vvarcbw
+:PFVArType1IEEEVArController_vvarcbw rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :PFVArType1IEEEVArController ;
+                                     rdfs:range xsd:float ;
+                                     rdfs:comment "Var controller dead band (<i>V</i><i><sub>VARC_BW</sub></i>).  Typical Value = 0.02." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArControllerType1Dynamics
+:PFVArControllerType1Dynamics rdf:type owl:Class ;
+                              rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock> ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :PFVArControllerType1Dynamics_VoltageAdjusterDynamics ;
+                                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                owl:onClass :PFVArControllerType1Dynamics
+                                              ] ;
+                              rdfs:comment "Power Factor or VAr controller Type I function block whose behaviour is described by reference to a standard model <font color=\"#0f0f0f\">or by definition of a user-defined model.</font>" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArType1IEEEPFController
+:PFVArType1IEEEPFController rdf:type owl:Class ;
+                            rdfs:subClassOf :PFVArControllerType1Dynamics ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :PFVArType1IEEEPFController_tpfc ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :PFVArType1IEEEPFController_vitmin ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :PFVArType1IEEEPFController_vpf ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :PFVArType1IEEEPFController_vpfref ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :PFVArType1IEEEPFController_vvtmax ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :PFVArType1IEEEPFController_vvtmin ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :PFVArType1IEEEPFController_tpfc ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :PFVArType1IEEEPFController_vitmin ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :PFVArType1IEEEPFController_vpf ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :PFVArType1IEEEPFController_vpfref ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :PFVArType1IEEEPFController_vvtmax ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :PFVArType1IEEEPFController_vvtmin ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :PFVArType1IEEEPFController_ovex ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:boolean
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :PFVArType1IEEEPFController_vpfcbw ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:float
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :PFVArType1IEEEPFController_ovex ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:boolean
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :PFVArType1IEEEPFController_vpfcbw ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:float
+                                            ] ;
+                            rdfs:comment """The class represents IEEE PF Controller Type 1 which operates by moving the voltage reference directly.
+
+Reference: IEEE Standard 421.5-2005 Section 11.2. """ .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArType1IEEEVArController
+:PFVArType1IEEEVArController rdf:type owl:Class ;
+                             rdfs:subClassOf :PFVArControllerType1Dynamics ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :PFVArType1IEEEVArController_tvarc ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :PFVArType1IEEEVArController_vvar ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :PFVArType1IEEEVArController_vvarref ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :PFVArType1IEEEVArController_vvtmax ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :PFVArType1IEEEVArController_vvtmin ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :PFVArType1IEEEVArController_tvarc ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :PFVArType1IEEEVArController_vvar ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :PFVArType1IEEEVArController_vvarref ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :PFVArType1IEEEVArController_vvtmax ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :PFVArType1IEEEVArController_vvtmin ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :PFVArType1IEEEVArController_vvarcbw ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onDataRange xsd:float
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :PFVArType1IEEEVArController_vvarcbw ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onDataRange xsd:float
+                                             ] ;
+                             rdfs:comment """The class represents IEEE VAR Controller Type 1 which operates by moving the voltage reference directly.
+
+Reference: IEEE Standard 421.5-2005 Section 11.3.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VoltageAdjusterDynamics
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VoltageAdjusterDynamics> rdf:type owl:Class ;
+                                                                                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                                     owl:onProperty :VoltageAdjusterDynamics_PFVArControllerType1Dynamics ;
+                                                                                                                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VoltageAdjusterDynamics>
+                                                                                                                                   ] ,
+                                                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                                                     owl:onProperty :VoltageAdjusterDynamics_PFVArControllerType1Dynamics ;
+                                                                                                                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VoltageAdjusterDynamics>
+                                                                                                                                   ] .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

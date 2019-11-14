@@ -1,0 +1,1351 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLim2Simplified_kui
+:UnderexcLim2Simplified_kui rdf:type owl:ObjectProperty ;
+                            rdfs:domain :UnderexcLim2Simplified ;
+                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                            rdfs:comment "Gain Under excitation limiter (Kui).  Typical Value = 0.1." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLim2Simplified_p0
+:UnderexcLim2Simplified_p0 rdf:type owl:ObjectProperty ;
+                           rdfs:domain :UnderexcLim2Simplified ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                           rdfs:comment "Segment P initial point (P0).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLim2Simplified_p1
+:UnderexcLim2Simplified_p1 rdf:type owl:ObjectProperty ;
+                           rdfs:domain :UnderexcLim2Simplified ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                           rdfs:comment "Segment P end point (P1).  Typical Value = 1." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLim2Simplified_q0
+:UnderexcLim2Simplified_q0 rdf:type owl:ObjectProperty ;
+                           rdfs:domain :UnderexcLim2Simplified ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                           rdfs:comment "Segment Q initial point (Q0).  Typical Value = -0.31." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLim2Simplified_q1
+:UnderexcLim2Simplified_q1 rdf:type owl:ObjectProperty ;
+                           rdfs:domain :UnderexcLim2Simplified ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                           rdfs:comment "Segment Q end point (Q1).  Typical Value = -0.1." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLim2Simplified_vuimax
+:UnderexcLim2Simplified_vuimax rdf:type owl:ObjectProperty ;
+                               rdfs:domain :UnderexcLim2Simplified ;
+                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                               rdfs:comment "Maximum error signal (V<sub>UImax</sub>).  Typical Value = 1." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLim2Simplified_vuimin
+:UnderexcLim2Simplified_vuimin rdf:type owl:ObjectProperty ;
+                               rdfs:domain :UnderexcLim2Simplified ;
+                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                               rdfs:comment "Minimum error signal (V<sub>UImin</sub>).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE1_kuc
+:UnderexcLimIEEE1_kuc rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE1 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                      rdfs:comment "UEL center setting (K<sub>UC</sub>).  Typical Value = 1.38." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE1_kuf
+:UnderexcLimIEEE1_kuf rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE1 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                      rdfs:comment "UEL excitation system stabilizer gain (K<sub>UF</sub>).  Typical Value = 3.3." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE1_kui
+:UnderexcLimIEEE1_kui rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE1 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                      rdfs:comment "UEL integral gain (K<sub>UI</sub>).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE1_kul
+:UnderexcLimIEEE1_kul rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE1 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                      rdfs:comment "UEL proportional gain (K<sub>UL</sub>).  Typical Value = 100." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE1_kur
+:UnderexcLimIEEE1_kur rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE1 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                      rdfs:comment "UEL radius setting (K<sub>UR</sub>).  Typical Value = 1.95." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE1_tu1
+:UnderexcLimIEEE1_tu1 rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE1 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                      rdfs:comment "UEL lead time constant (T<sub>U1</sub>).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE1_tu2
+:UnderexcLimIEEE1_tu2 rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE1 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                      rdfs:comment "UEL lag time constant (T<sub>U2</sub>).  Typical Value = 0.05." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE1_tu3
+:UnderexcLimIEEE1_tu3 rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE1 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                      rdfs:comment "UEL lead time constant (T<sub>U3</sub>).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE1_tu4
+:UnderexcLimIEEE1_tu4 rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE1 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                      rdfs:comment "UEL lag time constant (T<sub>U4</sub>).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE1_vucmax
+:UnderexcLimIEEE1_vucmax rdf:type owl:ObjectProperty ;
+                         rdfs:domain :UnderexcLimIEEE1 ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                         rdfs:comment "UEL maximum limit for operating point phasor magnitude (V<sub>UCMAX</sub>).  Typical Value = 5.8." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE1_vuimax
+:UnderexcLimIEEE1_vuimax rdf:type owl:ObjectProperty ;
+                         rdfs:domain :UnderexcLimIEEE1 ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                         rdfs:comment "UEL integrator output maximum limit (V<sub>UIMAX</sub>)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE1_vuimin
+:UnderexcLimIEEE1_vuimin rdf:type owl:ObjectProperty ;
+                         rdfs:domain :UnderexcLimIEEE1 ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                         rdfs:comment "UEL integrator output minimum limit (V<sub>UIMIN</sub>)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE1_vulmax
+:UnderexcLimIEEE1_vulmax rdf:type owl:ObjectProperty ;
+                         rdfs:domain :UnderexcLimIEEE1 ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                         rdfs:comment "UEL output maximum limit (V<sub>ULMAX</sub>).  Typical Value = 18." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE1_vulmin
+:UnderexcLimIEEE1_vulmin rdf:type owl:ObjectProperty ;
+                         rdfs:domain :UnderexcLimIEEE1 ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                         rdfs:comment "UEL output minimum limit (V<sub>ULMIN</sub>).  Typical Value = -18." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE1_vurmax
+:UnderexcLimIEEE1_vurmax rdf:type owl:ObjectProperty ;
+                         rdfs:domain :UnderexcLimIEEE1 ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                         rdfs:comment "UEL maximum limit for radius phasor magnitude (V<sub>URMAX</sub>).  Typical Value = 5.8." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_kfb
+:UnderexcLimIEEE2_kfb rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE2 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                      rdfs:comment "Gain associated with optional integrator feedback input signal to UEL (K<sub>FB</sub>).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_kuf
+:UnderexcLimIEEE2_kuf rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE2 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                      rdfs:comment "UEL excitation system stabilizer gain (K<sub>UF</sub>).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_kui
+:UnderexcLimIEEE2_kui rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE2 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                      rdfs:comment "UEL integral gain (K<sub>UI</sub>).  Typical Value = 0.5." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_kul
+:UnderexcLimIEEE2_kul rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE2 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                      rdfs:comment "UEL proportional gain (K<sub>UL</sub>).  Typical Value = 0.8." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_p0
+:UnderexcLimIEEE2_p0 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Real power values for endpoints (P<sub>0</sub>).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_p1
+:UnderexcLimIEEE2_p1 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Real power values for endpoints (P<sub>1</sub>).  Typical Value = 0.3." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_p10
+:UnderexcLimIEEE2_p10 rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE2 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                      rdfs:comment "Real power values for endpoints (P<sub>10</sub>). " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_p2
+:UnderexcLimIEEE2_p2 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Real power values for endpoints (P<sub>2</sub>).  Typical Value = 0.6." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_p3
+:UnderexcLimIEEE2_p3 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Real power values for endpoints (P<sub>3</sub>).  Typical Value = 0.9." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_p4
+:UnderexcLimIEEE2_p4 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Real power values for endpoints (P<sub>4</sub>).  Typical Value = 1.02." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_p5
+:UnderexcLimIEEE2_p5 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Real power values for endpoints (P<sub>5</sub>). " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_p6
+:UnderexcLimIEEE2_p6 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Real power values for endpoints (P<sub>6</sub>)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_p7
+:UnderexcLimIEEE2_p7 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Real power values for endpoints (P<sub>7</sub>). " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_p8
+:UnderexcLimIEEE2_p8 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Real power values for endpoints (P<sub>8</sub>). " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_p9
+:UnderexcLimIEEE2_p9 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Real power values for endpoints (P<sub>9</sub>). " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_q0
+:UnderexcLimIEEE2_q0 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Reactive power values for endpoints (Q<sub>0</sub>).  Typical Value = -0.31." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_q1
+:UnderexcLimIEEE2_q1 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Reactive power values for endpoints (Q<sub>1</sub>).  Typical Value = -0.31." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_q10
+:UnderexcLimIEEE2_q10 rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE2 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                      rdfs:comment "Reactive power values for endpoints (Q<sub>10</sub>). " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_q2
+:UnderexcLimIEEE2_q2 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Reactive power values for endpoints (Q<sub>2</sub>).  Typical Value = -0.28." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_q3
+:UnderexcLimIEEE2_q3 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Reactive power values for endpoints (Q<sub>3</sub>).  Typical Value = -0.21." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_q4
+:UnderexcLimIEEE2_q4 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Reactive power values for endpoints (Q<sub>4</sub>).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_q5
+:UnderexcLimIEEE2_q5 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Reactive power values for endpoints (Q<sub>5</sub>). " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_q6
+:UnderexcLimIEEE2_q6 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Reactive power values for endpoints (Q<sub>6</sub>). " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_q7
+:UnderexcLimIEEE2_q7 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Reactive power values for endpoints (Q<sub>7</sub>). " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_q8
+:UnderexcLimIEEE2_q8 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Reactive power values for endpoints (Q<sub>8</sub>). " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_q9
+:UnderexcLimIEEE2_q9 rdf:type owl:ObjectProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                     rdfs:comment "Reactive power values for endpoints (Q<sub>9</sub>). " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_tu1
+:UnderexcLimIEEE2_tu1 rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE2 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                      rdfs:comment "UEL lead time constant (T<sub>U1</sub>).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_tu2
+:UnderexcLimIEEE2_tu2 rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE2 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                      rdfs:comment "UEL lag time constant (T<sub>U2</sub>).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_tu3
+:UnderexcLimIEEE2_tu3 rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE2 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                      rdfs:comment "UEL lead time constant (T<sub>U3</sub>).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_tu4
+:UnderexcLimIEEE2_tu4 rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE2 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                      rdfs:comment "UEL lag time constant (T<sub>U4</sub>).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_tul
+:UnderexcLimIEEE2_tul rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE2 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                      rdfs:comment "Time constant associated with optional integrator feedback input signal to UEL (T<sub>UL</sub>).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_tup
+:UnderexcLimIEEE2_tup rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE2 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                      rdfs:comment "Real power filter time constant (T<sub>UP</sub>).  Typical Value = 5." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_tuq
+:UnderexcLimIEEE2_tuq rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE2 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                      rdfs:comment "Reactive power filter time constant (T<sub>UQ</sub>).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_tuv
+:UnderexcLimIEEE2_tuv rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimIEEE2 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                      rdfs:comment "Voltage filter time constant (T<sub>UV</sub>).  Typical Value = 5." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_vuimax
+:UnderexcLimIEEE2_vuimax rdf:type owl:ObjectProperty ;
+                         rdfs:domain :UnderexcLimIEEE2 ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                         rdfs:comment "UEL integrator output maximum limit (V<sub>UIMAX</sub>).  Typical Value = 0.25." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_vuimin
+:UnderexcLimIEEE2_vuimin rdf:type owl:ObjectProperty ;
+                         rdfs:domain :UnderexcLimIEEE2 ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                         rdfs:comment "UEL integrator output minimum limit (V<sub>UIMIN</sub>).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_vulmax
+:UnderexcLimIEEE2_vulmax rdf:type owl:ObjectProperty ;
+                         rdfs:domain :UnderexcLimIEEE2 ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                         rdfs:comment "UEL output maximum limit (V<sub>ULMAX</sub>).  Typical Value = 0.25." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_vulmin
+:UnderexcLimIEEE2_vulmin rdf:type owl:ObjectProperty ;
+                         rdfs:domain :UnderexcLimIEEE2 ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                         rdfs:comment "UEL output minimum limit (V<sub>ULMIN</sub>).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimX1_k
+:UnderexcLimX1_k rdf:type owl:ObjectProperty ;
+                 rdfs:domain :UnderexcLimX1 ;
+                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                 rdfs:comment "Minimum excitation limit slope (K) (&gt;0)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimX1_kf2
+:UnderexcLimX1_kf2 rdf:type owl:ObjectProperty ;
+                   rdfs:domain :UnderexcLimX1 ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                   rdfs:comment "Differential gain (Kf2)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimX1_km
+:UnderexcLimX1_km rdf:type owl:ObjectProperty ;
+                  rdfs:domain :UnderexcLimX1 ;
+                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                  rdfs:comment "Minimum excitation limit gain (Km)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimX1_melmax
+:UnderexcLimX1_melmax rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimX1 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                      rdfs:comment "Minimum excitation limit value (MELMAX)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimX1_tf2
+:UnderexcLimX1_tf2 rdf:type owl:ObjectProperty ;
+                   rdfs:domain :UnderexcLimX1 ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                   rdfs:comment "Differential time constant (Tf2) (&gt;0)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimX1_tm
+:UnderexcLimX1_tm rdf:type owl:ObjectProperty ;
+                  rdfs:domain :UnderexcLimX1 ;
+                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                  rdfs:comment "Minimum excitation limit time constant (Tm)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimX2_kf2
+:UnderexcLimX2_kf2 rdf:type owl:ObjectProperty ;
+                   rdfs:domain :UnderexcLimX2 ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                   rdfs:comment "Differential gain (Kf2)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimX2_km
+:UnderexcLimX2_km rdf:type owl:ObjectProperty ;
+                  rdfs:domain :UnderexcLimX2 ;
+                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                  rdfs:comment "Minimum excitation limit gain (Km)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimX2_melmax
+:UnderexcLimX2_melmax rdf:type owl:ObjectProperty ;
+                      rdfs:domain :UnderexcLimX2 ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                      rdfs:comment "Minimum excitation limit value (MELMAX)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimX2_qo
+:UnderexcLimX2_qo rdf:type owl:ObjectProperty ;
+                  rdfs:domain :UnderexcLimX2 ;
+                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                  rdfs:comment "Excitation center setting (Qo)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimX2_r
+:UnderexcLimX2_r rdf:type owl:ObjectProperty ;
+                 rdfs:domain :UnderexcLimX2 ;
+                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                 rdfs:comment "Excitation radius (R)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimX2_tf2
+:UnderexcLimX2_tf2 rdf:type owl:ObjectProperty ;
+                   rdfs:domain :UnderexcLimX2 ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                   rdfs:comment "Differential time constant (Tf2) (&gt;0)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimX2_tm
+:UnderexcLimX2_tm rdf:type owl:ObjectProperty ;
+                  rdfs:domain :UnderexcLimX2 ;
+                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                  rdfs:comment "Minimum excitation limit time constant (Tm)." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_k1
+:UnderexcLimIEEE2_k1 rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range xsd:float ;
+                     rdfs:comment "UEL terminal voltage exponent applied to real power input to UEL limit look-up table (k1).  Typical Value = 2." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2_k2
+:UnderexcLimIEEE2_k2 rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :UnderexcLimIEEE2 ;
+                     rdfs:range xsd:float ;
+                     rdfs:comment "UEL terminal voltage exponent applied to reactive power output from UEL limit look-up table (k2).  Typical Value = 2." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLim2Simplified
+:UnderexcLim2Simplified rdf:type owl:Class ;
+                        rdfs:subClassOf :UnderexcitationLimiterDynamics ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :UnderexcLim2Simplified_kui ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :UnderexcLim2Simplified_p0 ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :UnderexcLim2Simplified_p1 ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :UnderexcLim2Simplified_q0 ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :UnderexcLim2Simplified_q1 ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :UnderexcLim2Simplified_vuimax ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :UnderexcLim2Simplified_vuimin ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :UnderexcLim2Simplified_kui ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :UnderexcLim2Simplified_p0 ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :UnderexcLim2Simplified_p1 ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :UnderexcLim2Simplified_q0 ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :UnderexcLim2Simplified_q1 ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :UnderexcLim2Simplified_vuimax ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :UnderexcLim2Simplified_vuimin ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                        ] ;
+                        rdfs:comment """This model can be derived from UnderexcLimIEEE2.
+The limit characteristic (look –up table) is a single straight-line, the same as UnderexcLimIEEE2 (see Figure 10.4 (p 32), IEEE 421.5-2005 Section 10.2).""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE1
+:UnderexcLimIEEE1 rdf:type owl:Class ;
+                  rdfs:subClassOf :UnderexcitationLimiterDynamics ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_kuc ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_kuf ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_kui ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_kul ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_kur ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_tu1 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_tu2 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_tu3 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_tu4 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_vucmax ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_vuimax ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_vuimin ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_vulmax ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_vulmin ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_vurmax ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_kuc ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_kuf ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_kui ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_kul ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_kur ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_tu1 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_tu2 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_tu3 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_tu4 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_vucmax ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_vuimax ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_vuimin ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_vulmax ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_vulmin ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE1_vurmax ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ;
+                  rdfs:comment """The class represents the Type UEL1 model which has a circular limit boundary when plotted in terms of machine reactive power vs. real power output.
+
+Reference: IEEE UEL1 421.5-2005 Section 10.1. """ .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimIEEE2
+:UnderexcLimIEEE2 rdf:type owl:Class ;
+                  rdfs:subClassOf :UnderexcitationLimiterDynamics ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_kfb ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_kuf ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_kui ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_kul ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p0 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p1 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p10 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p2 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p3 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p4 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p5 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p6 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p7 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p8 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p9 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q0 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q1 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q10 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q2 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q3 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q4 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q5 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q6 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q7 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q8 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q9 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_tu1 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_tu2 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_tu3 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_tu4 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_tul ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_tup ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_tuq ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_tuv ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_vuimax ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_vuimin ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_vulmax ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_vulmin ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_kfb ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_kuf ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_kui ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_kul ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p0 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p1 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p10 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p2 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p3 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p4 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p5 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p6 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p7 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p8 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_p9 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q0 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q1 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q10 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q2 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q3 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q4 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q5 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q6 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q7 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q8 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_q9 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_tu1 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_tu2 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_tu3 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_tu4 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_tul ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_tup ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_tuq ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_tuv ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_vuimax ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_vuimin ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_vulmax ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_vulmin ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_k1 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:float
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_k2 ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:float
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_k1 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:float
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :UnderexcLimIEEE2_k2 ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:float
+                                  ] ;
+                  rdfs:comment """The class represents the Type UEL2 which has either a straight-line or multi-segment characteristic when plotted in terms of machine reactive power output vs. real power output.
+
+Reference: IEEE UEL2 421.5-2005 Section 10.2.  (Limit characteristic lookup table shown in Figure 10.4 (p 32) of the standard).""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimX1
+:UnderexcLimX1 rdf:type owl:Class ;
+               rdfs:subClassOf :UnderexcitationLimiterDynamics ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX1_k ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX1_kf2 ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX1_km ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX1_melmax ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX1_tf2 ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX1_tm ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX1_k ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX1_kf2 ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX1_km ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX1_melmax ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX1_tf2 ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX1_tm ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                               ] ;
+               rdfs:comment "<font color=\"#0f0f0f\">Allis-Chalmers minimum excitation limiter.</font>" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcLimX2
+:UnderexcLimX2 rdf:type owl:Class ;
+               rdfs:subClassOf :UnderexcitationLimiterDynamics ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX2_kf2 ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX2_km ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX2_melmax ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX2_qo ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX2_r ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX2_tf2 ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX2_tm ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX2_kf2 ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX2_km ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX2_melmax ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX2_qo ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX2_r ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX2_tf2 ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :UnderexcLimX2_tm ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                               ] ;
+               rdfs:comment "<font color=\"#0f0f0f\">Westinghouse minimum excitation limiter.</font>" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcitationLimiterDynamics
+:UnderexcitationLimiterDynamics rdf:type owl:Class ;
+                                rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock> ;
+                                rdfs:comment "Underexcitation limiter function block whose behaviour is described by reference to a standard model <font color=\"#0f0f0f\">or by definition of a user-defined model.</font>" .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

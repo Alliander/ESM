@@ -1,0 +1,1830 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#AceTariffType_MarketDocument
+:AceTariffType_MarketDocument rdf:type owl:ObjectProperty ;
+                              rdfs:domain :AceTariffType ;
+                              rdfs:range :MarketDocument ;
+                              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#AceTariffType_Point
+:AceTariffType_Point rdf:type owl:ObjectProperty ;
+                     owl:inverseOf :Point_AceTariffType ;
+                     rdfs:domain :AceTariffType ;
+                     rdfs:range :Point ;
+                     rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#AceTariffType_Unit
+:AceTariffType_Unit rdf:type owl:ObjectProperty ;
+                    rdfs:domain :AceTariffType ;
+                    rdfs:range :Unit ;
+                    rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#AttributeInstanceComponent_MarketDocument
+:AttributeInstanceComponent_MarketDocument rdf:type owl:ObjectProperty ;
+                                           owl:inverseOf :MarketDocument_AttributeInstanceComponent ;
+                                           rdfs:domain :AttributeInstanceComponent ;
+                                           rdfs:range :MarketDocument ;
+                                           rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#AttributeInstanceComponent_TimeSeries
+:AttributeInstanceComponent_TimeSeries rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :AttributeInstanceComponent ;
+                                       rdfs:range :TimeSeries ;
+                                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Auction_TimeSeries
+:Auction_TimeSeries rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Auction ;
+                    rdfs:range :TimeSeries ;
+                    rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#BidTimeSeries_minimumActivationQuantity
+:BidTimeSeries_minimumActivationQuantity rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :BidTimeSeries ;
+                                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal> ;
+                                         rdfs:comment """The minimum quantity of energy that can be activated at a given time interval.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#BidTimeSeries_stepIncrementQuantity
+:BidTimeSeries_stepIncrementQuantity rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :BidTimeSeries ;
+                                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal> ;
+                                     rdfs:comment """The minimum increment that can be applied for an increase in an activation request.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#ConstraintDuration_TimeSeries
+:ConstraintDuration_TimeSeries rdf:type owl:ObjectProperty ;
+                               rdfs:domain :ConstraintDuration ;
+                               rdfs:range :TimeSeries ;
+                               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#ConstraintDuration_duration
+:ConstraintDuration_duration rdf:type owl:ObjectProperty ;
+                             rdfs:domain :ConstraintDuration ;
+                             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Duration> ;
+                             rdfs:comment "The duration of the constraint." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#DateAndOrTime_TimeSeries
+:DateAndOrTime_TimeSeries rdf:type owl:ObjectProperty ;
+                          owl:inverseOf :TimeSeries_DateAndOrTime ;
+                          rdfs:domain :DateAndOrTime ;
+                          rdfs:range :TimeSeries ;
+                          rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#DateAndOrTime_time
+:DateAndOrTime_time rdf:type owl:ObjectProperty ;
+                    rdfs:domain :DateAndOrTime ;
+                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Time> ;
+                    rdfs:comment "Time as \"hh:mm:ss.sssZ\", which conforms with ISO 8601." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Domain_MarketDocument
+:Domain_MarketDocument rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :MarketDocument_Domain ;
+                       rdfs:domain :Domain ;
+                       rdfs:range :MarketDocument ;
+                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Domain_TimeSeries
+:Domain_TimeSeries rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :TimeSeries_Domain ;
+                   rdfs:domain :Domain ;
+                   rdfs:range :TimeSeries ;
+                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#FlowDirection_TimeSeries
+:FlowDirection_TimeSeries rdf:type owl:ObjectProperty ;
+                          owl:inverseOf :TimeSeries_FlowDirection ;
+                          rdfs:domain :FlowDirection ;
+                          rdfs:range :TimeSeries ;
+                          rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketDocument_AceTariffType
+:MarketDocument_AceTariffType rdf:type owl:ObjectProperty ;
+                              owl:inverseOf :AceTariffType_MarketDocument ;
+                              rdfs:domain :MarketDocument ;
+                              rdfs:range :AceTariffType ;
+                              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketDocument_AttributeInstanceComponent
+:MarketDocument_AttributeInstanceComponent rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :MarketDocument ;
+                                           rdfs:range :AttributeInstanceComponent ;
+                                           rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketDocument_Domain
+:MarketDocument_Domain rdf:type owl:ObjectProperty ;
+                       rdfs:domain :MarketDocument ;
+                       rdfs:range :Domain ;
+                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketDocument_MarketDocument
+:MarketDocument_MarketDocument rdf:type owl:ObjectProperty ;
+                               owl:inverseOf :MarketDocument_selfMarketDocument ;
+                               rdfs:domain :MarketDocument ;
+                               rdfs:range :MarketDocument ;
+                               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketDocument_MarketParticipant
+:MarketDocument_MarketParticipant rdf:type owl:ObjectProperty ;
+                                  owl:inverseOf :MarketParticipant_MarketDocument ;
+                                  rdfs:domain :MarketDocument ;
+                                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketCommon#MarketParticipant> ;
+                                  rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketDocument_Period
+:MarketDocument_Period rdf:type owl:ObjectProperty ;
+                       rdfs:domain :MarketDocument ;
+                       rdfs:range :Period ;
+                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketDocument_Process
+:MarketDocument_Process rdf:type owl:ObjectProperty ;
+                        owl:inverseOf :Process_MarketDocument ;
+                        rdfs:domain :MarketDocument ;
+                        rdfs:range :Process ;
+                        rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketDocument_Reason
+:MarketDocument_Reason rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :Reason_MarketDocument ;
+                       rdfs:domain :MarketDocument ;
+                       rdfs:range :Reason ;
+                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketDocument_TimeSeries
+:MarketDocument_TimeSeries rdf:type owl:ObjectProperty ;
+                           owl:inverseOf :TimeSeries_MarketDocument ;
+                           rdfs:domain :MarketDocument ;
+                           rdfs:range :TimeSeries ;
+                           rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketDocument_selfMarketDocument
+:MarketDocument_selfMarketDocument rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :MarketDocument ;
+                                   rdfs:range :MarketDocument ;
+                                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketEvaluationPoint_TimeSeries
+:MarketEvaluationPoint_TimeSeries rdf:type owl:ObjectProperty ;
+                                  owl:inverseOf :TimeSeries_MarketEvaluationPoint ;
+                                  rdfs:domain :MarketEvaluationPoint ;
+                                  rdfs:range :TimeSeries ;
+                                  rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketObjectStatus_TimeSeries
+:MarketObjectStatus_TimeSeries rdf:type owl:ObjectProperty ;
+                               rdfs:domain :MarketObjectStatus ;
+                               rdfs:range :TimeSeries ;
+                               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketParticipant_MarketDocument
+:MarketParticipant_MarketDocument rdf:type owl:ObjectProperty ;
+                                  rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketCommon#MarketParticipant> ;
+                                  rdfs:range :MarketDocument ;
+                                  rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketParticipant_TimeSeries
+:MarketParticipant_TimeSeries rdf:type owl:ObjectProperty ;
+                              owl:inverseOf :TimeSeries_MarketParticipant ;
+                              rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketCommon#MarketParticipant> ;
+                              rdfs:range :TimeSeries ;
+                              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MktPSRType_TimeSeries
+:MktPSRType_TimeSeries rdf:type owl:ObjectProperty ;
+                       rdfs:domain :MktPSRType ;
+                       rdfs:range :TimeSeries ;
+                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Period_MarketDocument
+:Period_MarketDocument rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :MarketDocument_Period ;
+                       rdfs:domain :Period ;
+                       rdfs:range :MarketDocument ;
+                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Period_Point
+:Period_Point rdf:type owl:ObjectProperty ;
+              owl:inverseOf :Point_Period ;
+              rdf:type owl:FunctionalProperty ;
+              rdfs:domain :Period ;
+              rdfs:range :Point ;
+              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Period_Reason
+:Period_Reason rdf:type owl:ObjectProperty ;
+               rdfs:domain :Period ;
+               rdfs:range :Reason ;
+               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Period_TimeSeries
+:Period_TimeSeries rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :TimeSeries_Period ;
+                   rdfs:domain :Period ;
+                   rdfs:range :TimeSeries ;
+                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Period_resolution
+:Period_resolution rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Period ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Duration> ;
+                   rdfs:comment """The number of units of time that compose an individual step within a period.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Period_timeInterval
+:Period_timeInterval rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Period ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
+                     rdfs:comment """The start and end date and time for a given interval.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Point_AceTariffType
+:Point_AceTariffType rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Point ;
+                     rdfs:range :AceTariffType ;
+                     rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Point_Period
+:Point_Period rdf:type owl:ObjectProperty ;
+              rdfs:domain :Point ;
+              rdfs:range :Period ;
+              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Point_Price
+:Point_Price rdf:type owl:ObjectProperty ;
+             owl:inverseOf :Price_Point ;
+             rdfs:domain :Point ;
+             rdfs:range :Price ;
+             rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Point_Quantity
+:Point_Quantity rdf:type owl:ObjectProperty ;
+                owl:inverseOf :Quantity_Point ;
+                rdfs:domain :Point ;
+                rdfs:range :Quantity ;
+                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Point_Reason
+:Point_Reason rdf:type owl:ObjectProperty ;
+              owl:inverseOf :Reason_Point ;
+              rdfs:domain :Point ;
+              rdfs:range :Reason ;
+              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Point_TimeSeries
+:Point_TimeSeries rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Point ;
+                  rdfs:range :TimeSeries ;
+                  rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Point_quantity
+:Point_quantity rdf:type owl:ObjectProperty ;
+                rdfs:domain :Point ;
+                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal> ;
+                rdfs:comment "Principal quantity identified for a point." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Point_secondaryQuantity
+:Point_secondaryQuantity rdf:type owl:ObjectProperty ;
+                         rdfs:domain :Point ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal> ;
+                         rdfs:comment "Secondary quantity identified for a point." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Price_Point
+:Price_Point rdf:type owl:ObjectProperty ;
+             rdfs:domain :Price ;
+             rdfs:range :Point ;
+             rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Price_TimeSeries
+:Price_TimeSeries rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Price ;
+                  rdfs:range :TimeSeries ;
+                  rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Price_amount
+:Price_amount rdf:type owl:ObjectProperty ;
+              rdfs:domain :Price ;
+              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal> ;
+              rdfs:comment "A number of monetary units specified in a unit of currency." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Process_MarketDocument
+:Process_MarketDocument rdf:type owl:ObjectProperty ;
+                        rdfs:domain :Process ;
+                        rdfs:range :MarketDocument ;
+                        rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Quantity_Point
+:Quantity_Point rdf:type owl:ObjectProperty ;
+                rdfs:domain :Quantity ;
+                rdfs:range :Point ;
+                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Quantity_TimeSeries
+:Quantity_TimeSeries rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Quantity ;
+                     rdfs:range :TimeSeries ;
+                     rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Quantity_quantity
+:Quantity_quantity rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Quantity ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal> ;
+                   rdfs:comment """The quantity value.
+The association role provides the information about what is expressed.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Reason_MarketDocument
+:Reason_MarketDocument rdf:type owl:ObjectProperty ;
+                       rdfs:domain :Reason ;
+                       rdfs:range :MarketDocument ;
+                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Reason_Period
+:Reason_Period rdf:type owl:ObjectProperty ;
+               owl:inverseOf :Period_Reason ;
+               rdfs:domain :Reason ;
+               rdfs:range :Period ;
+               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Reason_Point
+:Reason_Point rdf:type owl:ObjectProperty ;
+              rdfs:domain :Reason ;
+              rdfs:range :Point ;
+              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Reason_TimeSeries
+:Reason_TimeSeries rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :TimeSeries_Reason ;
+                   rdfs:domain :Reason ;
+                   rdfs:range :TimeSeries ;
+                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#RegisteredResource_TimeSeries
+:RegisteredResource_TimeSeries rdf:type owl:ObjectProperty ;
+                               rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketCommon#RegisteredResource> ;
+                               rdfs:range :TimeSeries ;
+                               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_AttributeInstanceComponent
+:TimeSeries_AttributeInstanceComponent rdf:type owl:ObjectProperty ;
+                                       owl:inverseOf :AttributeInstanceComponent_TimeSeries ;
+                                       rdfs:domain :TimeSeries ;
+                                       rdfs:range :AttributeInstanceComponent ;
+                                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_Auction
+:TimeSeries_Auction rdf:type owl:ObjectProperty ;
+                    owl:inverseOf :Auction_TimeSeries ;
+                    rdfs:domain :TimeSeries ;
+                    rdfs:range :Auction ;
+                    rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_ConstraintDuration
+:TimeSeries_ConstraintDuration rdf:type owl:ObjectProperty ;
+                               owl:inverseOf :ConstraintDuration_TimeSeries ;
+                               rdfs:domain :TimeSeries ;
+                               rdfs:range :ConstraintDuration ;
+                               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_DateAndOrTime
+:TimeSeries_DateAndOrTime rdf:type owl:ObjectProperty ;
+                          rdfs:domain :TimeSeries ;
+                          rdfs:range :DateAndOrTime ;
+                          rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_Domain
+:TimeSeries_Domain rdf:type owl:ObjectProperty ;
+                   rdfs:domain :TimeSeries ;
+                   rdfs:range :Domain ;
+                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_FlowDirection
+:TimeSeries_FlowDirection rdf:type owl:ObjectProperty ;
+                          rdfs:domain :TimeSeries ;
+                          rdfs:range :FlowDirection ;
+                          rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_MarketDocument
+:TimeSeries_MarketDocument rdf:type owl:ObjectProperty ;
+                           rdfs:domain :TimeSeries ;
+                           rdfs:range :MarketDocument ;
+                           rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_MarketEvaluationPoint
+:TimeSeries_MarketEvaluationPoint rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :TimeSeries ;
+                                  rdfs:range :MarketEvaluationPoint ;
+                                  rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_MarketObjectStatus
+:TimeSeries_MarketObjectStatus rdf:type owl:ObjectProperty ;
+                               owl:inverseOf :MarketObjectStatus_TimeSeries ;
+                               rdfs:domain :TimeSeries ;
+                               rdfs:range :MarketObjectStatus ;
+                               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_MarketParticipant
+:TimeSeries_MarketParticipant rdf:type owl:ObjectProperty ;
+                              rdfs:domain :TimeSeries ;
+                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketCommon#MarketParticipant> ;
+                              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_MktPSRType
+:TimeSeries_MktPSRType rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :MktPSRType_TimeSeries ;
+                       rdfs:domain :TimeSeries ;
+                       rdfs:range :MktPSRType ;
+                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_Period
+:TimeSeries_Period rdf:type owl:ObjectProperty ;
+                   rdfs:domain :TimeSeries ;
+                   rdfs:range :Period ;
+                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_Point
+:TimeSeries_Point rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :Point_TimeSeries ;
+                  rdfs:domain :TimeSeries ;
+                  rdfs:range :Point ;
+                  rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_Price
+:TimeSeries_Price rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :Price_TimeSeries ;
+                  rdfs:domain :TimeSeries ;
+                  rdfs:range :Price ;
+                  rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_Quantity
+:TimeSeries_Quantity rdf:type owl:ObjectProperty ;
+                     owl:inverseOf :Quantity_TimeSeries ;
+                     rdfs:domain :TimeSeries ;
+                     rdfs:range :Quantity ;
+                     rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_Reason
+:TimeSeries_Reason rdf:type owl:ObjectProperty ;
+                   rdfs:domain :TimeSeries ;
+                   rdfs:range :Reason ;
+                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_RegisteredResource
+:TimeSeries_RegisteredResource rdf:type owl:ObjectProperty ;
+                               owl:inverseOf :RegisteredResource_TimeSeries ;
+                               rdfs:domain :TimeSeries ;
+                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketCommon#RegisteredResource> ;
+                               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_Unit
+:TimeSeries_Unit rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :Unit_TimeSeries ;
+                 rdfs:domain :TimeSeries ;
+                 rdfs:range :Unit ;
+                 rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Unit_AceTariffType
+:Unit_AceTariffType rdf:type owl:ObjectProperty ;
+                    owl:inverseOf :AceTariffType_Unit ;
+                    rdfs:domain :Unit ;
+                    rdfs:range :AceTariffType ;
+                    rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Unit_TimeSeries
+:Unit_TimeSeries rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Unit ;
+                 rdfs:range :TimeSeries ;
+                 rdfs:comment "" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  DateAndOrTime_date
+<DateAndOrTime_date> rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :DateAndOrTime ;
+                     rdfs:range xsd:date ;
+                     rdfs:comment "Date as \"yyyy-mm-dd\", which conforms with ISO 8601" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#AceTariffType_type
+:AceTariffType_type rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :AceTariffType ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "The coded type of an ACE tariff." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#AttributeInstanceComponent_attribute
+:AttributeInstanceComponent_attribute rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :AttributeInstanceComponent ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:comment "The identification of the formal name of an attribute." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#AttributeInstanceComponent_attributeValue
+:AttributeInstanceComponent_attributeValue rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :AttributeInstanceComponent ;
+                                           rdfs:range xsd:string ;
+                                           rdfs:comment "The instance value of the attribute." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#AttributeInstanceComponent_position
+:AttributeInstanceComponent_position rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :AttributeInstanceComponent ;
+                                     rdfs:range xsd:nonNegativeInteger ;
+                                     rdfs:comment "A sequential value representing a relative sequence number." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Auction_allocationMode
+:Auction_allocationMode rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Auction ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "Identification of the method of allocation in an auction." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Auction_cancelled
+:Auction_cancelled rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Auction ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "An indicator that signifies that the auction has been cancelled." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Auction_category
+:Auction_category rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Auction ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "The product category of an auction." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Auction_paymentTerms
+:Auction_paymentTerms rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Auction ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "The terms which dictate the determination of the bid payment price." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Auction_rights
+:Auction_rights rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Auction ;
+                rdfs:range xsd:string ;
+                rdfs:comment "The rights of use the transmission capacity acquired in an auction." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Auction_type
+:Auction_type rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Auction ;
+              rdfs:range xsd:string ;
+              rdfs:comment """The kind of the Auction (e.g. implicit, explicit ...).
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#BidTimeSeries_blockBid
+:BidTimeSeries_blockBid rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :BidTimeSeries ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "Indication that  the values in the period are considered as a whole. They cannot be changed or subdivided." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#BidTimeSeries_direction
+:BidTimeSeries_direction rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :BidTimeSeries ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment """The coded identification of the energy flow.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#BidTimeSeries_divisible
+:BidTimeSeries_divisible rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :BidTimeSeries ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment "An indication whether or not each element of the bid may be partially accepted or not." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#BidTimeSeries_linkedBidsIdentification
+:BidTimeSeries_linkedBidsIdentification rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain :BidTimeSeries ;
+                                        rdfs:range xsd:string ;
+                                        rdfs:comment """Unique identification associated with all linked bids.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#ConstraintDuration_type
+:ConstraintDuration_type rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :ConstraintDuration ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment "The type of the constraint." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#FlowDirection_direction
+:FlowDirection_direction rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :FlowDirection ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment "The coded identification of the direction of energy flow." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketObjectStatus_status
+:MarketObjectStatus_status rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :MarketObjectStatus ;
+                           rdfs:range xsd:string ;
+                           rdfs:comment "The coded condition or position of an object with regard to its standing." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MktPSRType_psrType
+:MktPSRType_psrType rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :MktPSRType ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "The coded type of a power system resource." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Point_position
+:Point_position rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Point ;
+                rdfs:range xsd:nonNegativeInteger ;
+                rdfs:comment """A sequential value representing the relative position within a given time interval.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Point_quality
+:Point_quality rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Point ;
+               rdfs:range xsd:string ;
+               rdfs:comment "The quality of the information being provided. This quality may be estimated, not available, as provided, etc." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Price_category
+:Price_category rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Price ;
+                rdfs:range xsd:string ;
+                rdfs:comment "The category of a price to be used in a price calculation. The price category is mutually agreed between System Operators." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Price_direction
+:Price_direction rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Price ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "The direction indicates whether a System Operator pays the Market Parties or inverse." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Process_classificationType
+:Process_classificationType rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :Process ;
+                            rdfs:range xsd:string ;
+                            rdfs:comment """The classification mechanism used to group a set of objects together within a business process. The grouping may be of a detailed or a summary nature.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Process_processType
+:Process_processType rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Process ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment """The kind of business process.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Quantity_quality
+:Quantity_quality rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Quantity ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "The quality of the information being provided. This quality may be estimated, not available, as provided, etc. " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Quantity_type
+:Quantity_type rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Quantity ;
+               rdfs:range xsd:string ;
+               rdfs:comment "The description of the type of the quantity." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Reason_code
+:Reason_code rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Reason ;
+             rdfs:range xsd:string ;
+             rdfs:comment """The motivation of an act in coded form.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Reason_text
+:Reason_text rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Reason ;
+             rdfs:range xsd:string ;
+             rdfs:comment """The textual explanation corresponding to the reason code.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_businessType
+:TimeSeries_businessType rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :TimeSeries ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment "The identification of the nature of the time series." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_cancelledTS
+:TimeSeries_cancelledTS rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :TimeSeries ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "An indicator stating that the TimeSeries, identified by the mRID, is cancelled as well as all the values sent in a previous version of the TimeSeries in a previous document." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_curveType
+:TimeSeries_curveType rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :TimeSeries ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment """The coded representation of the type of curve being described.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_objectAggregation
+:TimeSeries_objectAggregation rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :TimeSeries ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment "Identification of the object that is the common denominator used to aggregate a time series." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_product
+:TimeSeries_product rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :TimeSeries ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment """The type of the product such as Power, energy, reactive power, transport capacity that is the subject of the time series.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries_version
+:TimeSeries_version rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :TimeSeries ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment """Version of the time series.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Unit_name
+:Unit_name rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Unit ;
+           rdfs:range xsd:string ;
+           rdfs:comment """The coded representation of the unit.
+""" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PSRType
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PSRType> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Duration
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Duration> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Time
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Time> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketCommon#MarketParticipant
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketCommon#MarketParticipant> rdf:type owl:Class ;
+                                                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty :MarketParticipant_MarketDocument ;
+                                                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketCommon#MarketParticipant>
+                                                                                          ] ,
+                                                                                          [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty :MarketParticipant_TimeSeries ;
+                                                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketCommon#MarketParticipant>
+                                                                                          ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketCommon#RegisteredResource
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketCommon#RegisteredResource> rdf:type owl:Class ;
+                                                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                             owl:onProperty :RegisteredResource_TimeSeries ;
+                                                                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketCommon#RegisteredResource>
+                                                                                           ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#AceTariffType
+:AceTariffType rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AceTariffType_MarketDocument ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :AceTariffType
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AceTariffType_Point ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :AceTariffType
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AceTariffType_Unit ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :AceTariffType
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AceTariffType_type ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AceTariffType_type ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ;
+               rdfs:comment "The Area Control Error tariff type that is applied or used." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#AttributeInstanceComponent
+:AttributeInstanceComponent rdf:type owl:Class ;
+                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                              owl:onProperty :AttributeInstanceComponent_MarketDocument ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onClass :AttributeInstanceComponent
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :AttributeInstanceComponent_TimeSeries ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onClass :AttributeInstanceComponent
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :AttributeInstanceComponent_attribute ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:string
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :AttributeInstanceComponent_attributeValue ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:string
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :AttributeInstanceComponent_position ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:nonNegativeInteger
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :AttributeInstanceComponent_attribute ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:string
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :AttributeInstanceComponent_attributeValue ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:string
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :AttributeInstanceComponent_position ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onDataRange xsd:nonNegativeInteger
+                                            ] ;
+                            rdfs:comment "A class used to provide information about an attribute. " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Auction
+:Auction rdf:type owl:Class ;
+         rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Auction_TimeSeries ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Auction
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Auction_allocationMode ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Auction_cancelled ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Auction_category ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Auction_paymentTerms ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Auction_rights ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Auction_type ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Auction_allocationMode ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Auction_cancelled ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Auction_category ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Auction_paymentTerms ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Auction_rights ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Auction_type ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ;
+         rdfs:comment "A class providing the identification and type of an auction." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#BidTimeSeries
+:BidTimeSeries rdf:type owl:Class ;
+               rdfs:subClassOf :TimeSeries ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :BidTimeSeries_minimumActivationQuantity ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :BidTimeSeries_stepIncrementQuantity ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :BidTimeSeries_minimumActivationQuantity ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :BidTimeSeries_stepIncrementQuantity ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :BidTimeSeries_blockBid ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :BidTimeSeries_direction ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :BidTimeSeries_divisible ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :BidTimeSeries_linkedBidsIdentification ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :BidTimeSeries_blockBid ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :BidTimeSeries_direction ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :BidTimeSeries_divisible ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :BidTimeSeries_linkedBidsIdentification ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ;
+               rdfs:comment "The formal specification of specific characteristics related to a bid." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#ConstraintDuration
+:ConstraintDuration rdf:type owl:Class ;
+                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ConstraintDuration_TimeSeries ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ConstraintDuration
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ConstraintDuration_duration ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Duration>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ConstraintDuration_duration ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Duration>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ConstraintDuration_type ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ConstraintDuration_type ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ;
+                    rdfs:comment "Duration constraint to activate, to put in operation, to deactivate, ... a given event." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#DateAndOrTime
+:DateAndOrTime rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty :DateAndOrTime_TimeSeries ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :DateAndOrTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :DateAndOrTime_time ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Time>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :DateAndOrTime_time ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Time>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty <DateAndOrTime_date> ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:date
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty <DateAndOrTime_date> ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:date
+                               ] ;
+               rdfs:comment "The date and or the time." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Domain
+:Domain rdf:type owl:Class ;
+        rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Domain_MarketDocument ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Domain
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Domain_TimeSeries ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Domain
+                        ] ;
+        rdfs:comment """An area of activity defined within the energy market.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#FlowDirection
+:FlowDirection rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty :FlowDirection_TimeSeries ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :FlowDirection
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :FlowDirection_direction ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :FlowDirection_direction ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ;
+               rdfs:comment "The coded identification of the direction of energy flow." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#IEC61968
+:IEC61968 rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#IEC61970
+:IEC61970 rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#IEC62325
+:IEC62325 rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketAgreement
+:MarketAgreement rdf:type owl:Class ;
+                 rdfs:subClassOf :MarketDocument ;
+                 rdfs:comment """An identification  or eventually the contents of an agreement between two or more parties.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketDocument
+:MarketDocument rdf:type owl:Class ;
+                rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :MarketDocument_AceTariffType ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :MarketDocument
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :MarketDocument_AttributeInstanceComponent ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :MarketDocument
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :MarketDocument_Domain ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :MarketDocument
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :MarketDocument_MarketDocument ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :MarketDocument
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :MarketDocument_MarketParticipant ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :MarketDocument
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :MarketDocument_Period ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :MarketDocument
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :MarketDocument_Process ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :MarketDocument
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :MarketDocument_Reason ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :MarketDocument
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :MarketDocument_TimeSeries ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :MarketDocument
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :MarketDocument_selfMarketDocument ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :MarketDocument
+                                ] ;
+                rdfs:comment "Electronic document containing the information necessary to satisfy a given business process set of requirements. " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketEvaluationPoint
+:MarketEvaluationPoint rdf:type owl:Class ;
+                       rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :MarketEvaluationPoint_TimeSeries ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :MarketEvaluationPoint
+                                       ] ;
+                       rdfs:comment "The identification of an entity where energy products are measured or computed." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MarketObjectStatus
+:MarketObjectStatus rdf:type owl:Class ;
+                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                      owl:onProperty :MarketObjectStatus_TimeSeries ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :MarketObjectStatus
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :MarketObjectStatus_status ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :MarketObjectStatus_status ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ;
+                    rdfs:comment "The condition or position of an object with regard to its standing." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#MktPSRType
+:MktPSRType rdf:type owl:Class ;
+            rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PSRType> ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :MktPSRType_TimeSeries ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :MktPSRType
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :MktPSRType_psrType ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :MktPSRType_psrType ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ;
+            rdfs:comment "The type of a power system resource." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Period
+:Period rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :Period_MarketDocument ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Period
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Period_Reason ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Period
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Period_TimeSeries ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Period
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Period_resolution ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Duration>
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Period_timeInterval ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Period_Point ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Period
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Period_resolution ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Duration>
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Period_timeInterval ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                        ] ;
+        rdfs:comment "An identification of a time interval that may have a given resolution." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Point
+:Point rdf:type owl:Class ;
+       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty :Point_AceTariffType ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Point
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Point_Period ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Point
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Point_Price ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Point
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Point_Quantity ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Point
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Point_Reason ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Point
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Point_TimeSeries ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Point
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Point_quantity ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Point_secondaryQuantity ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Point_Price ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Point
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Point_quantity ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Point_secondaryQuantity ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Point_position ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:nonNegativeInteger
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Point_quality ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:string
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Point_position ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:nonNegativeInteger
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Point_quality ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:string
+                       ] ;
+       rdfs:comment "An identification of a set of values beeing adressed within a specific interval of time." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Price
+:Price rdf:type owl:Class ;
+       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty :Price_Point ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Price
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Price_TimeSeries ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Price
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Price_amount ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Price_amount ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal>
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Price_category ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:string
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Price_direction ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:string
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Price_category ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:string
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Price_direction ;
+                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onDataRange xsd:string
+                       ] ;
+       rdfs:comment "The cost corresponding to a specific measure and expressed in a currency." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Process
+:Process rdf:type owl:Class ;
+         rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Process_MarketDocument ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Process
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Process_classificationType ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Process_processType ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Process_classificationType ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Process_processType ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ;
+         rdfs:comment """The formal specification of a set of business transactions having the same business goal.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Quantity
+:Quantity rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :Quantity_Point ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Quantity
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Quantity_TimeSeries ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Quantity
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Quantity_quantity ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Quantity_quantity ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Decimal>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Quantity_quality ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Quantity_type ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Quantity_quality ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Quantity_type ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ;
+          rdfs:comment """Description of quantities needed in the data exchange. 
+The type of the quantity is described either by the role of the association or the type attribute.
+The quality attribute provides the information about the quality of the quantity (measured, estimated, etc.).""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Reason
+:Reason rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :Reason_MarketDocument ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Reason
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Reason_Period ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Reason
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Reason_Point ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Reason
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Reason_TimeSeries ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Reason
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Reason_code ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Reason_text ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Reason_code ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Reason_text ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ;
+        rdfs:comment """The motivation of an act.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#TimeSeries
+:TimeSeries rdf:type owl:Class ;
+            rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_AttributeInstanceComponent ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_Auction ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_ConstraintDuration ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_DateAndOrTime ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_Domain ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_FlowDirection ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_MarketDocument ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_MarketEvaluationPoint ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_MarketObjectStatus ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_MarketParticipant ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_MktPSRType ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_Period ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_Point ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_Price ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_Quantity ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_Reason ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_RegisteredResource ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_Unit ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :TimeSeries
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_businessType ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_cancelledTS ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_curveType ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_objectAggregation ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_product ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_version ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_businessType ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_cancelledTS ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_curveType ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_objectAggregation ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_product ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :TimeSeries_version ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ;
+            rdfs:comment "A set of regular time-ordered measurements or values of quantitative nature of an individual or collective phenomenon taken at successive, in most cases equidistant, periods / points of time." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketManagement#Unit
+:Unit rdf:type owl:Class ;
+      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                        owl:onProperty :Unit_AceTariffType ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Unit
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Unit_TimeSeries ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Unit
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Unit_name ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Unit_name ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:string
+                      ] ;
+      rdfs:comment """The identification of the unit name for the time series quantities.
+""" .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

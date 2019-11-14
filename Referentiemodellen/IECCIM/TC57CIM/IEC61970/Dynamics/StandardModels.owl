@@ -1,0 +1,168 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#RotatingMachineDynamics_inertia
+:RotatingMachineDynamics_inertia rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :RotatingMachineDynamics ;
+                                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                                 rdfs:comment "Inertia constant of generator or motor and mechanical load (H) (&gt;0).  This is the specification for the stored energy in the rotating mass when operating at rated speed.  For a generator, this includes the generator plus all other elements (turbine, exciter) on the same shaft and has units of MW*sec.  For a motor, it includes the motor plus its mechanical load. Conventional units are per unit on the generator MVA base, usually expressed as MW*second/MVA or just second.   This value is used in the accelerating power reference frame for operator training simulator solutions.  Typical Value = 3." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#RotatingMachineDynamics_statorLeakageReactance
+:RotatingMachineDynamics_statorLeakageReactance rdf:type owl:ObjectProperty ;
+                                                rdfs:domain :RotatingMachineDynamics ;
+                                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                                rdfs:comment "Stator leakage reactance (Xl) (&gt; or =0). Typical Value = 0.15." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#RotatingMachineDynamics_statorResistance
+:RotatingMachineDynamics_statorResistance rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :RotatingMachineDynamics ;
+                                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                          rdfs:comment "Stator (armature) resistance (Rs) (&gt; or =0). Typical Value = 0.005." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock_enabled
+:DynamicsFunctionBlock_enabled rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :DynamicsFunctionBlock ;
+                               rdfs:range xsd:boolean ;
+                               rdfs:comment """Function block used indicator.
+true = use of function block is enabled
+false = use of function block is disabled.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#RotatingMachineDynamics_damping
+:RotatingMachineDynamics_damping rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :RotatingMachineDynamics ;
+                                 rdfs:range xsd:float ;
+                                 rdfs:comment "Damping torque coefficient (D).  A proportionality constant that, when multiplied by the angular velocity of the rotor poles with respect to the magnetic field (frequency), results in the damping torque.  This value is often zero when the sources of damping torques (generator damper windings, load damping effects, etc.) are modelled in detail.  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#RotatingMachineDynamics_saturationFactor
+:RotatingMachineDynamics_saturationFactor rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :RotatingMachineDynamics ;
+                                          rdfs:range xsd:float ;
+                                          rdfs:comment "Saturation factor at rated terminal voltage (S1) (&gt; or =0).  Not used by simplified model.  Defined by defined by S(E1) in the SynchronousMachineSaturationParameters diagram.  Typical Value = 0.02." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#RotatingMachineDynamics_saturationFactor120
+:RotatingMachineDynamics_saturationFactor120 rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain :RotatingMachineDynamics ;
+                                             rdfs:range xsd:float ;
+                                             rdfs:comment "Saturation factor at 120% of rated terminal voltage (S12) (&gt; or =S1). Not used by the simplified model, defined by S(E2) in the SynchronousMachineSaturationParameters diagram.  Typical Value = 0.12." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock
+:DynamicsFunctionBlock rdf:type owl:Class ;
+                       rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :DynamicsFunctionBlock_enabled ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:boolean
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :DynamicsFunctionBlock_enabled ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:boolean
+                                       ] ;
+                       rdfs:comment "Abstract parent class for all Dynamics function blocks." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#RotatingMachineDynamics
+:RotatingMachineDynamics rdf:type owl:Class ;
+                         rdfs:subClassOf :DynamicsFunctionBlock ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :RotatingMachineDynamics_inertia ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :RotatingMachineDynamics_statorLeakageReactance ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :RotatingMachineDynamics_statorResistance ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :RotatingMachineDynamics_inertia ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :RotatingMachineDynamics_statorLeakageReactance ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :RotatingMachineDynamics_statorResistance ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :RotatingMachineDynamics_damping ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:float
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :RotatingMachineDynamics_saturationFactor ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:float
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :RotatingMachineDynamics_saturationFactor120 ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:float
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :RotatingMachineDynamics_damping ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:float
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :RotatingMachineDynamics_saturationFactor ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:float
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :RotatingMachineDynamics_saturationFactor120 ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:float
+                                         ] ;
+                         rdfs:comment "Abstract parent class for all synchronous and asynchronous machine standard models." .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

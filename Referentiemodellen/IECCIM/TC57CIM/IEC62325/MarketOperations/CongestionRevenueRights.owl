@@ -1,0 +1,506 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRCategoryType
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRCategoryType> rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRHedgeType
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRHedgeType> rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRRoleType
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRRoleType> rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRSegmentType
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRSegmentType> rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#TimeOfUse
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#TimeOfUse> rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRRMarket_CRR
+:CRRMarket_CRR rdf:type owl:ObjectProperty ;
+               owl:inverseOf :CRR_CRRMarket ;
+               rdf:type owl:FunctionalProperty ;
+               rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#CRRMarket> ;
+               rdfs:range :CRR ;
+               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRROrgRole_CRR
+:CRROrgRole_CRR rdf:type owl:ObjectProperty ;
+                rdfs:domain :CRROrgRole ;
+                rdfs:range :CRR ;
+                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRROrgRole_MktOrganisation
+:CRROrgRole_MktOrganisation rdf:type owl:ObjectProperty ;
+                            owl:inverseOf :MktOrganisation_CRROrgRole ;
+                            rdfs:domain :CRROrgRole ;
+                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketOpCommon#MktOrganisation> ;
+                            rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRROrgRole_status
+:CRROrgRole_status rdf:type owl:ObjectProperty ;
+                   rdfs:domain :CRROrgRole ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> ;
+                   rdfs:comment "Status of congestion revenue rights organisation role." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRRSegment_CRR
+:CRRSegment_CRR rdf:type owl:ObjectProperty ;
+                owl:inverseOf :CRR_CRRSegment ;
+                rdfs:domain :CRRSegment ;
+                rdfs:range :CRR ;
+                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRRSegment_Sink
+:CRRSegment_Sink rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :Pnode_SinkCRRSegment ;
+                 rdfs:domain :CRRSegment ;
+                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#Pnode> ;
+                 rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRRSegment_Source
+:CRRSegment_Source rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :Pnode_SourceCRRSegment ;
+                   rdfs:domain :CRRSegment ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#Pnode> ;
+                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRRSegment_amount
+:CRRSegment_amount rdf:type owl:ObjectProperty ;
+                   rdfs:domain :CRRSegment ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                   rdfs:comment """Dollar amount = quantity x clearingPrice
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRRSegment_clearingPrice
+:CRRSegment_clearingPrice rdf:type owl:ObjectProperty ;
+                          rdfs:domain :CRRSegment ;
+                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                          rdfs:comment """Clearing price of a CRR
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRR_CRRMarket
+:CRR_CRRMarket rdf:type owl:ObjectProperty ;
+               rdfs:domain :CRR ;
+               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#CRRMarket> ;
+               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRR_CRROrgRole
+:CRR_CRROrgRole rdf:type owl:ObjectProperty ;
+                owl:inverseOf :CRROrgRole_CRR ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:domain :CRR ;
+                rdfs:range :CRROrgRole ;
+                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRR_CRRSegment
+:CRR_CRRSegment rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain :CRR ;
+                rdfs:range :CRRSegment ;
+                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRR_Flowgate
+:CRR_Flowgate rdf:type owl:ObjectProperty ;
+              rdfs:domain :CRR ;
+              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#Flowgate> ;
+              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#Flowgate_CRR
+:Flowgate_CRR rdf:type owl:ObjectProperty ;
+              owl:inverseOf :CRR_Flowgate ;
+              rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#Flowgate> ;
+              rdfs:range :CRR ;
+              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#MktOrganisation_CRROrgRole
+:MktOrganisation_CRROrgRole rdf:type owl:ObjectProperty ,
+                                     owl:FunctionalProperty ;
+                            rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketOpCommon#MktOrganisation> ;
+                            rdfs:range :CRROrgRole ;
+                            rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#Pnode_SinkCRRSegment
+:Pnode_SinkCRRSegment rdf:type owl:ObjectProperty ;
+                      rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#Pnode> ;
+                      rdfs:range :CRRSegment ;
+                      rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#Pnode_SourceCRRSegment
+:Pnode_SourceCRRSegment rdf:type owl:ObjectProperty ;
+                        rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#Pnode> ;
+                        rdfs:range :CRRSegment ;
+                        rdfs:comment "" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRROrgRole_kind
+:CRROrgRole_kind rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :CRROrgRole ;
+                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRRoleType> ;
+                 rdfs:comment "Kind of role the organisation is with regards to the congestion revenue rights." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRRSegment_endDateTime
+:CRRSegment_endDateTime rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :CRRSegment ;
+                        rdfs:range xsd:dateTime ;
+                        rdfs:comment """segment end date time
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRRSegment_quantity
+:CRRSegment_quantity rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :CRRSegment ;
+                     rdfs:range xsd:float ;
+                     rdfs:comment """The MW amount associated with the CRR
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRRSegment_startDateTime
+:CRRSegment_startDateTime rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :CRRSegment ;
+                          rdfs:range xsd:dateTime ;
+                          rdfs:comment """segment start date time
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRR_cRRcategory
+:CRR_cRRcategory rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :CRR ;
+                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRCategoryType> ;
+                 rdfs:comment "CRR category represents 'PTP' for a point-to-point CRR, or 'NSR' for a Network Service Right . If CRR category is 'PTP', both Source ID and Sink ID fields are required. If CRR category is 'NSR' only one field, either Source ID or Sink ID, shall be not null and the other shall be null. However, the 'NSR' category will include at least three records" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRR_cRRtype
+:CRR_cRRtype rdf:type owl:DatatypeProperty ;
+             rdfs:domain :CRR ;
+             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRSegmentType> ;
+             rdfs:comment "Type of the CRR, from the possible type definitions in the CRR System (e.g. 'LSE', 'ETC')." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRR_hedgeType
+:CRR_hedgeType rdf:type owl:DatatypeProperty ;
+               rdfs:domain :CRR ;
+               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRHedgeType> ;
+               rdfs:comment "hedger type Obligation or Option" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRR_timeOfUse
+:CRR_timeOfUse rdf:type owl:DatatypeProperty ;
+               rdfs:domain :CRR ;
+               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#TimeOfUse> ;
+               rdfs:comment "Time of Use flag of the CRR - Peak (ON), Offpeak (OFF) or all 24 hours (24HR)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRR_tradeSliceID
+:CRR_tradeSliceID rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :CRR ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment """Segment of the CRR described in the current record
+""" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRR
+:CRR rdf:type owl:Class ;
+     rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :CRR_CRRMarket ;
+                       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass :CRR
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :CRR_Flowgate ;
+                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                       owl:onClass :CRR
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :CRR_CRROrgRole ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass :CRR
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :CRR_CRRSegment ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass :CRR
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :CRR_Flowgate ;
+                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass :CRR
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :CRR_cRRcategory ;
+                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRCategoryType>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :CRR_cRRtype ;
+                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRSegmentType>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :CRR_hedgeType ;
+                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRHedgeType>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :CRR_timeOfUse ;
+                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#TimeOfUse>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :CRR_tradeSliceID ;
+                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange xsd:string
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :CRR_cRRcategory ;
+                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRCategoryType>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :CRR_cRRtype ;
+                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRSegmentType>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :CRR_hedgeType ;
+                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRHedgeType>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :CRR_timeOfUse ;
+                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#TimeOfUse>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :CRR_tradeSliceID ;
+                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onDataRange xsd:string
+                     ] ;
+     rdfs:comment """Congestion Revenue Rights (CRR) class that is inherited from a Document class.
+
+A CRR is a financial concept that is used to hedge congestion charges.
+
+The CRR is usually settled based on the Locational Marginal Prices (LMPs) that are calculated in the day-ahead market. These LMPs are determined by the Day-ahead resource schedules/bids. CRRs will not hedge against marginal losses. If the congestion component of LMP at the sink is greater than at the source, then the CRR owner is entitled to receive a portion of congestion revenues. If the congestion component at the sink is less than at the source, then an obligation-type CRR owner will be charged, but an option-type CRR owner will not.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRROrgRole
+:CRROrgRole rdf:type owl:Class ;
+            rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRROrgRole_CRR ;
+                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :CRROrgRole
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRROrgRole_MktOrganisation ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :CRROrgRole
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRROrgRole_status ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRROrgRole_status ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRROrgRole_kind ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRRoleType>
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRROrgRole_kind ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#CRRRoleType>
+                            ] ;
+            rdfs:comment "Identifies a way in which an organisation may participate with a defined Congestion Revenue Right (CRR)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/CongestionRevenueRights#CRRSegment
+:CRRSegment rdf:type owl:Class ;
+            rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRRSegment_CRR ;
+                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :CRRSegment
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRRSegment_Sink ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :CRRSegment
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRRSegment_Source ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :CRRSegment
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRRSegment_amount ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRRSegment_clearingPrice ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRRSegment_amount ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRRSegment_clearingPrice ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRRSegment_endDateTime ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRRSegment_quantity ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRRSegment_startDateTime ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRRSegment_endDateTime ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRRSegment_quantity ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :CRRSegment_startDateTime ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] ;
+            rdfs:comment """CRRSegment represents a segment of a CRR in a particular time frame. 
+
+The segment class contains CRR kind, type, quantity, hedger type, time of use flag, and segment period.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketOpCommon#MktOrganisation
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketOpCommon#MktOrganisation> rdf:type owl:Class ;
+                                                                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                             owl:onProperty :MktOrganisation_CRROrgRole ;
+                                                                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketOpCommon#MktOrganisation>
+                                                                                                           ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#CRRMarket
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#CRRMarket> rdf:type owl:Class ;
+                                                                                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty :CRRMarket_CRR ;
+                                                                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#CRRMarket>
+                                                                                                 ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#Flowgate
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#Flowgate> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty :Flowgate_CRR ;
+                                                                                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#Flowgate>
+                                                                                                   ] ,
+                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty :Flowgate_CRR ;
+                                                                                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#Flowgate>
+                                                                                                   ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#Pnode
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#Pnode> rdf:type owl:Class ;
+                                                                                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                  owl:onProperty :Pnode_SinkCRRSegment ;
+                                                                                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#Pnode>
+                                                                                                ] ,
+                                                                                                [ rdf:type owl:Restriction ;
+                                                                                                  owl:onProperty :Pnode_SourceCRRSegment ;
+                                                                                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#Pnode>
+                                                                                                ] .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

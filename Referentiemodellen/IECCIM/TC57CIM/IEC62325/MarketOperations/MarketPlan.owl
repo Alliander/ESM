@@ -1,0 +1,1273 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ExecutionType
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ExecutionType> rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketEventStatusKind
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketEventStatusKind> rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketProductType
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketProductType> rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketType
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketType> rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#BidError_MarketProduct
+:BidError_MarketProduct rdf:type owl:ObjectProperty ;
+                        owl:inverseOf :MarketProduct_BidError ;
+                        rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ParticipantInterfaces#BidError> ;
+                        rdfs:range :MarketProduct ;
+                        rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#BidPriceCap_MarketProduct
+:BidPriceCap_MarketProduct rdf:type owl:ObjectProperty ;
+                           owl:inverseOf :MarketProduct_BidPriceCap ;
+                           rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#BidPriceCap> ;
+                           rdfs:range :MarketProduct ;
+                           rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#Bid_EnergyMarket
+:Bid_EnergyMarket rdf:type owl:ObjectProperty ;
+                  rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ParticipantInterfaces#Bid> ;
+                  rdfs:range :EnergyMarket ;
+                  rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#EnergyMarket_Bids
+:EnergyMarket_Bids rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :Bid_EnergyMarket ;
+                   rdf:type owl:FunctionalProperty ;
+                   rdfs:domain :EnergyMarket ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ParticipantInterfaces#Bid> ;
+                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#EnergyMarket_MarketResults
+:EnergyMarket_MarketResults rdf:type owl:ObjectProperty ,
+                                     owl:FunctionalProperty ;
+                            rdfs:domain :EnergyMarket ;
+                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#MarketResults> ;
+                            rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#EnergyMarket_RTO
+:EnergyMarket_RTO rdf:type owl:ObjectProperty ;
+                  rdfs:domain :EnergyMarket ;
+                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RTO> ;
+                  rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#EnergyMarket_Settlements
+:EnergyMarket_Settlements rdf:type owl:ObjectProperty ;
+                          rdfs:domain :EnergyMarket ;
+                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#Settlement> ;
+                          rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketActualEvent_MarketRun
+:MarketActualEvent_MarketRun rdf:type owl:ObjectProperty ;
+                             rdfs:domain :MarketActualEvent ;
+                             rdfs:range :MarketRun ;
+                             rdfs:comment "All actual events that trigger this market run.Market run triggered by this actual event. For example, the DA run is triggered by the actual open bid submission event and terminated by the actual close bid submission event. " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketActualEvent_PlannedMarketEvent
+:MarketActualEvent_PlannedMarketEvent rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :MarketActualEvent ;
+                                      rdfs:range :PlannedMarketEvent ;
+                                      rdfs:comment "All actual events that execute this planned event.Planned event executed by this actual event." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketFactors_Market
+:MarketFactors_Market rdf:type owl:ObjectProperty ;
+                      rdfs:domain :MarketFactors ;
+                      rdfs:range :Market ;
+                      rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketPlan_PlannedMarket
+:MarketPlan_PlannedMarket rdf:type owl:ObjectProperty ,
+                                   owl:FunctionalProperty ;
+                          rdfs:domain :MarketPlan ;
+                          rdfs:range :PlannedMarket ;
+                          rdfs:comment "a market plan has a number of markets (DA, HA, RT)a market plan has a number of markets (DA, HA, RT)" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketProduct_BidError
+:MarketProduct_BidError rdf:type owl:ObjectProperty ;
+                        rdfs:domain :MarketProduct ;
+                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ParticipantInterfaces#BidError> ;
+                        rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketProduct_BidPriceCap
+:MarketProduct_BidPriceCap rdf:type owl:ObjectProperty ;
+                           rdfs:domain :MarketProduct ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#BidPriceCap> ;
+                           rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketProduct_Market
+:MarketProduct_Market rdf:type owl:ObjectProperty ;
+                      rdfs:domain :MarketProduct ;
+                      rdfs:range :Market ;
+                      rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketProduct_MarketRegionResults
+:MarketProduct_MarketRegionResults rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :MarketProduct ;
+                                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#MarketRegionResults> ;
+                                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketProduct_ProductBids
+:MarketProduct_ProductBids rdf:type owl:ObjectProperty ,
+                                    owl:FunctionalProperty ;
+                           rdfs:domain :MarketProduct ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ParticipantInterfaces#ProductBid> ;
+                           rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketProduct_ReserveReqs
+:MarketProduct_ReserveReqs rdf:type owl:ObjectProperty ;
+                           owl:inverseOf :ReserveReq_MarketProduct ;
+                           rdf:type owl:FunctionalProperty ;
+                           rdfs:domain :MarketProduct ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfExternalInputs#ReserveReq> ;
+                           rdfs:comment "Market product associated with reserve requirement must be a reserve or regulation product.Market product associated with reserve requirement must be a reserve or regulation product." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketProduct_ResourceAwardInstruction
+:MarketProduct_ResourceAwardInstruction rdf:type owl:ObjectProperty ,
+                                                 owl:FunctionalProperty ;
+                                        rdfs:domain :MarketProduct ;
+                                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#ResourceAwardInstruction> ;
+                                        rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketRegionResults_MarketProduct
+:MarketRegionResults_MarketProduct rdf:type owl:ObjectProperty ;
+                                   owl:inverseOf :MarketProduct_MarketRegionResults ;
+                                   rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#MarketRegionResults> ;
+                                   rdfs:range :MarketProduct ;
+                                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketResults_EnergyMarket
+:MarketResults_EnergyMarket rdf:type owl:ObjectProperty ;
+                            owl:inverseOf :EnergyMarket_MarketResults ;
+                            rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#MarketResults> ;
+                            rdfs:range :EnergyMarket ;
+                            rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketRun_Market
+:MarketRun_Market rdf:type owl:ObjectProperty ;
+                  rdfs:domain :MarketRun ;
+                  rdfs:range :Market ;
+                  rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketRun_MarketActualEvent
+:MarketRun_MarketActualEvent rdf:type owl:ObjectProperty ;
+                             owl:inverseOf :MarketActualEvent_MarketRun ;
+                             rdfs:domain :MarketRun ;
+                             rdfs:range :MarketActualEvent ;
+                             rdfs:comment "All actual events that trigger this market run.Market run triggered by this actual event. For example, the DA run is triggered by the actual open bid submission event and terminated by the actual close bid submission event. " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketRun_PlannedMarket
+:MarketRun_PlannedMarket rdf:type owl:ObjectProperty ;
+                         owl:inverseOf :PlannedMarket_MarketRun ;
+                         rdfs:domain :MarketRun ;
+                         rdfs:range :PlannedMarket ;
+                         rdfs:comment "A planned market could have multiple market runs for the reason that a planned market could have a rerun.A planned market could have multiple market runs for the reason that a planned market could have a rerun." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#Market_MarketFactors
+:Market_MarketFactors rdf:type owl:ObjectProperty ;
+                      owl:inverseOf :MarketFactors_Market ;
+                      rdfs:domain :Market ;
+                      rdfs:range :MarketFactors ;
+                      rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#Market_MarketProducts
+:Market_MarketProducts rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :MarketProduct_Market ;
+                       rdfs:domain :Market ;
+                       rdfs:range :MarketProduct ;
+                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#Market_MarketRun
+:Market_MarketRun rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :MarketRun_Market ;
+                  rdf:type owl:FunctionalProperty ;
+                  rdfs:domain :Market ;
+                  rdfs:range :MarketRun ;
+                  rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#PlannedMarketEvent_MarketActualEvent
+:PlannedMarketEvent_MarketActualEvent rdf:type owl:ObjectProperty ;
+                                      owl:inverseOf :MarketActualEvent_PlannedMarketEvent ;
+                                      rdfs:domain :PlannedMarketEvent ;
+                                      rdfs:range :MarketActualEvent ;
+                                      rdfs:comment "All actual events that execute this planned event.Planned event executed by this actual event." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#PlannedMarketEvent_PlannedMarket
+:PlannedMarketEvent_PlannedMarket rdf:type owl:ObjectProperty ;
+                                  owl:inverseOf :PlannedMarket_PlannedMarketEvent ;
+                                  rdfs:domain :PlannedMarketEvent ;
+                                  rdfs:range :PlannedMarket ;
+                                  rdfs:comment "A planned market shall have a set of planned eventsA planned market shall have a set of planned events" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#PlannedMarket_MarketPlan
+:PlannedMarket_MarketPlan rdf:type owl:ObjectProperty ;
+                          owl:inverseOf :MarketPlan_PlannedMarket ;
+                          rdfs:domain :PlannedMarket ;
+                          rdfs:range :MarketPlan ;
+                          rdfs:comment "a market plan has a number of markets (DA, HA, RT)a market plan has a number of markets (DA, HA, RT)" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#PlannedMarket_MarketRun
+:PlannedMarket_MarketRun rdf:type owl:ObjectProperty ,
+                                  owl:FunctionalProperty ;
+                         rdfs:domain :PlannedMarket ;
+                         rdfs:range :MarketRun ;
+                         rdfs:comment "A planned market could have multiple market runs for the reason that a planned market could have a rerun.A planned market could have multiple market runs for the reason that a planned market could have a rerun." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#PlannedMarket_PlannedMarketEvent
+:PlannedMarket_PlannedMarketEvent rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :PlannedMarket ;
+                                  rdfs:range :PlannedMarketEvent ;
+                                  rdfs:comment "A planned market shall have a set of planned eventsA planned market shall have a set of planned events" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#ProductBid_MarketProduct
+:ProductBid_MarketProduct rdf:type owl:ObjectProperty ;
+                          owl:inverseOf :MarketProduct_ProductBids ;
+                          rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ParticipantInterfaces#ProductBid> ;
+                          rdfs:range :MarketProduct ;
+                          rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#RTO_EnergyMarkets
+:RTO_EnergyMarkets rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :EnergyMarket_RTO ;
+                   rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RTO> ;
+                   rdfs:range :EnergyMarket ;
+                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#ReserveReq_MarketProduct
+:ReserveReq_MarketProduct rdf:type owl:ObjectProperty ;
+                          rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfExternalInputs#ReserveReq> ;
+                          rdfs:range :MarketProduct ;
+                          rdfs:comment "Market product associated with reserve requirement must be a reserve or regulation product.Market product associated with reserve requirement must be a reserve or regulation product." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#ResourceAwardInstruction_MarketProduct
+:ResourceAwardInstruction_MarketProduct rdf:type owl:ObjectProperty ;
+                                        owl:inverseOf :MarketProduct_ResourceAwardInstruction ;
+                                        rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#ResourceAwardInstruction> ;
+                                        rdfs:range :MarketProduct ;
+                                        rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#Settlement_EnergyMarket
+:Settlement_EnergyMarket rdf:type owl:ObjectProperty ;
+                         owl:inverseOf :EnergyMarket_Settlements ;
+                         rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#Settlement> ;
+                         rdfs:range :EnergyMarket ;
+                         rdfs:comment "" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#CRRMarket_labelID
+:CRRMarket_labelID rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :CRRMarket ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment """labelID - an ID for a set of apnodes/pnodes used in a CRR market
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketActualEvent_eventComments
+:MarketActualEvent_eventComments rdf:type owl:DatatypeProperty ,
+                                          owl:FunctionalProperty ;
+                                 rdfs:domain :MarketActualEvent ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:comment "Free format comments for the event, for any purpose needed." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketActualEvent_eventEndTime
+:MarketActualEvent_eventEndTime rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :MarketActualEvent ;
+                                rdfs:range xsd:dateTime ;
+                                rdfs:comment "End time of the event." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketActualEvent_eventStartTime
+:MarketActualEvent_eventStartTime rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :MarketActualEvent ;
+                                  rdfs:range xsd:dateTime ;
+                                  rdfs:comment "Start time of the event." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketActualEvent_eventStatus
+:MarketActualEvent_eventStatus rdf:type owl:DatatypeProperty ,
+                                        owl:FunctionalProperty ;
+                               rdfs:domain :MarketActualEvent ;
+                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketEventStatusKind> ;
+                               rdfs:comment "Event status, e.g. active, canceled, expired, etc." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketActualEvent_eventType
+:MarketActualEvent_eventType rdf:type owl:DatatypeProperty ,
+                                      owl:FunctionalProperty ;
+                             rdfs:domain :MarketActualEvent ;
+                             rdfs:range xsd:string ;
+                             rdfs:comment "Actual event type." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketFactors_intervalEndTime
+:MarketFactors_intervalEndTime rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :MarketFactors ;
+                               rdfs:range xsd:dateTime ;
+                               rdfs:comment """The end of the time interval for which requirement is defined.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketFactors_intervalStartTime
+:MarketFactors_intervalStartTime rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :MarketFactors ;
+                                 rdfs:range xsd:dateTime ;
+                                 rdfs:comment """The start of the time interval for which requirement is defined.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketPlan_tradingDay
+:MarketPlan_tradingDay rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :MarketPlan ;
+                       rdfs:range xsd:dateTime ;
+                       rdfs:comment """Planned market trading day.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketProduct_marketProductType
+:MarketProduct_marketProductType rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :MarketProduct ;
+                                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketProductType> ;
+                                 rdfs:comment """Market product type examples:
+
+EN (Energy)
+RU (Regulation Up)
+RD (Regulation Dn)
+SR (Spinning Reserve)
+NR (Non-Spinning Reserve)
+RC (RUC)
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketProduct_rampInterval
+:MarketProduct_rampInterval rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :MarketProduct ;
+                            rdfs:range xsd:float ;
+                            rdfs:comment "Ramping time interval for the specific market product type specified by marketProductType attribute. For example, if marketProductType = EN (from enumeration MarketProductType), then the rampInterval is the ramping time interval for Energy." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketRun_executionType
+:MarketRun_executionType rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :MarketRun ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ExecutionType> ;
+                         rdfs:comment """The execution type; Day Ahead, Intra Day, Real Time Pre-Dispatch, Real Time Dispatch
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketRun_marketApprovalTime
+:MarketRun_marketApprovalTime rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :MarketRun ;
+                              rdfs:range xsd:dateTime ;
+                              rdfs:comment """Approved time for case. Identifies the time that the dispatcher approved a specific real time unit dispatch case
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketRun_marketApprovedStatus
+:MarketRun_marketApprovedStatus rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :MarketRun ;
+                                rdfs:range xsd:boolean ;
+                                rdfs:comment """Set to true when the plan is approved by authority and becomes the official plan for the day ahead market. Identifies the approved case for the market for the specified time interval.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketRun_marketEndTime
+:MarketRun_marketEndTime rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :MarketRun ;
+                         rdfs:range xsd:dateTime ;
+                         rdfs:comment """The end time defined as the end of the market, market end time.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketRun_marketStartTime
+:MarketRun_marketStartTime rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :MarketRun ;
+                           rdfs:range xsd:dateTime ;
+                           rdfs:comment """The start time defined as the beginning of the market, market start time.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketRun_marketType
+:MarketRun_marketType rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :MarketRun ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketType> ;
+                      rdfs:comment """The market type, Day Ahead Market or Real Time Market.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketRun_reportedState
+:MarketRun_reportedState rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :MarketRun ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment """This is the state of market run activitie as reported by market systems to the market definition services.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketRun_runState
+:MarketRun_runState rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :MarketRun ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment """This is the state controlled by market defintion service.
+possible values could be but not limited by: Open, Close.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#Market_actualEnd
+:Market_actualEnd rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Market ;
+                  rdfs:range xsd:dateTime ;
+                  rdfs:comment """Market ending time - actual market end
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#Market_actualStart
+:Market_actualStart rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Market ;
+                    rdfs:range xsd:dateTime ;
+                    rdfs:comment """Market starting time - actual market start
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#Market_dst
+:Market_dst rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Market ;
+            rdfs:range xsd:boolean ;
+            rdfs:comment """True if daylight savings time (DST) is in effect.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#Market_end
+:Market_end rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Market ;
+            rdfs:range xsd:dateTime ;
+            rdfs:comment """Market end time.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#Market_localTimeZone
+:Market_localTimeZone rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Market ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment """Local time zone.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#Market_start
+:Market_start rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Market ;
+              rdfs:range xsd:dateTime ;
+              rdfs:comment """Market start time.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#Market_status
+:Market_status rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Market ;
+               rdfs:range xsd:string ;
+               rdfs:comment """Market Status 
+'OPEN', 'CLOSED', 'CLEARED', 'BLOCKED'
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#Market_timeIntervalLength
+:Market_timeIntervalLength rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :Market ;
+                           rdfs:range xsd:float ;
+                           rdfs:comment """Trading time interval length.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#Market_tradingDay
+:Market_tradingDay rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Market ;
+                   rdfs:range xsd:dateTime ;
+                   rdfs:comment """Market trading date
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#Market_tradingPeriod
+:Market_tradingPeriod rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Market ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment """Trading period that describes the market, possibilities could be for an Energy Market:
+Day
+Hour
+
+For a CRR Market:
+Year
+Month
+Season""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#PlannedMarketEvent_eventType
+:PlannedMarketEvent_eventType rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :PlannedMarketEvent ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment """Planned event type.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#PlannedMarketEvent_plannedTime
+:PlannedMarketEvent_plannedTime rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :PlannedMarketEvent ;
+                                rdfs:range xsd:nonNegativeInteger ;
+                                rdfs:comment """This is relative time so that this attribute can be used by more than one planned market. For example the bid submission is 10am everyday.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#PlannedMarket_marketEndTime
+:PlannedMarket_marketEndTime rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :PlannedMarket ;
+                             rdfs:range xsd:dateTime ;
+                             rdfs:comment """Market end time.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#PlannedMarket_marketStartTime
+:PlannedMarket_marketStartTime rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :PlannedMarket ;
+                               rdfs:range xsd:dateTime ;
+                               rdfs:comment """Market start time.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#PlannedMarket_marketType
+:PlannedMarket_marketType rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :PlannedMarket ;
+                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketType> ;
+                          rdfs:comment """Market type.
+""" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfExternalInputs#ReserveReq
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfExternalInputs#ReserveReq> rdf:type owl:Class ;
+                                                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                      owl:onProperty :ReserveReq_MarketProduct ;
+                                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfExternalInputs#ReserveReq>
+                                                                                                    ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#CRRMarket
+:CRRMarket rdf:type owl:Class ;
+           rdfs:subClassOf :Market ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :CRRMarket_labelID ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:string
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :CRRMarket_labelID ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:string
+                           ] ;
+           rdfs:comment """Model that describes the Congestion Revenue Rights Auction Market
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#EnergyMarket
+:EnergyMarket rdf:type owl:Class ;
+              rdfs:subClassOf :Market ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :EnergyMarket_RTO ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :EnergyMarket
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :EnergyMarket_Settlements ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :EnergyMarket
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :EnergyMarket_Bids ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :EnergyMarket
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :EnergyMarket_MarketResults ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :EnergyMarket
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :EnergyMarket_Settlements ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :EnergyMarket
+                              ] ;
+              rdfs:comment "Energy and Ancillary Market (e.g. Energy, Spinning Reserve, Non-Spinning Reserve) with a description of the Market operation control parameters." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#Market
+:Market rdf:type owl:Class ;
+        rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_MarketFactors ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Market
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_MarketProducts ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Market
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_MarketRun ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Market
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_MarketFactors ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Market
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_MarketProducts ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Market
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_actualEnd ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_actualStart ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_dst ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:boolean
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_end ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_localTimeZone ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_start ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_status ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_timeIntervalLength ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:float
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_tradingDay ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_tradingPeriod ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_actualEnd ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_actualStart ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_dst ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:boolean
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_end ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_localTimeZone ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_start ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_status ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_timeIntervalLength ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:float
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_tradingDay ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Market_tradingPeriod ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ;
+        rdfs:comment "Market (e.g. Day Ahead Market, RealTime Market) with a description of the the Market operation control parameters." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketActualEvent
+:MarketActualEvent rdf:type owl:Class ;
+                   rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :MarketActualEvent_MarketRun ;
+                                     owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :MarketActualEvent
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :MarketActualEvent_PlannedMarketEvent ;
+                                     owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :MarketActualEvent
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :MarketActualEvent_eventEndTime ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:dateTime
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :MarketActualEvent_eventStartTime ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:dateTime
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :MarketActualEvent_eventComments ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :MarketActualEvent_eventStatus ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketEventStatusKind>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :MarketActualEvent_eventType ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :MarketActualEvent_eventEndTime ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:dateTime
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :MarketActualEvent_eventStartTime ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:dateTime
+                                   ] ;
+                   rdfs:comment "This class represent the actual instance of an event." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketFactors
+:MarketFactors rdf:type owl:Class ;
+               rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketFactors_Market ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :MarketFactors
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketFactors_intervalEndTime ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketFactors_intervalStartTime ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketFactors_intervalEndTime ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketFactors_intervalStartTime ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ;
+               rdfs:comment "Aggregation of market information relative for a specific time interval." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketPlan
+:MarketPlan rdf:type owl:Class ;
+            rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :MarketPlan_PlannedMarket ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :MarketPlan
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :MarketPlan_tradingDay ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :MarketPlan_tradingDay ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] ;
+            rdfs:comment "This class identifies a set of planned markets. This class is a container of these planned markets" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketProduct
+:MarketProduct rdf:type owl:Class ;
+               rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketProduct_BidError ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :MarketProduct
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketProduct_BidPriceCap ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :MarketProduct
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketProduct_Market ;
+                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :MarketProduct
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketProduct_MarketRegionResults ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :MarketProduct
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketProduct_ProductBids ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :MarketProduct
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketProduct_ReserveReqs ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :MarketProduct
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketProduct_ResourceAwardInstruction ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :MarketProduct
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketProduct_BidError ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :MarketProduct
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketProduct_BidPriceCap ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :MarketProduct
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketProduct_MarketRegionResults ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :MarketProduct
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketProduct_marketProductType ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketProductType>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketProduct_rampInterval ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketProduct_marketProductType ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketProductType>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :MarketProduct_rampInterval ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ;
+               rdfs:comment "A product traded by an RTO (e.g. energy, 10 minute spinning reserve).Ancillary service product examples include:Regulation UpRegulation DnSpinning ReserveNon-Spinning ReserveOperating Reserve" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketRun
+:MarketRun rdf:type owl:Class ;
+           rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_Market ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass :MarketRun
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_MarketActualEvent ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass :MarketRun
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_PlannedMarket ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass :MarketRun
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_MarketActualEvent ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :MarketRun
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_executionType ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ExecutionType>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_marketApprovalTime ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:dateTime
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_marketApprovedStatus ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:boolean
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_marketEndTime ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:dateTime
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_marketStartTime ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:dateTime
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_marketType ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketType>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_reportedState ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:string
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_runState ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:string
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_executionType ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#ExecutionType>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_marketApprovalTime ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:dateTime
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_marketApprovedStatus ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:boolean
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_marketEndTime ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:dateTime
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_marketStartTime ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:dateTime
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_marketType ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketType>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_reportedState ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:string
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :MarketRun_runState ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:string
+                           ] ;
+           rdfs:comment "This class represent an actual instance of a planned market. For example, a Day Ahead market opens with the Bid Submission, ends with the closing of the Bid Submission. The market run represent the whole process. MarketRuns can be defined for markets such as Day Ahead Market, Real Time Market, Hour Ahead Market, Week Ahead Market,..." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#PlannedMarket
+:PlannedMarket rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty :PlannedMarket_MarketPlan ;
+                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :PlannedMarket
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :PlannedMarket_PlannedMarketEvent ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :PlannedMarket
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :PlannedMarket_MarketRun ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :PlannedMarket
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :PlannedMarket_marketEndTime ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :PlannedMarket_marketStartTime ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :PlannedMarket_marketType ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketType>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :PlannedMarket_marketEndTime ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :PlannedMarket_marketStartTime ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :PlannedMarket_marketType ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#MarketType>
+                               ] ;
+               rdfs:comment "Represent a planned market. For example an planned DA/HA/RT market." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#PlannedMarketEvent
+:PlannedMarketEvent rdf:type owl:Class ;
+                    rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :PlannedMarketEvent_MarketActualEvent ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :PlannedMarketEvent
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :PlannedMarketEvent_PlannedMarket ;
+                                      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :PlannedMarketEvent
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :PlannedMarketEvent_MarketActualEvent ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :PlannedMarketEvent
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :PlannedMarketEvent_eventType ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :PlannedMarketEvent_plannedTime ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :PlannedMarketEvent_eventType ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :PlannedMarketEvent_plannedTime ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:nonNegativeInteger
+                                    ] ;
+                    rdfs:comment "This class represents planned events. Used to model the various planned events in a market (closing time, clearing time, etc)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#MarketRegionResults
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#MarketRegionResults> rdf:type owl:Class ;
+                                                                                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                             owl:onProperty :MarketRegionResults_MarketProduct ;
+                                                                                                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#MarketRegionResults>
+                                                                                                                           ] ,
+                                                                                                                           [ rdf:type owl:Restriction ;
+                                                                                                                             owl:onProperty :MarketRegionResults_MarketProduct ;
+                                                                                                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#MarketRegionResults>
+                                                                                                                           ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#MarketResults
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#MarketResults> rdf:type owl:Class ;
+                                                                                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                       owl:onProperty :MarketResults_EnergyMarket ;
+                                                                                                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#MarketResults>
+                                                                                                                     ] ,
+                                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                                       owl:onProperty :MarketResults_EnergyMarket ;
+                                                                                                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#MarketResults>
+                                                                                                                     ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#ResourceAwardInstruction
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#ResourceAwardInstruction> rdf:type owl:Class ;
+                                                                                                                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                                  owl:onProperty :ResourceAwardInstruction_MarketProduct ;
+                                                                                                                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#ResourceAwardInstruction>
+                                                                                                                                ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#Settlement
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#Settlement> rdf:type owl:Class ;
+                                                                                                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                    owl:onProperty :Settlement_EnergyMarket ;
+                                                                                                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/MarketResults#Settlement>
+                                                                                                                  ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ParticipantInterfaces#Bid
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ParticipantInterfaces#Bid> rdf:type owl:Class ;
+                                                                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty :Bid_EnergyMarket ;
+                                                                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                        owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ParticipantInterfaces#Bid>
+                                                                                                      ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ParticipantInterfaces#BidError
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ParticipantInterfaces#BidError> rdf:type owl:Class ;
+                                                                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                             owl:onProperty :BidError_MarketProduct ;
+                                                                                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ParticipantInterfaces#BidError>
+                                                                                                           ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ParticipantInterfaces#ProductBid
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ParticipantInterfaces#ProductBid> rdf:type owl:Class ;
+                                                                                             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                               owl:onProperty :ProductBid_MarketProduct ;
+                                                                                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ParticipantInterfaces#ProductBid>
+                                                                                                             ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#BidPriceCap
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#BidPriceCap> rdf:type owl:Class ;
+                                                                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty :BidPriceCap_MarketProduct ;
+                                                                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                        owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#BidPriceCap>
+                                                                                                      ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RTO
+<https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RTO> rdf:type owl:Class ;
+                                                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty :RTO_EnergyMarkets ;
+                                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RTO>
+                                                                                              ] ,
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty :RTO_EnergyMarkets ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC62325/MarketOperations/ReferenceData#RTO>
+                                                                                              ] .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

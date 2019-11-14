@@ -1,0 +1,401 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode> rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#DiagnosisDataSet_effect
+:DiagnosisDataSet_effect rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :DiagnosisDataSet ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment "Effect of problem." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#DiagnosisDataSet_failureMode
+:DiagnosisDataSet_failureMode rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :DiagnosisDataSet ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment "Failuer mode, for example: Failure to Insulate; Failure to conduct; Failure to contain oil; Failure to provide ground plane; Other." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#DiagnosisDataSet_finalCause
+:DiagnosisDataSet_finalCause rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :DiagnosisDataSet ;
+                             rdfs:range xsd:string ;
+                             rdfs:comment "Cause of problem determined during diagnosis." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#DiagnosisDataSet_finalCode
+:DiagnosisDataSet_finalCode rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :DiagnosisDataSet ;
+                            rdfs:range xsd:string ;
+                            rdfs:comment """Code for diagnosed probem type.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#DiagnosisDataSet_finalOrigin
+:DiagnosisDataSet_finalOrigin rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :DiagnosisDataSet ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment "Origin of problem determined during diagnosis." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#DiagnosisDataSet_finalRemark
+:DiagnosisDataSet_finalRemark rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :DiagnosisDataSet ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment "Remarks pertaining to findings during problem diagnosis." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#DiagnosisDataSet_phaseCode
+:DiagnosisDataSet_phaseCode rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :DiagnosisDataSet ;
+                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode> ;
+                            rdfs:comment "Phase(s) diagnosed." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#DiagnosisDataSet_preliminaryCode
+:DiagnosisDataSet_preliminaryCode rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :DiagnosisDataSet ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:comment """Code for problem type determined during preliminary assessment.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#DiagnosisDataSet_preliminaryDateTime
+:DiagnosisDataSet_preliminaryDateTime rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :DiagnosisDataSet ;
+                                      rdfs:range xsd:dateTime ;
+                                      rdfs:comment """Date and time preliminary assessment of problem was performed.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#DiagnosisDataSet_preliminaryRemark
+:DiagnosisDataSet_preliminaryRemark rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :DiagnosisDataSet ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:comment "Remarks pertaining to preliminary assessment of problem." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#DiagnosisDataSet_rootCause
+:DiagnosisDataSet_rootCause rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :DiagnosisDataSet ;
+                            rdfs:range xsd:string ;
+                            rdfs:comment "Root cause of problem determined during diagnosis." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#DiagnosisDataSet_rootOrigin
+:DiagnosisDataSet_rootOrigin rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :DiagnosisDataSet ;
+                             rdfs:range xsd:string ;
+                             rdfs:comment "Root origin of problem determined during diagnosis." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#DiagnosisDataSet_rootRemark
+:DiagnosisDataSet_rootRemark rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :DiagnosisDataSet ;
+                             rdfs:range xsd:string ;
+                             rdfs:comment "Remarks pertaining to root cause findings during problem diagnosis." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#InspectionDataSet_locationCondition
+:InspectionDataSet_locationCondition rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :InspectionDataSet ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:comment "Description of the conditions of the location where the asset resides." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#MaintenanceDataSet_conditionAfter
+:MaintenanceDataSet_conditionAfter rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain :MaintenanceDataSet ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:comment "Condition of asset just following maintenance procedure." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#MaintenanceDataSet_conditionBefore
+:MaintenanceDataSet_conditionBefore rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :MaintenanceDataSet ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:comment "Description of the condition of the asset just prior to maintenance being performed." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#MaintenanceDataSet_maintCode
+:MaintenanceDataSet_maintCode rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :MaintenanceDataSet ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment "Code for the type of maintenance performed." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#TestDataSet_conclusion
+:TestDataSet_conclusion rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :TestDataSet ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "Conclusion drawn from test results." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#TestDataSet_specimenID
+:TestDataSet_specimenID rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :TestDataSet ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment " Identifier of specimen used in inspection or test." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#TestDataSet_specimenToLabDateTime
+:TestDataSet_specimenToLabDateTime rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain :TestDataSet ;
+                                   rdfs:range xsd:dateTime ;
+                                   rdfs:comment """Date and time the specimen was received by the lab.
+""" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#DiagnosisDataSet
+:DiagnosisDataSet rdf:type owl:Class ;
+                  rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet> ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_effect ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_failureMode ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_finalCause ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_finalCode ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_finalOrigin ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_finalRemark ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_phaseCode ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_preliminaryCode ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_preliminaryDateTime ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:dateTime
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_preliminaryRemark ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_rootCause ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_rootOrigin ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_rootRemark ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_effect ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_failureMode ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_finalCause ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_finalCode ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_finalOrigin ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_finalRemark ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_phaseCode ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_preliminaryCode ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_preliminaryDateTime ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:dateTime
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_preliminaryRemark ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_rootCause ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_rootOrigin ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :DiagnosisDataSet_rootRemark ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] ;
+                  rdfs:comment """The result of a problem (typically an asset failure) diagnosis.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#InspectionDataSet
+:InspectionDataSet rdf:type owl:Class ;
+                   rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet> ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :InspectionDataSet_locationCondition ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :InspectionDataSet_locationCondition ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ;
+                   rdfs:comment "Documents the result of one inspection, for a given attribute of an asset." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#MaintenanceDataSet
+:MaintenanceDataSet rdf:type owl:Class ;
+                    rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet> ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :MaintenanceDataSet_conditionAfter ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :MaintenanceDataSet_conditionBefore ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :MaintenanceDataSet_maintCode ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :MaintenanceDataSet_conditionAfter ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :MaintenanceDataSet_conditionBefore ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :MaintenanceDataSet_maintCode ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ;
+                    rdfs:comment "The result of a maintenance activity, a type of Procedure, for a given attribute of an asset." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#TestDataSet
+:TestDataSet rdf:type owl:Class ;
+             rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet> ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :TestDataSet_conclusion ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :TestDataSet_specimenID ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :TestDataSet_specimenToLabDateTime ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:dateTime
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :TestDataSet_conclusion ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :TestDataSet_specimenID ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :TestDataSet_specimenToLabDateTime ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:dateTime
+                             ] ;
+             rdfs:comment """Test results, usually obtained by a lab or other independent organisation.
+""" .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

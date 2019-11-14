@@ -1,0 +1,264 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineLoadControllerDynamics#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineLoadControllerDynamics#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineLoadControllerDynamics#> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineLoadControllerDynamics#TurbLCFB1_db
+:TurbLCFB1_db rdf:type owl:ObjectProperty ;
+              rdfs:domain :TurbLCFB1 ;
+              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+              rdfs:comment "Controller dead band (db).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineLoadControllerDynamics#TurbLCFB1_emax
+:TurbLCFB1_emax rdf:type owl:ObjectProperty ;
+                rdfs:domain :TurbLCFB1 ;
+                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                rdfs:comment "Maximum control error (Emax) (note 4).  Typical Value = 0.02." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineLoadControllerDynamics#TurbLCFB1_fb
+:TurbLCFB1_fb rdf:type owl:ObjectProperty ;
+              rdfs:domain :TurbLCFB1 ;
+              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+              rdfs:comment "Frequency bias gain (Fb).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineLoadControllerDynamics#TurbLCFB1_irmax
+:TurbLCFB1_irmax rdf:type owl:ObjectProperty ;
+                 rdfs:domain :TurbLCFB1 ;
+                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                 rdfs:comment "Maximum turbine speed/load reference bias (Irmax) (note 3).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineLoadControllerDynamics#TurbLCFB1_ki
+:TurbLCFB1_ki rdf:type owl:ObjectProperty ;
+              rdfs:domain :TurbLCFB1 ;
+              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+              rdfs:comment "Integral gain (Ki).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineLoadControllerDynamics#TurbLCFB1_kp
+:TurbLCFB1_kp rdf:type owl:ObjectProperty ;
+              rdfs:domain :TurbLCFB1 ;
+              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+              rdfs:comment "Proportional gain (Kp).  Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineLoadControllerDynamics#TurbLCFB1_mwbase
+:TurbLCFB1_mwbase rdf:type owl:ObjectProperty ;
+                  rdfs:domain :TurbLCFB1 ;
+                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
+                  rdfs:comment "Base for power values (MWbase) (&gt;0).  Unit = MW." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineLoadControllerDynamics#TurbLCFB1_pmwset
+:TurbLCFB1_pmwset rdf:type owl:ObjectProperty ;
+                  rdfs:domain :TurbLCFB1 ;
+                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
+                  rdfs:comment "Power controller setpoint (Pmwset) (note 1).  Unit = MW. Typical Value = 0." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineLoadControllerDynamics#TurbLCFB1_tpelec
+:TurbLCFB1_tpelec rdf:type owl:ObjectProperty ;
+                  rdfs:domain :TurbLCFB1 ;
+                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                  rdfs:comment "Power transducer time constant (Tpelec).  Typical Value = 0." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineLoadControllerDynamics#TurbLCFB1_fbf
+:TurbLCFB1_fbf rdf:type owl:DatatypeProperty ;
+               rdfs:domain :TurbLCFB1 ;
+               rdfs:range xsd:boolean ;
+               rdfs:comment """Frequency bias flag (Fbf).
+true = enable frequency bias
+false = disable frequency bias.
+Typical Value = false.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineLoadControllerDynamics#TurbLCFB1_pbf
+:TurbLCFB1_pbf rdf:type owl:DatatypeProperty ;
+               rdfs:domain :TurbLCFB1 ;
+               rdfs:range xsd:boolean ;
+               rdfs:comment """Power controller flag (Pbf).
+true = enable load controller
+false = disable load controller.
+Typical Value = false.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineLoadControllerDynamics#TurbLCFB1_speedReferenceGovernor
+:TurbLCFB1_speedReferenceGovernor rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :TurbLCFB1 ;
+                                  rdfs:range xsd:boolean ;
+                                  rdfs:comment """Type of turbine governor reference (Type).
+true = speed reference governor
+false = load reference governor.
+Typical Value = true.""" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineLoadControllerDynamics#TurbLCFB1
+:TurbLCFB1 rdf:type owl:Class ;
+           rdfs:subClassOf :TurbineLoadControllerDynamics ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_db ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_emax ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_fb ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_irmax ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_ki ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_kp ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_mwbase ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_pmwset ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_tpelec ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_db ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_emax ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_fb ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_irmax ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_ki ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_kp ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_mwbase ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_pmwset ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_tpelec ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_fbf ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:boolean
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_pbf ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:boolean
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_speedReferenceGovernor ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:boolean
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_fbf ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:boolean
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_pbf ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:boolean
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TurbLCFB1_speedReferenceGovernor ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:boolean
+                           ] ;
+           rdfs:comment "Turbine Load Controller model developed in the WECC.  This model represents a supervisory turbine load controller that acts to maintain turbine power at a set value by continuous adjustment of the turbine governor speed-load reference. This model is intended to represent slow reset 'outer loop' controllers managing the action of the turbine governor." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineLoadControllerDynamics#TurbineLoadControllerDynamics
+:TurbineLoadControllerDynamics rdf:type owl:Class ;
+                               rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock> ;
+                               rdfs:comment "Turbine load controller function block whose behavior is described by reference to a standard model <font color=\"#0f0f0f\">or by definition of a user-defined model.</font>" .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

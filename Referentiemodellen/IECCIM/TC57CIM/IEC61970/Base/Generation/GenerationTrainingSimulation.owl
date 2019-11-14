@@ -1,0 +1,2108 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BoilerControlMode
+:BoilerControlMode rdf:type rdfs:Datatype ;
+                   owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                         owl:oneOf [ rdf:type rdf:List ;
+                                                     rdf:first "following" ;
+                                                     rdf:rest rdf:nil
+                                                   ]
+                                       ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#TurbineType
+:TurbineType rdf:type rdfs:Datatype ;
+             owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                   owl:oneOf [ rdf:type rdf:List ;
+                                               rdf:first "kaplan" ;
+                                               rdf:rest [ rdf:type rdf:List ;
+                                                          rdf:first "pelton" ;
+                                                          rdf:rest rdf:nil
+                                                        ]
+                                             ]
+                                 ] .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#AirCompressor_CombustionTurbine
+:AirCompressor_CombustionTurbine rdf:type owl:ObjectProperty ;
+                                 owl:inverseOf :CombustionTurbine_AirCompressor ;
+                                 rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/Production#AirCompressor> ;
+                                 rdfs:range :CombustionTurbine ;
+                                 rdfs:comment "A CAES air compressor is driven by combustion turbine.A CAES air compressor is driven by combustion turbine." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_highPowerLimit
+:BWRSteamSupply_highPowerLimit rdf:type owl:ObjectProperty ;
+                               rdfs:domain :BWRSteamSupply ;
+                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                               rdfs:comment """High power limit.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_inCoreThermalTC
+:BWRSteamSupply_inCoreThermalTC rdf:type owl:ObjectProperty ;
+                                rdfs:domain :BWRSteamSupply ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                                rdfs:comment """In-core thermal time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_lowPowerLimit
+:BWRSteamSupply_lowPowerLimit rdf:type owl:ObjectProperty ;
+                              rdfs:domain :BWRSteamSupply ;
+                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                              rdfs:comment """Low power limit.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_lowerLimit
+:BWRSteamSupply_lowerLimit rdf:type owl:ObjectProperty ;
+                           rdfs:domain :BWRSteamSupply ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                           rdfs:comment """Initial lower limit.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_pressureLimit
+:BWRSteamSupply_pressureLimit rdf:type owl:ObjectProperty ;
+                              rdfs:domain :BWRSteamSupply ;
+                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                              rdfs:comment """Pressure limit.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_pressureSetpointTC1
+:BWRSteamSupply_pressureSetpointTC1 rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :BWRSteamSupply ;
+                                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                                    rdfs:comment """Pressure setpoint time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_pressureSetpointTC2
+:BWRSteamSupply_pressureSetpointTC2 rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :BWRSteamSupply ;
+                                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                                    rdfs:comment """Pressure setpoint time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_rfAux1
+:BWRSteamSupply_rfAux1 rdf:type owl:ObjectProperty ;
+                       rdfs:domain :BWRSteamSupply ;
+                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                       rdfs:comment "Coefficient for modeling the effect of off-nominal frequency and voltage on recirculation and core flow, which affects the BWR power output." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_rfAux2
+:BWRSteamSupply_rfAux2 rdf:type owl:ObjectProperty ;
+                       rdfs:domain :BWRSteamSupply ;
+                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                       rdfs:comment "Coefficient for modeling the effect of off-nominal frequency and voltage on recirculation and core flow, which affects the BWR power output." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_rfAux3
+:BWRSteamSupply_rfAux3 rdf:type owl:ObjectProperty ;
+                       rdfs:domain :BWRSteamSupply ;
+                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                       rdfs:comment "Coefficient for modeling the effect of off-nominal frequency and voltage on recirculation and core flow, which affects the BWR power output." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_rfAux4
+:BWRSteamSupply_rfAux4 rdf:type owl:ObjectProperty ;
+                       rdfs:domain :BWRSteamSupply ;
+                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                       rdfs:comment "Coefficient for modeling the effect of off-nominal frequency and voltage on recirculation and core flow, which affects the BWR power output." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_rfAux5
+:BWRSteamSupply_rfAux5 rdf:type owl:ObjectProperty ;
+                       rdfs:domain :BWRSteamSupply ;
+                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                       rdfs:comment "Coefficient for modeling the effect of off-nominal frequency and voltage on recirculation and core flow, which affects the BWR power output." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_rfAux6
+:BWRSteamSupply_rfAux6 rdf:type owl:ObjectProperty ;
+                       rdfs:domain :BWRSteamSupply ;
+                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                       rdfs:comment "Coefficient for modeling the effect of off-nominal frequency and voltage on recirculation and core flow, which affects the BWR power output." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_rfAux7
+:BWRSteamSupply_rfAux7 rdf:type owl:ObjectProperty ;
+                       rdfs:domain :BWRSteamSupply ;
+                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                       rdfs:comment "Coefficient for modeling the effect of off-nominal frequency and voltage on recirculation and core flow, which affects the BWR power output." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_rfAux8
+:BWRSteamSupply_rfAux8 rdf:type owl:ObjectProperty ;
+                       rdfs:domain :BWRSteamSupply ;
+                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                       rdfs:comment "Coefficient for modeling the effect of off-nominal frequency and voltage on recirculation and core flow, which affects the BWR power output." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_rodPattern
+:BWRSteamSupply_rodPattern rdf:type owl:ObjectProperty ;
+                           rdfs:domain :BWRSteamSupply ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                           rdfs:comment """Rod pattern.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_upperLimit
+:BWRSteamSupply_upperLimit rdf:type owl:ObjectProperty ;
+                           rdfs:domain :BWRSteamSupply ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                           rdfs:comment """Initial upper limit.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#CTTempActivePowerCurve_CombustionTurbine
+:CTTempActivePowerCurve_CombustionTurbine rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :CTTempActivePowerCurve ;
+                                          rdfs:range :CombustionTurbine ;
+                                          rdfs:comment "A combustion turbine may have an active power versus ambient temperature relationship.A combustion turbine may have an active power versus ambient temperature relationship." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#CombustionTurbine_AirCompressor
+:CombustionTurbine_AirCompressor rdf:type owl:ObjectProperty ,
+                                          owl:FunctionalProperty ;
+                                 rdfs:domain :CombustionTurbine ;
+                                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/Production#AirCompressor> ;
+                                 rdfs:comment "A CAES air compressor is driven by combustion turbine.A CAES air compressor is driven by combustion turbine." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#CombustionTurbine_CTTempActivePowerCurve
+:CombustionTurbine_CTTempActivePowerCurve rdf:type owl:ObjectProperty ;
+                                          owl:inverseOf :CTTempActivePowerCurve_CombustionTurbine ;
+                                          rdf:type owl:FunctionalProperty ;
+                                          rdfs:domain :CombustionTurbine ;
+                                          rdfs:range :CTTempActivePowerCurve ;
+                                          rdfs:comment "A combustion turbine may have an active power versus ambient temperature relationship.A combustion turbine may have an active power versus ambient temperature relationship." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#CombustionTurbine_HeatRecoveryBoiler
+:CombustionTurbine_HeatRecoveryBoiler rdf:type owl:ObjectProperty ;
+                                      owl:inverseOf :HeatRecoveryBoiler_CombustionTurbines ;
+                                      rdfs:domain :CombustionTurbine ;
+                                      rdfs:range :HeatRecoveryBoiler ;
+                                      rdfs:comment "A combustion turbine may have a heat recovery boiler for making steam.A combustion turbine may have a heat recovery boiler for making steam." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#CombustionTurbine_ambientTemp
+:CombustionTurbine_ambientTemp rdf:type owl:ObjectProperty ;
+                               rdfs:domain :CombustionTurbine ;
+                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Temperature> ;
+                               rdfs:comment """Default ambient temperature to be used in modeling applications.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#CombustionTurbine_auxPowerVersusFrequency
+:CombustionTurbine_auxPowerVersusFrequency rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :CombustionTurbine ;
+                                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                           rdfs:comment "Off-nominal frequency effect on turbine auxiliaries. Per unit reduction in auxiliary active power consumption versus per unit reduction in frequency (from rated frequency)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#CombustionTurbine_auxPowerVersusVoltage
+:CombustionTurbine_auxPowerVersusVoltage rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :CombustionTurbine ;
+                                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                         rdfs:comment "Off-nominal voltage effect on turbine auxiliaries. Per unit reduction in auxiliary active power consumption versus per unit reduction in auxiliary bus voltage (from a specified voltage level)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#CombustionTurbine_capabilityVersusFrequency
+:CombustionTurbine_capabilityVersusFrequency rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :CombustionTurbine ;
+                                             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                             rdfs:comment "Off-nominal frequency effect on turbine capability. Per unit reduction in unit active power capability versus per unit reduction in frequency (from rated frequency)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#CombustionTurbine_powerVariationByTemp
+:CombustionTurbine_powerVariationByTemp rdf:type owl:ObjectProperty ;
+                                        rdfs:domain :CombustionTurbine ;
+                                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                        rdfs:comment """Per unit change in power per (versus) unit change in ambient temperature.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#CombustionTurbine_referenceTemp
+:CombustionTurbine_referenceTemp rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :CombustionTurbine ;
+                                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Temperature> ;
+                                 rdfs:comment "Reference temperature at which the output of the turbine was defined." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#CombustionTurbine_timeConstant
+:CombustionTurbine_timeConstant rdf:type owl:ObjectProperty ;
+                                rdfs:domain :CombustionTurbine ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                                rdfs:comment "The time constant for the turbine." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_auxPowerVersusFrequency
+:FossilSteamSupply_auxPowerVersusFrequency rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :FossilSteamSupply ;
+                                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                           rdfs:comment "Off nominal frequency effect on auxiliary real power. Per unit active power variation versus per unit frequency variation." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_auxPowerVersusVoltage
+:FossilSteamSupply_auxPowerVersusVoltage rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :FossilSteamSupply ;
+                                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                         rdfs:comment "Off nominal voltage effect on auxiliary real power. Per unit active power variation versus per unit voltage variation." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_controlPED
+:FossilSteamSupply_controlPED rdf:type owl:ObjectProperty ;
+                              rdfs:domain :FossilSteamSupply ;
+                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                              rdfs:comment """Pressure error deadband.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_feedWaterTC
+:FossilSteamSupply_feedWaterTC rdf:type owl:ObjectProperty ;
+                               rdfs:domain :FossilSteamSupply ;
+                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                               rdfs:comment """Feedwater time constant rato.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_fuelDemandLimit
+:FossilSteamSupply_fuelDemandLimit rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :FossilSteamSupply ;
+                                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                   rdfs:comment """Fuel demand limit.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_fuelSupplyDelay
+:FossilSteamSupply_fuelSupplyDelay rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :FossilSteamSupply ;
+                                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                                   rdfs:comment """Fuel delay.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_fuelSupplyTC
+:FossilSteamSupply_fuelSupplyTC rdf:type owl:ObjectProperty ;
+                                rdfs:domain :FossilSteamSupply ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                                rdfs:comment """Fuel supply time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_mechPowerSensorLag
+:FossilSteamSupply_mechPowerSensorLag rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :FossilSteamSupply ;
+                                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                                      rdfs:comment """Mechanical power sensor lag.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_throttlePressureSP
+:FossilSteamSupply_throttlePressureSP rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :FossilSteamSupply ;
+                                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                      rdfs:comment """Throttle pressure setpoint.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#HeatRecoveryBoiler_CombustionTurbines
+:HeatRecoveryBoiler_CombustionTurbines rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :HeatRecoveryBoiler ;
+                                       rdfs:range :CombustionTurbine ;
+                                       rdfs:comment "A combustion turbine may have a heat recovery boiler for making steam.A combustion turbine may have a heat recovery boiler for making steam." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#HydroTurbine_gateUpperLimit
+:HydroTurbine_gateUpperLimit rdf:type owl:ObjectProperty ;
+                             rdfs:domain :HydroTurbine ;
+                             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                             rdfs:comment """Gate upper limit.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#HydroTurbine_maxHeadMaxP
+:HydroTurbine_maxHeadMaxP rdf:type owl:ObjectProperty ;
+                          rdfs:domain :HydroTurbine ;
+                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
+                          rdfs:comment """Maximum efficiency active power at maximum head conditions.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#HydroTurbine_minHeadMaxP
+:HydroTurbine_minHeadMaxP rdf:type owl:ObjectProperty ;
+                          rdfs:domain :HydroTurbine ;
+                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
+                          rdfs:comment """Maximum efficiency active power at minimum head conditions.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#HydroTurbine_speedRating
+:HydroTurbine_speedRating rdf:type owl:ObjectProperty ;
+                          rdfs:domain :HydroTurbine ;
+                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#RotationSpeed> ;
+                          rdfs:comment "Rated speed in number of revolutions." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#HydroTurbine_speedRegulation
+:HydroTurbine_speedRegulation rdf:type owl:ObjectProperty ;
+                              rdfs:domain :HydroTurbine ;
+                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                              rdfs:comment """Speed regulation.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#HydroTurbine_transientDroopTime
+:HydroTurbine_transientDroopTime rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :HydroTurbine ;
+                                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                                 rdfs:comment """Transient droop time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#HydroTurbine_transientRegulation
+:HydroTurbine_transientRegulation rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :HydroTurbine ;
+                                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                  rdfs:comment """Transient regulation.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#HydroTurbine_turbineRating
+:HydroTurbine_turbineRating rdf:type owl:ObjectProperty ;
+                            rdfs:domain :HydroTurbine ;
+                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
+                            rdfs:comment """Rated turbine active power.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#HydroTurbine_waterStartingTime
+:HydroTurbine_waterStartingTime rdf:type owl:ObjectProperty ;
+                                rdfs:domain :HydroTurbine ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                                rdfs:comment """Water starting time.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_coldLegFBLagTC
+:PWRSteamSupply_coldLegFBLagTC rdf:type owl:ObjectProperty ;
+                               rdfs:domain :PWRSteamSupply ;
+                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                               rdfs:comment """Cold leg feedback lag time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_coldLegFBLeadTC1
+:PWRSteamSupply_coldLegFBLeadTC1 rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :PWRSteamSupply ;
+                                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                 rdfs:comment """Cold leg feedback lead time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_coldLegFBLeadTC2
+:PWRSteamSupply_coldLegFBLeadTC2 rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :PWRSteamSupply ;
+                                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                 rdfs:comment """Cold leg feedback lead time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_coldLegFG1
+:PWRSteamSupply_coldLegFG1 rdf:type owl:ObjectProperty ;
+                           rdfs:domain :PWRSteamSupply ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                           rdfs:comment """Cold leg feedback gain 1.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_coldLegFG2
+:PWRSteamSupply_coldLegFG2 rdf:type owl:ObjectProperty ;
+                           rdfs:domain :PWRSteamSupply ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                           rdfs:comment """Cold leg feedback gain 2.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_coldLegLagTC
+:PWRSteamSupply_coldLegLagTC rdf:type owl:ObjectProperty ;
+                             rdfs:domain :PWRSteamSupply ;
+                             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                             rdfs:comment """Cold leg lag time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_coreHTLagTC1
+:PWRSteamSupply_coreHTLagTC1 rdf:type owl:ObjectProperty ;
+                             rdfs:domain :PWRSteamSupply ;
+                             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                             rdfs:comment """Core heat transfer lag time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_coreHTLagTC2
+:PWRSteamSupply_coreHTLagTC2 rdf:type owl:ObjectProperty ;
+                             rdfs:domain :PWRSteamSupply ;
+                             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                             rdfs:comment """Core heat transfer lag time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_coreNeutronicsEffTC
+:PWRSteamSupply_coreNeutronicsEffTC rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :PWRSteamSupply ;
+                                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                    rdfs:comment """Core neutronics effective time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_coreNeutronicsHT
+:PWRSteamSupply_coreNeutronicsHT rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :PWRSteamSupply ;
+                                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                 rdfs:comment """Core neutronics and heat transfer.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_feedbackFactor
+:PWRSteamSupply_feedbackFactor rdf:type owl:ObjectProperty ;
+                               rdfs:domain :PWRSteamSupply ;
+                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                               rdfs:comment """Feedback factor.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_hotLegLagTC
+:PWRSteamSupply_hotLegLagTC rdf:type owl:ObjectProperty ;
+                            rdfs:domain :PWRSteamSupply ;
+                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                            rdfs:comment """Hot leg lag time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_hotLegSteamGain
+:PWRSteamSupply_hotLegSteamGain rdf:type owl:ObjectProperty ;
+                                rdfs:domain :PWRSteamSupply ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                rdfs:comment """Hot leg steam gain.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_hotLegToColdLegGain
+:PWRSteamSupply_hotLegToColdLegGain rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :PWRSteamSupply ;
+                                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                    rdfs:comment """Hot leg to cold leg gain.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_pressureCG
+:PWRSteamSupply_pressureCG rdf:type owl:ObjectProperty ;
+                           rdfs:domain :PWRSteamSupply ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                           rdfs:comment """Pressure control gain.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_steamFlowFG
+:PWRSteamSupply_steamFlowFG rdf:type owl:ObjectProperty ;
+                            rdfs:domain :PWRSteamSupply ;
+                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                            rdfs:comment """Steam flow feedback gain.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_steamPressureDropLagTC
+:PWRSteamSupply_steamPressureDropLagTC rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :PWRSteamSupply ;
+                                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                       rdfs:comment """Steam pressure drop lag time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_steamPressureFG
+:PWRSteamSupply_steamPressureFG rdf:type owl:ObjectProperty ;
+                                rdfs:domain :PWRSteamSupply ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                rdfs:comment """Steam pressure feedback gain.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_throttlePressureFactor
+:PWRSteamSupply_throttlePressureFactor rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :PWRSteamSupply ;
+                                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                       rdfs:comment """Throttle pressure factor.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply_throttlePressureSP
+:PWRSteamSupply_throttlePressureSP rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :PWRSteamSupply ;
+                                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                   rdfs:comment """Throttle pressure setpoint.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#SteamSupply_SteamTurbines
+:SteamSupply_SteamTurbines rdf:type owl:ObjectProperty ;
+                           rdfs:domain :SteamSupply ;
+                           rdfs:range :SteamTurbine ;
+                           rdfs:comment "Steam turbines may have steam supplied by a steam supply.Steam turbines may have steam supplied by a steam supply." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#SteamTurbine_SteamSupplys
+:SteamTurbine_SteamSupplys rdf:type owl:ObjectProperty ;
+                           owl:inverseOf :SteamSupply_SteamTurbines ;
+                           rdfs:domain :SteamTurbine ;
+                           rdfs:range :SteamSupply ;
+                           rdfs:comment "Steam turbines may have steam supplied by a steam supply.Steam turbines may have steam supplied by a steam supply." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#SteamTurbine_crossoverTC
+:SteamTurbine_crossoverTC rdf:type owl:ObjectProperty ;
+                          rdfs:domain :SteamTurbine ;
+                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                          rdfs:comment """Crossover time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#SteamTurbine_reheater1TC
+:SteamTurbine_reheater1TC rdf:type owl:ObjectProperty ;
+                          rdfs:domain :SteamTurbine ;
+                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                          rdfs:comment """First reheater time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#SteamTurbine_reheater2TC
+:SteamTurbine_reheater2TC rdf:type owl:ObjectProperty ;
+                          rdfs:domain :SteamTurbine ;
+                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                          rdfs:comment """Second reheater time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#SteamTurbine_steamChestTC
+:SteamTurbine_steamChestTC rdf:type owl:ObjectProperty ;
+                           rdfs:domain :SteamTurbine ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                           rdfs:comment """Steam chest time constant.
+""" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_integralGain
+:BWRSteamSupply_integralGain rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :BWRSteamSupply ;
+                             rdfs:range xsd:float ;
+                             rdfs:comment """Integral gain.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_pressureSetpointGA
+:BWRSteamSupply_pressureSetpointGA rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain :BWRSteamSupply ;
+                                   rdfs:range xsd:float ;
+                                   rdfs:comment """Pressure setpoint gain adjuster.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_proportionalGain
+:BWRSteamSupply_proportionalGain rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :BWRSteamSupply ;
+                                 rdfs:range xsd:float ;
+                                 rdfs:comment """Proportional gain.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply_rodPatternConstant
+:BWRSteamSupply_rodPatternConstant rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain :BWRSteamSupply ;
+                                   rdfs:range xsd:float ;
+                                   rdfs:comment """Constant associated with rod pattern.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#CombustionTurbine_heatRecoveryFlag
+:CombustionTurbine_heatRecoveryFlag rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :CombustionTurbine ;
+                                    rdfs:range xsd:boolean ;
+                                    rdfs:comment """Flag that is set to true if the combustion turbine is associated with a heat recovery boiler.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#DrumBoiler_drumBoilerRating
+:DrumBoiler_drumBoilerRating rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :DrumBoiler ;
+                             rdfs:range xsd:float ;
+                             rdfs:comment """Rating of drum boiler in steam units.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_boilerControlMode
+:FossilSteamSupply_boilerControlMode rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :FossilSteamSupply ;
+                                     rdfs:range :BoilerControlMode ;
+                                     rdfs:comment """The control mode of the boiler.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_controlErrorBiasP
+:FossilSteamSupply_controlErrorBiasP rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :FossilSteamSupply ;
+                                     rdfs:range xsd:float ;
+                                     rdfs:comment """Active power error bias ratio.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_controlIC
+:FossilSteamSupply_controlIC rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :FossilSteamSupply ;
+                             rdfs:range xsd:float ;
+                             rdfs:comment """Integral constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_controlPC
+:FossilSteamSupply_controlPC rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :FossilSteamSupply ;
+                             rdfs:range xsd:float ;
+                             rdfs:comment """Proportional constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_controlPEB
+:FossilSteamSupply_controlPEB rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :FossilSteamSupply ;
+                              rdfs:range xsd:float ;
+                              rdfs:comment """Pressure error bias ratio.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_controlTC
+:FossilSteamSupply_controlTC rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :FossilSteamSupply ;
+                             rdfs:range xsd:float ;
+                             rdfs:comment """Time constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_feedWaterIG
+:FossilSteamSupply_feedWaterIG rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :FossilSteamSupply ;
+                               rdfs:range xsd:float ;
+                               rdfs:comment """Feedwater integral gain ratio.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_feedWaterPG
+:FossilSteamSupply_feedWaterPG rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :FossilSteamSupply ;
+                               rdfs:range xsd:float ;
+                               rdfs:comment """Feedwater proportional gain ratio.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_maxErrorRateP
+:FossilSteamSupply_maxErrorRateP rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :FossilSteamSupply ;
+                                 rdfs:range xsd:float ;
+                                 rdfs:comment """Active power maximum error rate limit.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_minErrorRateP
+:FossilSteamSupply_minErrorRateP rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :FossilSteamSupply ;
+                                 rdfs:range xsd:float ;
+                                 rdfs:comment """Active power minimum error rate limit.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_pressureCtrlDG
+:FossilSteamSupply_pressureCtrlDG rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :FossilSteamSupply ;
+                                  rdfs:range xsd:float ;
+                                  rdfs:comment """Pressure control derivative gain ratio.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_pressureCtrlIG
+:FossilSteamSupply_pressureCtrlIG rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :FossilSteamSupply ;
+                                  rdfs:range xsd:float ;
+                                  rdfs:comment """Pressure control integral gain ratio.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_pressureCtrlPG
+:FossilSteamSupply_pressureCtrlPG rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :FossilSteamSupply ;
+                                  rdfs:range xsd:float ;
+                                  rdfs:comment """Pressure control proportional gain ratio.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_pressureFeedback
+:FossilSteamSupply_pressureFeedback rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :FossilSteamSupply ;
+                                    rdfs:range xsd:nonNegativeInteger ;
+                                    rdfs:comment """Pressure feedback indicator.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_superHeater1Capacity
+:FossilSteamSupply_superHeater1Capacity rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain :FossilSteamSupply ;
+                                        rdfs:range xsd:float ;
+                                        rdfs:comment """Drum/primary superheater capacity.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_superHeater2Capacity
+:FossilSteamSupply_superHeater2Capacity rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain :FossilSteamSupply ;
+                                        rdfs:range xsd:float ;
+                                        rdfs:comment """Secondary superheater capacity.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply_superHeaterPipePD
+:FossilSteamSupply_superHeaterPipePD rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :FossilSteamSupply ;
+                                     rdfs:range xsd:float ;
+                                     rdfs:comment """Superheater pipe pressure drop constant.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#HeatRecoveryBoiler_steamSupplyRating2
+:HeatRecoveryBoiler_steamSupplyRating2 rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :HeatRecoveryBoiler ;
+                                       rdfs:range xsd:float ;
+                                       rdfs:comment """The steam supply rating in kilopounds per hour, if dual pressure boiler.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#HydroTurbine_gateRateLimit
+:HydroTurbine_gateRateLimit rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :HydroTurbine ;
+                            rdfs:range xsd:float ;
+                            rdfs:comment """Gate rate limit.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#HydroTurbine_turbineType
+:HydroTurbine_turbineType rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :HydroTurbine ;
+                          rdfs:range :TurbineType ;
+                          rdfs:comment "Type of turbine." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PrimeMover_primeMoverRating
+:PrimeMover_primeMoverRating rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :PrimeMover ;
+                             rdfs:range xsd:float ;
+                             rdfs:comment """Rating of prime mover.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#SteamSupply_steamSupplyRating
+:SteamSupply_steamSupplyRating rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :SteamSupply ;
+                               rdfs:range xsd:float ;
+                               rdfs:comment """Rating of steam supply.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#SteamTurbine_shaft1PowerHP
+:SteamTurbine_shaft1PowerHP rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :SteamTurbine ;
+                            rdfs:range xsd:float ;
+                            rdfs:comment """Fraction of power from shaft 1 high pressure turbine output.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#SteamTurbine_shaft1PowerIP
+:SteamTurbine_shaft1PowerIP rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :SteamTurbine ;
+                            rdfs:range xsd:float ;
+                            rdfs:comment """Fraction of power from shaft 1 intermediate pressure turbine output.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#SteamTurbine_shaft1PowerLP1
+:SteamTurbine_shaft1PowerLP1 rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :SteamTurbine ;
+                             rdfs:range xsd:float ;
+                             rdfs:comment """Fraction of power from shaft 1 first low pressure turbine output.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#SteamTurbine_shaft1PowerLP2
+:SteamTurbine_shaft1PowerLP2 rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :SteamTurbine ;
+                             rdfs:range xsd:float ;
+                             rdfs:comment """Fraction of power from shaft 1 second low pressure turbine output.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#SteamTurbine_shaft2PowerHP
+:SteamTurbine_shaft2PowerHP rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :SteamTurbine ;
+                            rdfs:range xsd:float ;
+                            rdfs:comment """Fraction of power from shaft 2 high pressure turbine output.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#SteamTurbine_shaft2PowerIP
+:SteamTurbine_shaft2PowerIP rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :SteamTurbine ;
+                            rdfs:range xsd:float ;
+                            rdfs:comment """Fraction of power from shaft 2 intermediate pressure turbine output.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#SteamTurbine_shaft2PowerLP1
+:SteamTurbine_shaft2PowerLP1 rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :SteamTurbine ;
+                             rdfs:range xsd:float ;
+                             rdfs:comment """Fraction of power from shaft 2 first low pressure turbine output.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#SteamTurbine_shaft2PowerLP2
+:SteamTurbine_shaft2PowerLP2 rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :SteamTurbine ;
+                             rdfs:range xsd:float ;
+                             rdfs:comment """Fraction of power from shaft 2 second low pressure turbine output.
+""" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Curve
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Curve> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#RotationSpeed
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#RotationSpeed> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Temperature
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Temperature> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#BWRSteamSupply
+:BWRSteamSupply rdf:type owl:Class ;
+                rdfs:subClassOf :SteamSupply ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_highPowerLimit ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_inCoreThermalTC ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_lowPowerLimit ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_lowerLimit ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_pressureLimit ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_pressureSetpointTC1 ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_pressureSetpointTC2 ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rfAux1 ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rfAux2 ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rfAux3 ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rfAux4 ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rfAux5 ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rfAux6 ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rfAux7 ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rfAux8 ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rodPattern ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_upperLimit ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_highPowerLimit ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_inCoreThermalTC ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_lowPowerLimit ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_lowerLimit ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_pressureLimit ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_pressureSetpointTC1 ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_pressureSetpointTC2 ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rfAux1 ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rfAux2 ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rfAux3 ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rfAux4 ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rfAux5 ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rfAux6 ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rfAux7 ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rfAux8 ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rodPattern ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_upperLimit ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_integralGain ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:float
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_pressureSetpointGA ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:float
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_proportionalGain ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:float
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rodPatternConstant ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:float
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_integralGain ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:float
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_pressureSetpointGA ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:float
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_proportionalGain ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:float
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :BWRSteamSupply_rodPatternConstant ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:float
+                                ] ;
+                rdfs:comment """Boiling water reactor used as a steam supply to a steam turbine.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#CTTempActivePowerCurve
+:CTTempActivePowerCurve rdf:type owl:Class ;
+                        rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Curve> ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CTTempActivePowerCurve_CombustionTurbine ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass :CTTempActivePowerCurve
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :CTTempActivePowerCurve_CombustionTurbine ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass :CTTempActivePowerCurve
+                                        ] ;
+                        rdfs:comment """Relationship between the combustion turbine's power output rating in gross active power (X-axis) and the ambient air temperature (Y-axis).
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#CombustionTurbine
+:CombustionTurbine rdf:type owl:Class ;
+                   rdfs:subClassOf :PrimeMover ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_HeatRecoveryBoiler ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :CombustionTurbine
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_ambientTemp ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Temperature>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_auxPowerVersusFrequency ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_auxPowerVersusVoltage ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_capabilityVersusFrequency ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_powerVariationByTemp ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_referenceTemp ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Temperature>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_timeConstant ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_AirCompressor ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :CombustionTurbine
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_CTTempActivePowerCurve ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :CombustionTurbine
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_ambientTemp ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Temperature>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_auxPowerVersusFrequency ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_auxPowerVersusVoltage ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_capabilityVersusFrequency ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_powerVariationByTemp ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_referenceTemp ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Temperature>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_timeConstant ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_heatRecoveryFlag ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:boolean
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CombustionTurbine_heatRecoveryFlag ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:boolean
+                                   ] ;
+                   rdfs:comment """A prime mover that is typically fueled by gas or light oil.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#DrumBoiler
+:DrumBoiler rdf:type owl:Class ;
+            rdfs:subClassOf :FossilSteamSupply ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :DrumBoiler_drumBoilerRating ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :DrumBoiler_drumBoilerRating ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ;
+            rdfs:comment """Drum boiler.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#FossilSteamSupply
+:FossilSteamSupply rdf:type owl:Class ;
+                   rdfs:subClassOf :SteamSupply ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_auxPowerVersusFrequency ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_auxPowerVersusVoltage ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_controlPED ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_feedWaterTC ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_fuelDemandLimit ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_fuelSupplyDelay ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_fuelSupplyTC ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_mechPowerSensorLag ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_throttlePressureSP ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_auxPowerVersusFrequency ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_auxPowerVersusVoltage ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_controlPED ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_feedWaterTC ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_fuelDemandLimit ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_fuelSupplyDelay ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_fuelSupplyTC ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_mechPowerSensorLag ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_throttlePressureSP ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_boilerControlMode ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange :BoilerControlMode
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_controlErrorBiasP ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_controlIC ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_controlPC ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_controlPEB ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_controlTC ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_feedWaterIG ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_feedWaterPG ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_maxErrorRateP ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_minErrorRateP ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_pressureCtrlDG ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_pressureCtrlIG ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_pressureCtrlPG ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_pressureFeedback ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_superHeater1Capacity ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_superHeater2Capacity ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_superHeaterPipePD ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_boilerControlMode ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange :BoilerControlMode
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_controlErrorBiasP ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_controlIC ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_controlPC ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_controlPEB ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_controlTC ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_feedWaterIG ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_feedWaterPG ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_maxErrorRateP ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_minErrorRateP ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_pressureCtrlDG ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_pressureCtrlIG ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_pressureCtrlPG ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_pressureFeedback ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:nonNegativeInteger
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_superHeater1Capacity ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_superHeater2Capacity ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :FossilSteamSupply_superHeaterPipePD ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:float
+                                   ] ;
+                   rdfs:comment """Fossil fueled boiler (e.g., coal, oil, gas).
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#HeatRecoveryBoiler
+:HeatRecoveryBoiler rdf:type owl:Class ;
+                    rdfs:subClassOf :FossilSteamSupply ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :HeatRecoveryBoiler_CombustionTurbines ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :HeatRecoveryBoiler
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :HeatRecoveryBoiler_CombustionTurbines ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :HeatRecoveryBoiler
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :HeatRecoveryBoiler_steamSupplyRating2 ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:float
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :HeatRecoveryBoiler_steamSupplyRating2 ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:float
+                                    ] ;
+                    rdfs:comment """The heat recovery system associated with combustion turbines in order to produce steam for combined cycle plants.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#HydroTurbine
+:HydroTurbine rdf:type owl:Class ;
+              rdfs:subClassOf :PrimeMover ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_gateUpperLimit ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_maxHeadMaxP ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_minHeadMaxP ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_speedRating ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#RotationSpeed>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_speedRegulation ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_transientDroopTime ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_transientRegulation ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_turbineRating ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_waterStartingTime ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_gateUpperLimit ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_maxHeadMaxP ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_minHeadMaxP ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_speedRating ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#RotationSpeed>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_speedRegulation ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_transientDroopTime ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_transientRegulation ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_turbineRating ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_waterStartingTime ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_gateRateLimit ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_turbineType ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange :TurbineType
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_gateRateLimit ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :HydroTurbine_turbineType ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange :TurbineType
+                              ] ;
+              rdfs:comment """A water driven prime mover. Typical turbine types are: Francis, Kaplan, and Pelton.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PWRSteamSupply
+:PWRSteamSupply rdf:type owl:Class ;
+                rdfs:subClassOf :SteamSupply ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coldLegFBLagTC ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coldLegFBLeadTC1 ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coldLegFBLeadTC2 ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coldLegFG1 ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coldLegFG2 ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coldLegLagTC ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coreHTLagTC1 ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coreHTLagTC2 ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coreNeutronicsEffTC ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coreNeutronicsHT ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_feedbackFactor ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_hotLegLagTC ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_hotLegSteamGain ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_hotLegToColdLegGain ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_pressureCG ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_steamFlowFG ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_steamPressureDropLagTC ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_steamPressureFG ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_throttlePressureFactor ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_throttlePressureSP ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coldLegFBLagTC ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coldLegFBLeadTC1 ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coldLegFBLeadTC2 ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coldLegFG1 ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coldLegFG2 ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coldLegLagTC ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coreHTLagTC1 ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coreHTLagTC2 ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coreNeutronicsEffTC ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_coreNeutronicsHT ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_feedbackFactor ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_hotLegLagTC ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_hotLegSteamGain ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_hotLegToColdLegGain ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_pressureCG ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_steamFlowFG ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_steamPressureDropLagTC ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_steamPressureFG ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_throttlePressureFactor ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :PWRSteamSupply_throttlePressureSP ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                ] ;
+                rdfs:comment """Pressurized water reactor used as a steam supply to a steam turbine.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#PrimeMover
+:PrimeMover rdf:type owl:Class ;
+            rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource> ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :PrimeMover_primeMoverRating ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :PrimeMover_primeMoverRating ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ;
+            rdfs:comment "The machine used to develop mechanical energy used to drive a generator." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#SteamSupply
+:SteamSupply rdf:type owl:Class ;
+             rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource> ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :SteamSupply_SteamTurbines ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :SteamSupply
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :SteamSupply_steamSupplyRating ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:float
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :SteamSupply_steamSupplyRating ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:float
+                             ] ;
+             rdfs:comment """Steam supply for steam turbine.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#SteamTurbine
+:SteamTurbine rdf:type owl:Class ;
+              rdfs:subClassOf :PrimeMover ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_SteamSupplys ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :SteamTurbine
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_crossoverTC ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_reheater1TC ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_reheater2TC ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_steamChestTC ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_crossoverTC ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_reheater1TC ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_reheater2TC ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_steamChestTC ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_shaft1PowerHP ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_shaft1PowerIP ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_shaft1PowerLP1 ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_shaft1PowerLP2 ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_shaft2PowerHP ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_shaft2PowerIP ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_shaft2PowerLP1 ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_shaft2PowerLP2 ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_shaft1PowerHP ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_shaft1PowerIP ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_shaft1PowerLP1 ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_shaft1PowerLP2 ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_shaft2PowerHP ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_shaft2PowerIP ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_shaft2PowerLP1 ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SteamTurbine_shaft2PowerLP2 ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ;
+              rdfs:comment """Steam turbine.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#Subcritical
+:Subcritical rdf:type owl:Class ;
+             rdfs:subClassOf :FossilSteamSupply ;
+             rdfs:comment """Once-through subcritical boiler.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/GenerationTrainingSimulation#Supercritical
+:Supercritical rdf:type owl:Class ;
+               rdfs:subClassOf :FossilSteamSupply ;
+               rdfs:comment """Once-through supercritical boiler.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/Production#AirCompressor
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/Production#AirCompressor> rdf:type owl:Class ;
+                                                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                      owl:onProperty :AirCompressor_CombustionTurbine ;
+                                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/Production#AirCompressor>
+                                                                                                    ] ,
+                                                                                                    [ rdf:type owl:Restriction ;
+                                                                                                      owl:onProperty :AirCompressor_CombustionTurbine ;
+                                                                                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Generation/Production#AirCompressor>
+                                                                                                    ] .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

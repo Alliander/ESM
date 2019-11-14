@@ -1,0 +1,2031 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#BillMediaKind
+:BillMediaKind rdf:type rdfs:Datatype ;
+               owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                     owl:oneOf [ rdf:type rdf:List ;
+                                                 rdf:first "electronic" ;
+                                                 rdf:rest [ rdf:type rdf:List ;
+                                                            rdf:first "other" ;
+                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                       rdf:first "paper" ;
+                                                                       rdf:rest rdf:nil
+                                                                     ]
+                                                          ]
+                                               ]
+                                   ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpAccountKind
+:ErpAccountKind rdf:type rdfs:Datatype ;
+                owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                      owl:oneOf [ rdf:type rdf:List ;
+                                                  rdf:first "estimate" ;
+                                                  rdf:rest [ rdf:type rdf:List ;
+                                                             rdf:first "normal" ;
+                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                        rdf:first "reversal" ;
+                                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                                   rdf:first "statistical" ;
+                                                                                   rdf:rest rdf:nil
+                                                                                 ]
+                                                                      ]
+                                                           ]
+                                                ]
+                                    ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceKind
+:ErpInvoiceKind rdf:type rdfs:Datatype ;
+                owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                      owl:oneOf [ rdf:type rdf:List ;
+                                                  rdf:first "purchase" ;
+                                                  rdf:rest [ rdf:type rdf:List ;
+                                                             rdf:first "sale" ;
+                                                             rdf:rest rdf:nil
+                                                           ]
+                                                ]
+                                    ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItemKind
+:ErpInvoiceLineItemKind rdf:type rdfs:Datatype ;
+                        owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                              owl:oneOf [ rdf:type rdf:List ;
+                                                          rdf:first "initial" ;
+                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                     rdf:first "other" ;
+                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                rdf:first "recalculation" ;
+                                                                                rdf:rest rdf:nil
+                                                                              ]
+                                                                   ]
+                                                        ]
+                                            ] .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpBOM_ErpBomItemDatas
+:ErpBOM_ErpBomItemDatas rdf:type owl:ObjectProperty ;
+                        owl:inverseOf :ErpBomItemData_ErpBOM ;
+                        rdf:type owl:FunctionalProperty ;
+                        rdfs:domain :ErpBOM ;
+                        rdfs:range :ErpBomItemData ;
+                        rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpBomItemData_ErpBOM
+:ErpBomItemData_ErpBOM rdf:type owl:ObjectProperty ;
+                       rdfs:domain :ErpBomItemData ;
+                       rdfs:range :ErpBOM ;
+                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInventoryCount_status
+:ErpInventoryCount_status rdf:type owl:ObjectProperty ;
+                          rdfs:domain :ErpInventoryCount ;
+                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInventory_status
+:ErpInventory_status rdf:type owl:ObjectProperty ;
+                     rdfs:domain :ErpInventory ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_ComponentErpInvoiceLineItems
+:ErpInvoiceLineItem_ComponentErpInvoiceLineItems rdf:type owl:ObjectProperty ;
+                                                 owl:inverseOf :ErpInvoiceLineItem_ContainerErpInvoiceLineItem ;
+                                                 rdfs:domain :ErpInvoiceLineItem ;
+                                                 rdfs:range :ErpInvoiceLineItem ;
+                                                 rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_ContainerErpInvoiceLineItem
+:ErpInvoiceLineItem_ContainerErpInvoiceLineItem rdf:type owl:ObjectProperty ;
+                                                rdfs:domain :ErpInvoiceLineItem ;
+                                                rdfs:range :ErpInvoiceLineItem ;
+                                                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_ErpInvoice
+:ErpInvoiceLineItem_ErpInvoice rdf:type owl:ObjectProperty ;
+                               rdfs:domain :ErpInvoiceLineItem ;
+                               rdfs:range :ErpInvoice ;
+                               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_ErpJournalEntries
+:ErpInvoiceLineItem_ErpJournalEntries rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :ErpInvoiceLineItem ;
+                                      rdfs:range :ErpJournalEntry ;
+                                      rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_ErpPayableLineItem
+:ErpInvoiceLineItem_ErpPayableLineItem rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :ErpInvoiceLineItem ;
+                                       rdfs:range :ErpPayableLineItem ;
+                                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_ErpPayments
+:ErpInvoiceLineItem_ErpPayments rdf:type owl:ObjectProperty ;
+                                rdfs:domain :ErpInvoiceLineItem ;
+                                rdfs:range :ErpPayment ;
+                                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_ErpQuoteLineItem
+:ErpInvoiceLineItem_ErpQuoteLineItem rdf:type owl:ObjectProperty ;
+                                     owl:inverseOf :ErpQuoteLineItem_ErpInvoiceLineItem ;
+                                     rdfs:domain :ErpInvoiceLineItem ;
+                                     rdfs:range :ErpQuoteLineItem ;
+                                     rdfs:comment "Some utilities provide quotes to customer for services, where the customer accepts the quote by making a payment. An invoice is required for this to occur." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_ErpRecDelvLineItem
+:ErpInvoiceLineItem_ErpRecDelvLineItem rdf:type owl:ObjectProperty ;
+                                       owl:inverseOf :ErpRecDelvLineItem_ErpInvoiceLineItem ;
+                                       rdfs:domain :ErpInvoiceLineItem ;
+                                       rdfs:range :ErpRecDelvLineItem ;
+                                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_ErpRecLineItem
+:ErpInvoiceLineItem_ErpRecLineItem rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :ErpInvoiceLineItem ;
+                                   rdfs:range :ErpRecLineItem ;
+                                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_billPeriod
+:ErpInvoiceLineItem_billPeriod rdf:type owl:ObjectProperty ;
+                               rdfs:domain :ErpInvoiceLineItem ;
+                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
+                               rdfs:comment "Bill period for the line item." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice_ErpInvoiceLineItems
+:ErpInvoice_ErpInvoiceLineItems rdf:type owl:ObjectProperty ;
+                                owl:inverseOf :ErpInvoiceLineItem_ErpInvoice ;
+                                rdf:type owl:FunctionalProperty ;
+                                rdfs:domain :ErpInvoice ;
+                                rdfs:range :ErpInvoiceLineItem ;
+                                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice_amount
+:ErpInvoice_amount rdf:type owl:ObjectProperty ;
+                   rdfs:domain :ErpInvoice ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                   rdfs:comment "Total amount due on this invoice based on line items and applicable adjustments." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpIssueInventory_status
+:ErpIssueInventory_status rdf:type owl:ObjectProperty ;
+                          rdfs:domain :ErpIssueInventory ;
+                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpItemMaster_status
+:ErpItemMaster_status rdf:type owl:ObjectProperty ;
+                      rdfs:domain :ErpItemMaster ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpJournalEntry_ErpInvoiceLineItem
+:ErpJournalEntry_ErpInvoiceLineItem rdf:type owl:ObjectProperty ;
+                                    owl:inverseOf :ErpInvoiceLineItem_ErpJournalEntries ;
+                                    rdfs:domain :ErpJournalEntry ;
+                                    rdfs:range :ErpInvoiceLineItem ;
+                                    rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpJournalEntry_ErpJournal
+:ErpJournalEntry_ErpJournal rdf:type owl:ObjectProperty ;
+                            owl:inverseOf :ErpJournal_ErpJournalEntries ;
+                            rdfs:domain :ErpJournalEntry ;
+                            rdfs:range :ErpJournal ;
+                            rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpJournalEntry_ErpLedgerEntry
+:ErpJournalEntry_ErpLedgerEntry rdf:type owl:ObjectProperty ;
+                                owl:inverseOf :ErpLedgerEntry_ErpJounalEntry ;
+                                rdfs:domain :ErpJournalEntry ;
+                                rdfs:range :ErpLedgerEntry ;
+                                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpJournalEntry_ErpPayableLineItems
+:ErpJournalEntry_ErpPayableLineItems rdf:type owl:ObjectProperty ;
+                                     owl:inverseOf :ErpPayableLineItem_ErpJournalEntries ;
+                                     rdfs:domain :ErpJournalEntry ;
+                                     rdfs:range :ErpPayableLineItem ;
+                                     rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpJournalEntry_ErpRecLineItems
+:ErpJournalEntry_ErpRecLineItems rdf:type owl:ObjectProperty ;
+                                 owl:inverseOf :ErpRecLineItem_ErpJournalEntries ;
+                                 rdfs:domain :ErpJournalEntry ;
+                                 rdfs:range :ErpRecLineItem ;
+                                 rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpJournalEntry_amount
+:ErpJournalEntry_amount rdf:type owl:ObjectProperty ;
+                        rdfs:domain :ErpJournalEntry ;
+                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                        rdfs:comment "The amount of the debit or credit for this account." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpJournalEntry_status
+:ErpJournalEntry_status rdf:type owl:ObjectProperty ;
+                        rdfs:domain :ErpJournalEntry ;
+                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpJournal_ErpJournalEntries
+:ErpJournal_ErpJournalEntries rdf:type owl:ObjectProperty ,
+                                       owl:FunctionalProperty ;
+                              rdfs:domain :ErpJournal ;
+                              rdfs:range :ErpJournalEntry ;
+                              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedBudLineItem_ErpLedBudLineItem
+:ErpLedBudLineItem_ErpLedBudLineItem rdf:type owl:ObjectProperty ;
+                                     owl:inverseOf :ErpLedgerEntry_ErpLedgerEntry ;
+                                     rdfs:domain :ErpLedBudLineItem ;
+                                     rdfs:range :ErpLedgerEntry ;
+                                     rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedBudLineItem_ErpLedgerBudget
+:ErpLedBudLineItem_ErpLedgerBudget rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :ErpLedBudLineItem ;
+                                   rdfs:range :ErpLedgerBudget ;
+                                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedBudLineItem_status
+:ErpLedBudLineItem_status rdf:type owl:ObjectProperty ;
+                          rdfs:domain :ErpLedBudLineItem ;
+                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerBudget_ErpLedBudLineItems
+:ErpLedgerBudget_ErpLedBudLineItems rdf:type owl:ObjectProperty ;
+                                    owl:inverseOf :ErpLedBudLineItem_ErpLedgerBudget ;
+                                    rdf:type owl:FunctionalProperty ;
+                                    rdfs:domain :ErpLedgerBudget ;
+                                    rdfs:range :ErpLedBudLineItem ;
+                                    rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry_ErpJounalEntry
+:ErpLedgerEntry_ErpJounalEntry rdf:type owl:ObjectProperty ;
+                               rdfs:domain :ErpLedgerEntry ;
+                               rdfs:range :ErpJournalEntry ;
+                               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry_ErpLedger
+:ErpLedgerEntry_ErpLedger rdf:type owl:ObjectProperty ;
+                          owl:inverseOf :ErpLedger_ErpLedgerEntries ;
+                          rdfs:domain :ErpLedgerEntry ;
+                          rdfs:range :ErpLedger ;
+                          rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry_ErpLedgerEntry
+:ErpLedgerEntry_ErpLedgerEntry rdf:type owl:ObjectProperty ;
+                               rdfs:domain :ErpLedgerEntry ;
+                               rdfs:range :ErpLedBudLineItem ;
+                               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry_amount
+:ErpLedgerEntry_amount rdf:type owl:ObjectProperty ;
+                       rdfs:domain :ErpLedgerEntry ;
+                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                       rdfs:comment "The amount of the debit or credit for this account." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry_status
+:ErpLedgerEntry_status rdf:type owl:ObjectProperty ;
+                       rdfs:domain :ErpLedgerEntry ;
+                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedger_ErpLedgerEntries
+:ErpLedger_ErpLedgerEntries rdf:type owl:ObjectProperty ,
+                                     owl:FunctionalProperty ;
+                            rdfs:domain :ErpLedger ;
+                            rdfs:range :ErpLedgerEntry ;
+                            rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPOLineItem_ErpPurchaseOrder
+:ErpPOLineItem_ErpPurchaseOrder rdf:type owl:ObjectProperty ;
+                                rdfs:domain :ErpPOLineItem ;
+                                rdfs:range :ErpPurchaseOrder ;
+                                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPOLineItem_ErpRecDelLineItem
+:ErpPOLineItem_ErpRecDelLineItem rdf:type owl:ObjectProperty ;
+                                 owl:inverseOf :ErpRecDelvLineItem_ErpPOLineItem ;
+                                 rdfs:domain :ErpPOLineItem ;
+                                 rdfs:range :ErpRecDelvLineItem ;
+                                 rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPOLineItem_ErpReqLineItem
+:ErpPOLineItem_ErpReqLineItem rdf:type owl:ObjectProperty ;
+                              owl:inverseOf :ErpReqLineItem_ErpPOLineItem ;
+                              rdfs:domain :ErpPOLineItem ;
+                              rdfs:range :ErpReqLineItem ;
+                              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPayableLineItem_ErpInvoiceLineItem
+:ErpPayableLineItem_ErpInvoiceLineItem rdf:type owl:ObjectProperty ;
+                                       owl:inverseOf :ErpInvoiceLineItem_ErpPayableLineItem ;
+                                       rdfs:domain :ErpPayableLineItem ;
+                                       rdfs:range :ErpInvoiceLineItem ;
+                                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPayableLineItem_ErpJournalEntries
+:ErpPayableLineItem_ErpJournalEntries rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :ErpPayableLineItem ;
+                                      rdfs:range :ErpJournalEntry ;
+                                      rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPayableLineItem_ErpPayable
+:ErpPayableLineItem_ErpPayable rdf:type owl:ObjectProperty ;
+                               rdfs:domain :ErpPayableLineItem ;
+                               rdfs:range :ErpPayable ;
+                               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPayableLineItem_ErpPayments
+:ErpPayableLineItem_ErpPayments rdf:type owl:ObjectProperty ;
+                                rdfs:domain :ErpPayableLineItem ;
+                                rdfs:range :ErpPayment ;
+                                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPayableLineItem_status
+:ErpPayableLineItem_status rdf:type owl:ObjectProperty ;
+                           rdfs:domain :ErpPayableLineItem ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPayable_ErpPayableLineItems
+:ErpPayable_ErpPayableLineItems rdf:type owl:ObjectProperty ;
+                                owl:inverseOf :ErpPayableLineItem_ErpPayable ;
+                                rdf:type owl:FunctionalProperty ;
+                                rdfs:domain :ErpPayable ;
+                                rdfs:range :ErpPayableLineItem ;
+                                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPayment_ErpInvoiceLineItems
+:ErpPayment_ErpInvoiceLineItems rdf:type owl:ObjectProperty ;
+                                owl:inverseOf :ErpInvoiceLineItem_ErpPayments ;
+                                rdfs:domain :ErpPayment ;
+                                rdfs:range :ErpInvoiceLineItem ;
+                                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPayment_ErpPayableLineItems
+:ErpPayment_ErpPayableLineItems rdf:type owl:ObjectProperty ;
+                                owl:inverseOf :ErpPayableLineItem_ErpPayments ;
+                                rdfs:domain :ErpPayment ;
+                                rdfs:range :ErpPayableLineItem ;
+                                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPayment_ErpRecLineItems
+:ErpPayment_ErpRecLineItems rdf:type owl:ObjectProperty ;
+                            owl:inverseOf :ErpRecLineItem_ErpPayments ;
+                            rdfs:domain :ErpPayment ;
+                            rdfs:range :ErpRecLineItem ;
+                            rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPersonnel_status
+:ErpPersonnel_status rdf:type owl:ObjectProperty ;
+                     rdfs:domain :ErpPersonnel ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting_ErpTimeEntries
+:ErpProjectAccounting_ErpTimeEntries rdf:type owl:ObjectProperty ;
+                                     owl:inverseOf :ErpTimeEntry_ErpProjectAccounting ;
+                                     rdfs:domain :ErpProjectAccounting ;
+                                     rdfs:range :ErpTimeEntry ;
+                                     rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPurchaseOrder_ErpPOLineItems
+:ErpPurchaseOrder_ErpPOLineItems rdf:type owl:ObjectProperty ;
+                                 owl:inverseOf :ErpPOLineItem_ErpPurchaseOrder ;
+                                 rdf:type owl:FunctionalProperty ;
+                                 rdfs:domain :ErpPurchaseOrder ;
+                                 rdfs:range :ErpPOLineItem ;
+                                 rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpQuoteLineItem_ErpInvoiceLineItem
+:ErpQuoteLineItem_ErpInvoiceLineItem rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :ErpQuoteLineItem ;
+                                     rdfs:range :ErpInvoiceLineItem ;
+                                     rdfs:comment "Some utilities provide quotes to customer for services, where the customer accepts the quote by making a payment. An invoice is required for this to occur." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpQuoteLineItem_ErpQuote
+:ErpQuoteLineItem_ErpQuote rdf:type owl:ObjectProperty ;
+                           rdfs:domain :ErpQuoteLineItem ;
+                           rdfs:range :ErpQuote ;
+                           rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpQuoteLineItem_ErpReqLineItem
+:ErpQuoteLineItem_ErpReqLineItem rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :ErpQuoteLineItem ;
+                                 rdfs:range :ErpReqLineItem ;
+                                 rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpQuoteLineItem_status
+:ErpQuoteLineItem_status rdf:type owl:ObjectProperty ;
+                         rdfs:domain :ErpQuoteLineItem ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpQuote_ErpQuoteLineItems
+:ErpQuote_ErpQuoteLineItems rdf:type owl:ObjectProperty ;
+                            owl:inverseOf :ErpQuoteLineItem_ErpQuote ;
+                            rdf:type owl:FunctionalProperty ;
+                            rdfs:domain :ErpQuote ;
+                            rdfs:range :ErpQuoteLineItem ;
+                            rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpRecDelvLineItem_ErpInvoiceLineItem
+:ErpRecDelvLineItem_ErpInvoiceLineItem rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :ErpRecDelvLineItem ;
+                                       rdfs:range :ErpInvoiceLineItem ;
+                                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpRecDelvLineItem_ErpPOLineItem
+:ErpRecDelvLineItem_ErpPOLineItem rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :ErpRecDelvLineItem ;
+                                  rdfs:range :ErpPOLineItem ;
+                                  rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpRecDelvLineItem_ErpReceiveDelivery
+:ErpRecDelvLineItem_ErpReceiveDelivery rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :ErpRecDelvLineItem ;
+                                       rdfs:range :ErpReceiveDelivery ;
+                                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpRecDelvLineItem_status
+:ErpRecDelvLineItem_status rdf:type owl:ObjectProperty ;
+                           rdfs:domain :ErpRecDelvLineItem ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpRecLineItem_ErpInvoiceLineItem
+:ErpRecLineItem_ErpInvoiceLineItem rdf:type owl:ObjectProperty ;
+                                   owl:inverseOf :ErpInvoiceLineItem_ErpRecLineItem ;
+                                   rdfs:domain :ErpRecLineItem ;
+                                   rdfs:range :ErpInvoiceLineItem ;
+                                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpRecLineItem_ErpJournalEntries
+:ErpRecLineItem_ErpJournalEntries rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :ErpRecLineItem ;
+                                  rdfs:range :ErpJournalEntry ;
+                                  rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpRecLineItem_ErpPayments
+:ErpRecLineItem_ErpPayments rdf:type owl:ObjectProperty ;
+                            rdfs:domain :ErpRecLineItem ;
+                            rdfs:range :ErpPayment ;
+                            rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpRecLineItem_ErpReceivable
+:ErpRecLineItem_ErpReceivable rdf:type owl:ObjectProperty ;
+                              rdfs:domain :ErpRecLineItem ;
+                              rdfs:range :ErpReceivable ;
+                              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpRecLineItem_status
+:ErpRecLineItem_status rdf:type owl:ObjectProperty ;
+                       rdfs:domain :ErpRecLineItem ;
+                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpReceivable_ErpRecLineItems
+:ErpReceivable_ErpRecLineItems rdf:type owl:ObjectProperty ;
+                               owl:inverseOf :ErpRecLineItem_ErpReceivable ;
+                               rdf:type owl:FunctionalProperty ;
+                               rdfs:domain :ErpReceivable ;
+                               rdfs:range :ErpRecLineItem ;
+                               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpReceiveDelivery_ErpRecDelvLineItems
+:ErpReceiveDelivery_ErpRecDelvLineItems rdf:type owl:ObjectProperty ;
+                                        owl:inverseOf :ErpRecDelvLineItem_ErpReceiveDelivery ;
+                                        rdf:type owl:FunctionalProperty ;
+                                        rdfs:domain :ErpReceiveDelivery ;
+                                        rdfs:range :ErpRecDelvLineItem ;
+                                        rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpReqLineItem_ErpPOLineItem
+:ErpReqLineItem_ErpPOLineItem rdf:type owl:ObjectProperty ;
+                              rdfs:domain :ErpReqLineItem ;
+                              rdfs:range :ErpPOLineItem ;
+                              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpReqLineItem_ErpQuoteLineItem
+:ErpReqLineItem_ErpQuoteLineItem rdf:type owl:ObjectProperty ;
+                                 owl:inverseOf :ErpQuoteLineItem_ErpReqLineItem ;
+                                 rdfs:domain :ErpReqLineItem ;
+                                 rdfs:range :ErpQuoteLineItem ;
+                                 rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpReqLineItem_ErpRequisition
+:ErpReqLineItem_ErpRequisition rdf:type owl:ObjectProperty ;
+                               rdfs:domain :ErpReqLineItem ;
+                               rdfs:range :ErpRequisition ;
+                               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpReqLineItem_cost
+:ErpReqLineItem_cost rdf:type owl:ObjectProperty ;
+                     rdfs:domain :ErpReqLineItem ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                     rdfs:comment """Cost of material.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpReqLineItem_status
+:ErpReqLineItem_status rdf:type owl:ObjectProperty ;
+                       rdfs:domain :ErpReqLineItem ;
+                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpRequisition_ErpReqLineItems
+:ErpRequisition_ErpReqLineItems rdf:type owl:ObjectProperty ;
+                                owl:inverseOf :ErpReqLineItem_ErpRequisition ;
+                                rdf:type owl:FunctionalProperty ;
+                                rdfs:domain :ErpRequisition ;
+                                rdfs:range :ErpReqLineItem ;
+                                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpSiteLevelData_status
+:ErpSiteLevelData_status rdf:type owl:ObjectProperty ;
+                         rdfs:domain :ErpSiteLevelData ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpTimeEntry_ErpProjectAccounting
+:ErpTimeEntry_ErpProjectAccounting rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :ErpTimeEntry ;
+                                   rdfs:range :ErpProjectAccounting ;
+                                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpTimeEntry_ErpTimeSheet
+:ErpTimeEntry_ErpTimeSheet rdf:type owl:ObjectProperty ;
+                           owl:inverseOf :ErpTimeSheet_ErpTimeEntries ;
+                           rdfs:domain :ErpTimeEntry ;
+                           rdfs:range :ErpTimeSheet ;
+                           rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpTimeEntry_status
+:ErpTimeEntry_status rdf:type owl:ObjectProperty ;
+                     rdfs:domain :ErpTimeEntry ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpTimeSheet_ErpTimeEntries
+:ErpTimeSheet_ErpTimeEntries rdf:type owl:ObjectProperty ,
+                                      owl:FunctionalProperty ;
+                             rdfs:domain :ErpTimeSheet ;
+                             rdfs:range :ErpTimeEntry ;
+                             rdfs:comment "" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpBankAccount_bankABA
+:ErpBankAccount_bankABA rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :ErpBankAccount ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "Bank ABA." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_glAccount
+:ErpInvoiceLineItem_glAccount rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :ErpInvoiceLineItem ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment "General Ledger account code, must be a valid combination." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_glDateTime
+:ErpInvoiceLineItem_glDateTime rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :ErpInvoiceLineItem ;
+                               rdfs:range xsd:dateTime ;
+                               rdfs:comment """Date and time line item will be posted to the General Ledger. 
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_kind
+:ErpInvoiceLineItem_kind rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :ErpInvoiceLineItem ;
+                         rdfs:range :ErpInvoiceLineItemKind ;
+                         rdfs:comment "Kind of line item." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_lineAmount
+:ErpInvoiceLineItem_lineAmount rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :ErpInvoiceLineItem ;
+                               rdfs:range xsd:float ;
+                               rdfs:comment "Amount due for this line item." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_lineNumber
+:ErpInvoiceLineItem_lineNumber rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :ErpInvoiceLineItem ;
+                               rdfs:range xsd:string ;
+                               rdfs:comment "Line item number on invoice statement." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_lineVersion
+:ErpInvoiceLineItem_lineVersion rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :ErpInvoiceLineItem ;
+                                rdfs:range xsd:string ;
+                                rdfs:comment "Version number of the bill run." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_netAmount
+:ErpInvoiceLineItem_netAmount rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :ErpInvoiceLineItem ;
+                              rdfs:range xsd:float ;
+                              rdfs:comment "Net line item charge amount." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem_previousAmount
+:ErpInvoiceLineItem_previousAmount rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain :ErpInvoiceLineItem ;
+                                   rdfs:range xsd:float ;
+                                   rdfs:comment "Previous line item charge amount. " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice_billMediaKind
+:ErpInvoice_billMediaKind rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :ErpInvoice ;
+                          rdfs:range :BillMediaKind ;
+                          rdfs:comment "Kind of media by which the CustomerBillingInfo was delivered." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice_dueDate
+:ErpInvoice_dueDate rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :ErpInvoice ;
+                    rdfs:range xsd:date ;
+                    rdfs:comment """Calculated date upon which the Invoice amount is due.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice_kind
+:ErpInvoice_kind rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :ErpInvoice ;
+                 rdfs:range :ErpInvoiceKind ;
+                 rdfs:comment "Kind of invoice (default is 'sales')." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice_mailedDate
+:ErpInvoice_mailedDate rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :ErpInvoice ;
+                       rdfs:range xsd:date ;
+                       rdfs:comment """Date on which the customer billing statement/invoice was printed/mailed.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice_proForma
+:ErpInvoice_proForma rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :ErpInvoice ;
+                     rdfs:range xsd:boolean ;
+                     rdfs:comment "True if payment is to be paid by a Customer to accept a particular ErpQuote (with associated Design) and have work initiated, at which time an associated ErpInvoice should automatically be generated. EprPayment.subjectStatus satisfies terms specificed in the ErpQuote." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice_referenceNumber
+:ErpInvoice_referenceNumber rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :ErpInvoice ;
+                            rdfs:range xsd:string ;
+                            rdfs:comment "Number of an invoice to be reference by this invoice." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice_transactionDateTime
+:ErpInvoice_transactionDateTime rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :ErpInvoice ;
+                                rdfs:range xsd:dateTime ;
+                                rdfs:comment """Date and time when the invoice is issued.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice_transferType
+:ErpInvoice_transferType rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :ErpInvoice ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment "Type of invoice transfer." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpJournalEntry_accountID
+:ErpJournalEntry_accountID rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :ErpJournalEntry ;
+                           rdfs:range xsd:string ;
+                           rdfs:comment "Account identifier for this entry." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpJournalEntry_postingDateTime
+:ErpJournalEntry_postingDateTime rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :ErpJournalEntry ;
+                                 rdfs:range xsd:dateTime ;
+                                 rdfs:comment """Date and time this entry is to be posted to the ledger.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpJournalEntry_sourceID
+:ErpJournalEntry_sourceID rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :ErpJournalEntry ;
+                          rdfs:range xsd:string ;
+                          rdfs:comment "The identifer of the source for this entry." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpJournalEntry_transactionDateTime
+:ErpJournalEntry_transactionDateTime rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :ErpJournalEntry ;
+                                     rdfs:range xsd:dateTime ;
+                                     rdfs:comment """Date and time journal entry was recorded.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry_accountID
+:ErpLedgerEntry_accountID rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :ErpLedgerEntry ;
+                          rdfs:range xsd:string ;
+                          rdfs:comment "Account identifier for this entry." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry_accountKind
+:ErpLedgerEntry_accountKind rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :ErpLedgerEntry ;
+                            rdfs:range :ErpAccountKind ;
+                            rdfs:comment "Kind of account for this entry." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry_postedDateTime
+:ErpLedgerEntry_postedDateTime rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :ErpLedgerEntry ;
+                               rdfs:range xsd:dateTime ;
+                               rdfs:comment """Date and time this entry was posted to the ledger.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry_transactionDateTime
+:ErpLedgerEntry_transactionDateTime rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :ErpLedgerEntry ;
+                                    rdfs:range xsd:dateTime ;
+                                    rdfs:comment """Date and time journal entry was recorded.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPayment_termsPayment
+:ErpPayment_termsPayment rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :ErpPayment ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment "Payment terms (e.g., net 30)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpReqLineItem_code
+:ErpReqLineItem_code rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :ErpReqLineItem ;
+                     rdfs:range xsd:string .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpReqLineItem_deliveryDate
+:ErpReqLineItem_deliveryDate rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :ErpReqLineItem ;
+                             rdfs:range xsd:date .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpReqLineItem_quantity
+:ErpReqLineItem_quantity rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :ErpReqLineItem ;
+                         rdfs:range xsd:nonNegativeInteger ;
+                         rdfs:comment " Quantity of item requisitioned." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BankAccount
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BankAccount> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpBOM
+:ErpBOM rdf:type owl:Class ;
+        rdfs:subClassOf :ErpDocument ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :ErpBOM_ErpBomItemDatas ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :ErpBOM
+                        ] ;
+        rdfs:comment """Information that generally describes the Bill of Material Structure and its contents for a utility.
+
+This is used by ERP systems to transfer Bill of Material information between two business applications.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpBankAccount
+:ErpBankAccount rdf:type owl:Class ;
+                rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BankAccount> ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpBankAccount_bankABA ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:string
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpBankAccount_bankABA ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:string
+                                ] ;
+                rdfs:comment """Relationship under a particular name, usually evidenced by a deposit against which withdrawals can be made. Types of bank accounts include: demand, time, custodial, joint, trustee, corporate, special, and regular accounts.
+A statement of transactions during a fiscal period and the resulting balance is maintained on each account.
+For Payment metering, the account is associated with Bank and Supplier, reflecting details of the bank account used for depositing revenue collected by TokenVendor. The name of the account holder should be specified in 'name' attribute.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpBomItemData
+:ErpBomItemData rdf:type owl:Class ;
+                rdfs:subClassOf :ErpIdentifiedObject ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpBomItemData_ErpBOM ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ErpBomItemData
+                                ] ;
+                rdfs:comment "An individual item on a bill of materials." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpChartOfAccounts
+:ErpChartOfAccounts rdf:type owl:Class ;
+                    rdfs:subClassOf :ErpDocument ;
+                    rdfs:comment "Accounting structure of a business. Each account represents a financial aspect of a business, such as its Accounts Payable, or the value of its inventory, or its office supply expenses." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpCompetency
+:ErpCompetency rdf:type owl:Class ;
+               rdfs:subClassOf :ErpIdentifiedObject ;
+               rdfs:comment "Information that describes aptitudes of a utility employee. Unlike Skills that an ErpPerson must be certified to perform before undertaking certain type of assignments (to be able to perfrom a Craft), ErpCompetency has more to do with typical Human Resource (HR) matters such as schooling, training, etc." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpDocument
+:ErpDocument rdf:type owl:Class ;
+             rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ;
+             rdfs:comment "Shadow class for Document, to isolate subclassing from this package. If any subclass gets normative and needs inheritance, it will inherit directly from Document." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpEngChangeOrder
+:ErpEngChangeOrder rdf:type owl:Class ;
+                   rdfs:subClassOf :ErpDocument ;
+                   rdfs:comment "General Utility Engineering Change Order information." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpIdentifiedObject
+:ErpIdentifiedObject rdf:type owl:Class ;
+                     rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ;
+                     rdfs:comment "Shadow class for IdentifiedObject, to isolate subclassing from this package. If any subclass gets normative and needs inheritance, it will inherit directly from IdentifiedObject." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInventory
+:ErpInventory rdf:type owl:Class ;
+              rdfs:subClassOf :ErpIdentifiedObject ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :ErpInventory_status ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :ErpInventory_status ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                              ] ;
+              rdfs:comment "Utility inventory-related information about an item or part (and not for description of the item and its attributes). It is used by ERP applications to enable the synchronization of Inventory data that exists on separate Item Master databases. This data is not the master data that describes the attributes of the item such as dimensions, weight, or unit of measure - it describes the item as it exists at a specific location." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInventoryCount
+:ErpInventoryCount rdf:type owl:Class ;
+                   rdfs:subClassOf :ErpIdentifiedObject ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ErpInventoryCount_status ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ErpInventoryCount_status ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                   ] ;
+                   rdfs:comment """This is related to Inventory physical counts organized by AssetModel. Note that a count of a type of asset can be accomplished by the association inherited by AssetModel (from Document) to Asset.
+It enables ERP applications to transfer an inventory count between ERP and the actual physical inventory location. This count may be a cycle count or a physical count.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice
+:ErpInvoice rdf:type owl:Class ;
+            rdfs:subClassOf :ErpDocument ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_amount ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_ErpInvoiceLineItems ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :ErpInvoice
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_amount ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_billMediaKind ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange :BillMediaKind
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_dueDate ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:date
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_kind ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange :ErpInvoiceKind
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_mailedDate ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:date
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_proForma ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:boolean
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_referenceNumber ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_transactionDateTime ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_transferType ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_billMediaKind ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange :BillMediaKind
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_dueDate ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:date
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_kind ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange :ErpInvoiceKind
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_mailedDate ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:date
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_proForma ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:boolean
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_referenceNumber ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_transactionDateTime ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:dateTime
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpInvoice_transferType ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ;
+            rdfs:comment """A roll up of invoice line items. The whole invoice has a due date and amount to be paid, with information such as customer, banks etc. being obtained through associations. The invoice roll up is based on individual line items that each contain amounts and descriptions for specific services or products.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem
+:ErpInvoiceLineItem rdf:type owl:Class ;
+                    rdfs:subClassOf :ErpDocument ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_ComponentErpInvoiceLineItems ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpInvoiceLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_ContainerErpInvoiceLineItem ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpInvoiceLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_ErpInvoice ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpInvoiceLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_ErpJournalEntries ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpInvoiceLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_ErpPayableLineItem ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpInvoiceLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_ErpPayments ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpInvoiceLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_ErpQuoteLineItem ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpInvoiceLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_ErpRecDelvLineItem ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpInvoiceLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_ErpRecLineItem ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpInvoiceLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_billPeriod ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_ComponentErpInvoiceLineItems ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpInvoiceLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_ErpJournalEntries ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpInvoiceLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_ErpPayableLineItem ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpInvoiceLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_ErpQuoteLineItem ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpInvoiceLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_ErpRecDelvLineItem ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpInvoiceLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_ErpRecLineItem ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpInvoiceLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_billPeriod ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_glAccount ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_glDateTime ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:dateTime
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_kind ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange :ErpInvoiceLineItemKind
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_lineAmount ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:float
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_lineNumber ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_lineVersion ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_netAmount ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:float
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_previousAmount ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:float
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_glAccount ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_glDateTime ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:dateTime
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_kind ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange :ErpInvoiceLineItemKind
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_lineAmount ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:float
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_lineNumber ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_lineVersion ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_netAmount ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:float
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpInvoiceLineItem_previousAmount ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:float
+                                    ] ;
+                    rdfs:comment "An individual line item on an invoice." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpIssueInventory
+:ErpIssueInventory rdf:type owl:Class ;
+                   rdfs:subClassOf :ErpIdentifiedObject ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ErpIssueInventory_status ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ErpIssueInventory_status ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                   ] ;
+                   rdfs:comment "Can be used to request an application to process an issue or request information about an issue." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpItemMaster
+:ErpItemMaster rdf:type owl:Class ;
+               rdfs:subClassOf :ErpIdentifiedObject ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ErpItemMaster_status ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ErpItemMaster_status ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                               ] ;
+               rdfs:comment """Any unique purchased part for manufactured product tracked by ERP systems for a utility.
+Item, as used by the OAG, refers to the basic information about an item, including its attributes, cost, and locations. It does not include item quantities. Compare to the Inventory, which includes all quantities and other location-specific information.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpJournal
+:ErpJournal rdf:type owl:Class ;
+            rdfs:subClassOf :ErpDocument ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpJournal_ErpJournalEntries ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :ErpJournal
+                            ] ;
+            rdfs:comment """Book for recording accounting transactions as they occur. Transactions and adjustments are first recorded in a journal, which is like a diary of instructions, advising which account to be charged and by how much.
+A journal represents a change in the balances of a business's financial accounts. Many tasks or transactions throughout an enterprise will result in the creation of a journal. Some examples are creating a customer invoice, paying a vendor, transferring inventory, or paying employees.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpJournalEntry
+:ErpJournalEntry rdf:type owl:Class ;
+                 rdfs:subClassOf :ErpIdentifiedObject ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_ErpInvoiceLineItem ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :ErpJournalEntry
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_ErpJournal ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :ErpJournalEntry
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_ErpLedgerEntry ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :ErpJournalEntry
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_ErpPayableLineItems ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :ErpJournalEntry
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_ErpRecLineItems ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :ErpJournalEntry
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_amount ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_status ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_ErpLedgerEntry ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :ErpJournalEntry
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_amount ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_status ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_accountID ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:string
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_postingDateTime ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_sourceID ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:string
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_transactionDateTime ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_accountID ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:string
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_postingDateTime ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_sourceID ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:string
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpJournalEntry_transactionDateTime ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange xsd:dateTime
+                                 ] ;
+                 rdfs:comment """Details of an individual entry in a journal, which is to be posted to a ledger on the posting date.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedBudLineItem
+:ErpLedBudLineItem rdf:type owl:Class ;
+                   rdfs:subClassOf :ErpIdentifiedObject ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ErpLedBudLineItem_ErpLedBudLineItem ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :ErpLedBudLineItem
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ErpLedBudLineItem_ErpLedgerBudget ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :ErpLedBudLineItem
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ErpLedBudLineItem_status ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ErpLedBudLineItem_ErpLedBudLineItem ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :ErpLedBudLineItem
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ErpLedBudLineItem_status ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                   ] ;
+                   rdfs:comment "Individual entry of a given Ledger Budget, typically containing information such as amount, accounting date, accounting period, and is associated with the applicable general ledger account." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedger
+:ErpLedger rdf:type owl:Class ;
+           rdfs:subClassOf :ErpDocument ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :ErpLedger_ErpLedgerEntries ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :ErpLedger
+                           ] ;
+           rdfs:comment "In accounting transactions, a ledger is a book containing accounts to which debits and credits are posted from journals, where transactions are initially recorded. Journal entries are periodically posted to the ledger. Ledger Actual represents actual amounts by account within ledger within company or business area. Actual amounts may be generated in a source application and then loaded to a specific ledger within the enterprise general ledger or budget application." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerBudget
+:ErpLedgerBudget rdf:type owl:Class ;
+                 rdfs:subClassOf :ErpDocument ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ErpLedgerBudget_ErpLedBudLineItems ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :ErpLedgerBudget
+                                 ] ;
+                 rdfs:comment "Information for utility Ledger Budgets. They support the transfer budget amounts between all possible source applications throughout an enterprise and a general ledger or budget application." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry
+:ErpLedgerEntry rdf:type owl:Class ;
+                rdfs:subClassOf :ErpIdentifiedObject ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpLedgerEntry_ErpJounalEntry ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ErpLedgerEntry
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpLedgerEntry_ErpLedger ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ErpLedgerEntry
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpLedgerEntry_ErpLedgerEntry ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ErpLedgerEntry
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpLedgerEntry_amount ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpLedgerEntry_status ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpLedgerEntry_ErpJounalEntry ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ErpLedgerEntry
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpLedgerEntry_ErpLedgerEntry ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ErpLedgerEntry
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpLedgerEntry_amount ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpLedgerEntry_status ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpLedgerEntry_accountID ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:string
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpLedgerEntry_accountKind ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange :ErpAccountKind
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpLedgerEntry_postedDateTime ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:dateTime
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpLedgerEntry_transactionDateTime ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:dateTime
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpLedgerEntry_accountID ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:string
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpLedgerEntry_accountKind ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange :ErpAccountKind
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpLedgerEntry_postedDateTime ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:dateTime
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpLedgerEntry_transactionDateTime ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:dateTime
+                                ] ;
+                rdfs:comment "Details of an individual entry in a ledger, which was posted from a journal on the posted date." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPOLineItem
+:ErpPOLineItem rdf:type owl:Class ;
+               rdfs:subClassOf :ErpDocument ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ErpPOLineItem_ErpPurchaseOrder ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ErpPOLineItem
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ErpPOLineItem_ErpRecDelLineItem ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ErpPOLineItem
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ErpPOLineItem_ErpReqLineItem ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ErpPOLineItem
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ErpPOLineItem_ErpRecDelLineItem ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ErpPOLineItem
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ErpPOLineItem_ErpReqLineItem ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ErpPOLineItem
+                               ] ;
+               rdfs:comment "Of an ErpPurchaseOrder, this is an individually ordered item or product along with the quantity, price and other descriptive information." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPayable
+:ErpPayable rdf:type owl:Class ;
+            rdfs:subClassOf :ErpDocument ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpPayable_ErpPayableLineItems ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :ErpPayable
+                            ] ;
+            rdfs:comment "A transaction that represents an invoice from a supplier. A payable (or voucher) is an open item, approved and ready for payment, in the Accounts Payable ledger." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPayableLineItem
+:ErpPayableLineItem rdf:type owl:Class ;
+                    rdfs:subClassOf :ErpIdentifiedObject ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpPayableLineItem_ErpInvoiceLineItem ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpPayableLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpPayableLineItem_ErpJournalEntries ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpPayableLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpPayableLineItem_ErpPayable ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpPayableLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpPayableLineItem_ErpPayments ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpPayableLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpPayableLineItem_status ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpPayableLineItem_ErpInvoiceLineItem ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpPayableLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpPayableLineItem_status ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                    ] ;
+                    rdfs:comment "Of an ErpPayable, a line item references an ErpInvoiceLineitem or other source such as credit memos." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPayment
+:ErpPayment rdf:type owl:Class ;
+            rdfs:subClassOf :ErpDocument ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpPayment_ErpInvoiceLineItems ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :ErpPayment
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpPayment_ErpPayableLineItems ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :ErpPayment
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpPayment_ErpRecLineItems ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :ErpPayment
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpPayment_termsPayment ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :ErpPayment_termsPayment ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ;
+            rdfs:comment "Payment infromation and status for any individual line item of an ErpInvoice (e.g., when payment is from a customer). ErpPayable is also updated when payment is to a supplier and ErpReceivable is updated when payment is from a customer. Multiple payments can be made against a single line item and an individual payment can apply to more that one line item." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPersonnel
+:ErpPersonnel rdf:type owl:Class ;
+              rdfs:subClassOf :ErpIdentifiedObject ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :ErpPersonnel_status ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :ErpPersonnel_status ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                              ] ;
+              rdfs:comment "Information that applies to the basic data about a utility person, used by ERP applications to transfer Personnel data for a worker." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting
+:ErpProjectAccounting rdf:type owl:Class ;
+                      rdfs:subClassOf :ErpDocument ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :ErpProjectAccounting_ErpTimeEntries ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :ErpProjectAccounting
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :ErpProjectAccounting_ErpTimeEntries ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :ErpProjectAccounting
+                                      ] ;
+                      rdfs:comment "Utility Project Accounting information, used by ERP applications to enable all relevant sub-systems that submit single sided transactions to transfer information with a Project Accounting Application. This would include, but not necessarily be limited to: Accounts Payable, Accounts Receivable, Budget, Order Management, Purchasing, Time and Labor, Travel and Expense." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPurchaseOrder
+:ErpPurchaseOrder rdf:type owl:Class ;
+                  rdfs:subClassOf :ErpDocument ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ErpPurchaseOrder_ErpPOLineItems ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :ErpPurchaseOrder
+                                  ] ;
+                  rdfs:comment "A document that communicates an order to purchase goods from a buyer to a supplier. The PurchaseOrder carries information to and from the buyer and supplier. It is a legally binding document once both Parties agree to the contents and the specified terms and conditions of the order." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpQuote
+:ErpQuote rdf:type owl:Class ;
+          rdfs:subClassOf :ErpDocument ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :ErpQuote_ErpQuoteLineItems ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :ErpQuote
+                          ] ;
+          rdfs:comment "Document describing the prices of goods or services provided by a supplier. It includes the terms of the purchase, delivery proposals, identification of goods or services ordered, as well as their quantities." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpQuoteLineItem
+:ErpQuoteLineItem rdf:type owl:Class ;
+                  rdfs:subClassOf :ErpIdentifiedObject ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ErpQuoteLineItem_ErpInvoiceLineItem ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :ErpQuoteLineItem
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ErpQuoteLineItem_ErpQuote ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :ErpQuoteLineItem
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ErpQuoteLineItem_ErpReqLineItem ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :ErpQuoteLineItem
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ErpQuoteLineItem_status ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ErpQuoteLineItem_ErpInvoiceLineItem ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :ErpQuoteLineItem
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ErpQuoteLineItem_ErpReqLineItem ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :ErpQuoteLineItem
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ErpQuoteLineItem_status ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                  ] ;
+                  rdfs:comment "Of an ErpQuote, the item or product quoted along with quantity, price and other descriptive information." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpRecDelvLineItem
+:ErpRecDelvLineItem rdf:type owl:Class ;
+                    rdfs:subClassOf :ErpIdentifiedObject ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpRecDelvLineItem_ErpInvoiceLineItem ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpRecDelvLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpRecDelvLineItem_ErpPOLineItem ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpRecDelvLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpRecDelvLineItem_ErpReceiveDelivery ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpRecDelvLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpRecDelvLineItem_status ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpRecDelvLineItem_ErpInvoiceLineItem ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpRecDelvLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpRecDelvLineItem_ErpPOLineItem ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpRecDelvLineItem
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpRecDelvLineItem_status ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                    ] ;
+                    rdfs:comment "Of an ErpReceiveDelivery, this is an individually received good or service by the Organisation receiving goods or services. It may be used to indicate receipt of goods in conjunction with a purchase order line item." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpRecLineItem
+:ErpRecLineItem rdf:type owl:Class ;
+                rdfs:subClassOf :ErpIdentifiedObject ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpRecLineItem_ErpInvoiceLineItem ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ErpRecLineItem
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpRecLineItem_ErpJournalEntries ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ErpRecLineItem
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpRecLineItem_ErpPayments ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ErpRecLineItem
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpRecLineItem_ErpReceivable ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ErpRecLineItem
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpRecLineItem_status ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpRecLineItem_ErpInvoiceLineItem ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ErpRecLineItem
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpRecLineItem_status ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                ] ;
+                rdfs:comment "Individual entry of an ErpReceivable, it is a particular transaction representing an invoice, credit memo or debit memo to a customer." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpReceivable
+:ErpReceivable rdf:type owl:Class ;
+               rdfs:subClassOf :ErpDocument ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ErpReceivable_ErpRecLineItems ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ErpReceivable
+                               ] ;
+               rdfs:comment "Transaction representing an invoice, credit memo or debit memo to a customer. It is an open (unpaid) item in the Accounts Receivable ledger." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpReceiveDelivery
+:ErpReceiveDelivery rdf:type owl:Class ;
+                    rdfs:subClassOf :ErpDocument ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ErpReceiveDelivery_ErpRecDelvLineItems ;
+                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ErpReceiveDelivery
+                                    ] ;
+                    rdfs:comment "Transaction for an Organisation receiving goods or services that may be used to indicate receipt of goods in conjunction with a purchase order. A receivable is an open (unpaid) item in the Accounts Receivable ledger." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpReqLineItem
+:ErpReqLineItem rdf:type owl:Class ;
+                rdfs:subClassOf :ErpIdentifiedObject ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpReqLineItem_ErpPOLineItem ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ErpReqLineItem
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpReqLineItem_ErpQuoteLineItem ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ErpReqLineItem
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpReqLineItem_ErpRequisition ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ErpReqLineItem
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpReqLineItem_cost ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpReqLineItem_status ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpReqLineItem_ErpPOLineItem ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ErpReqLineItem
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpReqLineItem_ErpQuoteLineItem ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ErpReqLineItem
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpReqLineItem_cost ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpReqLineItem_status ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpReqLineItem_code ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:string
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpReqLineItem_deliveryDate ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:date
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpReqLineItem_quantity ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:nonNegativeInteger
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpReqLineItem_code ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:string
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpReqLineItem_deliveryDate ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:date
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpReqLineItem_quantity ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:nonNegativeInteger
+                                ] ;
+                rdfs:comment """Information that describes a requested item and its attributes.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpRequisition
+:ErpRequisition rdf:type owl:Class ;
+                rdfs:subClassOf :ErpDocument ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :ErpRequisition_ErpReqLineItems ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :ErpRequisition
+                                ] ;
+                rdfs:comment "General information that applies to a utility requisition that is a request for the purchase of goods or services. Typically, a requisition leads to the creation of a purchase order to a specific supplier." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpSalesOrder
+:ErpSalesOrder rdf:type owl:Class ;
+               rdfs:subClassOf :ErpDocument ;
+               rdfs:comment """General purpose Sales Order is used for utility service orders, etc.
+As used by the OAG, the SalesOrder is a step beyond a PurchaseOrder in that the receiving entity of the order also communicates SalesInformoration about the Order along with the Order itself.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpSiteLevelData
+:ErpSiteLevelData rdf:type owl:Class ;
+                  rdfs:subClassOf :ErpIdentifiedObject ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ErpSiteLevelData_status ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ErpSiteLevelData_status ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                  ] ;
+                  rdfs:comment "For a utility, general information that describes physical locations of organizations or the location codes and their meanings. This enables ERP applications to ensure that the physical location identifiers are synchronized between the business applications." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpTimeEntry
+:ErpTimeEntry rdf:type owl:Class ;
+              rdfs:subClassOf :ErpIdentifiedObject ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :ErpTimeEntry_ErpProjectAccounting ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :ErpTimeEntry
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :ErpTimeEntry_ErpTimeSheet ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :ErpTimeEntry
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :ErpTimeEntry_status ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :ErpTimeEntry_status ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                              ] ;
+              rdfs:comment "An individual entry on an ErpTimeSheet." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpTimeSheet
+:ErpTimeSheet rdf:type owl:Class ;
+              rdfs:subClassOf :ErpDocument ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :ErpTimeSheet_ErpTimeEntries ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :ErpTimeSheet
+                              ] ;
+              rdfs:comment "Time sheet for employees and contractors. Note that ErpTimeSheet inherits the relationship to ErpPerson from Document." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

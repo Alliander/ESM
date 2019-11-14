@@ -1,0 +1,589 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#OperationalLimitDirectionKind
+:OperationalLimitDirectionKind rdf:type rdfs:Datatype ;
+                               owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                                     owl:oneOf [ rdf:type rdf:List ;
+                                                                 rdf:first "absoluteValue" ;
+                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                            rdf:first "high" ;
+                                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                                       rdf:first "low" ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                   ] .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#ActivePowerLimit_value
+:ActivePowerLimit_value rdf:type owl:ObjectProperty ;
+                        rdfs:domain :ActivePowerLimit ;
+                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
+                        rdfs:comment "Value of active power limit." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#ApparentPowerLimit_value
+:ApparentPowerLimit_value rdf:type owl:ObjectProperty ;
+                          rdfs:domain :ApparentPowerLimit ;
+                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower> ;
+                          rdfs:comment "The apparent power limit." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#BranchGroupTerminal_BranchGroup
+:BranchGroupTerminal_BranchGroup rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :BranchGroupTerminal ;
+                                 rdfs:range :BranchGroup ;
+                                 rdfs:comment "The directed branch group terminals to be summed.The branch group to which the directed branch group terminals belong." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#BranchGroup_BranchGroupTerminal
+:BranchGroup_BranchGroupTerminal rdf:type owl:ObjectProperty ;
+                                 owl:inverseOf :BranchGroupTerminal_BranchGroup ;
+                                 rdf:type owl:FunctionalProperty ;
+                                 rdfs:domain :BranchGroup ;
+                                 rdfs:range :BranchGroupTerminal ;
+                                 rdfs:comment "The directed branch group terminals to be summed.The branch group to which the directed branch group terminals belong." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#BranchGroup_PinBranchGroup
+:BranchGroup_PinBranchGroup rdf:type owl:ObjectProperty ;
+                            owl:inverseOf :PinBranchGroup_BranchGroup ;
+                            rdf:type owl:FunctionalProperty ;
+                            rdfs:domain :BranchGroup ;
+                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#PinBranchGroup> ;
+                            rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#BranchGroup_maximumActivePower
+:BranchGroup_maximumActivePower rdf:type owl:ObjectProperty ;
+                                rdfs:domain :BranchGroup ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
+                                rdfs:comment "The maximum active power flow." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#BranchGroup_maximumReactivePower
+:BranchGroup_maximumReactivePower rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :BranchGroup ;
+                                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> ;
+                                  rdfs:comment "The maximum reactive power flow." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#BranchGroup_minimumActivePower
+:BranchGroup_minimumActivePower rdf:type owl:ObjectProperty ;
+                                rdfs:domain :BranchGroup ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
+                                rdfs:comment "The minimum active power flow." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#BranchGroup_minimumReactivePower
+:BranchGroup_minimumReactivePower rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :BranchGroup ;
+                                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> ;
+                                  rdfs:comment "The minimum reactive power flow." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#CurrentLimit_value
+:CurrentLimit_value rdf:type owl:ObjectProperty ;
+                    rdfs:domain :CurrentLimit ;
+                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                    rdfs:comment "Limit on current flow." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#LimitDependency_OperationalLimit
+:LimitDependency_OperationalLimit rdf:type owl:ObjectProperty ;
+                                  owl:inverseOf :OperationalLimit_LimitDependencyModel ;
+                                  rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#LimitDependency> ;
+                                  rdfs:range :OperationalLimit ;
+                                  rdfs:comment "The operational limits to which this limit dependency model applies.The limit dependency models which are used to calculate this limit.   If no limit dependencies are specified then the native limit value is used." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#LimitScalingLimit_SourceOperationalLimit
+:LimitScalingLimit_SourceOperationalLimit rdf:type owl:ObjectProperty ;
+                                          rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#LimitScalingLimit> ;
+                                          rdfs:range :OperationalLimit ;
+                                          rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#OperationalLimitSet_OperationalLimitValue
+:OperationalLimitSet_OperationalLimitValue rdf:type owl:ObjectProperty ;
+                                           owl:inverseOf :OperationalLimit_OperationalLimitSet ;
+                                           rdf:type owl:FunctionalProperty ;
+                                           rdfs:domain :OperationalLimitSet ;
+                                           rdfs:range :OperationalLimit ;
+                                           rdfs:comment "Values of equipment limits.The limit set to which the limit values belong." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#OperationalLimitType_OperationalLimit
+:OperationalLimitType_OperationalLimit rdf:type owl:ObjectProperty ;
+                                       owl:inverseOf :OperationalLimit_OperationalLimitType ;
+                                       rdfs:domain :OperationalLimitType ;
+                                       rdfs:range :OperationalLimit ;
+                                       rdfs:comment "The operational limits associated with this type of limit.The limit type associated with this limit." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#OperationalLimitType_SourceOperationalLimitTypeScaling
+:OperationalLimitType_SourceOperationalLimitTypeScaling rdf:type owl:ObjectProperty ;
+                                                        owl:inverseOf :OperatonalLimitTypeScaling_SourceOperationalLimitType ;
+                                                        rdfs:domain :OperationalLimitType ;
+                                                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#OperatonalLimitTypeScaling> ;
+                                                        rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#OperationalLimitType_TargetOperationalLimitmTypeScaling
+:OperationalLimitType_TargetOperationalLimitmTypeScaling rdf:type owl:ObjectProperty ;
+                                                         owl:inverseOf :OperatonalLimitTypeScaling_TargetOperationalLimit ;
+                                                         rdf:type owl:FunctionalProperty ;
+                                                         rdfs:domain :OperationalLimitType ;
+                                                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#OperatonalLimitTypeScaling> ;
+                                                         rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#OperationalLimitType_acceptableDuration
+:OperationalLimitType_acceptableDuration rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :OperationalLimitType ;
+                                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                                         rdfs:comment "The nominal acceptable duration of the limit.  Limits are commonly expressed in terms of the a time limit for which the limit is normally acceptable.   The actual acceptable duration of a specific limit may depend on other local factors such as temperature or wind speed." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#OperationalLimit_LimitDependencyModel
+:OperationalLimit_LimitDependencyModel rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :OperationalLimit ;
+                                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#LimitDependency> ;
+                                       rdfs:comment "The operational limits to which this limit dependency model applies.The limit dependency models which are used to calculate this limit.   If no limit dependencies are specified then the native limit value is used." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#OperationalLimit_LimitScalingLimit
+:OperationalLimit_LimitScalingLimit rdf:type owl:ObjectProperty ;
+                                    owl:inverseOf :LimitScalingLimit_SourceOperationalLimit ;
+                                    rdf:type owl:FunctionalProperty ;
+                                    rdfs:domain :OperationalLimit ;
+                                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#LimitScalingLimit> ;
+                                    rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#OperationalLimit_OperationalLimitSet
+:OperationalLimit_OperationalLimitSet rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :OperationalLimit ;
+                                      rdfs:range :OperationalLimitSet ;
+                                      rdfs:comment "Values of equipment limits.The limit set to which the limit values belong." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#OperationalLimit_OperationalLimitType
+:OperationalLimit_OperationalLimitType rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :OperationalLimit ;
+                                       rdfs:range :OperationalLimitType ;
+                                       rdfs:comment "The operational limits associated with this type of limit.The limit type associated with this limit." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#OperatonalLimitTypeScaling_SourceOperationalLimitType
+:OperatonalLimitTypeScaling_SourceOperationalLimitType rdf:type owl:ObjectProperty ;
+                                                       rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#OperatonalLimitTypeScaling> ;
+                                                       rdfs:range :OperationalLimitType ;
+                                                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#OperatonalLimitTypeScaling_TargetOperationalLimit
+:OperatonalLimitTypeScaling_TargetOperationalLimit rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#OperatonalLimitTypeScaling> ;
+                                                   rdfs:range :OperationalLimitType ;
+                                                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#PinBranchGroup_BranchGroup
+:PinBranchGroup_BranchGroup rdf:type owl:ObjectProperty ;
+                            rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#PinBranchGroup> ;
+                            rdfs:range :BranchGroup ;
+                            rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#VoltageLimit_value
+:VoltageLimit_value rdf:type owl:ObjectProperty ;
+                    rdfs:domain :VoltageLimit ;
+                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                    rdfs:comment "Limit on voltage. High or low limit nature of the limit depends upon the properties of the operational limit type." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#BranchGroupTerminal_positiveFlowIn
+:BranchGroupTerminal_positiveFlowIn rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :BranchGroupTerminal ;
+                                    rdfs:range xsd:boolean ;
+                                    rdfs:comment "The flow into the terminal is summed if set true.   The flow out of the terminanl is summed if set false." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#BranchGroup_monitorActivePower
+:BranchGroup_monitorActivePower rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :BranchGroup ;
+                                rdfs:range xsd:boolean ;
+                                rdfs:comment "Monitor the active power flow." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#BranchGroup_monitorReactivePower
+:BranchGroup_monitorReactivePower rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :BranchGroup ;
+                                  rdfs:range xsd:boolean ;
+                                  rdfs:comment "Monitor the reactive power flow." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#OperationalLimitType_direction
+:OperationalLimitType_direction rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :OperationalLimitType ;
+                                rdfs:range :OperationalLimitDirectionKind ;
+                                rdfs:comment "The direction of the limit." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#ActivePowerLimit
+:ActivePowerLimit rdf:type owl:Class ;
+                  rdfs:subClassOf :OperationalLimit ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ActivePowerLimit_value ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ActivePowerLimit_value ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                                  ] ;
+                  rdfs:comment "Limit on active power flow." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#ApparentPowerLimit
+:ApparentPowerLimit rdf:type owl:Class ;
+                    rdfs:subClassOf :OperationalLimit ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ApparentPowerLimit_value ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ApparentPowerLimit_value ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower>
+                                    ] ;
+                    rdfs:comment "Apparent power limit." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#BranchGroup
+:BranchGroup rdf:type owl:Class ;
+             rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :BranchGroup_maximumActivePower ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :BranchGroup_maximumReactivePower ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :BranchGroup_minimumActivePower ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :BranchGroup_minimumReactivePower ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :BranchGroup_BranchGroupTerminal ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :BranchGroup
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :BranchGroup_PinBranchGroup ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :BranchGroup
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :BranchGroup_maximumActivePower ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :BranchGroup_maximumReactivePower ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :BranchGroup_minimumActivePower ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :BranchGroup_minimumReactivePower ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :BranchGroup_monitorActivePower ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:boolean
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :BranchGroup_monitorReactivePower ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:boolean
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :BranchGroup_monitorActivePower ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:boolean
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :BranchGroup_monitorReactivePower ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:boolean
+                             ] ;
+             rdfs:comment """A group of branch terminals whose directed flow summation is to be monitored. A branch group need not form a cutset of the network.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#BranchGroupTerminal
+:BranchGroupTerminal rdf:type owl:Class ;
+                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                       owl:onProperty :BranchGroupTerminal_BranchGroup ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onClass :BranchGroupTerminal
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :BranchGroupTerminal_positiveFlowIn ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:boolean
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :BranchGroupTerminal_positiveFlowIn ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:boolean
+                                     ] ;
+                     rdfs:comment "A specific directed terminal flow for a branch group." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#CurrentLimit
+:CurrentLimit rdf:type owl:Class ;
+              rdfs:subClassOf :OperationalLimit ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :CurrentLimit_value ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :CurrentLimit_value ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                              ] ;
+              rdfs:comment "Operational limit on current. " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#OperationalLimit
+:OperationalLimit rdf:type owl:Class ;
+                  rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :OperationalLimit_LimitDependencyModel ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :OperationalLimit
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :OperationalLimit_OperationalLimitSet ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :OperationalLimit
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :OperationalLimit_OperationalLimitType ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :OperationalLimit
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :OperationalLimit_LimitScalingLimit ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :OperationalLimit
+                                  ] ;
+                  rdfs:comment """A value associated with a specific kind of limit. 
+The sub class value attribute shall be positive. 
+The sub class value attribute is inversely proportional to OperationalLimitType.acceptableDuration (acceptableDuration for short). A pair of value_x and acceptableDuration_x are related to each other as follows:
+if value_1 &gt; value_2 &gt; value_3 &gt;... then
+acceptableDuration_1 &lt; acceptableDuration_2 &lt; acceptableDuration_3 &lt; ...
+A value_x with direction=\"high\" shall be greater than a value_y with direction=\"low\".""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#OperationalLimitSet
+:OperationalLimitSet rdf:type owl:Class ;
+                     rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :OperationalLimitSet_OperationalLimitValue ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass :OperationalLimitSet
+                                     ] ;
+                     rdfs:comment """A set of limits associated with equipment.  Sets of limits might apply to a specific temperature, or season for example. A set of limits may contain different severities of limit levels that would apply to the same equipment. The set may contain limits of different types such as apparent power and current limits or high and low voltage limits  that are logically applied together as a set.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#OperationalLimitType
+:OperationalLimitType rdf:type owl:Class ;
+                      rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :OperationalLimitType_OperationalLimit ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :OperationalLimitType
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :OperationalLimitType_SourceOperationalLimitTypeScaling ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :OperationalLimitType
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :OperationalLimitType_acceptableDuration ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :OperationalLimitType_TargetOperationalLimitmTypeScaling ;
+                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :OperationalLimitType
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :OperationalLimitType_OperationalLimit ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :OperationalLimitType
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :OperationalLimitType_SourceOperationalLimitTypeScaling ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :OperationalLimitType
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :OperationalLimitType_acceptableDuration ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :OperationalLimitType_direction ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange :OperationalLimitDirectionKind
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :OperationalLimitType_direction ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange :OperationalLimitDirectionKind
+                                      ] ;
+                      rdfs:comment """The operational meaning of a category of limits.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/OperationalLimits#VoltageLimit
+:VoltageLimit rdf:type owl:Class ;
+              rdfs:subClassOf :OperationalLimit ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :VoltageLimit_value ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :VoltageLimit_value ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                              ] ;
+              rdfs:comment "Operational limit applied to voltage." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#LimitDependency
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#LimitDependency> rdf:type owl:Class ;
+                                                                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                              owl:onProperty :LimitDependency_OperationalLimit ;
+                                                                                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#LimitDependency>
+                                                                                                            ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#LimitScalingLimit
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#LimitScalingLimit> rdf:type owl:Class ;
+                                                                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                owl:onProperty :LimitScalingLimit_SourceOperationalLimit ;
+                                                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#LimitScalingLimit>
+                                                                                                              ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#OperatonalLimitTypeScaling
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#OperatonalLimitTypeScaling> rdf:type owl:Class ;
+                                                                                                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                         owl:onProperty :OperatonalLimitTypeScaling_SourceOperationalLimitType ;
+                                                                                                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#OperatonalLimitTypeScaling>
+                                                                                                                       ] ,
+                                                                                                                       [ rdf:type owl:Restriction ;
+                                                                                                                         owl:onProperty :OperatonalLimitTypeScaling_TargetOperationalLimit ;
+                                                                                                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#OperatonalLimitTypeScaling>
+                                                                                                                       ] ,
+                                                                                                                       [ rdf:type owl:Restriction ;
+                                                                                                                         owl:onProperty :OperatonalLimitTypeScaling_TargetOperationalLimit ;
+                                                                                                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#OperatonalLimitTypeScaling>
+                                                                                                                       ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#PinBranchGroup
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#PinBranchGroup> rdf:type owl:Class ;
+                                                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty :PinBranchGroup_BranchGroup ;
+                                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#PinBranchGroup>
+                                                                                              ] .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

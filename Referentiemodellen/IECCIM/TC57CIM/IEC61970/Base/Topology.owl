@@ -1,0 +1,377 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#DCBaseTerminal_DCTopologicalNode
+:DCBaseTerminal_DCTopologicalNode rdf:type owl:ObjectProperty ;
+                                  rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCBaseTerminal> ;
+                                  rdfs:range :DCTopologicalNode ;
+                                  rdfs:comment "See association end TopologicalNode.Terminal.See association end Terminal.TopologicalNode." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#DCEquipmentContainer_DCTopologicalNode
+:DCEquipmentContainer_DCTopologicalNode rdf:type owl:ObjectProperty ;
+                                        rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCEquipmentContainer> ;
+                                        rdfs:range :DCTopologicalNode ;
+                                        rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#DCNode_DCTopologicalNode
+:DCNode_DCTopologicalNode rdf:type owl:ObjectProperty ;
+                          rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCNode> ;
+                          rdfs:range :DCTopologicalNode ;
+                          rdfs:comment "See association end TopologicalNode.ConnectivityNodes.See association end ConnectivityNode.TopologicalNode." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#DCTopologicalIsland_DCTopologicalNodes
+:DCTopologicalIsland_DCTopologicalNodes rdf:type owl:ObjectProperty ;
+                                        owl:inverseOf :DCTopologicalNode_DCTopologicalIsland ;
+                                        rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCTopologicalIsland> ;
+                                        rdfs:range :DCTopologicalNode ;
+                                        rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#DCTopologicalNode_DCEquipmentContainer
+:DCTopologicalNode_DCEquipmentContainer rdf:type owl:ObjectProperty ;
+                                        owl:inverseOf :DCEquipmentContainer_DCTopologicalNode ;
+                                        rdfs:domain :DCTopologicalNode ;
+                                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCEquipmentContainer> ;
+                                        rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#DCTopologicalNode_DCNodes
+:DCTopologicalNode_DCNodes rdf:type owl:ObjectProperty ;
+                           owl:inverseOf :DCNode_DCTopologicalNode ;
+                           rdfs:domain :DCTopologicalNode ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCNode> ;
+                           rdfs:comment "See association end TopologicalNode.ConnectivityNodes.See association end ConnectivityNode.TopologicalNode." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#DCTopologicalNode_DCTerminals
+:DCTopologicalNode_DCTerminals rdf:type owl:ObjectProperty ;
+                               owl:inverseOf :DCBaseTerminal_DCTopologicalNode ;
+                               rdfs:domain :DCTopologicalNode ;
+                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCBaseTerminal> ;
+                               rdfs:comment "See association end TopologicalNode.Terminal.See association end Terminal.TopologicalNode." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#DCTopologicalNode_DCTopologicalIsland
+:DCTopologicalNode_DCTopologicalIsland rdf:type owl:ObjectProperty ;
+                                       rdfs:domain :DCTopologicalNode ;
+                                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCTopologicalIsland> ;
+                                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#SvInjection_TopologicalNode
+:SvInjection_TopologicalNode rdf:type owl:ObjectProperty ;
+                             rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection> ;
+                             rdfs:range :TopologicalNode ;
+                             rdfs:comment "The injection flows state variables associated with the topological node.The topological node associated with the flow injection state variable." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#SvVoltage_TopologicalNode
+:SvVoltage_TopologicalNode rdf:type owl:ObjectProperty ;
+                           rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage> ;
+                           rdfs:range :TopologicalNode ;
+                           rdfs:comment "The state voltage associated with the topological node.The topological node associated with the voltage state." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#TopologicalIsland_AngleRefTopologicalNode
+:TopologicalIsland_AngleRefTopologicalNode rdf:type owl:ObjectProperty ;
+                                           rdfs:domain :TopologicalIsland ;
+                                           rdfs:range :TopologicalNode ;
+                                           rdfs:comment "The island for which the node is an angle reference.   Normally there is one angle reference node for each island.The angle reference for the island.   Normally there is one TopologicalNode that is selected as the angle reference for each island.   Other reference schemes exist, so the association is typically optional." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#TopologicalIsland_TopologicalNodes
+:TopologicalIsland_TopologicalNodes rdf:type owl:ObjectProperty ;
+                                    owl:inverseOf :TopologicalNode_TopologicalIsland ;
+                                    rdfs:domain :TopologicalIsland ;
+                                    rdfs:range :TopologicalNode ;
+                                    rdfs:comment "A topological node belongs to a topological island.A topological node belongs to a topological island." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#TopologicalNode_AngleRefTopologicalIsland
+:TopologicalNode_AngleRefTopologicalIsland rdf:type owl:ObjectProperty ;
+                                           owl:inverseOf :TopologicalIsland_AngleRefTopologicalNode ;
+                                           rdfs:domain :TopologicalNode ;
+                                           rdfs:range :TopologicalIsland ;
+                                           rdfs:comment "The island for which the node is an angle reference.   Normally there is one angle reference node for each island.The angle reference for the island.   Normally there is one TopologicalNode that is selected as the angle reference for each island.   Other reference schemes exist, so the association is typically optional." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#TopologicalNode_SvInjection
+:TopologicalNode_SvInjection rdf:type owl:ObjectProperty ;
+                             owl:inverseOf :SvInjection_TopologicalNode ;
+                             rdf:type owl:FunctionalProperty ;
+                             rdfs:domain :TopologicalNode ;
+                             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection> ;
+                             rdfs:comment "The injection flows state variables associated with the topological node.The topological node associated with the flow injection state variable." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#TopologicalNode_SvVoltage
+:TopologicalNode_SvVoltage rdf:type owl:ObjectProperty ;
+                           owl:inverseOf :SvVoltage_TopologicalNode ;
+                           rdf:type owl:FunctionalProperty ;
+                           rdfs:domain :TopologicalNode ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage> ;
+                           rdfs:comment "The state voltage associated with the topological node.The topological node associated with the voltage state." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#TopologicalNode_TopologicalIsland
+:TopologicalNode_TopologicalIsland rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :TopologicalNode ;
+                                   rdfs:range :TopologicalIsland ;
+                                   rdfs:comment "A topological node belongs to a topological island.A topological node belongs to a topological island." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#TopologicalNode_pInjection
+:TopologicalNode_pInjection rdf:type owl:ObjectProperty ;
+                            rdfs:domain :TopologicalNode ;
+                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
+                            rdfs:comment """The active power injected into the bus at this location in addition to injections from equipment.  Positive sign means injection into the TopologicalNode (bus).
+Starting value for a steady state solution. """ .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#TopologicalNode_qInjection
+:TopologicalNode_qInjection rdf:type owl:ObjectProperty ;
+                            rdfs:domain :TopologicalNode ;
+                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> ;
+                            rdfs:comment """The reactive power injected into the bus at this location in addition to injections from equipment. Positive sign means injection into the TopologicalNode (bus).
+Starting value for a steady state solution.""" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#BusNameMarker_priority
+:BusNameMarker_priority rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :BusNameMarker ;
+                        rdfs:range xsd:nonNegativeInteger ;
+                        rdfs:comment "Priority of bus name marker for use as topology bus name.  Use 0 for don t care.  Use 1 for highest priority.  Use 2 as priority is less than 1 and so on." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCBaseTerminal
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCBaseTerminal> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty :DCBaseTerminal_DCTopologicalNode ;
+                                                                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCBaseTerminal>
+                                                                                  ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCEquipmentContainer
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCEquipmentContainer> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty :DCEquipmentContainer_DCTopologicalNode ;
+                                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCEquipmentContainer>
+                                                                                        ] ,
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty :DCEquipmentContainer_DCTopologicalNode ;
+                                                                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCEquipmentContainer>
+                                                                                        ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCNode
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCNode> rdf:type owl:Class ;
+                                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty :DCNode_DCTopologicalNode ;
+                                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCNode>
+                                                                          ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCTopologicalIsland
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCTopologicalIsland> rdf:type owl:Class ;
+                                                                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty :DCTopologicalIsland_DCTopologicalNodes ;
+                                                                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCTopologicalIsland>
+                                                                                       ] ,
+                                                                                       [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty :DCTopologicalIsland_DCTopologicalNodes ;
+                                                                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/DC#DCTopologicalIsland>
+                                                                                       ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection> rdf:type owl:Class ;
+                                                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                             owl:onProperty :SvInjection_TopologicalNode ;
+                                                                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection>
+                                                                                           ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage> rdf:type owl:Class ;
+                                                                         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty :SvVoltage_TopologicalNode ;
+                                                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage>
+                                                                                         ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#BusNameMarker
+:BusNameMarker rdf:type owl:Class ;
+               rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :BusNameMarker_priority ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :BusNameMarker_priority ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:nonNegativeInteger
+                               ] ;
+               rdfs:comment "Used to apply user standard names to topology buses. Typically used for \"bus/branch\" case generation. Associated with one or more terminals that are normally connected with the bus name.    The associated terminals are normally connected by non-retained switches. For a ring bus station configuration, all busbar terminals in the ring are typically associated.   For a breaker and a half scheme, both busbars would normally be associated.  For a ring bus, all busbars would normally be associated.  For a \"straight\" busbar configuration, normally only the main terminal at the busbar would be associated.  " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#DCTopologicalNode
+:DCTopologicalNode rdf:type owl:Class ;
+                   rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :DCTopologicalNode_DCEquipmentContainer ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :DCTopologicalNode
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :DCTopologicalNode_DCNodes ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :DCTopologicalNode
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :DCTopologicalNode_DCTerminals ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :DCTopologicalNode
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :DCTopologicalNode_DCTopologicalIsland ;
+                                     owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :DCTopologicalNode
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :DCTopologicalNode_DCNodes ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :DCTopologicalNode
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :DCTopologicalNode_DCTerminals ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :DCTopologicalNode
+                                   ] ;
+                   rdfs:comment "DC bus." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#TopologicalIsland
+:TopologicalIsland rdf:type owl:Class ;
+                   rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :TopologicalIsland_AngleRefTopologicalNode ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :TopologicalIsland
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :TopologicalIsland_TopologicalNodes ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :TopologicalIsland
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :TopologicalIsland_AngleRefTopologicalNode ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :TopologicalIsland
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :TopologicalIsland_TopologicalNodes ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :TopologicalIsland
+                                   ] ;
+                   rdfs:comment """An electrically connected subset of the network. Topological islands can change as the current network state changes: e.g. due to 
+- disconnect switches or breakers change state in a SCADA/EMS
+- manual creation, change or deletion of topological nodes in a planning tool.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Topology#TopologicalNode
+:TopologicalNode rdf:type owl:Class ;
+                 rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TopologicalNode_AngleRefTopologicalIsland ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :TopologicalNode
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TopologicalNode_TopologicalIsland ;
+                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :TopologicalNode
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TopologicalNode_pInjection ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TopologicalNode_qInjection ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TopologicalNode_SvInjection ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :TopologicalNode
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TopologicalNode_SvVoltage ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :TopologicalNode
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TopologicalNode_AngleRefTopologicalIsland ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :TopologicalNode
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TopologicalNode_pInjection ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :TopologicalNode_qInjection ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
+                                 ] ;
+                 rdfs:comment """For a detailed substation model a topological node is a set of connectivity nodes that, in the current network state, are connected together through any type of closed switches, including  jumpers. Topological nodes change as the current network state changes (i.e., switches, breakers, etc. change state).
+For a planning model, switch statuses are not used to form topological nodes. Instead they are manually created or deleted in a model builder tool. Topological nodes maintained this way are also called \"busses\".""" .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

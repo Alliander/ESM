@@ -1,0 +1,1148 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#VehicleUsageKind
+:VehicleUsageKind rdf:type rdfs:Datatype ;
+                  owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                        owl:oneOf [ rdf:type rdf:List ;
+                                                    rdf:first "contractor" ;
+                                                    rdf:rest [ rdf:type rdf:List ;
+                                                               rdf:first "crew" ;
+                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                          rdf:first "other" ;
+                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                     rdf:first "user" ;
+                                                                                     rdf:rest rdf:nil
+                                                                                   ]
+                                                                        ]
+                                                             ]
+                                                  ]
+                                      ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkKind
+:WorkKind rdf:type rdfs:Datatype ;
+          owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                owl:oneOf [ rdf:type rdf:List ;
+                                            rdf:first "connect" ;
+                                            rdf:rest [ rdf:type rdf:List ;
+                                                       rdf:first "construction" ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first "disconnect" ;
+                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                             rdf:first "inspection" ;
+                                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                                        rdf:first "maintenance" ;
+                                                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                                                   rdf:first "other" ;
+                                                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                                                              rdf:first "reconnect" ;
+                                                                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                                                                         rdf:first "repair" ;
+                                                                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                    rdf:first "service" ;
+                                                                                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                               rdf:first "test" ;
+                                                                                                                                               rdf:rest rdf:nil
+                                                                                                                                             ]
+                                                                                                                                  ]
+                                                                                                                       ]
+                                                                                                            ]
+                                                                                                 ]
+                                                                                      ]
+                                                                           ]
+                                                                ]
+                                                     ]
+                                          ]
+                              ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkStatusKind
+:WorkStatusKind rdf:type rdfs:Datatype ;
+                owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                      owl:oneOf [ rdf:type rdf:List ;
+                                                  rdf:first "approved" ;
+                                                  rdf:rest [ rdf:type rdf:List ;
+                                                             rdf:first "cancelled" ;
+                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                        rdf:first "closed" ;
+                                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                                   rdf:first "completed" ;
+                                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                                              rdf:first "dispatched" ;
+                                                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                                                         rdf:first "enroute" ;
+                                                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                                                    rdf:first "inProgress" ;
+                                                                                                                    rdf:rest [ rdf:type rdf:List ;
+                                                                                                                               rdf:first "onSite" ;
+                                                                                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                          rdf:first "scheduled" ;
+                                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                     rdf:first "waitingOnApproval" ;
+                                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                rdf:first "waitingOnMaterial" ;
+                                                                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                           rdf:first "waitingToBeScheduled" ;
+                                                                                                                                                                           rdf:rest rdf:nil
+                                                                                                                                                                         ]
+                                                                                                                                                              ]
+                                                                                                                                                   ]
+                                                                                                                                        ]
+                                                                                                                             ]
+                                                                                                                  ]
+                                                                                                       ]
+                                                                                            ]
+                                                                                 ]
+                                                                      ]
+                                                           ]
+                                                ]
+                                    ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTaskKind
+:WorkTaskKind rdf:type rdfs:Datatype ;
+              owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                    owl:oneOf [ rdf:type rdf:List ;
+                                                rdf:first "exchange" ;
+                                                rdf:rest [ rdf:type rdf:List ;
+                                                           rdf:first "install" ;
+                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                      rdf:first "investigate" ;
+                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                 rdf:first "remove" ;
+                                                                                 rdf:rest rdf:nil
+                                                                               ]
+                                                                    ]
+                                                         ]
+                                              ]
+                                  ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTimeScheduleKind
+:WorkTimeScheduleKind rdf:type rdfs:Datatype ;
+                      owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                            owl:oneOf [ rdf:type rdf:List ;
+                                                        rdf:first "actual" ;
+                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                   rdf:first "earliest" ;
+                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                              rdf:first "estimate" ;
+                                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                                         rdf:first "latest" ;
+                                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                                    rdf:first "request" ;
+                                                                                                    rdf:rest rdf:nil
+                                                                                                  ]
+                                                                                       ]
+                                                                            ]
+                                                                 ]
+                                                      ]
+                                          ] .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#BaseWork_TimeSchedules
+:BaseWork_TimeSchedules rdf:type owl:ObjectProperty ;
+                        rdfs:domain :BaseWork ;
+                        rdfs:range :WorkTimeSchedule ;
+                        rdfs:comment "Time schedule for this work or work task.All time schedules for this work or work task." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#BaseWork_WorkActivityRecords
+:BaseWork_WorkActivityRecords rdf:type owl:ObjectProperty ;
+                              rdfs:domain :BaseWork ;
+                              rdfs:range :WorkActivityRecord ;
+                              rdfs:comment "Base work that this activity record tracks.All activity records for this work or work task." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#BaseWork_WorkLocation
+:BaseWork_WorkLocation rdf:type owl:ObjectProperty ;
+                       rdfs:domain :BaseWork ;
+                       rdfs:range :WorkLocation ;
+                       rdfs:comment "All works/tasks at this location.Location for this work/task." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#BaseWork_priority
+:BaseWork_priority rdf:type owl:ObjectProperty ;
+                   rdfs:domain :BaseWork ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Priority> ;
+                   rdfs:comment "Priority of work." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#BusinessCase_Works
+:BusinessCase_Works rdf:type owl:ObjectProperty ;
+                    rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase> ;
+                    rdfs:range :Work ;
+                    rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#CUWorkEquipmentItem_TypeAsset
+:CUWorkEquipmentItem_TypeAsset rdf:type owl:ObjectProperty ;
+                               rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem> ;
+                               rdfs:range :WorkAsset ;
+                               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Customer_Works
+:Customer_Works rdf:type owl:ObjectProperty ;
+                rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer> ;
+                rdfs:range :Work ;
+                rdfs:comment "All the customers for which this work is performed.All the works performed for this customer." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#DesignLocation_WorkLocations
+:DesignLocation_WorkLocations rdf:type owl:ObjectProperty ;
+                              rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#DesignLocation> ;
+                              rdfs:range :WorkLocation ;
+                              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Design_Work
+:Design_Work rdf:type owl:ObjectProperty ;
+             rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Design> ;
+             rdfs:range :Work ;
+             rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#ErpProjectAccounting_Works
+:ErpProjectAccounting_Works rdf:type owl:ObjectProperty ;
+                            owl:inverseOf :Work_ErpProjectAccounting ;
+                            rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting> ;
+                            rdfs:range :Work ;
+                            rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#MaterialItem_TypeMaterial
+:MaterialItem_TypeMaterial rdf:type owl:ObjectProperty ;
+                           owl:inverseOf :TypeMaterial_MaterialItems ;
+                           rdfs:domain :MaterialItem ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial> ;
+                           rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#MaterialItem_WorkTask
+:MaterialItem_WorkTask rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :WorkTask_MaterialItems ;
+                       rdfs:domain :MaterialItem ;
+                       rdfs:range :WorkTask ;
+                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#MaterialItem_quantity
+:MaterialItem_quantity rdf:type owl:ObjectProperty ;
+                       rdfs:domain :MaterialItem ;
+                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#IntegerQuantity> ;
+                       rdfs:comment "Quantity of material used." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#OneCallRequest_WorkLocations
+:OneCallRequest_WorkLocations rdf:type owl:ObjectProperty ;
+                              owl:inverseOf :WorkLocation_OneCallRequest ;
+                              rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest> ;
+                              rdfs:range :WorkLocation ;
+                              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Project_Works
+:Project_Works rdf:type owl:ObjectProperty ;
+               owl:inverseOf :Work_Project ;
+               rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project> ;
+               rdfs:range :Work ;
+               rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#TypeMaterial_MaterialItems
+:TypeMaterial_MaterialItems rdf:type owl:ObjectProperty ;
+                            rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial> ;
+                            rdfs:range :MaterialItem ;
+                            rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Vehicle_odometerReading
+:Vehicle_odometerReading rdf:type owl:ObjectProperty ;
+                         rdfs:domain :Vehicle ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Length> ;
+                         rdfs:comment "Odometer reading of this vehicle as of the 'odometerReadingDateTime'. Refer to associated ActivityRecords for earlier readings." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord_BaseWork
+:WorkActivityRecord_BaseWork rdf:type owl:ObjectProperty ;
+                             owl:inverseOf :BaseWork_WorkActivityRecords ;
+                             rdfs:domain :WorkActivityRecord ;
+                             rdfs:range :BaseWork ;
+                             rdfs:comment "Base work that this activity record tracks.All activity records for this work or work task." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord_percentComplete
+:WorkActivityRecord_percentComplete rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :WorkActivityRecord ;
+                                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
+                                    rdfs:comment "Estimated percentage of completion of this individual work task or overall work order." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkAsset_CUWorkEquipmentAsset
+:WorkAsset_CUWorkEquipmentAsset rdf:type owl:ObjectProperty ;
+                                owl:inverseOf :CUWorkEquipmentItem_TypeAsset ;
+                                rdfs:domain :WorkAsset ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem> ;
+                                rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkBillingInfo_Works
+:WorkBillingInfo_Works rdf:type owl:ObjectProperty ;
+                       rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo> ;
+                       rdfs:range :Work ;
+                       rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkCostDetail_Works
+:WorkCostDetail_Works rdf:type owl:ObjectProperty ;
+                      rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkCostDetail> ;
+                      rdfs:range :Work ;
+                      rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkFlowStep_Work
+:WorkFlowStep_Work rdf:type owl:ObjectProperty ;
+                   rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkFlowStep> ;
+                   rdfs:range :Work ;
+                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkLocation_BaseWorks
+:WorkLocation_BaseWorks rdf:type owl:ObjectProperty ;
+                        owl:inverseOf :BaseWork_WorkLocation ;
+                        rdfs:domain :WorkLocation ;
+                        rdfs:range :BaseWork ;
+                        rdfs:comment "All works/tasks at this location.Location for this work/task." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkLocation_DesignLocations
+:WorkLocation_DesignLocations rdf:type owl:ObjectProperty ;
+                              owl:inverseOf :DesignLocation_WorkLocations ;
+                              rdfs:domain :WorkLocation ;
+                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#DesignLocation> ;
+                              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkLocation_OneCallRequest
+:WorkLocation_OneCallRequest rdf:type owl:ObjectProperty ;
+                             rdfs:domain :WorkLocation ;
+                             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest> ;
+                             rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTask_MaterialItems
+:WorkTask_MaterialItems rdf:type owl:ObjectProperty ;
+                        rdfs:domain :WorkTask ;
+                        rdfs:range :MaterialItem ;
+                        rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTask_Work
+:WorkTask_Work rdf:type owl:ObjectProperty ;
+               owl:inverseOf :Work_WorkTasks ;
+               rdfs:domain :WorkTask ;
+               rdfs:range :Work ;
+               rdfs:comment "Work this task belongs to.All tasks in this work." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule_BaseWork
+:WorkTimeSchedule_BaseWork rdf:type owl:ObjectProperty ;
+                           owl:inverseOf :BaseWork_TimeSchedules ;
+                           rdfs:domain :WorkTimeSchedule ;
+                           rdfs:range :BaseWork ;
+                           rdfs:comment "Time schedule for this work or work task.All time schedules for this work or work task." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work_BusinessCase
+:Work_BusinessCase rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :BusinessCase_Works ;
+                   rdfs:domain :Work ;
+                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase> ;
+                   rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work_Customers
+:Work_Customers rdf:type owl:ObjectProperty ;
+                owl:inverseOf :Customer_Works ;
+                rdfs:domain :Work ;
+                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer> ;
+                rdfs:comment "All the customers for which this work is performed.All the works performed for this customer." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work_Designs
+:Work_Designs rdf:type owl:ObjectProperty ;
+              owl:inverseOf :Design_Work ;
+              rdfs:domain :Work ;
+              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Design> ;
+              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work_ErpProjectAccounting
+:Work_ErpProjectAccounting rdf:type owl:ObjectProperty ;
+                           rdfs:domain :Work ;
+                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting> ;
+                           rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work_Project
+:Work_Project rdf:type owl:ObjectProperty ;
+              rdfs:domain :Work ;
+              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project> ;
+              rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work_WorkBillingInfo
+:Work_WorkBillingInfo rdf:type owl:ObjectProperty ;
+                      owl:inverseOf :WorkBillingInfo_Works ;
+                      rdfs:domain :Work ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo> ;
+                      rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work_WorkCostDetails
+:Work_WorkCostDetails rdf:type owl:ObjectProperty ;
+                      owl:inverseOf :WorkCostDetail_Works ;
+                      rdfs:domain :Work ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkCostDetail> ;
+                      rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work_WorkFlowSteps
+:Work_WorkFlowSteps rdf:type owl:ObjectProperty ;
+                    owl:inverseOf :WorkFlowStep_Work ;
+                    rdfs:domain :Work ;
+                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkFlowStep> ;
+                    rdfs:comment "" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work_WorkTasks
+:Work_WorkTasks rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain :Work ;
+                rdfs:range :WorkTask ;
+                rdfs:comment "Work this task belongs to.All tasks in this work." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#BaseWork_kind
+:BaseWork_kind rdf:type owl:DatatypeProperty ;
+               rdfs:domain :BaseWork ;
+               rdfs:range :WorkKind ;
+               rdfs:comment "Kind of work." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#BaseWork_statusKind
+:BaseWork_statusKind rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :BaseWork ;
+                     rdfs:range :WorkStatusKind ;
+                     rdfs:comment "Kind of work status." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_block
+:MaintenanceLocation_block rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :MaintenanceLocation ;
+                           rdfs:range xsd:string ;
+                           rdfs:comment "(if applicable) Name, identifier, or description of the block in which work is to occur." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_lot
+:MaintenanceLocation_lot rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :MaintenanceLocation ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment "(if applicable) Name, identifier, or description of the lot in which work is to occur." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_nearestIntersection
+:MaintenanceLocation_nearestIntersection rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :MaintenanceLocation ;
+                                         rdfs:range xsd:string ;
+                                         rdfs:comment "The names of streets at the nearest intersection to work area." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_subdivision
+:MaintenanceLocation_subdivision rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :MaintenanceLocation ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:comment "(if applicable) Name, identifier, or description of the subdivision in which work is to occur." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Tool_lastCalibrationDate
+:Tool_lastCalibrationDate rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :Tool ;
+                          rdfs:range xsd:date ;
+                          rdfs:comment "(if applicable) Date the tool was last calibrated." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Vehicle_odometerReadDateTime
+:Vehicle_odometerReadDateTime rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :Vehicle ;
+                              rdfs:range xsd:dateTime ;
+                              rdfs:comment """Date and time the last odometer reading was recorded.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Vehicle_usageKind
+:Vehicle_usageKind rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Vehicle ;
+                   rdfs:range :VehicleUsageKind ;
+                   rdfs:comment "Kind of usage of the vehicle." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTask_crewETA
+:WorkTask_crewETA rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :WorkTask ;
+                  rdfs:range xsd:dateTime ;
+                  rdfs:comment "Estimated time of arrival, so that customer or police/fire department can be informed when the crew will arrive." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTask_instruction
+:WorkTask_instruction rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :WorkTask ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "Instructions for performing this task." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTask_schedOverride
+:WorkTask_schedOverride rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :WorkTask ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "If specified, override schedule and perform this task in accordance with instructions specified here." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTask_taskKind
+:WorkTask_taskKind rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :WorkTask ;
+                   rdfs:range :WorkTaskKind ;
+                   rdfs:comment "Kind of work." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule_kind
+:WorkTimeSchedule_kind rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :WorkTimeSchedule ;
+                       rdfs:range :WorkTimeScheduleKind ;
+                       rdfs:comment "Kind of this work schedule." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work_requestDateTime
+:Work_requestDateTime rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Work ;
+                      rdfs:range xsd:dateTime ;
+                      rdfs:comment """Date and time work was requested.
+""" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Priority
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Priority> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer> rdf:type owl:Class ;
+                                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty :Customer_Works ;
+                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer>
+                                                                              ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo> rdf:type owl:Class ;
+                                                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                      owl:onProperty :WorkBillingInfo_Works ;
+                                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo>
+                                                                                                    ] ,
+                                                                                                    [ rdf:type owl:Restriction ;
+                                                                                                      owl:onProperty :WorkBillingInfo_Works ;
+                                                                                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo>
+                                                                                                    ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting> rdf:type owl:Class ;
+                                                                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                            owl:onProperty :ErpProjectAccounting_Works ;
+                                                                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting>
+                                                                                                          ] ,
+                                                                                                          [ rdf:type owl:Restriction ;
+                                                                                                            owl:onProperty :ErpProjectAccounting_Works ;
+                                                                                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting>
+                                                                                                          ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase> rdf:type owl:Class ;
+                                                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                              owl:onProperty :BusinessCase_Works ;
+                                                                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase>
+                                                                                            ] ,
+                                                                                            [ rdf:type owl:Restriction ;
+                                                                                              owl:onProperty :BusinessCase_Works ;
+                                                                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase>
+                                                                                            ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty :CUWorkEquipmentItem_TypeAsset ;
+                                                                                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem>
+                                                                                                   ] ,
+                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty :CUWorkEquipmentItem_TypeAsset ;
+                                                                                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem>
+                                                                                                   ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Design
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Design> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                        owl:onProperty :Design_Work ;
+                                                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                        owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Design>
+                                                                                      ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#DesignLocation
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#DesignLocation> rdf:type owl:Class ;
+                                                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty :DesignLocation_WorkLocations ;
+                                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#DesignLocation>
+                                                                                              ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest> rdf:type owl:Class ;
+                                                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty :OneCallRequest_WorkLocations ;
+                                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest>
+                                                                                              ] ,
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty :OneCallRequest_WorkLocations ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest>
+                                                                                              ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project> rdf:type owl:Class ;
+                                                                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty :Project_Works ;
+                                                                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project>
+                                                                                       ] ,
+                                                                                       [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty :Project_Works ;
+                                                                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project>
+                                                                                       ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial> rdf:type owl:Class ;
+                                                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                              owl:onProperty :TypeMaterial_MaterialItems ;
+                                                                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial>
+                                                                                            ] ,
+                                                                                            [ rdf:type owl:Restriction ;
+                                                                                              owl:onProperty :TypeMaterial_MaterialItems ;
+                                                                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial>
+                                                                                            ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkCostDetail
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkCostDetail> rdf:type owl:Class ;
+                                                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty :WorkCostDetail_Works ;
+                                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkCostDetail>
+                                                                                              ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkFlowStep
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkFlowStep> rdf:type owl:Class ;
+                                                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                              owl:onProperty :WorkFlowStep_Work ;
+                                                                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkFlowStep>
+                                                                                            ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#BaseWork
+:BaseWork rdf:type owl:Class ;
+          rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :BaseWork_TimeSchedules ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass :BaseWork
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :BaseWork_WorkActivityRecords ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass :BaseWork
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :BaseWork_WorkLocation ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass :BaseWork
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :BaseWork_priority ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Priority>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :BaseWork_TimeSchedules ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :BaseWork
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :BaseWork_WorkActivityRecords ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :BaseWork
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :BaseWork_priority ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Priority>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :BaseWork_kind ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange :WorkKind
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :BaseWork_statusKind ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange :WorkStatusKind
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :BaseWork_kind ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange :WorkKind
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :BaseWork_statusKind ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange :WorkStatusKind
+                          ] ;
+          rdfs:comment "Common representation for work and work tasks." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation
+:MaintenanceLocation rdf:type owl:Class ;
+                     rdfs:subClassOf :WorkLocation ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :MaintenanceLocation_block ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :MaintenanceLocation_lot ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :MaintenanceLocation_nearestIntersection ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :MaintenanceLocation_subdivision ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :MaintenanceLocation_block ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :MaintenanceLocation_lot ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :MaintenanceLocation_nearestIntersection ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :MaintenanceLocation_subdivision ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ;
+                     rdfs:comment "Location where to perform maintenance work." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#MaterialItem
+:MaterialItem rdf:type owl:Class ;
+              rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :MaterialItem_TypeMaterial ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :MaterialItem
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :MaterialItem_WorkTask ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :MaterialItem
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :MaterialItem_quantity ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#IntegerQuantity>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :MaterialItem_quantity ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#IntegerQuantity>
+                              ] ;
+              rdfs:comment """The physical consumable supply used for work and other purposes. It includes items such as nuts, bolts, brackets, glue, etc.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Tool
+:Tool rdf:type owl:Class ;
+      rdfs:subClassOf :WorkAsset ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Tool_lastCalibrationDate ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:date
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Tool_lastCalibrationDate ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:date
+                      ] ;
+      rdfs:comment """Tool asset.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Vehicle
+:Vehicle rdf:type owl:Class ;
+         rdfs:subClassOf :WorkAsset ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Vehicle_odometerReading ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Length>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Vehicle_odometerReading ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Length>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Vehicle_odometerReadDateTime ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:dateTime
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Vehicle_usageKind ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange :VehicleUsageKind
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Vehicle_odometerReadDateTime ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:dateTime
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Vehicle_usageKind ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange :VehicleUsageKind
+                         ] ;
+         rdfs:comment """Vehicle asset.
+""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work
+:Work rdf:type owl:Class ;
+      rdfs:subClassOf :BaseWork ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Work_BusinessCase ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Work
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Work_Customers ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Work
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Work_Designs ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Work
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Work_ErpProjectAccounting ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Work
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Work_Project ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Work
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Work_WorkBillingInfo ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Work
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Work_WorkCostDetails ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Work
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Work_WorkFlowSteps ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Work
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Work_WorkTasks ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Work
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Work_Designs ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Work
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Work_WorkFlowSteps ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onClass :Work
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Work_requestDateTime ;
+                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:dateTime
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :Work_requestDateTime ;
+                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onDataRange xsd:dateTime
+                      ] ;
+      rdfs:comment "Document used to request, initiate, track and record work." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord
+:WorkActivityRecord rdf:type owl:Class ;
+                    rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord> ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :WorkActivityRecord_BaseWork ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :WorkActivityRecord
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :WorkActivityRecord_percentComplete ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :WorkActivityRecord_percentComplete ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                    ] ;
+                    rdfs:comment "Records information about the status of work or work task at a point in time. " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkAsset
+:WorkAsset rdf:type owl:Class ;
+           rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset> ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :WorkAsset_CUWorkEquipmentAsset ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass :WorkAsset
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :WorkAsset_CUWorkEquipmentAsset ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :WorkAsset
+                           ] ;
+           rdfs:comment "Asset used to perform work." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkLocation
+:WorkLocation rdf:type owl:Class ;
+              rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location> ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :WorkLocation_BaseWorks ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :WorkLocation
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :WorkLocation_DesignLocations ;
+                                owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :WorkLocation
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :WorkLocation_OneCallRequest ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :WorkLocation
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :WorkLocation_BaseWorks ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :WorkLocation
+                              ] ;
+              rdfs:comment "Information about a particular location for various forms of work." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTask
+:WorkTask rdf:type owl:Class ;
+          rdfs:subClassOf :BaseWork ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :WorkTask_MaterialItems ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass :WorkTask
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :WorkTask_Work ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass :WorkTask
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :WorkTask_MaterialItems ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :WorkTask
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :WorkTask_crewETA ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:dateTime
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :WorkTask_instruction ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :WorkTask_schedOverride ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :WorkTask_taskKind ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange :WorkTaskKind
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :WorkTask_crewETA ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:dateTime
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :WorkTask_instruction ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :WorkTask_schedOverride ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :WorkTask_taskKind ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange :WorkTaskKind
+                          ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule
+:WorkTimeSchedule rdf:type owl:Class ;
+                  rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule> ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :WorkTimeSchedule_BaseWork ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :WorkTimeSchedule
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :WorkTimeSchedule_kind ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange :WorkTimeScheduleKind
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :WorkTimeSchedule_kind ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange :WorkTimeScheduleKind
+                                  ] ;
+                  rdfs:comment "Time schedule specific to work." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#IntegerQuantity
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#IntegerQuantity> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Length
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Length> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

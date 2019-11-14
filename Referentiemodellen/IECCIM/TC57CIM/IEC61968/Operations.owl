@@ -1,0 +1,1774 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#ClearanceActionKind
+:ClearanceActionKind rdf:type rdfs:Datatype ;
+                     owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                           owl:oneOf [ rdf:type rdf:List ;
+                                                       rdf:first "issue" ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first "release" ;
+                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                             rdf:first "update" ;
+                                                                             rdf:rest rdf:nil
+                                                                           ]
+                                                                ]
+                                                     ]
+                                         ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#PSREventKind
+:PSREventKind rdf:type rdfs:Datatype ;
+              owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                    owl:oneOf [ rdf:type rdf:List ;
+                                                rdf:first "inService" ;
+                                                rdf:rest [ rdf:type rdf:List ;
+                                                           rdf:first "other" ;
+                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                      rdf:first "outOfService" ;
+                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                 rdf:first "pendingAdd" ;
+                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                            rdf:first "pendingRemove" ;
+                                                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                                                       rdf:first "pendingReplace" ;
+                                                                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                                                                  rdf:first "unknown" ;
+                                                                                                                  rdf:rest rdf:nil
+                                                                                                                ]
+                                                                                                     ]
+                                                                                          ]
+                                                                               ]
+                                                                    ]
+                                                         ]
+                                              ]
+                                  ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchActionKind
+:SwitchActionKind rdf:type rdfs:Datatype ;
+                  owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                        owl:oneOf [ rdf:type rdf:List ;
+                                                    rdf:first "close" ;
+                                                    rdf:rest [ rdf:type rdf:List ;
+                                                               rdf:first "disableReclosing" ;
+                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                          rdf:first "enableReclosing" ;
+                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                     rdf:first "open" ;
+                                                                                     rdf:rest rdf:nil
+                                                                                   ]
+                                                                        ]
+                                                             ]
+                                                  ]
+                                      ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#TagActionKind
+:TagActionKind rdf:type rdfs:Datatype ;
+               owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                     owl:oneOf [ rdf:type rdf:List ;
+                                                 rdf:first "place" ;
+                                                 rdf:rest [ rdf:type rdf:List ;
+                                                            rdf:first "remove" ;
+                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                       rdf:first "verify" ;
+                                                                       rdf:rest rdf:nil
+                                                                     ]
+                                                          ]
+                                               ]
+                                   ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#TempEquipActionKind
+:TempEquipActionKind rdf:type rdfs:Datatype ;
+                     owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                           owl:oneOf [ rdf:type rdf:List ;
+                                                       rdf:first "place" ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first "remove" ;
+                                                                  rdf:rest rdf:nil
+                                                                ]
+                                                     ]
+                                         ] .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Asset_OperationalTags
+:Asset_OperationalTags rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :OperationalTag_Asset ;
+                       rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
+                       rdfs:range :OperationalTag ;
+                       rdfs:comment "All operational tags placed on this asset.Asset on which this tag has been placed." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#ClearanceAction_Clearance
+:ClearanceAction_Clearance rdf:type owl:ObjectProperty ;
+                           rdfs:domain :ClearanceAction ;
+                           rdfs:range :ClearanceDocument ;
+                           rdfs:comment "Clearance action associated with this clearance.Clearance associated with this clearance action." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#ClearanceAction_SwitchingStepGroup
+:ClearanceAction_SwitchingStepGroup rdf:type owl:ObjectProperty ;
+                                    owl:inverseOf :SwitchingStepGroup_ClearanceActions ;
+                                    rdfs:domain :ClearanceAction ;
+                                    rdfs:range :SwitchingStepGroup ;
+                                    rdfs:comment "Group to which this step belongs.All clearance action steps in this group." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#ClearanceDocument_ClearanceAction
+:ClearanceDocument_ClearanceAction rdf:type owl:ObjectProperty ;
+                                   owl:inverseOf :ClearanceAction_Clearance ;
+                                   rdfs:domain :ClearanceDocument ;
+                                   rdfs:range :ClearanceAction ;
+                                   rdfs:comment "Clearance action associated with this clearance.Clearance associated with this clearance action." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#CustomerNotification_Incident
+:CustomerNotification_Incident rdf:type owl:ObjectProperty ;
+                               owl:inverseOf :Incident_CustomerNotifications ;
+                               rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification> ;
+                               rdfs:range :Incident ;
+                               rdfs:comment "Incident as a subject of this customer notification.All notifications for a customer related to the status change of this incident." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#CutAction_SwitchingStepGroup
+:CutAction_SwitchingStepGroup rdf:type owl:ObjectProperty ;
+                              owl:inverseOf :SwitchingStepGroup_CutActions ;
+                              rdfs:domain :CutAction ;
+                              rdfs:range :SwitchingStepGroup ;
+                              rdfs:comment "Group to which this step belongs.All cut action steps in this group." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#EnergySourceAction_SwitchingStepGroup
+:EnergySourceAction_SwitchingStepGroup rdf:type owl:ObjectProperty ;
+                                       owl:inverseOf :SwitchingStepGroup_EnergySourceActions ;
+                                       rdfs:domain :EnergySourceAction ;
+                                       rdfs:range :SwitchingStepGroup ;
+                                       rdfs:comment "Group to which this step belongs.All energy source action steps in this group." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#FieldSafetySupervisor_IssuedSafetyDocuments
+:FieldSafetySupervisor_IssuedSafetyDocuments rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :FieldSafetySupervisor ;
+                                             rdfs:range :SafetyDocument ;
+                                             rdfs:comment "Supervisor to whom this safety document is issued.All safety documents issued to this supervisor." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#FieldSafetySupervisor_ReleasedSafetyDocuments
+:FieldSafetySupervisor_ReleasedSafetyDocuments rdf:type owl:ObjectProperty ;
+                                               rdfs:domain :FieldSafetySupervisor ;
+                                               rdfs:range :SafetyDocument ;
+                                               rdfs:comment "Supervisor that released this safety document.All safety documents released by this supervisor." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#GenericAction_SwitchingStepGroup
+:GenericAction_SwitchingStepGroup rdf:type owl:ObjectProperty ;
+                                  owl:inverseOf :SwitchingStepGroup_GenericActions ;
+                                  rdfs:domain :GenericAction ;
+                                  rdfs:range :SwitchingStepGroup ;
+                                  rdfs:comment "Group to which this step belongs.All generic action steps in this group." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#GroundAction_SwitchingStepGroup
+:GroundAction_SwitchingStepGroup rdf:type owl:ObjectProperty ;
+                                 owl:inverseOf :SwitchingStepGroup_GroundActions ;
+                                 rdfs:domain :GroundAction ;
+                                 rdfs:range :SwitchingStepGroup ;
+                                 rdfs:comment "Group to which this step belongs.All ground action steps in this group." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#IncidentHazard_Incident
+:IncidentHazard_Incident rdf:type owl:ObjectProperty ;
+                         owl:inverseOf :Incident_Hazards ;
+                         rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#IncidentHazard> ;
+                         rdfs:range :Incident ;
+                         rdfs:comment "Incident associated with this hazard.All hazards associated with this incident." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Incident_CustomerNotifications
+:Incident_CustomerNotifications rdf:type owl:ObjectProperty ;
+                                rdfs:domain :Incident ;
+                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification> ;
+                                rdfs:comment "Incident as a subject of this customer notification.All notifications for a customer related to the status change of this incident." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Incident_Hazards
+:Incident_Hazards rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Incident ;
+                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#IncidentHazard> ;
+                  rdfs:comment "Incident associated with this hazard.All hazards associated with this incident." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Incident_Outage
+:Incident_Outage rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Incident ;
+                 rdfs:range :Outage ;
+                 rdfs:comment "Incident reported in trouble call that results in this outage.Outage for this incident." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Incident_TroubleTickets
+:Incident_TroubleTickets rdf:type owl:ObjectProperty ;
+                         owl:inverseOf :TroubleTicket_Incident ;
+                         rdfs:domain :Incident ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket> ;
+                         rdfs:comment "All trouble tickets reporting this incident.Incident reported in this trouble ticket" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Incident_Works
+:Incident_Works rdf:type owl:ObjectProperty ;
+                rdfs:domain :Incident ;
+                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work> ;
+                rdfs:comment "All incidents being addressed by this work.All works addressing this incident." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#JumperAction_SwitchingStepGroup
+:JumperAction_SwitchingStepGroup rdf:type owl:ObjectProperty ;
+                                 owl:inverseOf :SwitchingStepGroup_JumperActions ;
+                                 rdfs:domain :JumperAction ;
+                                 rdfs:range :SwitchingStepGroup ;
+                                 rdfs:comment "Group to which this step belongs.All jumper action steps in this group." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#OperationalRestriction_ProductAssetModel
+:OperationalRestriction_ProductAssetModel rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :OperationalRestriction ;
+                                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel> ;
+                                          rdfs:comment "All operational restrictions applying to this asset model.Asset model to which this restriction applies." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#OperationalRestriction_activePeriod
+:OperationalRestriction_activePeriod rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :OperationalRestriction ;
+                                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
+                                     rdfs:comment "Interval during which this restriction is applied." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#OperationalRestriction_restrictedValue
+:OperationalRestriction_restrictedValue rdf:type owl:ObjectProperty ;
+                                        rdfs:domain :OperationalRestriction ;
+                                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#FloatQuantity> ;
+                                        rdfs:comment "Restricted (new) value; includes unit of measure and potentially multiplier." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#OperationalTag_Asset
+:OperationalTag_Asset rdf:type owl:ObjectProperty ;
+                      rdfs:domain :OperationalTag ;
+                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
+                      rdfs:comment "All operational tags placed on this asset.Asset on which this tag has been placed." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#OperationalTag_TagAction
+:OperationalTag_TagAction rdf:type owl:ObjectProperty ;
+                          owl:inverseOf :TagAction_OperationalTag ;
+                          rdfs:domain :OperationalTag ;
+                          rdfs:range :TagAction ;
+                          rdfs:comment "Tag action associated with this tag.Tag associated with this tag action." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#OperationalUpdatedRating_PlannedOutage
+:OperationalUpdatedRating_PlannedOutage rdf:type owl:ObjectProperty ;
+                                        rdfs:domain :OperationalUpdatedRating ;
+                                        rdfs:range :Outage ;
+                                        rdfs:comment "All updated ratings for this planned equipment outage.Planned equipment outage with this updated rating." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#OperationsSafetySupervisor_IssuedSafetyDocuments
+:OperationsSafetySupervisor_IssuedSafetyDocuments rdf:type owl:ObjectProperty ;
+                                                  rdfs:domain :OperationsSafetySupervisor ;
+                                                  rdfs:range :SafetyDocument ;
+                                                  rdfs:comment "Supervisor that issued this safety document.All safety documents issued by this supervisor." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#OperationsSafetySupervisor_ReleasedSafetyDocuments
+:OperationsSafetySupervisor_ReleasedSafetyDocuments rdf:type owl:ObjectProperty ;
+                                                    rdfs:domain :OperationsSafetySupervisor ;
+                                                    rdfs:range :SafetyDocument ;
+                                                    rdfs:comment "Supervisor to which this safety document is released.All safety documents released to this supervisor." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#OutageSchedule_PlannedOutages
+:OutageSchedule_PlannedOutages rdf:type owl:ObjectProperty ;
+                               rdfs:domain :OutageSchedule ;
+                               rdfs:range :Outage ;
+                               rdfs:comment "Outage schedule whose execution will result in this outage.All outages resulting from the execution of this outage schedule." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage_Incident
+:Outage_Incident rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :Incident_Outage ;
+                 rdfs:domain :Outage ;
+                 rdfs:range :Incident ;
+                 rdfs:comment "Incident reported in trouble call that results in this outage.Outage for this incident." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage_OutageSchedule
+:Outage_OutageSchedule rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :OutageSchedule_PlannedOutages ;
+                       rdfs:domain :Outage ;
+                       rdfs:range :OutageSchedule ;
+                       rdfs:comment "Outage schedule whose execution will result in this outage.All outages resulting from the execution of this outage schedule." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage_PlannedSwitchActions
+:Outage_PlannedSwitchActions rdf:type owl:ObjectProperty ;
+                             rdfs:domain :Outage ;
+                             rdfs:range :SwitchAction ;
+                             rdfs:comment "Planned outage for whose scope this switch action applies.All switch actions to apply within the scope of this planned outage. Each such action groups switches to which the action is to apply in order to produce the desired network state considered as outage." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage_SwitchingPlans
+:Outage_SwitchingPlans rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :SwitchingPlan_Outage ;
+                       rdfs:domain :Outage ;
+                       rdfs:range :SwitchingPlan ;
+                       rdfs:comment "All switching plans that lead to supply restoration due to this outage. Only one will be retained for execution.Outage that will be activated or eliminated when this switching plan gets executed." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage_UpdatedRatings
+:Outage_UpdatedRatings rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :OperationalUpdatedRating_PlannedOutage ;
+                       rdf:type owl:FunctionalProperty ;
+                       rdfs:domain :Outage ;
+                       rdfs:range :OperationalUpdatedRating ;
+                       rdfs:comment "All updated ratings for this planned equipment outage.Planned equipment outage with this updated rating." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage_UsagePoints
+:Outage_UsagePoints rdf:type owl:ObjectProperty ;
+                    rdfs:domain :Outage ;
+                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
+                    rdfs:comment "All outages at this usage point.All usage points associated with this outage." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage_actualPeriod
+:Outage_actualPeriod rdf:type owl:ObjectProperty ;
+                     rdfs:domain :Outage ;
+                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
+                     rdfs:comment "Actual outage period; end of the period corresponds to the actual restoration time." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage_estimatedPeriod
+:Outage_estimatedPeriod rdf:type owl:ObjectProperty ;
+                        rdfs:domain :Outage ;
+                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
+                        rdfs:comment "Estimated outage period. The start of the period makes sense in case of a planned outage only, whereas the end of the period corresponds to the estimated restoration time in general." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage_summary
+:Outage_summary rdf:type owl:ObjectProperty ;
+                rdfs:domain :Outage ;
+                rdfs:range :ServicePointOutageSummary ;
+                rdfs:comment "Summary counts of service points (customers) affected by this outage." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#ProductAssetModel_OperationalRestrictions
+:ProductAssetModel_OperationalRestrictions rdf:type owl:ObjectProperty ;
+                                           owl:inverseOf :OperationalRestriction_ProductAssetModel ;
+                                           rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel> ;
+                                           rdfs:range :OperationalRestriction ;
+                                           rdfs:comment "All operational restrictions applying to this asset model.Asset model to which this restriction applies." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SafetyDocument_IssuedBySupervisor
+:SafetyDocument_IssuedBySupervisor rdf:type owl:ObjectProperty ;
+                                   owl:inverseOf :OperationsSafetySupervisor_IssuedSafetyDocuments ;
+                                   rdfs:domain :SafetyDocument ;
+                                   rdfs:range :OperationsSafetySupervisor ;
+                                   rdfs:comment "Supervisor that issued this safety document.All safety documents issued by this supervisor." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SafetyDocument_IssuedToSupervisor
+:SafetyDocument_IssuedToSupervisor rdf:type owl:ObjectProperty ;
+                                   owl:inverseOf :FieldSafetySupervisor_IssuedSafetyDocuments ;
+                                   rdfs:domain :SafetyDocument ;
+                                   rdfs:range :FieldSafetySupervisor ;
+                                   rdfs:comment "Supervisor to whom this safety document is issued.All safety documents issued to this supervisor." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SafetyDocument_ReleasedBySupervisor
+:SafetyDocument_ReleasedBySupervisor rdf:type owl:ObjectProperty ;
+                                     owl:inverseOf :FieldSafetySupervisor_ReleasedSafetyDocuments ;
+                                     rdfs:domain :SafetyDocument ;
+                                     rdfs:range :FieldSafetySupervisor ;
+                                     rdfs:comment "Supervisor that released this safety document.All safety documents released by this supervisor." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SafetyDocument_ReleasedToSupervisor
+:SafetyDocument_ReleasedToSupervisor rdf:type owl:ObjectProperty ;
+                                     owl:inverseOf :OperationsSafetySupervisor_ReleasedSafetyDocuments ;
+                                     rdfs:domain :SafetyDocument ;
+                                     rdfs:range :OperationsSafetySupervisor ;
+                                     rdfs:comment "Supervisor to which this safety document is released.All safety documents released to this supervisor." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SafetyDocument_SwitchingPlan
+:SafetyDocument_SwitchingPlan rdf:type owl:ObjectProperty ;
+                              owl:inverseOf :SwitchingPlan_SafetyDocuments ;
+                              rdfs:domain :SafetyDocument ;
+                              rdfs:range :SwitchingPlan ;
+                              rdfs:comment "Switching plan to which this safety document applies.All safety documents applicable to this swtiching plan." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchAction_PlannedOutage
+:SwitchAction_PlannedOutage rdf:type owl:ObjectProperty ;
+                            owl:inverseOf :Outage_PlannedSwitchActions ;
+                            rdfs:domain :SwitchAction ;
+                            rdfs:range :Outage ;
+                            rdfs:comment "Planned outage for whose scope this switch action applies.All switch actions to apply within the scope of this planned outage. Each such action groups switches to which the action is to apply in order to produce the desired network state considered as outage." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchAction_SwitchingStepGroup
+:SwitchAction_SwitchingStepGroup rdf:type owl:ObjectProperty ;
+                                 owl:inverseOf :SwitchingStepGroup_SwitchActions ;
+                                 rdfs:domain :SwitchAction ;
+                                 rdfs:range :SwitchingStepGroup ;
+                                 rdfs:comment "Group to which this step belongs.All switch action steps in this group." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingPlan_Outage
+:SwitchingPlan_Outage rdf:type owl:ObjectProperty ;
+                      rdfs:domain :SwitchingPlan ;
+                      rdfs:range :Outage ;
+                      rdfs:comment "All switching plans that lead to supply restoration due to this outage. Only one will be retained for execution.Outage that will be activated or eliminated when this switching plan gets executed." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingPlan_SafetyDocuments
+:SwitchingPlan_SafetyDocuments rdf:type owl:ObjectProperty ;
+                               rdfs:domain :SwitchingPlan ;
+                               rdfs:range :SafetyDocument ;
+                               rdfs:comment "Switching plan to which this safety document applies.All safety documents applicable to this swtiching plan." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingPlan_SwitchingStepGroups
+:SwitchingPlan_SwitchingStepGroups rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :SwitchingPlan ;
+                                   rdfs:range :SwitchingStepGroup ;
+                                   rdfs:comment "Switching plan to which this group belongs.All groups of switching steps within this switching plan." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingPlan_WorkTasks
+:SwitchingPlan_WorkTasks rdf:type owl:ObjectProperty ;
+                         rdfs:domain :SwitchingPlan ;
+                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTask> ;
+                         rdfs:comment "Switching plan executed by this work task.All work tasks to execute this switching plan." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStepGroup_ClearanceActions
+:SwitchingStepGroup_ClearanceActions rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :SwitchingStepGroup ;
+                                     rdfs:range :ClearanceAction ;
+                                     rdfs:comment "Group to which this step belongs.All clearance action steps in this group." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStepGroup_CutActions
+:SwitchingStepGroup_CutActions rdf:type owl:ObjectProperty ;
+                               rdfs:domain :SwitchingStepGroup ;
+                               rdfs:range :CutAction ;
+                               rdfs:comment "Group to which this step belongs.All cut action steps in this group." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStepGroup_EnergySourceActions
+:SwitchingStepGroup_EnergySourceActions rdf:type owl:ObjectProperty ;
+                                        rdfs:domain :SwitchingStepGroup ;
+                                        rdfs:range :EnergySourceAction ;
+                                        rdfs:comment "Group to which this step belongs.All energy source action steps in this group." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStepGroup_GenericActions
+:SwitchingStepGroup_GenericActions rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :SwitchingStepGroup ;
+                                   rdfs:range :GenericAction ;
+                                   rdfs:comment "Group to which this step belongs.All generic action steps in this group." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStepGroup_GroundActions
+:SwitchingStepGroup_GroundActions rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :SwitchingStepGroup ;
+                                  rdfs:range :GroundAction ;
+                                  rdfs:comment "Group to which this step belongs.All ground action steps in this group." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStepGroup_JumperActions
+:SwitchingStepGroup_JumperActions rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :SwitchingStepGroup ;
+                                  rdfs:range :JumperAction ;
+                                  rdfs:comment "Group to which this step belongs.All jumper action steps in this group." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStepGroup_SwitchActions
+:SwitchingStepGroup_SwitchActions rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :SwitchingStepGroup ;
+                                  rdfs:range :SwitchAction ;
+                                  rdfs:comment "Group to which this step belongs.All switch action steps in this group." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStepGroup_SwitchingPlan
+:SwitchingStepGroup_SwitchingPlan rdf:type owl:ObjectProperty ;
+                                  owl:inverseOf :SwitchingPlan_SwitchingStepGroups ;
+                                  rdfs:domain :SwitchingStepGroup ;
+                                  rdfs:range :SwitchingPlan ;
+                                  rdfs:comment "Switching plan to which this group belongs.All groups of switching steps within this switching plan." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStepGroup_TagActions
+:SwitchingStepGroup_TagActions rdf:type owl:ObjectProperty ;
+                               rdfs:domain :SwitchingStepGroup ;
+                               rdfs:range :TagAction ;
+                               rdfs:comment "Group to which this step belongs.All tag action steps in this group." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#TagAction_OperationalTag
+:TagAction_OperationalTag rdf:type owl:ObjectProperty ;
+                          rdfs:domain :TagAction ;
+                          rdfs:range :OperationalTag ;
+                          rdfs:comment "Tag action associated with this tag.Tag associated with this tag action." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#TagAction_SwitchingStepGroup
+:TagAction_SwitchingStepGroup rdf:type owl:ObjectProperty ;
+                              owl:inverseOf :SwitchingStepGroup_TagActions ;
+                              rdfs:domain :TagAction ;
+                              rdfs:range :SwitchingStepGroup ;
+                              rdfs:comment "Group to which this step belongs.All tag action steps in this group." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#TroubleTicket_Incident
+:TroubleTicket_Incident rdf:type owl:ObjectProperty ;
+                        rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket> ;
+                        rdfs:range :Incident ;
+                        rdfs:comment "All trouble tickets reporting this incident.Incident reported in this trouble ticket" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#UsagePoint_Outages
+:UsagePoint_Outages rdf:type owl:ObjectProperty ;
+                    owl:inverseOf :Outage_UsagePoints ;
+                    rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
+                    rdfs:range :Outage ;
+                    rdfs:comment "All outages at this usage point.All usage points associated with this outage." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#WorkTask_SwitchingPlan
+:WorkTask_SwitchingPlan rdf:type owl:ObjectProperty ;
+                        owl:inverseOf :SwitchingPlan_WorkTasks ;
+                        rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTask> ;
+                        rdfs:range :SwitchingPlan ;
+                        rdfs:comment "Switching plan executed by this work task.All work tasks to execute this switching plan." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Work_Incidents
+:Work_Incidents rdf:type owl:ObjectProperty ;
+                owl:inverseOf :Incident_Works ;
+                rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work> ;
+                rdfs:range :Incident ;
+                rdfs:comment "All incidents being addressed by this work.All works addressing this incident." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#ClearanceAction_kind
+:ClearanceAction_kind rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :ClearanceAction ;
+                      rdfs:range :ClearanceActionKind ;
+                      rdfs:comment "Clearance action to perform." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#ClearanceDocument_mustBeDeenergised
+:ClearanceDocument_mustBeDeenergised rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :ClearanceDocument ;
+                                     rdfs:range xsd:boolean ;
+                                     rdfs:comment "If true, the equipment must be deenergised." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#ClearanceDocument_mustBeGrounded
+:ClearanceDocument_mustBeGrounded rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :ClearanceDocument ;
+                                  rdfs:range xsd:boolean ;
+                                  rdfs:comment "If true, the equipment must be grounded." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#CutAction_kind
+:CutAction_kind rdf:type owl:DatatypeProperty ;
+                rdfs:domain :CutAction ;
+                rdfs:range :TempEquipActionKind ;
+                rdfs:comment "Switching action to perform." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#EnergySourceAction_kind
+:EnergySourceAction_kind rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :EnergySourceAction ;
+                         rdfs:range :TempEquipActionKind ;
+                         rdfs:comment "Switching action to perform." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#GroundAction_kind
+:GroundAction_kind rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :GroundAction ;
+                   rdfs:range :TempEquipActionKind ;
+                   rdfs:comment "Switching action to perform." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Incident_cause
+:Incident_cause rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Incident ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Cause of this incident." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#JumperAction_kind
+:JumperAction_kind rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :JumperAction ;
+                   rdfs:range :TempEquipActionKind ;
+                   rdfs:comment "Switching action to perform." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#OperationalUpdatedRating_changeType
+:OperationalUpdatedRating_changeType rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :OperationalUpdatedRating ;
+                                     rdfs:range xsd:string ;
+                                     rdfs:comment "Type of operational updated rating, e.g. a derate, a rerate or a return to normal." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage_cancelledDateTime
+:Outage_cancelledDateTime rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :Outage ;
+                          rdfs:range xsd:dateTime ;
+                          rdfs:comment "Date and time planned outage has been cancelled." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage_cause
+:Outage_cause rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Outage ;
+              rdfs:range xsd:string ;
+              rdfs:comment """One or more causes of this outage.
+Note: At present, this is a free text; could be replaced with a separate associated class in case we have multiple causes (e.g. OutageCauseType, inheriting from IdentifiedObject).""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage_isPlanned
+:Outage_isPlanned rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Outage ;
+                  rdfs:range xsd:boolean ;
+                  rdfs:comment "True if planned, false otherwise (for example due to a breaker trip)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#PSREvent_kind
+:PSREvent_kind rdf:type owl:DatatypeProperty ;
+               rdfs:domain :PSREvent ;
+               rdfs:range :PSREventKind ;
+               rdfs:comment "Kind of event." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SafetyDocument_issuedDateTime
+:SafetyDocument_issuedDateTime rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :SafetyDocument ;
+                               rdfs:range xsd:dateTime ;
+                               rdfs:comment "Date and time this safety document has been issued." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SafetyDocument_releasedDateTime
+:SafetyDocument_releasedDateTime rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :SafetyDocument ;
+                                 rdfs:range xsd:dateTime ;
+                                 rdfs:comment "Date and time this safety document has been released." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#ServicePointOutageSummary_criticalCount
+:ServicePointOutageSummary_criticalCount rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain :ServicePointOutageSummary ;
+                                         rdfs:range xsd:nonNegativeInteger ;
+                                         rdfs:comment "Number of critical service (delivery) points affected by an outage." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#ServicePointOutageSummary_totalCount
+:ServicePointOutageSummary_totalCount rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :ServicePointOutageSummary ;
+                                      rdfs:range xsd:nonNegativeInteger ;
+                                      rdfs:comment "Number of all service (delivery) points affected by an outage." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchAction_kind
+:SwitchAction_kind rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :SwitchAction ;
+                   rdfs:range :SwitchActionKind ;
+                   rdfs:comment "Switching action to perform." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingPlan_purpose
+:SwitchingPlan_purpose rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :SwitchingPlan ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "Purpose of  this plan, such as whether it is to move the state from normal to some abnormal condition, or to restore the normal state after an abnormal condition, or to perform some kind of optimisation such as correction of overload, voltage control, etc." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingPlan_rank
+:SwitchingPlan_rank rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :SwitchingPlan ;
+                    rdfs:range xsd:nonNegativeInteger ;
+                    rdfs:comment "Ranking in comparison to other switching plans." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStepGroup_isFreeSequence
+:SwitchingStepGroup_isFreeSequence rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain :SwitchingStepGroup ;
+                                   rdfs:range xsd:boolean ;
+                                   rdfs:comment "If true, the sequence number serves for presentation purposes only, and the activity itself may be executed at any time." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStepGroup_sequenceNumber
+:SwitchingStepGroup_sequenceNumber rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain :SwitchingStepGroup ;
+                                   rdfs:range xsd:nonNegativeInteger ;
+                                   rdfs:comment "Order of this activity in the sequence of activities within the switching plan." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep_description
+:SwitchingStep_description rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :SwitchingStep ;
+                           rdfs:range xsd:string ;
+                           rdfs:comment "Free text description of this activity." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep_executedDateTime
+:SwitchingStep_executedDateTime rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :SwitchingStep ;
+                                rdfs:range xsd:dateTime ;
+                                rdfs:comment "Actual date and time of this switching step." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep_isFreeSequence
+:SwitchingStep_isFreeSequence rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :SwitchingStep ;
+                              rdfs:range xsd:boolean ;
+                              rdfs:comment "If true, the sequence number serves for presentation purposes only, and the activity itself may be executed at any time." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep_issuedDateTime
+:SwitchingStep_issuedDateTime rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :SwitchingStep ;
+                              rdfs:range xsd:dateTime ;
+                              rdfs:comment "Date and time when the crew was given the instruction to execute the action; not applicable if the action is performed by operator remote control." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep_plannedDateTime
+:SwitchingStep_plannedDateTime rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :SwitchingStep ;
+                               rdfs:range xsd:dateTime ;
+                               rdfs:comment "Planned date and time of this switching step." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep_sequenceNumber
+:SwitchingStep_sequenceNumber rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :SwitchingStep ;
+                              rdfs:range xsd:nonNegativeInteger ;
+                              rdfs:comment "Order of this activity in the sequence of activities within the switching plan." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#TagAction_kind
+:TagAction_kind rdf:type owl:DatatypeProperty ;
+                rdfs:domain :TagAction ;
+                rdfs:range :TagActionKind ;
+                rdfs:comment "Kind of tag action." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset> rdf:type owl:Class ;
+                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty :Asset_OperationalTags ;
+                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset>
+                                                                        ] ,
+                                                                        [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty :Asset_OperationalTags ;
+                                                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset>
+                                                                        ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                      owl:onProperty :ProductAssetModel_OperationalRestrictions ;
+                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel>
+                                                                                    ] ,
+                                                                                    [ rdf:type owl:Restriction ;
+                                                                                      owl:onProperty :ProductAssetModel_OperationalRestrictions ;
+                                                                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel>
+                                                                                    ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#CrewMember
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#CrewMember> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Operator
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Operator> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification> rdf:type owl:Class ;
+                                                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty :CustomerNotification_Incident ;
+                                                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification>
+                                                                                          ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#IncidentHazard
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#IncidentHazard> rdf:type owl:Class ;
+                                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                      owl:onProperty :IncidentHazard_Incident ;
+                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#IncidentHazard>
+                                                                                    ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty :TroubleTicket_Incident ;
+                                                                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket>
+                                                                                   ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> rdf:type owl:Class ;
+                                                               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                 owl:onProperty :UsagePoint_Outages ;
+                                                                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint>
+                                                                               ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#ClearanceAction
+:ClearanceAction rdf:type owl:Class ;
+                 rdfs:subClassOf :SwitchingStep ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ClearanceAction_Clearance ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :ClearanceAction
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ClearanceAction_SwitchingStepGroup ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :ClearanceAction
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ClearanceAction_Clearance ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :ClearanceAction
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ClearanceAction_kind ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange :ClearanceActionKind
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :ClearanceAction_kind ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange :ClearanceActionKind
+                                 ] ;
+                 rdfs:comment "Action on clearance document as a switching step." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#ClearanceDocument
+:ClearanceDocument rdf:type owl:Class ;
+                   rdfs:subClassOf :SafetyDocument ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ClearanceDocument_ClearanceAction ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :ClearanceDocument
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ClearanceDocument_ClearanceAction ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :ClearanceDocument
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ClearanceDocument_mustBeDeenergised ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:boolean
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ClearanceDocument_mustBeGrounded ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:boolean
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ClearanceDocument_mustBeDeenergised ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:boolean
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :ClearanceDocument_mustBeGrounded ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:boolean
+                                   ] ;
+                   rdfs:comment "Safety document used to authorise work on conducting equipment in the field. Tagged equipment is not allowed to be operated." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#CutAction
+:CutAction rdf:type owl:Class ;
+           rdfs:subClassOf :SwitchingStep ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :CutAction_SwitchingStepGroup ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass :CutAction
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :CutAction_kind ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange :TempEquipActionKind
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :CutAction_kind ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange :TempEquipActionKind
+                           ] ;
+           rdfs:comment "Action on cut as a switching step." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#EnergySourceAction
+:EnergySourceAction rdf:type owl:Class ;
+                    rdfs:subClassOf :SwitchingStep ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :EnergySourceAction_SwitchingStepGroup ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :EnergySourceAction
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :EnergySourceAction_kind ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange :TempEquipActionKind
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :EnergySourceAction_kind ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange :TempEquipActionKind
+                                    ] ;
+                    rdfs:comment "Action on energy source as a switching step." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#FieldSafetySupervisor
+:FieldSafetySupervisor rdf:type owl:Class ;
+                       rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#CrewMember> ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :FieldSafetySupervisor_IssuedSafetyDocuments ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :FieldSafetySupervisor
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :FieldSafetySupervisor_ReleasedSafetyDocuments ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :FieldSafetySupervisor
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :FieldSafetySupervisor_IssuedSafetyDocuments ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :FieldSafetySupervisor
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :FieldSafetySupervisor_ReleasedSafetyDocuments ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :FieldSafetySupervisor
+                                       ] ;
+                       rdfs:comment "Crew member on work site responsible for all local safety measures for the work crew doing maintenance, construction and repair in a substation or on a power line/cable." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#GenericAction
+:GenericAction rdf:type owl:Class ;
+               rdfs:subClassOf :SwitchingStep ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :GenericAction_SwitchingStepGroup ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :GenericAction
+                               ] ;
+               rdfs:comment "An arbitrary switching step." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#GroundAction
+:GroundAction rdf:type owl:Class ;
+              rdfs:subClassOf :SwitchingStep ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :GroundAction_SwitchingStepGroup ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :GroundAction
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :GroundAction_kind ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange :TempEquipActionKind
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :GroundAction_kind ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange :TempEquipActionKind
+                              ] ;
+              rdfs:comment "Action on ground as a switching step." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Incident
+:Incident rdf:type owl:Class ;
+          rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Incident_CustomerNotifications ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Incident
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Incident_Hazards ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Incident
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Incident_Outage ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Incident
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Incident_TroubleTickets ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Incident
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Incident_Works ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Incident
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Incident_CustomerNotifications ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Incident
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Incident_Hazards ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Incident
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Incident_Outage ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Incident
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Incident_TroubleTickets ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Incident
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Incident_cause ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Incident_cause ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ;
+          rdfs:comment "Description of a problem in the field that may be reported in a trouble ticket or come from another source. It may have to do with an outage." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#JumperAction
+:JumperAction rdf:type owl:Class ;
+              rdfs:subClassOf :SwitchingStep ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :JumperAction_SwitchingStepGroup ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :JumperAction
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :JumperAction_kind ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange :TempEquipActionKind
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :JumperAction_kind ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange :TempEquipActionKind
+                              ] ;
+              rdfs:comment "Action on jumper as a switching step." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#OperationalRestriction
+:OperationalRestriction rdf:type owl:Class ;
+                        rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :OperationalRestriction_ProductAssetModel ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass :OperationalRestriction
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :OperationalRestriction_activePeriod ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :OperationalRestriction_restrictedValue ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#FloatQuantity>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :OperationalRestriction_activePeriod ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :OperationalRestriction_restrictedValue ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#FloatQuantity>
+                                        ] ;
+                        rdfs:comment """A document that can be associated with equipment to describe any sort of restrictions compared with the original manufacturer's specification or with the usual operational practice e.g. temporary maximum loadings, maximum switching current, do not operate if bus couplers are open, etc.
+In the UK, for example, if a breaker or switch ever mal-operates, this is reported centrally and utilities use their asset systems to identify all the installed devices of the same manufacturer's type. They then apply operational restrictions in the operational systems to warn operators of potential problems. After appropriate inspection and maintenance, the operational restrictions may be removed.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#OperationalTag
+:OperationalTag rdf:type owl:Class ;
+                rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :OperationalTag_Asset ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :OperationalTag
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :OperationalTag_TagAction ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :OperationalTag
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :OperationalTag_TagAction ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :OperationalTag
+                                ] ;
+                rdfs:comment "Operational tag placed on a power system resource or asset in the context of switching plan execution or other work in the field." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#OperationalUpdatedRating
+:OperationalUpdatedRating rdf:type owl:Class ;
+                          rdfs:subClassOf :OperationalRestriction ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :OperationalUpdatedRating_PlannedOutage ;
+                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                            owl:onClass :OperationalUpdatedRating
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :OperationalUpdatedRating_changeType ;
+                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                            owl:onDataRange xsd:string
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :OperationalUpdatedRating_changeType ;
+                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onDataRange xsd:string
+                                          ] ;
+                          rdfs:comment "Lowered capability because of deterioration or inadequacy (sometimes referred to as derating or partial outage) or other kind of operational rating change." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#OperationsSafetySupervisor
+:OperationsSafetySupervisor rdf:type owl:Class ;
+                            rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Operator> ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :OperationsSafetySupervisor_IssuedSafetyDocuments ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onClass :OperationsSafetySupervisor
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :OperationsSafetySupervisor_ReleasedSafetyDocuments ;
+                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onClass :OperationsSafetySupervisor
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :OperationsSafetySupervisor_IssuedSafetyDocuments ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onClass :OperationsSafetySupervisor
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty :OperationsSafetySupervisor_ReleasedSafetyDocuments ;
+                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onClass :OperationsSafetySupervisor
+                                            ] ;
+                            rdfs:comment "Operator with responsibility that the work in high voltage installation is executed in a safe manner and according to safety regulation." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage
+:Outage rdf:type owl:Class ;
+        rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_Incident ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Outage
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_OutageSchedule ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Outage
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_PlannedSwitchActions ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Outage
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_SwitchingPlans ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Outage
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_UsagePoints ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Outage
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_actualPeriod ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_estimatedPeriod ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_summary ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :ServicePointOutageSummary
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_UpdatedRatings ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Outage
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_Incident ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Outage
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_PlannedSwitchActions ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Outage
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_SwitchingPlans ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Outage
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_actualPeriod ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_estimatedPeriod ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_summary ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :ServicePointOutageSummary
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_cancelledDateTime ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_cause ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_isPlanned ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:boolean
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_cancelledDateTime ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:dateTime
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_cause ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:string
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Outage_isPlanned ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:boolean
+                        ] ;
+        rdfs:comment """Document describing details of an active or planned outage in a part of the electrical network.
+A non-planned outage may be created upon:
+- a breaker trip,
+- a fault indicator status change,
+- a meter event indicating customer outage,
+- a reception of one or more customer trouble calls, or
+- an operator command, reflecting information obtained from the field crew.
+Outage restoration may be performed using a switching plan which complements the outage information with detailed switching activities, including the relationship to the crew and work.
+A planned outage may be created upon:
+- a request for service, maintenance or construction work in the field, or
+- an operator-defined outage for what-if/contingency network analysis.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#OutageSchedule
+:OutageSchedule rdf:type owl:Class ;
+                rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :OutageSchedule_PlannedOutages ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :OutageSchedule
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :OutageSchedule_PlannedOutages ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :OutageSchedule
+                                ] ;
+                rdfs:comment "Document containing the definition of planned outages of equipment and/or service (delivery) points (sometimes referred to as customers). It is used as specification for producing switching plans." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#PSREvent
+:PSREvent rdf:type owl:Class ;
+          rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord> ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :PSREvent_kind ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange :PSREventKind
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :PSREvent_kind ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange :PSREventKind
+                          ] ;
+          rdfs:comment "Event recording the change in operational status of a power system resource; may be for an event that has already occurred or for a planned activity." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SafetyDocument
+:SafetyDocument rdf:type owl:Class ;
+                rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :SafetyDocument_IssuedBySupervisor ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :SafetyDocument
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :SafetyDocument_IssuedToSupervisor ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :SafetyDocument
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :SafetyDocument_ReleasedBySupervisor ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :SafetyDocument
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :SafetyDocument_ReleasedToSupervisor ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :SafetyDocument
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :SafetyDocument_SwitchingPlan ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :SafetyDocument
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :SafetyDocument_issuedDateTime ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:dateTime
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :SafetyDocument_releasedDateTime ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:dateTime
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :SafetyDocument_issuedDateTime ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:dateTime
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :SafetyDocument_releasedDateTime ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onDataRange xsd:dateTime
+                                ] ;
+                rdfs:comment "Document restricting or authorising works on electrical equipment (for example a permit to work, sanction for test, limitation of access, or certificate of isolation), defined based upon organisational practices." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#ServicePointOutageSummary
+:ServicePointOutageSummary rdf:type owl:Class ;
+                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ServicePointOutageSummary_criticalCount ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:nonNegativeInteger
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ServicePointOutageSummary_totalCount ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:nonNegativeInteger
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ServicePointOutageSummary_criticalCount ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:nonNegativeInteger
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ServicePointOutageSummary_totalCount ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:nonNegativeInteger
+                                           ] ;
+                           rdfs:comment "Summary counts of service points affected by an outage. These counts are sometimes referred to as total and critical customer count." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchAction
+:SwitchAction rdf:type owl:Class ;
+              rdfs:subClassOf :SwitchingStep ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SwitchAction_PlannedOutage ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :SwitchAction
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SwitchAction_SwitchingStepGroup ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass :SwitchAction
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SwitchAction_kind ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange :SwitchActionKind
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :SwitchAction_kind ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange :SwitchActionKind
+                              ] ;
+              rdfs:comment "Action on switch as a switching step." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingPlan
+:SwitchingPlan rdf:type owl:Class ;
+               rdfs:subClassOf :SwitchingStepGroup ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingPlan_Outage ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :SwitchingPlan
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingPlan_SafetyDocuments ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :SwitchingPlan
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingPlan_SwitchingStepGroups ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :SwitchingPlan
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingPlan_WorkTasks ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :SwitchingPlan
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingPlan_SafetyDocuments ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :SwitchingPlan
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingPlan_SwitchingStepGroups ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :SwitchingPlan
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingPlan_WorkTasks ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :SwitchingPlan
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingPlan_purpose ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingPlan_rank ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingPlan_purpose ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingPlan_rank ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:nonNegativeInteger
+                               ] ;
+               rdfs:comment """A sequence of grouped or atomic steps intended to:
+- de-energise equipment or part of the network for safe work, and/or
+- bring back in service previously de-energised equipment or part of the network.""" .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep
+:SwitchingStep rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingStep_description ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingStep_executedDateTime ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingStep_isFreeSequence ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:boolean
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingStep_issuedDateTime ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingStep_plannedDateTime ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingStep_sequenceNumber ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingStep_description ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingStep_executedDateTime ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingStep_isFreeSequence ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:boolean
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingStep_issuedDateTime ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingStep_plannedDateTime ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:dateTime
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :SwitchingStep_sequenceNumber ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:nonNegativeInteger
+                               ] ;
+               rdfs:comment "Atomic switching step; can be part of a switching step group, or part of a switching plan." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStepGroup
+:SwitchingStepGroup rdf:type owl:Class ;
+                    rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_ClearanceActions ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :SwitchingStepGroup
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_CutActions ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :SwitchingStepGroup
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_EnergySourceActions ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :SwitchingStepGroup
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_GenericActions ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :SwitchingStepGroup
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_GroundActions ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :SwitchingStepGroup
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_JumperActions ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :SwitchingStepGroup
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_SwitchActions ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :SwitchingStepGroup
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_SwitchingPlan ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :SwitchingStepGroup
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_TagActions ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :SwitchingStepGroup
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_ClearanceActions ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :SwitchingStepGroup
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_CutActions ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :SwitchingStepGroup
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_EnergySourceActions ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :SwitchingStepGroup
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_GenericActions ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :SwitchingStepGroup
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_GroundActions ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :SwitchingStepGroup
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_JumperActions ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :SwitchingStepGroup
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_SwitchActions ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :SwitchingStepGroup
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_TagActions ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :SwitchingStepGroup
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_isFreeSequence ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:boolean
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_sequenceNumber ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_isFreeSequence ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:boolean
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :SwitchingStepGroup_sequenceNumber ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:nonNegativeInteger
+                                    ] ;
+                    rdfs:comment "A logical step, grouping atomic switching steps that are important to distinguish when they may change topology (e.g. placing a jumper between two cuts)." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#TagAction
+:TagAction rdf:type owl:Class ;
+           rdfs:subClassOf :SwitchingStep ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TagAction_OperationalTag ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass :TagAction
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TagAction_SwitchingStepGroup ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass :TagAction
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TagAction_OperationalTag ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :TagAction
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TagAction_kind ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange :TagActionKind
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :TagAction_kind ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange :TagActionKind
+                           ] ;
+           rdfs:comment "Action on operation tag as a switching step." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work> rdf:type owl:Class ;
+                                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :Work_Incidents ;
+                                                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work>
+                                                                     ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTask
+<https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTask> rdf:type owl:Class ;
+                                                         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                           owl:onProperty :WorkTask_SwitchingPlan ;
+                                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTask>
+                                                                         ] .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> rdf:type owl:Class .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#FloatQuantity
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#FloatQuantity> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

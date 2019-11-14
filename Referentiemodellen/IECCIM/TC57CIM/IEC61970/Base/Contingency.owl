@@ -1,0 +1,122 @@
+@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Contingency#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Contingency#> .
+
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Contingency#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Contingency#ContingencyEquipmentStatusKind
+:ContingencyEquipmentStatusKind rdf:type rdfs:Datatype ;
+                                owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                                      owl:oneOf [ rdf:type rdf:List ;
+                                                                  rdf:first "inService" ;
+                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                             rdf:first "outOfService" ;
+                                                                             rdf:rest rdf:nil
+                                                                           ]
+                                                                ]
+                                                    ] .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Contingency#ContingencyElement_Contingency
+:ContingencyElement_Contingency rdf:type owl:ObjectProperty ;
+                                rdfs:domain :ContingencyElement ;
+                                rdfs:range :Contingency ;
+                                rdfs:comment "A contingency can have any number of contingency elements.A contingency element belongs to one contingency." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Contingency#Contingency_ContingencyElement
+:Contingency_ContingencyElement rdf:type owl:ObjectProperty ;
+                                owl:inverseOf :ContingencyElement_Contingency ;
+                                rdf:type owl:FunctionalProperty ;
+                                rdfs:domain :Contingency ;
+                                rdfs:range :ContingencyElement ;
+                                rdfs:comment "A contingency can have any number of contingency elements.A contingency element belongs to one contingency." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Contingency#ContingencyEquipment_contingentStatus
+:ContingencyEquipment_contingentStatus rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :ContingencyEquipment ;
+                                       rdfs:range :ContingencyEquipmentStatusKind ;
+                                       rdfs:comment "The status for the associated equipment when in the contingency state.   This status is independent of the case to which the contingency is originally applied, but defines the equipment status when the contingency is applied." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Contingency#Contingency_mustStudy
+:Contingency_mustStudy rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Contingency ;
+                       rdfs:range xsd:boolean ;
+                       rdfs:comment "Set true if must study this contingency." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Contingency#Contingency
+:Contingency rdf:type owl:Class ;
+             rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Contingency_ContingencyElement ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Contingency
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Contingency_mustStudy ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:boolean
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Contingency_mustStudy ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:boolean
+                             ] ;
+             rdfs:comment "An event threatening system reliability, consisting of one or more contingency elements." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Contingency#ContingencyElement
+:ContingencyElement rdf:type owl:Class ;
+                    rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :ContingencyElement_Contingency ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass :ContingencyElement
+                                    ] ;
+                    rdfs:comment "An element of a system event to be studied by contingency analysis, representing a change in status of a single piece of equipment. " .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Contingency#ContingencyEquipment
+:ContingencyEquipment rdf:type owl:Class ;
+                      rdfs:subClassOf :ContingencyElement ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :ContingencyEquipment_contingentStatus ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange :ContingencyEquipmentStatusKind
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :ContingencyEquipment_contingentStatus ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange :ContingencyEquipmentStatusKind
+                                      ] ;
+                      rdfs:comment "A equipment to which the in service status is to change such as a power transformer or AC line segment." .
+
+
+###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
