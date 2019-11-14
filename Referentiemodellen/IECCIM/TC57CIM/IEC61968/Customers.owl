@@ -1,12 +1,12 @@
-@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#> .
+@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#> .
+@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#> .
 
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#> rdf:type owl:Ontology .
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#> rdf:type owl:Ontology .
 
 #################################################################
 #    Datatypes
@@ -16,7 +16,7 @@
 xsd:date rdf:type rdfs:Datatype .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerKind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerKind
 :CustomerKind rdf:type rdfs:Datatype ;
               owl:equivalentClass [ rdf:type rdfs:Datatype ;
                                     owl:oneOf [ rdf:type rdf:List ;
@@ -59,7 +59,7 @@ xsd:date rdf:type rdfs:Datatype .
                                   ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#NotificationTriggerKind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#NotificationTriggerKind
 :NotificationTriggerKind rdf:type rdfs:Datatype ;
                          owl:equivalentClass [ rdf:type rdfs:Datatype ;
                                                owl:oneOf [ rdf:type rdf:List ;
@@ -81,7 +81,7 @@ xsd:date rdf:type rdfs:Datatype .
                                              ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#RevenueKind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#RevenueKind
 :RevenueKind rdf:type rdfs:Datatype ;
              owl:equivalentClass [ rdf:type rdfs:Datatype ;
                                    owl:oneOf [ rdf:type rdf:List ;
@@ -109,7 +109,7 @@ xsd:date rdf:type rdfs:Datatype .
                                  ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceKind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceKind
 :ServiceKind rdf:type rdfs:Datatype ;
              owl:equivalentClass [ rdf:type rdfs:Datatype ;
                                    owl:oneOf [ rdf:type rdf:List ;
@@ -164,7 +164,7 @@ xsd:date rdf:type rdfs:Datatype .
                                  ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#TroubleReportingKind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#TroubleReportingKind
 :TroubleReportingKind rdf:type rdfs:Datatype ;
                       owl:equivalentClass [ rdf:type rdfs:Datatype ;
                                             owl:oneOf [ rdf:type rdf:List ;
@@ -190,15 +190,15 @@ xsd:date rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#AuxiliaryAgreement_CustomerAgreement
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#AuxiliaryAgreement_CustomerAgreement
 :AuxiliaryAgreement_CustomerAgreement rdf:type owl:ObjectProperty ;
                                       owl:inverseOf :CustomerAgreement_AuxiliaryAgreements ;
-                                      rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement> ;
+                                      rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement> ;
                                       rdfs:range :CustomerAgreement ;
                                       rdfs:comment "Customer agreement this (non-service related) auxiliary agreement refers to.All (non-service related) auxiliary agreements that refer to this customer agreement." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_Customer
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_Customer
 :CustomerAccount_Customer rdf:type owl:ObjectProperty ;
                           owl:inverseOf :Customer_CustomerAccounts ;
                           rdfs:domain :CustomerAccount ;
@@ -206,7 +206,7 @@ xsd:date rdf:type rdfs:Datatype .
                           rdfs:comment "Customer owning this account.All accounts of this customer." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_CustomerAgreements
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_CustomerAgreements
 :CustomerAccount_CustomerAgreements rdf:type owl:ObjectProperty ,
                                              owl:FunctionalProperty ;
                                     rdfs:domain :CustomerAccount ;
@@ -214,50 +214,50 @@ xsd:date rdf:type rdfs:Datatype .
                                     rdfs:comment "Customer account owning this agreement.All agreements for this customer account." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_CustomerBillingInfos
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_CustomerBillingInfos
 :CustomerAccount_CustomerBillingInfos rdf:type owl:ObjectProperty ;
                                       owl:inverseOf :CustomerBillingInfo_CustomerAccount ;
                                       rdfs:domain :CustomerAccount ;
-                                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo> ;
+                                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo> ;
                                       rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_ErpInvoicees
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_ErpInvoicees
 :CustomerAccount_ErpInvoicees rdf:type owl:ObjectProperty ;
                               rdfs:domain :CustomerAccount ;
-                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice> ;
+                              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice> ;
                               rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_PaymentTransactions
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_PaymentTransactions
 :CustomerAccount_PaymentTransactions rdf:type owl:ObjectProperty ;
                                      rdfs:domain :CustomerAccount ;
-                                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction> ;
+                                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction> ;
                                      rdfs:comment "Customer account for this payment transaction.All payment transactions for this customer account." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_WorkBillingInfos
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_WorkBillingInfos
 :CustomerAccount_WorkBillingInfos rdf:type owl:ObjectProperty ;
                                   rdfs:domain :CustomerAccount ;
-                                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo> ;
+                                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo> ;
                                   rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_lastBillAmount
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_lastBillAmount
 :CustomerAccount_lastBillAmount rdf:type owl:ObjectProperty ;
                                 rdfs:domain :CustomerAccount ;
-                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
                                 rdfs:comment "The last amount that will be billed to the customer prior to shut off of the account." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_AuxiliaryAgreements
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_AuxiliaryAgreements
 :CustomerAgreement_AuxiliaryAgreements rdf:type owl:ObjectProperty ;
                                        rdfs:domain :CustomerAgreement ;
-                                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement> ;
+                                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement> ;
                                        rdfs:comment "Customer agreement this (non-service related) auxiliary agreement refers to.All (non-service related) auxiliary agreements that refer to this customer agreement." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_Customer
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_Customer
 :CustomerAgreement_Customer rdf:type owl:ObjectProperty ;
                             owl:inverseOf :Customer_CustomerAgreements ;
                             rdfs:domain :CustomerAgreement ;
@@ -265,7 +265,7 @@ xsd:date rdf:type rdfs:Datatype .
                             rdfs:comment "Customer for this agreement.All agreements of this customer." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_CustomerAccount
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_CustomerAccount
 :CustomerAgreement_CustomerAccount rdf:type owl:ObjectProperty ;
                                    owl:inverseOf :CustomerAccount_CustomerAgreements ;
                                    rdfs:domain :CustomerAgreement ;
@@ -273,87 +273,87 @@ xsd:date rdf:type rdfs:Datatype .
                                    rdfs:comment "Customer account owning this agreement.All agreements for this customer account." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_DemandResponsePrograms
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_DemandResponsePrograms
 :CustomerAgreement_DemandResponsePrograms rdf:type owl:ObjectProperty ;
                                           owl:inverseOf :DemandResponseProgram_CustomerAgreements ;
                                           rdfs:domain :CustomerAgreement ;
-                                          rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#DemandResponseProgram> ;
+                                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#DemandResponseProgram> ;
                                           rdfs:comment "All demand response programs the customer is enrolled in through this customer agreement.All customer agreements through which the customer is enrolled in this demand response program." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_MeterReadings
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_MeterReadings
 :CustomerAgreement_MeterReadings rdf:type owl:ObjectProperty ;
                                  owl:inverseOf :MeterReading_CustomerAgreement ;
                                  rdfs:domain :CustomerAgreement ;
-                                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#MeterReading> ;
+                                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#MeterReading> ;
                                  rdfs:comment "(could be deprecated in the future) All meter readings for this customer agreement.(could be deprecated in the future) Customer agreement for this meter reading." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_PricingStructures
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_PricingStructures
 :CustomerAgreement_PricingStructures rdf:type owl:ObjectProperty ;
                                      rdfs:domain :CustomerAgreement ;
                                      rdfs:range :PricingStructure ;
                                      rdfs:comment "All customer agreements with this pricing structure.All pricing structures applicable to this customer agreement." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_ServiceCategory
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_ServiceCategory
 :CustomerAgreement_ServiceCategory rdf:type owl:ObjectProperty ;
                                    rdfs:domain :CustomerAgreement ;
                                    rdfs:range :ServiceCategory ;
                                    rdfs:comment "All customer agreements with this service category.Service category for this agreement." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_ServiceLocations
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_ServiceLocations
 :CustomerAgreement_ServiceLocations rdf:type owl:ObjectProperty ;
                                     rdfs:domain :CustomerAgreement ;
                                     rdfs:range :ServiceLocation ;
                                     rdfs:comment "All customer agreements regulating this service location.All service locations regulated by this customer agreement." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_ServiceSupplier
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_ServiceSupplier
 :CustomerAgreement_ServiceSupplier rdf:type owl:ObjectProperty ;
                                    owl:inverseOf :ServiceSupplier_CustomerAgreements ;
                                    rdfs:domain :CustomerAgreement ;
-                                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#ServiceSupplier> ;
+                                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#ServiceSupplier> ;
                                    rdfs:comment "Service supplier for this customer agreement.All customer agreements of this service supplier." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_StandardIndustryCode
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_StandardIndustryCode
 :CustomerAgreement_StandardIndustryCode rdf:type owl:ObjectProperty ;
                                         rdfs:domain :CustomerAgreement ;
-                                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#StandardIndustryCode> ;
+                                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#StandardIndustryCode> ;
                                         rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_UsagePoints
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_UsagePoints
 :CustomerAgreement_UsagePoints rdf:type owl:ObjectProperty ;
                                rdfs:domain :CustomerAgreement ;
-                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
+                               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
                                rdfs:comment "Customer agreement regulating this service delivery point.All service delivery points regulated by this customer agreement." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerBillingInfo_CustomerAccount
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerBillingInfo_CustomerAccount
 :CustomerBillingInfo_CustomerAccount rdf:type owl:ObjectProperty ;
-                                     rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo> ;
+                                     rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo> ;
                                      rdfs:range :CustomerAccount ;
                                      rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification_Customer
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification_Customer
 :CustomerNotification_Customer rdf:type owl:ObjectProperty ;
                                rdfs:domain :CustomerNotification ;
                                rdfs:range :Customer ;
                                rdfs:comment "All notifications required by this customer.Customer requiring this notification." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification_TroubleTickets
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification_TroubleTickets
 :CustomerNotification_TroubleTickets rdf:type owl:ObjectProperty ;
                                      rdfs:domain :CustomerNotification ;
                                      rdfs:range :TroubleTicket ;
                                      rdfs:comment "Notification for this trouble ticket.All trouble tickets with this notification." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer_CustomerAccounts
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer_CustomerAccounts
 :Customer_CustomerAccounts rdf:type owl:ObjectProperty ,
                                     owl:FunctionalProperty ;
                            rdfs:domain :Customer ;
@@ -361,7 +361,7 @@ xsd:date rdf:type rdfs:Datatype .
                            rdfs:comment "Customer owning this account.All accounts of this customer." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer_CustomerAgreements
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer_CustomerAgreements
 :Customer_CustomerAgreements rdf:type owl:ObjectProperty ,
                                       owl:FunctionalProperty ;
                              rdfs:domain :Customer ;
@@ -369,21 +369,21 @@ xsd:date rdf:type rdfs:Datatype .
                              rdfs:comment "Customer for this agreement.All agreements of this customer." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer_EndDevices
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer_EndDevices
 :Customer_EndDevices rdf:type owl:ObjectProperty ;
                      rdfs:domain :Customer ;
-                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#EndDevice> ;
+                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#EndDevice> ;
                      rdfs:comment "Customer owning this end device.All end devices of this customer." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer_ErpPersons
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer_ErpPersons
 :Customer_ErpPersons rdf:type owl:ObjectProperty ;
                      rdfs:domain :Customer ;
-                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson> ;
+                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson> ;
                      rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer_Notifications
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer_Notifications
 :Customer_Notifications rdf:type owl:ObjectProperty ;
                         owl:inverseOf :CustomerNotification_Customer ;
                         rdfs:domain :Customer ;
@@ -391,7 +391,7 @@ xsd:date rdf:type rdfs:Datatype .
                         rdfs:comment "All notifications required by this customer.Customer requiring this notification." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer_TroubleTickets
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer_TroubleTickets
 :Customer_TroubleTickets rdf:type owl:ObjectProperty ;
                          owl:inverseOf :TroubleTicket_Customer ;
                          rdfs:domain :Customer ;
@@ -399,52 +399,52 @@ xsd:date rdf:type rdfs:Datatype .
                          rdfs:comment "All trouble tickets for this customer.Customer for whom this trouble ticket is relevant." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer_priority
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer_priority
 :Customer_priority rdf:type owl:ObjectProperty ;
                    rdfs:domain :Customer ;
-                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Priority> ;
+                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Priority> ;
                    rdfs:comment "Priority of the customer." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer_status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer_status
 :Customer_status rdf:type owl:ObjectProperty ;
                  rdfs:domain :Customer ;
-                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> ;
+                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status> ;
                  rdfs:comment "Status of this customer." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#DemandResponseProgram_CustomerAgreements
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#DemandResponseProgram_CustomerAgreements
 :DemandResponseProgram_CustomerAgreements rdf:type owl:ObjectProperty ;
-                                          rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#DemandResponseProgram> ;
+                                          rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#DemandResponseProgram> ;
                                           rdfs:range :CustomerAgreement ;
                                           rdfs:comment "All demand response programs the customer is enrolled in through this customer agreement.All customer agreements through which the customer is enrolled in this demand response program." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#EndDevice_Customer
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#EndDevice_Customer
 :EndDevice_Customer rdf:type owl:ObjectProperty ;
                     owl:inverseOf :Customer_EndDevices ;
-                    rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#EndDevice> ;
+                    rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#EndDevice> ;
                     rdfs:range :Customer ;
                     rdfs:comment "Customer owning this end device.All end devices of this customer." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#EndDevice_ServiceLocation
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#EndDevice_ServiceLocation
 :EndDevice_ServiceLocation rdf:type owl:ObjectProperty ;
                            owl:inverseOf :ServiceLocation_EndDevices ;
-                           rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#EndDevice> ;
+                           rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#EndDevice> ;
                            rdfs:range :ServiceLocation ;
                            rdfs:comment "Service location whose service delivery is measured by this end device.All end devices that measure the service delivered to this service location." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ErpInvoice_CustomerAccount
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ErpInvoice_CustomerAccount
 :ErpInvoice_CustomerAccount rdf:type owl:ObjectProperty ;
                             owl:inverseOf :CustomerAccount_ErpInvoicees ;
-                            rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice> ;
+                            rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice> ;
                             rdfs:range :CustomerAccount ;
                             rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#IncidentHazard_TroubleTicket
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#IncidentHazard_TroubleTicket
 :IncidentHazard_TroubleTicket rdf:type owl:ObjectProperty ;
                               owl:inverseOf :TroubleTicket_Hazards ;
                               rdfs:domain :IncidentHazard ;
@@ -452,22 +452,22 @@ xsd:date rdf:type rdfs:Datatype .
                               rdfs:comment "Trouble ticket associated with this hazard.All hazards reported with this trouble ticket." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#MeterReading_CustomerAgreement
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#MeterReading_CustomerAgreement
 :MeterReading_CustomerAgreement rdf:type owl:ObjectProperty ;
-                                rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#MeterReading> ;
+                                rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#MeterReading> ;
                                 rdfs:range :CustomerAgreement ;
                                 rdfs:comment "(could be deprecated in the future) All meter readings for this customer agreement.(could be deprecated in the future) Customer agreement for this meter reading." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#OldPerson_CustomerData
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#OldPerson_CustomerData
 :OldPerson_CustomerData rdf:type owl:ObjectProperty ;
                         owl:inverseOf :Customer_ErpPersons ;
-                        rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson> ;
+                        rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson> ;
                         rdfs:range :Customer ;
                         rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_CustomerAgreements
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_CustomerAgreements
 :PricingStructure_CustomerAgreements rdf:type owl:ObjectProperty ;
                                      owl:inverseOf :CustomerAgreement_PricingStructures ;
                                      rdfs:domain :PricingStructure ;
@@ -475,7 +475,7 @@ xsd:date rdf:type rdfs:Datatype .
                                      rdfs:comment "All customer agreements with this pricing structure.All pricing structures applicable to this customer agreement." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_ServiceCategory
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_ServiceCategory
 :PricingStructure_ServiceCategory rdf:type owl:ObjectProperty ;
                                   owl:inverseOf :ServiceCategory_PricingStructures ;
                                   rdfs:domain :PricingStructure ;
@@ -483,28 +483,28 @@ xsd:date rdf:type rdfs:Datatype .
                                   rdfs:comment "Service category to which this pricing structure applies.All pricing structures applicable to this service category." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_Tariffs
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_Tariffs
 :PricingStructure_Tariffs rdf:type owl:ObjectProperty ;
                           rdfs:domain :PricingStructure ;
                           rdfs:range :Tariff ;
                           rdfs:comment "All pricing structures using this tariff.All tariffs used by this pricing structure." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_Transactions
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_Transactions
 :PricingStructure_Transactions rdf:type owl:ObjectProperty ;
                                rdfs:domain :PricingStructure ;
-                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction> ;
+                               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction> ;
                                rdfs:comment "Pricing structure applicable for this transaction.All transactions applying this pricing structure." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_UsagePoints
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_UsagePoints
 :PricingStructure_UsagePoints rdf:type owl:ObjectProperty ;
                               rdfs:domain :PricingStructure ;
-                              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
+                              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
                               rdfs:comment "All pricing structures applicable to this service delivery point (with prepayment meter running as a stand-alone device, with no CustomerAgreement or Customer).All service delivery points (with prepayment meter running as a stand-alone device, with no CustomerAgreement or Customer) to which this pricing structure applies." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory_CustomerAgreements
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory_CustomerAgreements
 :ServiceCategory_CustomerAgreements rdf:type owl:ObjectProperty ;
                                     owl:inverseOf :CustomerAgreement_ServiceCategory ;
                                     rdfs:domain :ServiceCategory ;
@@ -512,7 +512,7 @@ xsd:date rdf:type rdfs:Datatype .
                                     rdfs:comment "All customer agreements with this service category.Service category for this agreement." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory_PricingStructures
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory_PricingStructures
 :ServiceCategory_PricingStructures rdf:type owl:ObjectProperty ,
                                             owl:FunctionalProperty ;
                                    rdfs:domain :ServiceCategory ;
@@ -520,15 +520,15 @@ xsd:date rdf:type rdfs:Datatype .
                                    rdfs:comment "Service category to which this pricing structure applies.All pricing structures applicable to this service category." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory_UsagePoints
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory_UsagePoints
 :ServiceCategory_UsagePoints rdf:type owl:ObjectProperty ;
                              owl:inverseOf :UsagePoint_ServiceCategory ;
                              rdfs:domain :ServiceCategory ;
-                             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
+                             rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
                              rdfs:comment "All usage points that deliver this category of service.Service category delivered by this usage point." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceLocation_CustomerAgreements
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceLocation_CustomerAgreements
 :ServiceLocation_CustomerAgreements rdf:type owl:ObjectProperty ;
                                     owl:inverseOf :CustomerAgreement_ServiceLocations ;
                                     rdfs:domain :ServiceLocation ;
@@ -536,45 +536,45 @@ xsd:date rdf:type rdfs:Datatype .
                                     rdfs:comment "All customer agreements regulating this service location.All service locations regulated by this customer agreement." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceLocation_EndDevices
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceLocation_EndDevices
 :ServiceLocation_EndDevices rdf:type owl:ObjectProperty ;
                             rdfs:domain :ServiceLocation ;
-                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#EndDevice> ;
+                            rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#EndDevice> ;
                             rdfs:comment "Service location whose service delivery is measured by this end device.All end devices that measure the service delivered to this service location." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceLocation_UsagePoints
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceLocation_UsagePoints
 :ServiceLocation_UsagePoints rdf:type owl:ObjectProperty ;
                              rdfs:domain :ServiceLocation ;
-                             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
+                             rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
                              rdfs:comment "Service location where the service delivered by this usage point is consumed.All usage points delivering service (of the same type) to this service location." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceSupplier_CustomerAgreements
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceSupplier_CustomerAgreements
 :ServiceSupplier_CustomerAgreements rdf:type owl:ObjectProperty ,
                                              owl:FunctionalProperty ;
-                                    rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#ServiceSupplier> ;
+                                    rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#ServiceSupplier> ;
                                     rdfs:range :CustomerAgreement ;
                                     rdfs:comment "Service supplier for this customer agreement.All customer agreements of this service supplier." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#StandardIndustryCode_CustomerAgreements
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#StandardIndustryCode_CustomerAgreements
 :StandardIndustryCode_CustomerAgreements rdf:type owl:ObjectProperty ;
                                          owl:inverseOf :CustomerAgreement_StandardIndustryCode ;
-                                         rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#StandardIndustryCode> ;
+                                         rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#StandardIndustryCode> ;
                                          rdfs:range :CustomerAgreement ;
                                          rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#TariffProfile_Tariffs
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#TariffProfile_Tariffs
 :TariffProfile_Tariffs rdf:type owl:ObjectProperty ;
                        owl:inverseOf :Tariff_TariffProfiles ;
-                       rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#TariffProfile> ;
+                       rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#TariffProfile> ;
                        rdfs:range :Tariff ;
                        rdfs:comment "All tariffs defined by this tariff profile.All tariff profiles using this tariff." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Tariff_PricingStructures
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Tariff_PricingStructures
 :Tariff_PricingStructures rdf:type owl:ObjectProperty ;
                           owl:inverseOf :PricingStructure_Tariffs ;
                           rdfs:domain :Tariff ;
@@ -582,44 +582,44 @@ xsd:date rdf:type rdfs:Datatype .
                           rdfs:comment "All pricing structures using this tariff.All tariffs used by this pricing structure." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Tariff_TariffProfiles
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Tariff_TariffProfiles
 :Tariff_TariffProfiles rdf:type owl:ObjectProperty ;
                        rdfs:domain :Tariff ;
-                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#TariffProfile> ;
+                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#TariffProfile> ;
                        rdfs:comment "All tariffs defined by this tariff profile.All tariff profiles using this tariff." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Transaction_CustomerAccount
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Transaction_CustomerAccount
 :Transaction_CustomerAccount rdf:type owl:ObjectProperty ;
                              owl:inverseOf :CustomerAccount_PaymentTransactions ;
-                             rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction> ;
+                             rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction> ;
                              rdfs:range :CustomerAccount ;
                              rdfs:comment "Customer account for this payment transaction.All payment transactions for this customer account." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Transaction_PricingStructure
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Transaction_PricingStructure
 :Transaction_PricingStructure rdf:type owl:ObjectProperty ;
                               owl:inverseOf :PricingStructure_Transactions ;
-                              rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction> ;
+                              rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction> ;
                               rdfs:range :PricingStructure ;
                               rdfs:comment "Pricing structure applicable for this transaction.All transactions applying this pricing structure." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket_Customer
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket_Customer
 :TroubleTicket_Customer rdf:type owl:ObjectProperty ;
                         rdfs:domain :TroubleTicket ;
                         rdfs:range :Customer ;
                         rdfs:comment "All trouble tickets for this customer.Customer for whom this trouble ticket is relevant." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket_Hazards
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket_Hazards
 :TroubleTicket_Hazards rdf:type owl:ObjectProperty ;
                        rdfs:domain :TroubleTicket ;
                        rdfs:range :IncidentHazard ;
                        rdfs:comment "Trouble ticket associated with this hazard.All hazards reported with this trouble ticket." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket_Notification
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket_Notification
 :TroubleTicket_Notification rdf:type owl:ObjectProperty ;
                             owl:inverseOf :CustomerNotification_TroubleTickets ;
                             rdfs:domain :TroubleTicket ;
@@ -627,41 +627,41 @@ xsd:date rdf:type rdfs:Datatype .
                             rdfs:comment "Notification for this trouble ticket.All trouble tickets with this notification." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#UsagePoint_CustomerAgreement
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#UsagePoint_CustomerAgreement
 :UsagePoint_CustomerAgreement rdf:type owl:ObjectProperty ;
                               owl:inverseOf :CustomerAgreement_UsagePoints ;
-                              rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
+                              rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
                               rdfs:range :CustomerAgreement ;
                               rdfs:comment "Customer agreement regulating this service delivery point.All service delivery points regulated by this customer agreement." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#UsagePoint_PricingStructures
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#UsagePoint_PricingStructures
 :UsagePoint_PricingStructures rdf:type owl:ObjectProperty ;
                               owl:inverseOf :PricingStructure_UsagePoints ;
-                              rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
+                              rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
                               rdfs:range :PricingStructure ;
                               rdfs:comment "All pricing structures applicable to this service delivery point (with prepayment meter running as a stand-alone device, with no CustomerAgreement or Customer).All service delivery points (with prepayment meter running as a stand-alone device, with no CustomerAgreement or Customer) to which this pricing structure applies." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#UsagePoint_ServiceCategory
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#UsagePoint_ServiceCategory
 :UsagePoint_ServiceCategory rdf:type owl:ObjectProperty ;
-                            rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
+                            rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
                             rdfs:range :ServiceCategory ;
                             rdfs:comment "All usage points that deliver this category of service.Service category delivered by this usage point." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#UsagePoint_ServiceLocation
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#UsagePoint_ServiceLocation
 :UsagePoint_ServiceLocation rdf:type owl:ObjectProperty ;
                             owl:inverseOf :ServiceLocation_UsagePoints ;
-                            rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
+                            rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
                             rdfs:range :ServiceLocation ;
                             rdfs:comment "Service location where the service delivered by this usage point is consumed.All usage points delivering service (of the same type) to this service location." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#WorkBillingInfo_CustomerAccount
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#WorkBillingInfo_CustomerAccount
 :WorkBillingInfo_CustomerAccount rdf:type owl:ObjectProperty ;
                                  owl:inverseOf :CustomerAccount_WorkBillingInfos ;
-                                 rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo> ;
+                                 rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo> ;
                                  rdfs:range :CustomerAccount ;
                                  rdfs:comment "" .
 
@@ -670,7 +670,7 @@ xsd:date rdf:type rdfs:Datatype .
 #    Data properties
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_billingCycle
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_billingCycle
 :CustomerAccount_billingCycle rdf:type owl:DatatypeProperty ;
                               rdfs:domain :CustomerAccount ;
                               rdfs:range xsd:string ;
@@ -678,7 +678,7 @@ xsd:date rdf:type rdfs:Datatype .
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_budgetBill
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount_budgetBill
 :CustomerAccount_budgetBill rdf:type owl:DatatypeProperty ;
                             rdfs:domain :CustomerAccount ;
                             rdfs:range xsd:string ;
@@ -686,161 +686,161 @@ xsd:date rdf:type rdfs:Datatype .
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_isPrePay
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_isPrePay
 :CustomerAgreement_isPrePay rdf:type owl:DatatypeProperty ;
                             rdfs:domain :CustomerAgreement ;
                             rdfs:range xsd:boolean ;
                             rdfs:comment " If true, the customer is a pre-pay customer for the specified service." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_loadMgmt
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_loadMgmt
 :CustomerAgreement_loadMgmt rdf:type owl:DatatypeProperty ;
                             rdfs:domain :CustomerAgreement ;
                             rdfs:range xsd:string ;
                             rdfs:comment "Load management code." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_shutOffDateTime
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement_shutOffDateTime
 :CustomerAgreement_shutOffDateTime rdf:type owl:DatatypeProperty ;
                                    rdfs:domain :CustomerAgreement ;
                                    rdfs:range xsd:dateTime ;
                                    rdfs:comment "Final date and time the service will be billed to the previous customer." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification_contactType
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification_contactType
 :CustomerNotification_contactType rdf:type owl:DatatypeProperty ;
                                   rdfs:domain :CustomerNotification ;
                                   rdfs:range xsd:string ;
                                   rdfs:comment "Type of contact (e.g., phone, email, etc.)." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification_contactValue
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification_contactValue
 :CustomerNotification_contactValue rdf:type owl:DatatypeProperty ;
                                    rdfs:domain :CustomerNotification ;
                                    rdfs:range xsd:string ;
                                    rdfs:comment "Value of contact type (e.g., phone number, email address, etc.)." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification_earliestDateTimeToCall
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification_earliestDateTimeToCall
 :CustomerNotification_earliestDateTimeToCall rdf:type owl:DatatypeProperty ;
                                              rdfs:domain :CustomerNotification ;
                                              rdfs:range xsd:dateTime ;
                                              rdfs:comment "Earliest date time to call the customer." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification_latestDateTimeToCall
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification_latestDateTimeToCall
 :CustomerNotification_latestDateTimeToCall rdf:type owl:DatatypeProperty ;
                                            rdfs:domain :CustomerNotification ;
                                            rdfs:range xsd:dateTime ;
                                            rdfs:comment "Latest date time to call the customer." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification_trigger
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification_trigger
 :CustomerNotification_trigger rdf:type owl:DatatypeProperty ;
                               rdfs:domain :CustomerNotification ;
                               rdfs:range :NotificationTriggerKind ;
                               rdfs:comment "Trigger for this notification." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer_kind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer_kind
 :Customer_kind rdf:type owl:DatatypeProperty ;
                rdfs:domain :Customer ;
                rdfs:range :CustomerKind ;
                rdfs:comment "Kind of customer." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer_locale
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer_locale
 :Customer_locale rdf:type owl:DatatypeProperty ;
                  rdfs:domain :Customer ;
                  rdfs:range xsd:string ;
                  rdfs:comment "Locale designating language to use in communications with this customer." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer_pucNumber
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer_pucNumber
 :Customer_pucNumber rdf:type owl:DatatypeProperty ;
                     rdfs:domain :Customer ;
                     rdfs:range xsd:string ;
                     rdfs:comment "(if applicable) Public utilities commission (PUC) identification number." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer_specialNeed
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer_specialNeed
 :Customer_specialNeed rdf:type owl:DatatypeProperty ;
                       rdfs:domain :Customer ;
                       rdfs:range xsd:string ;
                       rdfs:comment "True if customer organisation has special service needs such as life support, hospitals, etc." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer_vip
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer_vip
 :Customer_vip rdf:type owl:DatatypeProperty ;
               rdfs:domain :Customer ;
               rdfs:range xsd:boolean ;
               rdfs:comment "(use 'priority' instead) True if this is an important customer. Importance is for matters different than those in 'specialNeed' attribute." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_code
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_code
 :PricingStructure_code rdf:type owl:DatatypeProperty ;
                        rdfs:domain :PricingStructure ;
                        rdfs:range xsd:string ;
                        rdfs:comment "Unique user-allocated key for this pricing structure, used by company representatives to identify the correct price structure for allocating to a customer. For rate schedules it is often prefixed by a state code." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_dailyCeilingUsage
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_dailyCeilingUsage
 :PricingStructure_dailyCeilingUsage rdf:type owl:DatatypeProperty ;
                                     rdfs:domain :PricingStructure ;
                                     rdfs:range xsd:nonNegativeInteger ;
                                     rdfs:comment "Absolute maximum valid non-demand usage quantity used in validating a customer's billed non-demand usage." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_dailyEstimatedUsage
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_dailyEstimatedUsage
 :PricingStructure_dailyEstimatedUsage rdf:type owl:DatatypeProperty ;
                                       rdfs:domain :PricingStructure ;
                                       rdfs:range xsd:nonNegativeInteger ;
                                       rdfs:comment "Used in place of actual computed estimated average when history of usage is not available, and typically manually entered by customer accounting." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_dailyFloorUsage
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_dailyFloorUsage
 :PricingStructure_dailyFloorUsage rdf:type owl:DatatypeProperty ;
                                   rdfs:domain :PricingStructure ;
                                   rdfs:range xsd:nonNegativeInteger ;
                                   rdfs:comment "Absolute minimum valid non-demand usage quantity used in validating a customer's billed non-demand usage." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_revenueKind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_revenueKind
 :PricingStructure_revenueKind rdf:type owl:DatatypeProperty ;
                               rdfs:domain :PricingStructure ;
                               rdfs:range :RevenueKind ;
                               rdfs:comment "(accounting) Kind of revenue, often used to determine the grace period allowed, before collection actions are taken on a customer (grace periods vary between revenue classes)." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_taxExemption
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure_taxExemption
 :PricingStructure_taxExemption rdf:type owl:DatatypeProperty ;
                                rdfs:domain :PricingStructure ;
                                rdfs:range xsd:boolean ;
                                rdfs:comment "True if this pricing structure is not taxable." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory_kind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory_kind
 :ServiceCategory_kind rdf:type owl:DatatypeProperty ;
                       rdfs:domain :ServiceCategory ;
                       rdfs:range :ServiceKind ;
                       rdfs:comment "Kind of service." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceLocation_accessMethod
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceLocation_accessMethod
 :ServiceLocation_accessMethod rdf:type owl:DatatypeProperty ;
                               rdfs:domain :ServiceLocation ;
                               rdfs:range xsd:string ;
                               rdfs:comment "Method for the service person to access this service location. For example, a description of where to obtain a key if the facility is unmanned and secured." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceLocation_needsInspection
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceLocation_needsInspection
 :ServiceLocation_needsInspection rdf:type owl:DatatypeProperty ;
                                  rdfs:domain :ServiceLocation ;
                                  rdfs:range xsd:boolean ;
                                  rdfs:comment "True if inspection is needed of facilities at this service location. This could be requested by a customer, due to suspected tampering, environmental concerns (e.g., a fire in the vicinity), or to correct incompatible data." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceLocation_siteAccessProblem
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceLocation_siteAccessProblem
 :ServiceLocation_siteAccessProblem rdf:type owl:DatatypeProperty ;
                                    rdfs:domain :ServiceLocation ;
                                    rdfs:range xsd:string ;
@@ -848,7 +848,7 @@ xsd:date rdf:type rdfs:Datatype .
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Tariff_endDate
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Tariff_endDate
 :Tariff_endDate rdf:type owl:DatatypeProperty ;
                 rdfs:domain :Tariff ;
                 rdfs:range xsd:date ;
@@ -856,7 +856,7 @@ xsd:date rdf:type rdfs:Datatype .
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Tariff_startDate
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Tariff_startDate
 :Tariff_startDate rdf:type owl:DatatypeProperty ;
                   rdfs:domain :Tariff ;
                   rdfs:range xsd:date ;
@@ -864,35 +864,35 @@ xsd:date rdf:type rdfs:Datatype .
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket_dateTimeOfReport
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket_dateTimeOfReport
 :TroubleTicket_dateTimeOfReport rdf:type owl:DatatypeProperty ;
                                 rdfs:domain :TroubleTicket ;
                                 rdfs:range xsd:dateTime ;
                                 rdfs:comment "Date and time the trouble has been reported." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket_firstResponder
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket_firstResponder
 :TroubleTicket_firstResponder rdf:type owl:DatatypeProperty ;
                               rdfs:domain :TroubleTicket ;
                               rdfs:range xsd:string ;
                               rdfs:comment "A first responder on site such as police, fire department etc." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket_reportingKind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket_reportingKind
 :TroubleTicket_reportingKind rdf:type owl:DatatypeProperty ;
                              rdfs:domain :TroubleTicket ;
                              rdfs:range :TroubleReportingKind ;
                              rdfs:comment "Indicates how the customer reported trouble." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket_resolvedDateTime
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket_resolvedDateTime
 :TroubleTicket_resolvedDateTime rdf:type owl:DatatypeProperty ;
                                 rdfs:domain :TroubleTicket ;
                                 rdfs:range xsd:dateTime ;
                                 rdfs:comment "Date and time this trouble ticket has been resolved." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket_troubleCode
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket_troubleCode
 :TroubleTicket_troubleCode rdf:type owl:DatatypeProperty ;
                            rdfs:domain :TroubleTicket ;
                            rdfs:range xsd:string ;
@@ -903,33 +903,33 @@ xsd:date rdf:type rdfs:Datatype .
 #    Classes
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Agreement
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Agreement> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Hazard
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Hazard> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Hazard
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Hazard> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Priority
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Priority> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Priority
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Priority> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Customer
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer
 :Customer rdf:type owl:Class ;
-          rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> ,
+          rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :Customer_EndDevices ;
                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -953,12 +953,12 @@ xsd:date rdf:type rdfs:Datatype .
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :Customer_priority ;
                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Priority>
+                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Priority>
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :Customer_status ;
                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :Customer_CustomerAccounts ;
@@ -993,12 +993,12 @@ xsd:date rdf:type rdfs:Datatype .
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :Customer_priority ;
                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Priority>
+                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Priority>
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :Customer_status ;
                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :Customer_kind ;
@@ -1053,9 +1053,9 @@ xsd:date rdf:type rdfs:Datatype .
           rdfs:comment "Organisation receiving services from service supplier." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAccount
 :CustomerAccount rdf:type owl:Class ;
-                 rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                 rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document> ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty :CustomerAccount_Customer ;
                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1084,7 +1084,7 @@ xsd:date rdf:type rdfs:Datatype .
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty :CustomerAccount_lastBillAmount ;
                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
                                  ] ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty :CustomerAccount_CustomerAgreements ;
@@ -1114,7 +1114,7 @@ xsd:date rdf:type rdfs:Datatype .
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty :CustomerAccount_lastBillAmount ;
                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
                                  ] ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty :CustomerAccount_billingCycle ;
@@ -1139,9 +1139,9 @@ xsd:date rdf:type rdfs:Datatype .
                  rdfs:comment "Assignment of a group of products and services purchased by the customer through a customer agreement, used as a mechanism for customer billing and payment. It contains common information from the various types of customer agreements to create billings (invoices) for a customer and receive payment." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerAgreement
 :CustomerAgreement rdf:type owl:Class ;
-                   rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Agreement> ,
+                   rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement> ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty :CustomerAgreement_AuxiliaryAgreements ;
                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1245,7 +1245,7 @@ xsd:date rdf:type rdfs:Datatype .
                    rdfs:comment "Agreement between the customer and the service supplier to pay for service at a specific service location. It records certain billing information about the type of service provided at the service location and is used during charge creation to determine the type of service." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#CustomerNotification
 :CustomerNotification rdf:type owl:Class ;
                       rdfs:subClassOf [ rdf:type owl:Restriction ;
                                         owl:onProperty :CustomerNotification_Customer ;
@@ -1315,9 +1315,9 @@ xsd:date rdf:type rdfs:Datatype .
                       rdfs:comment "Conditions for notifying the customer about the changes in the status of their service (e.g., outage restore, estimated restoration time, tariff or service level change, etc.)" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#IncidentHazard
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#IncidentHazard
 :IncidentHazard rdf:type owl:Class ;
-                rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Hazard> ,
+                rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Hazard> ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :IncidentHazard_TroubleTicket ;
                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1326,9 +1326,9 @@ xsd:date rdf:type rdfs:Datatype .
                 rdfs:comment "Hazardous situation associated with an incident. Examples are line down, gas leak, fire, etc." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#PricingStructure
 :PricingStructure rdf:type owl:Class ;
-                  rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+                  rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document> ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty :PricingStructure_CustomerAgreements ;
                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1422,9 +1422,9 @@ xsd:date rdf:type rdfs:Datatype .
                   rdfs:comment "Grouping of pricing components and prices used in the creation of customer charges and the eligibility criteria under which these terms may be offered to a customer. The reasons for grouping include state, customer classification, site characteristics, classification (i.e. fee price structure, deposit price structure, electric service price structure, etc.) and accounting requirements." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory
 :ServiceCategory rdf:type owl:Class ;
-                 rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                 rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty :ServiceCategory_CustomerAgreements ;
                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1463,9 +1463,9 @@ xsd:date rdf:type rdfs:Datatype .
                  rdfs:comment "Category of service provided to the customer." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceLocation
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceLocation
 :ServiceLocation rdf:type owl:Class ;
-                 rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkLocation> ,
+                 rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkLocation> ,
                                  [ rdf:type owl:Restriction ;
                                    owl:onProperty :ServiceLocation_CustomerAgreements ;
                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1524,9 +1524,9 @@ xsd:date rdf:type rdfs:Datatype .
                  rdfs:comment "A real estate location, commonly referred to as premises." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#Tariff
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Tariff
 :Tariff rdf:type owl:Class ;
-        rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+        rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document> ,
                         [ rdf:type owl:Restriction ;
                           owl:onProperty :Tariff_PricingStructures ;
                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1561,9 +1561,9 @@ xsd:date rdf:type rdfs:Datatype .
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#TroubleTicket
 :TroubleTicket rdf:type owl:Class ;
-               rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+               rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document> ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty :TroubleTicket_Customer ;
                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1636,163 +1636,163 @@ xsd:date rdf:type rdfs:Datatype .
                                ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson> rdf:type owl:Class ;
-                                                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                             owl:onProperty :OldPerson_CustomerData ;
-                                                                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson>
-                                                                                           ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson> rdf:type owl:Class ;
+                                                                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty :OldPerson_CustomerData ;
+                                                                                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson>
+                                                                                                     ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo> rdf:type owl:Class ;
-                                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                          owl:onProperty :CustomerBillingInfo_CustomerAccount ;
-                                                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo>
-                                                                                                        ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo> rdf:type owl:Class ;
+                                                                                                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                    owl:onProperty :CustomerBillingInfo_CustomerAccount ;
+                                                                                                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#CustomerBillingInfo>
+                                                                                                                  ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#StandardIndustryCode
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#StandardIndustryCode> rdf:type owl:Class ;
-                                                                                         rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty :StandardIndustryCode_CustomerAgreements ;
-                                                                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#StandardIndustryCode>
-                                                                                                         ] ,
-                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                           owl:onProperty :StandardIndustryCode_CustomerAgreements ;
-                                                                                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#StandardIndustryCode>
-                                                                                                         ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#StandardIndustryCode
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#StandardIndustryCode> rdf:type owl:Class ;
+                                                                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                     owl:onProperty :StandardIndustryCode_CustomerAgreements ;
+                                                                                                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                     owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#StandardIndustryCode>
+                                                                                                                   ] ,
+                                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                                     owl:onProperty :StandardIndustryCode_CustomerAgreements ;
+                                                                                                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                                     owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#StandardIndustryCode>
+                                                                                                                   ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo> rdf:type owl:Class ;
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo> rdf:type owl:Class ;
+                                                                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                owl:onProperty :WorkBillingInfo_CustomerAccount ;
+                                                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo>
+                                                                                                              ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice> rdf:type owl:Class ;
+                                                                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                            owl:onProperty :ErpInvoice_CustomerAccount ;
+                                                                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice>
+                                                                                                          ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#DemandResponseProgram
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#DemandResponseProgram> rdf:type owl:Class ;
                                                                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                      owl:onProperty :WorkBillingInfo_CustomerAccount ;
+                                                                                                      owl:onProperty :DemandResponseProgram_CustomerAgreements ;
                                                                                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo>
+                                                                                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#DemandResponseProgram>
                                                                                                     ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice> rdf:type owl:Class ;
-                                                                                rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                  owl:onProperty :ErpInvoice_CustomerAccount ;
-                                                                                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoice>
-                                                                                                ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#EndDevice
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#EndDevice> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty :EndDevice_Customer ;
+                                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                          owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#EndDevice>
+                                                                                        ] ,
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty :EndDevice_ServiceLocation ;
+                                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                          owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#EndDevice>
+                                                                                        ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#DemandResponseProgram
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#DemandResponseProgram> rdf:type owl:Class ;
-                                                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                            owl:onProperty :DemandResponseProgram_CustomerAgreements ;
-                                                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#DemandResponseProgram>
-                                                                                          ] .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#EndDevice
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#EndDevice> rdf:type owl:Class ;
-                                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty :EndDevice_Customer ;
-                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#EndDevice>
-                                                                              ] ,
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty :EndDevice_ServiceLocation ;
-                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#EndDevice>
-                                                                              ] .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#MeterReading
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#MeterReading> rdf:type owl:Class ;
-                                                                 rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                   owl:onProperty :MeterReading_CustomerAgreement ;
-                                                                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#MeterReading>
-                                                                                 ] .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> rdf:type owl:Class ;
-                                                               rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :UsagePoint_CustomerAgreement ;
-                                                                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint>
-                                                                               ] ,
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :UsagePoint_PricingStructures ;
-                                                                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint>
-                                                                               ] ,
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :UsagePoint_ServiceCategory ;
-                                                                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint>
-                                                                               ] ,
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :UsagePoint_ServiceLocation ;
-                                                                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint>
-                                                                               ] .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement> rdf:type owl:Class ;
-                                                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                owl:onProperty :AuxiliaryAgreement_CustomerAgreement ;
-                                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement>
-                                                                                              ] .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#ServiceSupplier
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#ServiceSupplier> rdf:type owl:Class ;
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#MeterReading
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#MeterReading> rdf:type owl:Class ;
                                                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                             owl:onProperty :ServiceSupplier_CustomerAgreements ;
-                                                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#ServiceSupplier>
+                                                                                             owl:onProperty :MeterReading_CustomerAgreement ;
+                                                                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#MeterReading>
                                                                                            ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#TariffProfile
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#TariffProfile> rdf:type owl:Class ;
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> rdf:type owl:Class ;
                                                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty :TariffProfile_Tariffs ;
+                                                                                           owl:onProperty :UsagePoint_CustomerAgreement ;
                                                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#TariffProfile>
+                                                                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint>
+                                                                                         ] ,
+                                                                                         [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty :UsagePoint_PricingStructures ;
+                                                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint>
+                                                                                         ] ,
+                                                                                         [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty :UsagePoint_ServiceCategory ;
+                                                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint>
+                                                                                         ] ,
+                                                                                         [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty :UsagePoint_ServiceLocation ;
+                                                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint>
                                                                                          ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction> rdf:type owl:Class ;
-                                                                       rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                         owl:onProperty :Transaction_CustomerAccount ;
-                                                                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction>
-                                                                                       ] ,
-                                                                                       [ rdf:type owl:Restriction ;
-                                                                                         owl:onProperty :Transaction_PricingStructure ;
-                                                                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction>
-                                                                                       ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement> rdf:type owl:Class ;
+                                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                          owl:onProperty :AuxiliaryAgreement_CustomerAgreement ;
+                                                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                          owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#AuxiliaryAgreement>
+                                                                                                        ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkLocation
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkLocation> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#ServiceSupplier
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#ServiceSupplier> rdf:type owl:Class ;
+                                                                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty :ServiceSupplier_CustomerAgreements ;
+                                                                                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#ServiceSupplier>
+                                                                                                     ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#TariffProfile
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#TariffProfile> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty :TariffProfile_Tariffs ;
+                                                                                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                     owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#TariffProfile>
+                                                                                                   ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction> rdf:type owl:Class ;
+                                                                                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty :Transaction_CustomerAccount ;
+                                                                                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction>
+                                                                                                 ] ,
+                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty :Transaction_PricingStructure ;
+                                                                                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction>
+                                                                                                 ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkLocation
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkLocation> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Money
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> rdf:type owl:Class .
 
 
 ###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

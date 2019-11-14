@@ -1,18 +1,18 @@
-@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#> .
+@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#> .
+@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#> .
 
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#> rdf:type owl:Ontology .
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#> rdf:type owl:Ontology .
 
 #################################################################
 #    Datatypes
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#SkillLevelKind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#SkillLevelKind
 :SkillLevelKind rdf:type rdfs:Datatype ;
                 owl:equivalentClass [ rdf:type rdfs:Datatype ;
                                       owl:oneOf [ rdf:type rdf:List ;
@@ -35,22 +35,22 @@
 #    Object Properties
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Assignment_Crews
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Assignment_Crews
 :Assignment_Crews rdf:type owl:ObjectProperty ;
                   owl:inverseOf :OldCrew_Assignments ;
-                  rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Assignment> ;
+                  rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Assignment> ;
                   rdfs:range :OldCrew ;
                   rdfs:comment "All Crews having this Assignment.All Assignments for this Crew." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BankAccount_Bank
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BankAccount_Bank
 :BankAccount_Bank rdf:type owl:ObjectProperty ;
                   rdfs:domain :BankAccount ;
                   rdfs:range :Bank ;
                   rdfs:comment "All BankAccounts this Bank provides.Bank that provides this BankAccount." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Bank_BankAccounts
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Bank_BankAccounts
 :Bank_BankAccounts rdf:type owl:ObjectProperty ;
                    owl:inverseOf :BankAccount_Bank ;
                    rdfs:domain :Bank ;
@@ -58,42 +58,42 @@
                    rdfs:comment "All BankAccounts this Bank provides.Bank that provides this BankAccount." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BusinessRole_status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BusinessRole_status
 :BusinessRole_status rdf:type owl:ObjectProperty ;
                      rdfs:domain :BusinessRole ;
-                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status> .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Capability_Crafts
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Capability_Crafts
 :Capability_Crafts rdf:type owl:ObjectProperty ;
-                   rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Capability> ;
+                   rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Capability> ;
                    rdfs:range :Craft ;
                    rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Capability_Crew
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Capability_Crew
 :Capability_Crew rdf:type owl:ObjectProperty ;
-                 rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Capability> ;
+                 rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Capability> ;
                  rdfs:range :OldCrew ;
                  rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Craft_Capabilities
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Craft_Capabilities
 :Craft_Capabilities rdf:type owl:ObjectProperty ;
                     owl:inverseOf :Capability_Crafts ;
                     rdfs:domain :Craft ;
-                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Capability> ;
+                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Capability> ;
                     rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Craft_ErpPersons
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Craft_ErpPersons
 :Craft_ErpPersons rdf:type owl:ObjectProperty ;
                   rdfs:domain :Craft ;
                   rdfs:range :OldPerson ;
                   rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Craft_Skills
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Craft_Skills
 :Craft_Skills rdf:type owl:ObjectProperty ;
               owl:inverseOf :Skill_Crafts ;
               rdfs:domain :Craft ;
@@ -101,81 +101,81 @@
               rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Craft_status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Craft_status
 :Craft_status rdf:type owl:ObjectProperty ;
               rdfs:domain :Craft ;
-              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status> .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#ErpCompetency_ErpPersons
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#ErpCompetency_ErpPersons
 :ErpCompetency_ErpPersons rdf:type owl:ObjectProperty ;
                           owl:inverseOf :OldPerson_ErpCompetency ;
-                          rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpCompetency> ;
+                          rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpCompetency> ;
                           rdfs:range :OldPerson ;
                           rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#ErpPersonnel_ErpPersons
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#ErpPersonnel_ErpPersons
 :ErpPersonnel_ErpPersons rdf:type owl:ObjectProperty ;
                          owl:inverseOf :OldPerson_ErpPersonnel ;
-                         rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPersonnel> ;
+                         rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPersonnel> ;
                          rdfs:range :OldPerson ;
                          rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#LaborItem_ErpPersons
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#LaborItem_ErpPersons
 :LaborItem_ErpPersons rdf:type owl:ObjectProperty ;
                       owl:inverseOf :OldPerson_LaborItems ;
-                      rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#LaborItem> ;
+                      rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#LaborItem> ;
                       rdfs:range :OldPerson ;
                       rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#LandProperty_ErpOrganisationRoles
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#LandProperty_ErpOrganisationRoles
 :LandProperty_ErpOrganisationRoles rdf:type owl:ObjectProperty ;
-                                   rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty> ;
+                                   rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty> ;
                                    rdfs:range :PropertyOrganisationRole ;
                                    rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#LandProperty_ErpPersonRoles
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#LandProperty_ErpPersonRoles
 :LandProperty_ErpPersonRoles rdf:type owl:ObjectProperty ,
                                       owl:FunctionalProperty ;
-                             rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty> ;
+                             rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty> ;
                              rdfs:range :PersonPropertyRole ;
                              rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew_Assignments
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew_Assignments
 :OldCrew_Assignments rdf:type owl:ObjectProperty ;
                      rdfs:domain :OldCrew ;
-                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Assignment> ;
+                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Assignment> ;
                      rdfs:comment "All Crews having this Assignment.All Assignments for this Crew." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew_Capabilities
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew_Capabilities
 :OldCrew_Capabilities rdf:type owl:ObjectProperty ;
                       owl:inverseOf :Capability_Crew ;
                       rdfs:domain :OldCrew ;
-                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Capability> ;
+                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Capability> ;
                       rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew_Route
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew_Route
 :OldCrew_Route rdf:type owl:ObjectProperty ;
                rdfs:domain :OldCrew ;
-               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route> ;
+               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route> ;
                rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew_ShiftPatterns
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew_ShiftPatterns
 :OldCrew_ShiftPatterns rdf:type owl:ObjectProperty ;
                        rdfs:domain :OldCrew ;
-                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#ShiftPattern> ;
+                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#ShiftPattern> ;
                        rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_Crafts
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_Crafts
 :OldPerson_Crafts rdf:type owl:ObjectProperty ;
                   owl:inverseOf :Craft_ErpPersons ;
                   rdfs:domain :OldPerson ;
@@ -183,28 +183,28 @@
                   rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_ErpCompetency
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_ErpCompetency
 :OldPerson_ErpCompetency rdf:type owl:ObjectProperty ;
                          rdfs:domain :OldPerson ;
-                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpCompetency> ;
+                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpCompetency> ;
                          rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_ErpPersonnel
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_ErpPersonnel
 :OldPerson_ErpPersonnel rdf:type owl:ObjectProperty ;
                         rdfs:domain :OldPerson ;
-                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPersonnel> ;
+                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPersonnel> ;
                         rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_LaborItems
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_LaborItems
 :OldPerson_LaborItems rdf:type owl:ObjectProperty ;
                       rdfs:domain :OldPerson ;
-                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#LaborItem> ;
+                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#LaborItem> ;
                       rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_LandPropertyRoles
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_LandPropertyRoles
 :OldPerson_LandPropertyRoles rdf:type owl:ObjectProperty ,
                                       owl:FunctionalProperty ;
                              rdfs:domain :OldPerson ;
@@ -212,7 +212,7 @@
                              rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_OrganisationRoles
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_OrganisationRoles
 :OldPerson_OrganisationRoles rdf:type owl:ObjectProperty ,
                                       owl:FunctionalProperty ;
                              rdfs:domain :OldPerson ;
@@ -220,20 +220,20 @@
                              rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_Skills
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_Skills
 :OldPerson_Skills rdf:type owl:ObjectProperty ;
                   rdfs:domain :OldPerson ;
                   rdfs:range :Skill ;
                   rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_status
 :OldPerson_status rdf:type owl:ObjectProperty ;
                   rdfs:domain :OldPerson ;
-                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status> .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#PersonOrganisationRole_ErpPerson
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#PersonOrganisationRole_ErpPerson
 :PersonOrganisationRole_ErpPerson rdf:type owl:ObjectProperty ;
                                   owl:inverseOf :OldPerson_OrganisationRoles ;
                                   rdfs:domain :PersonOrganisationRole ;
@@ -241,15 +241,15 @@
                                   rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#PersonPropertyRole_LandProperty
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#PersonPropertyRole_LandProperty
 :PersonPropertyRole_LandProperty rdf:type owl:ObjectProperty ;
                                  owl:inverseOf :LandProperty_ErpPersonRoles ;
                                  rdfs:domain :PersonPropertyRole ;
-                                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty> ;
+                                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty> ;
                                  rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#PersonPropertyRole_Person
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#PersonPropertyRole_Person
 :PersonPropertyRole_Person rdf:type owl:ObjectProperty ;
                            owl:inverseOf :OldPerson_LandPropertyRoles ;
                            rdfs:domain :PersonPropertyRole ;
@@ -257,52 +257,52 @@
                            rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#PropertyOrganisationRole_LandProperty
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#PropertyOrganisationRole_LandProperty
 :PropertyOrganisationRole_LandProperty rdf:type owl:ObjectProperty ;
                                        owl:inverseOf :LandProperty_ErpOrganisationRoles ;
                                        rdfs:domain :PropertyOrganisationRole ;
-                                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty> ;
+                                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty> ;
                                        rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#QualificationRequirement_Skills
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#QualificationRequirement_Skills
 :QualificationRequirement_Skills rdf:type owl:ObjectProperty ;
                                  owl:inverseOf :Skill_QualificationRequirements ;
-                                 rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#QualificationRequirement> ;
+                                 rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#QualificationRequirement> ;
                                  rdfs:range :Skill ;
                                  rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Role_status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Role_status
 :Role_status rdf:type owl:ObjectProperty ;
              rdfs:domain :Role ;
-             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+             rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status> .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Route_Crews
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Route_Crews
 :Route_Crews rdf:type owl:ObjectProperty ;
              owl:inverseOf :OldCrew_Route ;
-             rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route> ;
+             rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route> ;
              rdfs:range :OldCrew ;
              rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#ShiftPattern_Crews
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#ShiftPattern_Crews
 :ShiftPattern_Crews rdf:type owl:ObjectProperty ;
                     owl:inverseOf :OldCrew_ShiftPatterns ;
-                    rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#ShiftPattern> ;
+                    rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#ShiftPattern> ;
                     rdfs:range :OldCrew ;
                     rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Skill_Crafts
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Skill_Crafts
 :Skill_Crafts rdf:type owl:ObjectProperty ;
               rdfs:domain :Skill ;
               rdfs:range :Craft ;
               rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Skill_ErpPerson
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Skill_ErpPerson
 :Skill_ErpPerson rdf:type owl:ObjectProperty ;
                  owl:inverseOf :OldPerson_Skills ;
                  rdfs:domain :Skill ;
@@ -310,17 +310,17 @@
                  rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Skill_QualificationRequirements
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Skill_QualificationRequirements
 :Skill_QualificationRequirements rdf:type owl:ObjectProperty ;
                                  rdfs:domain :Skill ;
-                                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#QualificationRequirement> ;
+                                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#QualificationRequirement> ;
                                  rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Skill_certificationPeriod
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Skill_certificationPeriod
 :Skill_certificationPeriod rdf:type owl:ObjectProperty ;
                            rdfs:domain :Skill ;
-                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
+                           rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
                            rdfs:comment "Interval between the certification and its expiry." .
 
 
@@ -328,28 +328,28 @@
 #    Data properties
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BankAccount_accountNumber
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BankAccount_accountNumber
 :BankAccount_accountNumber rdf:type owl:DatatypeProperty ;
                            rdfs:domain :BankAccount ;
                            rdfs:range xsd:string ;
                            rdfs:comment "Account reference number." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Bank_bic
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Bank_bic
 :Bank_bic rdf:type owl:DatatypeProperty ;
           rdfs:domain :Bank ;
           rdfs:range xsd:string ;
           rdfs:comment "Bank identifier code as defined in ISO 9362; for use in countries wher IBAN is not yet in operation." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Bank_iban
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Bank_iban
 :Bank_iban rdf:type owl:DatatypeProperty ;
            rdfs:domain :Bank ;
            rdfs:range xsd:string ;
            rdfs:comment "International bank account number defined in ISO 13616; for countries where IBAN is not in operation, the existing BIC or SWIFT codes may be used instead (see ISO 9362)." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BusinessRole_type
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BusinessRole_type
 :BusinessRole_type rdf:type owl:DatatypeProperty ;
                    rdfs:domain :BusinessRole ;
                    rdfs:range xsd:string ;
@@ -357,7 +357,7 @@
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Craft_type
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Craft_type
 :Craft_type rdf:type owl:DatatypeProperty ;
             rdfs:domain :Craft ;
             rdfs:range xsd:string ;
@@ -365,7 +365,7 @@
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew_type
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew_type
 :OldCrew_type rdf:type owl:DatatypeProperty ;
               rdfs:domain :OldCrew ;
               rdfs:range xsd:string ;
@@ -373,7 +373,7 @@
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_type
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson_type
 :OldPerson_type rdf:type owl:DatatypeProperty ;
                 rdfs:domain :OldPerson ;
                 rdfs:range xsd:string ;
@@ -382,35 +382,35 @@ Note that this field is not used to indicate whether this person is a customer o
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OrgOrgRole_clientID
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OrgOrgRole_clientID
 :OrgOrgRole_clientID rdf:type owl:DatatypeProperty ;
                      rdfs:domain :OrgOrgRole ;
                      rdfs:range xsd:string ;
                      rdfs:comment "Identifiers of the organisation held by another organisation, such as a government agency (federal, state, province, city, county), financial institution (Dun and Bradstreet), etc." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#PersonOrganisationRole_clientID
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#PersonOrganisationRole_clientID
 :PersonOrganisationRole_clientID rdf:type owl:DatatypeProperty ;
                                  rdfs:domain :PersonOrganisationRole ;
                                  rdfs:range xsd:string ;
                                  rdfs:comment "Identifiers of the person held by an organisation, such as a government agency (federal, state, province, city, county), financial institutions, etc." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio_denominator
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio_denominator
 :Ratio_denominator rdf:type owl:DatatypeProperty ;
                    rdfs:domain :Ratio ;
                    rdfs:range xsd:float ;
                    rdfs:comment "The part of a fraction that is below the line and that functions as the divisor of the numerator." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio_numerator
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio_numerator
 :Ratio_numerator rdf:type owl:DatatypeProperty ;
                  rdfs:domain :Ratio ;
                  rdfs:range xsd:float ;
                  rdfs:comment "The part of a fraction that is above the line and signifies the number to be divided by the denominator." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Role_type
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Role_type
 :Role_type rdf:type owl:DatatypeProperty ;
            rdfs:domain :Role ;
            rdfs:range xsd:string ;
@@ -418,7 +418,7 @@ Note that this field is not used to indicate whether this person is a customer o
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Skill_effectiveDateTime
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Skill_effectiveDateTime
 :Skill_effectiveDateTime rdf:type owl:DatatypeProperty ;
                          rdfs:domain :Skill ;
                          rdfs:range xsd:dateTime ;
@@ -426,7 +426,7 @@ Note that this field is not used to indicate whether this person is a customer o
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Skill_level
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Skill_level
 :Skill_level rdf:type owl:DatatypeProperty ;
              rdfs:domain :Skill ;
              rdfs:range :SkillLevelKind ;
@@ -438,29 +438,29 @@ Note that this field is not used to indicate whether this person is a customer o
 #    Classes
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Crew
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Crew> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Crew
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Crew> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Person
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Person> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Person
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Person> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Bank
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Bank
 :Bank rdf:type owl:Class ;
-      rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> ,
+      rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> ,
                       [ rdf:type owl:Restriction ;
                         owl:onProperty :Bank_BankAccounts ;
                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -494,9 +494,9 @@ Note that this field is not used to indicate whether this person is a customer o
       rdfs:comment "Organisation that is a commercial bank, agency, or other institution that offers a similar service." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BankAccount
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BankAccount
 :BankAccount rdf:type owl:Class ;
-             rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+             rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document> ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty :BankAccount_Bank ;
                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -515,24 +515,24 @@ Note that this field is not used to indicate whether this person is a customer o
              rdfs:comment "Bank account." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BusinessPlan
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BusinessPlan
 :BusinessPlan rdf:type owl:Class ;
-              rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ;
+              rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document> ;
               rdfs:comment "A BusinessPlan is an organized sequence of predetermined actions required to complete a future organizational objective. It is a type of document that typically references a schedule, physical and/or logical resources (assets and/or PowerSystemResources), locations, etc." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BusinessRole
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#BusinessRole
 :BusinessRole rdf:type owl:Class ;
-              rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> ,
+              rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :BusinessRole_status ;
                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
                               ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :BusinessRole_status ;
                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
                               ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :BusinessRole_type ;
@@ -548,9 +548,9 @@ Note that this field is not used to indicate whether this person is a customer o
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Craft
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Craft
 :Craft rdf:type owl:Class ;
-       rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+       rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :Craft_Capabilities ;
                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -569,12 +569,12 @@ Note that this field is not used to indicate whether this person is a customer o
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :Craft_status ;
                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                         owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
                        ] ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :Craft_status ;
                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                         owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
                        ] ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :Craft_type ;
@@ -590,16 +590,16 @@ Note that this field is not used to indicate whether this person is a customer o
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#DocumentOrganisationRole
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#DocumentOrganisationRole
 :DocumentOrganisationRole rdf:type owl:Class ;
-                          rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> ;
+                          rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> ;
                           rdfs:comment """Role an organisation plays with respect to documents.
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew
 :OldCrew rdf:type owl:Class ;
-         rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Crew> ,
+         rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Crew> ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :OldCrew_Assignments ;
                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -638,9 +638,9 @@ Note that this field is not used to indicate whether this person is a customer o
          rdfs:comment "A crew is a group of people with specific skills, tools, and vehicles." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson
 :OldPerson rdf:type owl:Class ;
-           rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Person> ,
+           rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Person> ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :OldPerson_Crafts ;
                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -669,7 +669,7 @@ Note that this field is not used to indicate whether this person is a customer o
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :OldPerson_status ;
                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :OldPerson_LandPropertyRoles ;
@@ -689,7 +689,7 @@ Note that this field is not used to indicate whether this person is a customer o
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :OldPerson_status ;
                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :OldPerson_type ;
@@ -704,9 +704,9 @@ Note that this field is not used to indicate whether this person is a customer o
            rdfs:comment "General purpose information for name and other information to contact people." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OrgOrgRole
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OrgOrgRole
 :OrgOrgRole rdf:type owl:Class ;
-            rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> ,
+            rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :OrgOrgRole_clientID ;
                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -721,9 +721,9 @@ Note that this field is not used to indicate whether this person is a customer o
 Note that the parent and child relationship is indicated by the name on each end of the association.""" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#PersonOrganisationRole
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#PersonOrganisationRole
 :PersonOrganisationRole rdf:type owl:Class ;
-                        rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> ,
+                        rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty :PersonOrganisationRole_ErpPerson ;
                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -743,7 +743,7 @@ Note that the parent and child relationship is indicated by the name on each end
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#PersonPropertyRole
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#PersonPropertyRole
 :PersonPropertyRole rdf:type owl:Class ;
                     rdfs:subClassOf :Role ,
                                     [ rdf:type owl:Restriction ;
@@ -759,9 +759,9 @@ Note that the parent and child relationship is indicated by the name on each end
                     rdfs:comment "The role of a person relative to a given piece of property. Examples of roles include: owner, renter, contractor, etc." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#PropertyOrganisationRole
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#PropertyOrganisationRole
 :PropertyOrganisationRole rdf:type owl:Class ;
-                          rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> ,
+                          rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole> ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty :PropertyOrganisationRole_LandProperty ;
                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -771,7 +771,7 @@ Note that the parent and child relationship is indicated by the name on each end
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Ratio
 :Ratio rdf:type owl:Class ;
        rdfs:subClassOf [ rdf:type owl:Restriction ;
                          owl:onProperty :Ratio_denominator ;
@@ -797,18 +797,18 @@ Note that the parent and child relationship is indicated by the name on each end
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Role
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Role
 :Role rdf:type owl:Class ;
-      rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+      rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                       [ rdf:type owl:Restriction ;
                         owl:onProperty :Role_status ;
                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                        owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
                       ] ,
                       [ rdf:type owl:Restriction ;
                         owl:onProperty :Role_status ;
                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
                       ] ,
                       [ rdf:type owl:Restriction ;
                         owl:onProperty :Role_type ;
@@ -824,9 +824,9 @@ Note that the parent and child relationship is indicated by the name on each end
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Skill
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#Skill
 :Skill rdf:type owl:Class ;
-       rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document> ,
+       rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document> ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :Skill_Crafts ;
                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -845,12 +845,12 @@ Note that the parent and child relationship is indicated by the name on each end
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :Skill_certificationPeriod ;
                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                         owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
                        ] ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :Skill_certificationPeriod ;
                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                         owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
                        ] ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :Skill_effectiveDateTime ;
@@ -876,118 +876,118 @@ Note that the parent and child relationship is indicated by the name on each end
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpCompetency
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpCompetency> rdf:type owl:Class ;
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpCompetency
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpCompetency> rdf:type owl:Class ;
+                                                                                             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                               owl:onProperty :ErpCompetency_ErpPersons ;
+                                                                                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpCompetency>
+                                                                                                             ] ,
+                                                                                                             [ rdf:type owl:Restriction ;
+                                                                                                               owl:onProperty :ErpCompetency_ErpPersons ;
+                                                                                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpCompetency>
+                                                                                                             ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPersonnel
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPersonnel> rdf:type owl:Class ;
+                                                                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                              owl:onProperty :ErpPersonnel_ErpPersons ;
+                                                                                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                              owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPersonnel>
+                                                                                                            ] ,
+                                                                                                            [ rdf:type owl:Restriction ;
+                                                                                                              owl:onProperty :ErpPersonnel_ErpPersons ;
+                                                                                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                              owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPersonnel>
+                                                                                                            ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty> rdf:type owl:Class ;
+                                                                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                             owl:onProperty :LandProperty_ErpOrganisationRoles ;
+                                                                                                             owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty>
+                                                                                                           ] ,
+                                                                                                           [ rdf:type owl:Restriction ;
+                                                                                                             owl:onProperty :LandProperty_ErpPersonRoles ;
+                                                                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty>
+                                                                                                           ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route> rdf:type owl:Class ;
+                                                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                      owl:onProperty :Route_Crews ;
+                                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route>
+                                                                                                    ] ,
+                                                                                                    [ rdf:type owl:Restriction ;
+                                                                                                      owl:onProperty :Route_Crews ;
+                                                                                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route>
+                                                                                                    ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Assignment
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Assignment> rdf:type owl:Class ;
+                                                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                      owl:onProperty :Assignment_Crews ;
+                                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Assignment>
+                                                                                                    ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Capability
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Capability> rdf:type owl:Class ;
+                                                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                      owl:onProperty :Capability_Crafts ;
+                                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Capability>
+                                                                                                    ] ,
+                                                                                                    [ rdf:type owl:Restriction ;
+                                                                                                      owl:onProperty :Capability_Crew ;
+                                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Capability>
+                                                                                                    ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#LaborItem
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#LaborItem> rdf:type owl:Class ;
                                                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                     owl:onProperty :ErpCompetency_ErpPersons ;
+                                                                                                     owl:onProperty :LaborItem_ErpPersons ;
                                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpCompetency>
-                                                                                                   ] ,
-                                                                                                   [ rdf:type owl:Restriction ;
-                                                                                                     owl:onProperty :ErpCompetency_ErpPersons ;
-                                                                                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpCompetency>
+                                                                                                     owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#LaborItem>
                                                                                                    ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPersonnel
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPersonnel> rdf:type owl:Class ;
-                                                                                  rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                    owl:onProperty :ErpPersonnel_ErpPersons ;
-                                                                                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPersonnel>
-                                                                                                  ] ,
-                                                                                                  [ rdf:type owl:Restriction ;
-                                                                                                    owl:onProperty :ErpPersonnel_ErpPersons ;
-                                                                                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                    owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpPersonnel>
-                                                                                                  ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#QualificationRequirement
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#QualificationRequirement> rdf:type owl:Class ;
+                                                                                                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                    owl:onProperty :QualificationRequirement_Skills ;
+                                                                                                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#QualificationRequirement>
+                                                                                                                  ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty> rdf:type owl:Class ;
-                                                                                 rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                   owl:onProperty :LandProperty_ErpOrganisationRoles ;
-                                                                                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty>
-                                                                                                 ] ,
-                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                   owl:onProperty :LandProperty_ErpPersonRoles ;
-                                                                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty>
-                                                                                                 ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#ShiftPattern
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#ShiftPattern> rdf:type owl:Class ;
+                                                                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty :ShiftPattern_Crews ;
+                                                                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#ShiftPattern>
+                                                                                                      ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route> rdf:type owl:Class ;
-                                                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                            owl:onProperty :Route_Crews ;
-                                                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route>
-                                                                                          ] ,
-                                                                                          [ rdf:type owl:Restriction ;
-                                                                                            owl:onProperty :Route_Crews ;
-                                                                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route>
-                                                                                          ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Assignment
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Assignment> rdf:type owl:Class ;
-                                                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                            owl:onProperty :Assignment_Crews ;
-                                                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Assignment>
-                                                                                          ] .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Capability
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Capability> rdf:type owl:Class ;
-                                                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                            owl:onProperty :Capability_Crafts ;
-                                                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Capability>
-                                                                                          ] ,
-                                                                                          [ rdf:type owl:Restriction ;
-                                                                                            owl:onProperty :Capability_Crew ;
-                                                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Capability>
-                                                                                          ] .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#LaborItem
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#LaborItem> rdf:type owl:Class ;
-                                                                         rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty :LaborItem_ErpPersons ;
-                                                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#LaborItem>
-                                                                                         ] .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#QualificationRequirement
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#QualificationRequirement> rdf:type owl:Class ;
-                                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                          owl:onProperty :QualificationRequirement_Skills ;
-                                                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#QualificationRequirement>
-                                                                                                        ] .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#ShiftPattern
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#ShiftPattern> rdf:type owl:Class ;
-                                                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                              owl:onProperty :ShiftPattern_Crews ;
-                                                                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                              owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#ShiftPattern>
-                                                                                            ] .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> rdf:type owl:Class .
 
 
 ###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

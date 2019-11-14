@@ -1,12 +1,12 @@
-@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#> .
+@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#> .
+@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#> .
 
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#> rdf:type owl:Ontology .
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#> rdf:type owl:Ontology .
 
 #################################################################
 #    Datatypes
@@ -20,7 +20,7 @@ xsd:date rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord_Author
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord_Author
 :ActivityRecord_Author rdf:type owl:ObjectProperty ;
                        owl:inverseOf :Author_ActivityRecords ;
                        rdfs:domain :ActivityRecord ;
@@ -28,21 +28,21 @@ xsd:date rdf:type rdfs:Datatype .
                        rdfs:comment "Author of this activity record.All activity records with this author." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord_status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord_status
 :ActivityRecord_status rdf:type owl:ObjectProperty ;
                        rdfs:domain :ActivityRecord ;
                        rdfs:range :Status ;
                        rdfs:comment "Information on consequence of event resulting in this activity record." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Agreement_validityInterval
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement_validityInterval
 :Agreement_validityInterval rdf:type owl:ObjectProperty ;
                             rdfs:domain :Agreement ;
-                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
+                            rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
                             rdfs:comment "Date and time interval this agreement is valid (from going into effect to termination)." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Appointment_Persons
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Appointment_Persons
 :Appointment_Persons rdf:type owl:ObjectProperty ;
                      owl:inverseOf :PersonRole_Appointments ;
                      rdfs:domain :Appointment ;
@@ -50,95 +50,95 @@ xsd:date rdf:type rdfs:Datatype .
                      rdfs:comment "All persons for this appointment.All appointments for this person." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Appointment_Works
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Appointment_Works
 :Appointment_Works rdf:type owl:ObjectProperty ;
                    rdfs:domain :Appointment ;
-                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work> ;
+                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Work> ;
                    rdfs:comment "All appointments for this work.All works for this appointment." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Appointment_meetingInterval
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Appointment_meetingInterval
 :Appointment_meetingInterval rdf:type owl:ObjectProperty ;
                              rdfs:domain :Appointment ;
-                             rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
+                             rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
                              rdfs:comment "Date and time reserved for appointment." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Approver_Documents
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Approver_Documents
 :Approver_Documents rdf:type owl:ObjectProperty ;
                     rdfs:domain :Approver ;
                     rdfs:range :Document ;
                     rdfs:comment "Approver of this document.All documents for this approver." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#AssetLocationHazard_Locations
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#AssetLocationHazard_Locations
 :AssetLocationHazard_Locations rdf:type owl:ObjectProperty ;
-                               rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetLocationHazard> ;
+                               rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#AssetLocationHazard> ;
                                rdfs:range :Location ;
                                rdfs:comment "All asset hazards at this location.The location of this hazard." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#AssetOwner_Ownerships
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#AssetOwner_Ownerships
 :AssetOwner_Ownerships rdf:type owl:ObjectProperty ;
                        owl:inverseOf :Ownership_AssetOwner ;
-                       rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetOwner> ;
+                       rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#AssetOwner> ;
                        rdfs:range :Ownership ;
                        rdfs:comment "All ownerships of this owner.Asset owner that is subject in this ownership." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Asset_ConfigurationEvents
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Asset_ConfigurationEvents
 :Asset_ConfigurationEvents rdf:type owl:ObjectProperty ;
-                           rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
+                           rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
                            rdfs:range :ConfigurationEvent ;
                            rdfs:comment "Asset whose change resulted in this configuration event.All configuration events created for this asset." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Asset_Location
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Asset_Location
 :Asset_Location rdf:type owl:ObjectProperty ;
-                rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
+                rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
                 rdfs:range :Location ;
                 rdfs:comment "All assets at this location.Location of this asset." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Asset_Ownerships
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Asset_Ownerships
 :Asset_Ownerships rdf:type owl:ObjectProperty ;
                   owl:inverseOf :Ownership_Asset ;
-                  rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
+                  rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
                   rdfs:range :Ownership ;
                   rdfs:comment "All ownerships of this asset.Asset that is object of this ownership." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Asset_ScheduledEvents
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Asset_ScheduledEvents
 :Asset_ScheduledEvents rdf:type owl:ObjectProperty ;
                        owl:inverseOf :ScheduledEvent_Assets ;
-                       rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
+                       rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
                        rdfs:range :ScheduledEvent ;
                        rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Author_ActivityRecords
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Author_ActivityRecords
 :Author_ActivityRecords rdf:type owl:ObjectProperty ;
                         rdfs:domain :Author ;
                         rdfs:range :ActivityRecord ;
                         rdfs:comment "Author of this activity record.All activity records with this author." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Author_Documents
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Author_Documents
 :Author_Documents rdf:type owl:ObjectProperty ;
                   rdfs:domain :Author ;
                   rdfs:range :Document ;
                   rdfs:comment "Author of this document.All documents of this this author." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_ChangedAsset
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_ChangedAsset
 :ConfigurationEvent_ChangedAsset rdf:type owl:ObjectProperty ;
                                  owl:inverseOf :Asset_ConfigurationEvents ;
                                  rdfs:domain :ConfigurationEvent ;
-                                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
+                                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
                                  rdfs:comment "Asset whose change resulted in this configuration event.All configuration events created for this asset." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_ChangedDocument
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_ChangedDocument
 :ConfigurationEvent_ChangedDocument rdf:type owl:ObjectProperty ;
                                     owl:inverseOf :Document_ConfigurationEvents ;
                                     rdfs:domain :ConfigurationEvent ;
@@ -146,7 +146,7 @@ xsd:date rdf:type rdfs:Datatype .
                                     rdfs:comment "Document whose change resulted in this configuration event.All configuration events created for this document." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_ChangedLocation
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_ChangedLocation
 :ConfigurationEvent_ChangedLocation rdf:type owl:ObjectProperty ;
                                     owl:inverseOf :Location_ConfigurationEvents ;
                                     rdfs:domain :ConfigurationEvent ;
@@ -154,7 +154,7 @@ xsd:date rdf:type rdfs:Datatype .
                                     rdfs:comment "Location whose change resulted in this configuration event.All configuration events created for this location." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_ChangedOrganisationRole
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_ChangedOrganisationRole
 :ConfigurationEvent_ChangedOrganisationRole rdf:type owl:ObjectProperty ;
                                             owl:inverseOf :OrganisationRole_ConfigurationEvents ;
                                             rdfs:domain :ConfigurationEvent ;
@@ -162,7 +162,7 @@ xsd:date rdf:type rdfs:Datatype .
                                             rdfs:comment "Organisation role whose change resulted in this configuration event.All configuration events created for this organisation role." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_ChangedPersonRole
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_ChangedPersonRole
 :ConfigurationEvent_ChangedPersonRole rdf:type owl:ObjectProperty ;
                                       owl:inverseOf :PersonRole_ConfigurationEvents ;
                                       rdfs:domain :ConfigurationEvent ;
@@ -170,23 +170,23 @@ xsd:date rdf:type rdfs:Datatype .
                                       rdfs:comment "Person role whose change resulted in this configuration event.All configuration events created for this person role." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_ChangedServiceCategory
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_ChangedServiceCategory
 :ConfigurationEvent_ChangedServiceCategory rdf:type owl:ObjectProperty ;
                                            owl:inverseOf :ServiceCategory_ConfigurationEvents ;
                                            rdfs:domain :ConfigurationEvent ;
-                                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory> ;
+                                           rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory> ;
                                            rdfs:comment "Service category whose change resulted in this configuration event.All configuration events created for this service category." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_ChangedUsagePoint
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_ChangedUsagePoint
 :ConfigurationEvent_ChangedUsagePoint rdf:type owl:ObjectProperty ;
                                       owl:inverseOf :UsagePoint_ConfigurationEvents ;
                                       rdfs:domain :ConfigurationEvent ;
-                                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
+                                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
                                       rdfs:comment "Usage point whose change resulted in this configuration event.All configuration events created for this usage point." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#CoordinateSystem_Locations
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#CoordinateSystem_Locations
 :CoordinateSystem_Locations rdf:type owl:ObjectProperty ;
                             owl:inverseOf :Location_CoordinateSystem ;
                             rdfs:domain :CoordinateSystem ;
@@ -194,7 +194,7 @@ xsd:date rdf:type rdfs:Datatype .
                             rdfs:comment "All locations described with position points in this coordinate system.Coordinate system used to describe position points of this location." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#CrewMember_Crew
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#CrewMember_Crew
 :CrewMember_Crew rdf:type owl:ObjectProperty ;
                  owl:inverseOf :Crew_CrewMembers ;
                  rdfs:domain :CrewMember ;
@@ -202,15 +202,15 @@ xsd:date rdf:type rdfs:Datatype .
                  rdfs:comment "Crew to which this crew member belongs.All members of this crew." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#CrewMember_SwitchingSteps
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#CrewMember_SwitchingSteps
 :CrewMember_SwitchingSteps rdf:type owl:ObjectProperty ;
                            owl:inverseOf :SwitchingStep_CrewMember ;
                            rdfs:domain :CrewMember ;
-                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep> ;
+                           rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep> ;
                            rdfs:comment "All switching steps this crew member is responsible for.Crew member responsible for this switching step." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#CrewType_Crews
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#CrewType_Crews
 :CrewType_Crews rdf:type owl:ObjectProperty ;
                 owl:inverseOf :Crew_CrewType ;
                 rdfs:domain :CrewType ;
@@ -218,44 +218,44 @@ xsd:date rdf:type rdfs:Datatype .
                 rdfs:comment "All crews of this type.Type of this crew." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Crew_CrewMembers
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Crew_CrewMembers
 :Crew_CrewMembers rdf:type owl:ObjectProperty ;
                   rdfs:domain :Crew ;
                   rdfs:range :CrewMember ;
                   rdfs:comment "Crew to which this crew member belongs.All members of this crew." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Crew_CrewType
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Crew_CrewType
 :Crew_CrewType rdf:type owl:ObjectProperty ;
                rdfs:domain :Crew ;
                rdfs:range :CrewType ;
                rdfs:comment "All crews of this type.Type of this crew." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Crew_WorkAssets
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Crew_WorkAssets
 :Crew_WorkAssets rdf:type owl:ObjectProperty ;
                  owl:inverseOf :WorkAsset_Crew ;
                  rdfs:domain :Crew ;
-                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkAsset> ;
+                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkAsset> ;
                  rdfs:comment "All work assets used by this crew.Crew using this work asset." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Crew_WorkTasks
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Crew_WorkTasks
 :Crew_WorkTasks rdf:type owl:ObjectProperty ;
                 owl:inverseOf :WorkTask_Crews ;
                 rdfs:domain :Crew ;
-                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTask> ;
+                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkTask> ;
                 rdfs:comment "All work tasks this crew participates in.All crews participating in this work task." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Crew_status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Crew_status
 :Crew_status rdf:type owl:ObjectProperty ;
              rdfs:domain :Crew ;
              rdfs:range :Status ;
              rdfs:comment "Status of this crew." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document_Approver
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document_Approver
 :Document_Approver rdf:type owl:ObjectProperty ;
                    owl:inverseOf :Approver_Documents ;
                    rdfs:domain :Document ;
@@ -263,7 +263,7 @@ xsd:date rdf:type rdfs:Datatype .
                    rdfs:comment "Approver of this document.All documents for this approver." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document_Author
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document_Author
 :Document_Author rdf:type owl:ObjectProperty ;
                  owl:inverseOf :Author_Documents ;
                  rdfs:domain :Document ;
@@ -271,14 +271,14 @@ xsd:date rdf:type rdfs:Datatype .
                  rdfs:comment "Author of this document.All documents of this this author." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document_ConfigurationEvents
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document_ConfigurationEvents
 :Document_ConfigurationEvents rdf:type owl:ObjectProperty ;
                               rdfs:domain :Document ;
                               rdfs:range :ConfigurationEvent ;
                               rdfs:comment "Document whose change resulted in this configuration event.All configuration events created for this document." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document_Editor
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document_Editor
 :Document_Editor rdf:type owl:ObjectProperty ;
                  owl:inverseOf :Editor_Documents ;
                  rdfs:domain :Document ;
@@ -286,7 +286,7 @@ xsd:date rdf:type rdfs:Datatype .
                  rdfs:comment "Editor of this document.All documents for this editor." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document_Issuer
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document_Issuer
 :Document_Issuer rdf:type owl:ObjectProperty ;
                  owl:inverseOf :Issuer_Documents ;
                  rdfs:domain :Document ;
@@ -294,7 +294,7 @@ xsd:date rdf:type rdfs:Datatype .
                  rdfs:comment "Issuer of this document.All documents for this issuer." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document_docStatus
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document_docStatus
 :Document_docStatus rdf:type owl:ObjectProperty ;
                     rdfs:domain :Document ;
                     rdfs:range :Status ;
@@ -302,140 +302,140 @@ xsd:date rdf:type rdfs:Datatype .
 Example values for 'docStatus.status' are draft, approved, cancelled, etc.""" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document_electronicAddress
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document_electronicAddress
 :Document_electronicAddress rdf:type owl:ObjectProperty ;
                             rdfs:domain :Document ;
                             rdfs:range :ElectronicAddress ;
                             rdfs:comment "Electronic address." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document_status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document_status
 :Document_status rdf:type owl:ObjectProperty ;
                  rdfs:domain :Document ;
                  rdfs:range :Status ;
                  rdfs:comment "Status of subject matter (e.g., Agreement, Work) this document represents. For status of the document itself, use 'docStatus' attribute." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Editor_Documents
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Editor_Documents
 :Editor_Documents rdf:type owl:ObjectProperty ;
                   rdfs:domain :Editor ;
                   rdfs:range :Document ;
                   rdfs:comment "Editor of this document.All documents for this editor." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ErpInvoiceLineItem_UserAttributes
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ErpInvoiceLineItem_UserAttributes
 :ErpInvoiceLineItem_UserAttributes rdf:type owl:ObjectProperty ;
-                                   rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem> ;
+                                   rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem> ;
                                    rdfs:range :UserAttribute ;
                                    rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ErpLedgerEntry_UserAttributes
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ErpLedgerEntry_UserAttributes
 :ErpLedgerEntry_UserAttributes rdf:type owl:ObjectProperty ;
-                               rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry> ;
+                               rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry> ;
                                rdfs:range :UserAttribute ;
                                rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Hazard_status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Hazard_status
 :Hazard_status rdf:type owl:ObjectProperty ;
                rdfs:domain :Hazard ;
                rdfs:range :Status ;
                rdfs:comment "Status of this hazard." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Incident_Location
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Incident_Location
 :Incident_Location rdf:type owl:ObjectProperty ;
-                   rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Incident> ;
+                   rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#Incident> ;
                    rdfs:range :Location ;
                    rdfs:comment "Incident at this location.Location of this incident." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Incident_Owner
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Incident_Owner
 :Incident_Owner rdf:type owl:ObjectProperty ;
-                rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Incident> ;
+                rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#Incident> ;
                 rdfs:range :Operator ;
                 rdfs:comment "All incidents owned by this operator.Operator who owns this incident." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#InspectionDataSet_AccordingToSchedules
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#InspectionDataSet_AccordingToSchedules
 :InspectionDataSet_AccordingToSchedules rdf:type owl:ObjectProperty ;
                                         owl:inverseOf :ScheduledEventData_InspectionDataSet ;
                                         rdf:type owl:FunctionalProperty ;
-                                        rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#InspectionDataSet> ;
+                                        rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#InspectionDataSet> ;
                                         rdfs:range :ScheduledEventData ;
                                         rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Issuer_Documents
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Issuer_Documents
 :Issuer_Documents rdf:type owl:ObjectProperty ;
                   rdfs:domain :Issuer ;
                   rdfs:range :Document ;
                   rdfs:comment "Issuer of this document.All documents for this issuer." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#LandProperty_Locations
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#LandProperty_Locations
 :LandProperty_Locations rdf:type owl:ObjectProperty ;
-                        rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty> ;
+                        rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty> ;
                         rdfs:range :Location ;
                         rdfs:comment "The spatail description of a piece of property." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_Assets
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_Assets
 :Location_Assets rdf:type owl:ObjectProperty ;
                  owl:inverseOf :Asset_Location ;
                  rdfs:domain :Location ;
-                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
+                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
                  rdfs:comment "All assets at this location.Location of this asset." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_ConfigurationEvents
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_ConfigurationEvents
 :Location_ConfigurationEvents rdf:type owl:ObjectProperty ;
                               rdfs:domain :Location ;
                               rdfs:range :ConfigurationEvent ;
                               rdfs:comment "Location whose change resulted in this configuration event.All configuration events created for this location." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_CoordinateSystem
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_CoordinateSystem
 :Location_CoordinateSystem rdf:type owl:ObjectProperty ;
                            rdfs:domain :Location ;
                            rdfs:range :CoordinateSystem ;
                            rdfs:comment "All locations described with position points in this coordinate system.Coordinate system used to describe position points of this location." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_Crews
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_Crews
 :Location_Crews rdf:type owl:ObjectProperty ;
                 owl:inverseOf :OldCrew_Locations ;
                 rdfs:domain :Location ;
-                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew> ;
+                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew> ;
                 rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_Hazards
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_Hazards
 :Location_Hazards rdf:type owl:ObjectProperty ;
                   owl:inverseOf :AssetLocationHazard_Locations ;
                   rdfs:domain :Location ;
-                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetLocationHazard> ;
+                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#AssetLocationHazard> ;
                   rdfs:comment "All asset hazards at this location.The location of this hazard." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_Incident
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_Incident
 :Location_Incident rdf:type owl:ObjectProperty ;
                    owl:inverseOf :Incident_Location ;
                    rdfs:domain :Location ;
-                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Incident> ;
+                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#Incident> ;
                    rdfs:comment "Incident at this location.Location of this incident." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_LandProperties
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_LandProperties
 :Location_LandProperties rdf:type owl:ObjectProperty ;
                          owl:inverseOf :LandProperty_Locations ;
                          rdfs:domain :Location ;
-                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty> ;
+                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty> ;
                          rdfs:comment "The spatail description of a piece of property." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_PositionPoints
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_PositionPoints
 :Location_PositionPoints rdf:type owl:ObjectProperty ,
                                   owl:FunctionalProperty ;
                          rdfs:domain :Location ;
@@ -443,94 +443,94 @@ Example values for 'docStatus.status' are draft, approved, cancelled, etc.""" .
                          rdfs:comment "Location described by this position point.Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_Routes
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_Routes
 :Location_Routes rdf:type owl:ObjectProperty ;
                  owl:inverseOf :Route_Locations ;
                  rdfs:domain :Location ;
-                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route> ;
+                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route> ;
                  rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_electronicAddress
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_electronicAddress
 :Location_electronicAddress rdf:type owl:ObjectProperty ;
                             rdfs:domain :Location ;
                             rdfs:range :ElectronicAddress ;
                             rdfs:comment "Electronic address." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_mainAddress
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_mainAddress
 :Location_mainAddress rdf:type owl:ObjectProperty ;
                       rdfs:domain :Location ;
                       rdfs:range :StreetAddress ;
                       rdfs:comment "Main address of the location." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_phone1
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_phone1
 :Location_phone1 rdf:type owl:ObjectProperty ;
                  rdfs:domain :Location ;
                  rdfs:range :TelephoneNumber ;
                  rdfs:comment "Phone number." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_phone2
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_phone2
 :Location_phone2 rdf:type owl:ObjectProperty ;
                  rdfs:domain :Location ;
                  rdfs:range :TelephoneNumber ;
                  rdfs:comment "Additional phone number." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_secondaryAddress
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_secondaryAddress
 :Location_secondaryAddress rdf:type owl:ObjectProperty ;
                            rdfs:domain :Location ;
                            rdfs:range :StreetAddress ;
                            rdfs:comment "Secondary address of the location. For example, PO Box address may have different ZIP code than that in the 'mainAddress'." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_status
 :Location_status rdf:type owl:ObjectProperty ;
                  rdfs:domain :Location ;
                  rdfs:range :Status ;
                  rdfs:comment "Status of this location." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OldCrew_Locations
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#OldCrew_Locations
 :OldCrew_Locations rdf:type owl:ObjectProperty ;
-                   rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew> ;
+                   rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew> ;
                    rdfs:range :Location ;
                    rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Operator_Incidents
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Operator_Incidents
 :Operator_Incidents rdf:type owl:ObjectProperty ;
                     owl:inverseOf :Incident_Owner ;
                     rdfs:domain :Operator ;
-                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Incident> ;
+                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#Incident> ;
                     rdfs:comment "All incidents owned by this operator.Operator who owns this incident." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Operator_SwitchingSteps
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Operator_SwitchingSteps
 :Operator_SwitchingSteps rdf:type owl:ObjectProperty ;
                          owl:inverseOf :SwitchingStep_Operator ;
                          rdfs:domain :Operator ;
-                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep> ;
+                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep> ;
                          rdfs:comment "All switching steps this operator is responsible for.Operator responsible for this switching step." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole_ConfigurationEvents
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole_ConfigurationEvents
 :OrganisationRole_ConfigurationEvents rdf:type owl:ObjectProperty ;
                                       rdfs:domain :OrganisationRole ;
                                       rdfs:range :ConfigurationEvent ;
                                       rdfs:comment "Organisation role whose change resulted in this configuration event.All configuration events created for this organisation role." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole_Organisation
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole_Organisation
 :OrganisationRole_Organisation rdf:type owl:ObjectProperty ;
                                rdfs:domain :OrganisationRole ;
                                rdfs:range :Organisation ;
                                rdfs:comment "All roles of this organisation.Organisation having this role." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Organisation_Roles
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Organisation_Roles
 :Organisation_Roles rdf:type owl:ObjectProperty ;
                     owl:inverseOf :OrganisationRole_Organisation ;
                     rdfs:domain :Organisation ;
@@ -538,77 +538,77 @@ Example values for 'docStatus.status' are draft, approved, cancelled, etc.""" .
                     rdfs:comment "All roles of this organisation.Organisation having this role." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Organisation_electronicAddress
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Organisation_electronicAddress
 :Organisation_electronicAddress rdf:type owl:ObjectProperty ;
                                 rdfs:domain :Organisation ;
                                 rdfs:range :ElectronicAddress ;
                                 rdfs:comment "Electronic address." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Organisation_phone1
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Organisation_phone1
 :Organisation_phone1 rdf:type owl:ObjectProperty ;
                      rdfs:domain :Organisation ;
                      rdfs:range :TelephoneNumber ;
                      rdfs:comment "Phone number." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Organisation_phone2
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Organisation_phone2
 :Organisation_phone2 rdf:type owl:ObjectProperty ;
                      rdfs:domain :Organisation ;
                      rdfs:range :TelephoneNumber ;
                      rdfs:comment "Additional phone number." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Organisation_postalAddress
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Organisation_postalAddress
 :Organisation_postalAddress rdf:type owl:ObjectProperty ;
                             rdfs:domain :Organisation ;
                             rdfs:range :StreetAddress ;
                             rdfs:comment "Postal address, potentially different than 'streetAddress' (e.g., another city)." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Organisation_streetAddress
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Organisation_streetAddress
 :Organisation_streetAddress rdf:type owl:ObjectProperty ;
                             rdfs:domain :Organisation ;
                             rdfs:range :StreetAddress ;
                             rdfs:comment "Street address." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Ownership_Asset
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Ownership_Asset
 :Ownership_Asset rdf:type owl:ObjectProperty ;
                  rdfs:domain :Ownership ;
-                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
+                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
                  rdfs:comment "All ownerships of this asset.Asset that is object of this ownership." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Ownership_AssetOwner
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Ownership_AssetOwner
 :Ownership_AssetOwner rdf:type owl:ObjectProperty ;
                       rdfs:domain :Ownership ;
-                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetOwner> ;
+                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#AssetOwner> ;
                       rdfs:comment "All ownerships of this owner.Asset owner that is subject in this ownership." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Ownership_share
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Ownership_share
 :Ownership_share rdf:type owl:ObjectProperty ;
                  rdfs:domain :Ownership ;
-                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
+                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
                  rdfs:comment "Share of this ownership." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#PersonRole_Appointments
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#PersonRole_Appointments
 :PersonRole_Appointments rdf:type owl:ObjectProperty ;
                          rdfs:domain :PersonRole ;
                          rdfs:range :Appointment ;
                          rdfs:comment "All persons for this appointment.All appointments for this person." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#PersonRole_ConfigurationEvents
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#PersonRole_ConfigurationEvents
 :PersonRole_ConfigurationEvents rdf:type owl:ObjectProperty ;
                                 rdfs:domain :PersonRole ;
                                 rdfs:range :ConfigurationEvent ;
                                 rdfs:comment "Person role whose change resulted in this configuration event.All configuration events created for this person role." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#PersonRole_Person
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#PersonRole_Person
 :PersonRole_Person rdf:type owl:ObjectProperty ;
                    owl:inverseOf :Person_Roles ;
                    rdfs:domain :PersonRole ;
@@ -616,35 +616,35 @@ Example values for 'docStatus.status' are draft, approved, cancelled, etc.""" .
                    rdfs:comment "Person having this role.All roles of this person." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Person_Roles
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Person_Roles
 :Person_Roles rdf:type owl:ObjectProperty ;
               rdfs:domain :Person ;
               rdfs:range :PersonRole ;
               rdfs:comment "Person having this role.All roles of this person." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Person_electronicAddress
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Person_electronicAddress
 :Person_electronicAddress rdf:type owl:ObjectProperty ;
                           rdfs:domain :Person ;
                           rdfs:range :ElectronicAddress ;
                           rdfs:comment "Electronic address." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Person_landlinePhone
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Person_landlinePhone
 :Person_landlinePhone rdf:type owl:ObjectProperty ;
                       rdfs:domain :Person ;
                       rdfs:range :TelephoneNumber ;
                       rdfs:comment "Landline phone number." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Person_mobilePhone
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Person_mobilePhone
 :Person_mobilePhone rdf:type owl:ObjectProperty ;
                     rdfs:domain :Person ;
                     rdfs:range :TelephoneNumber ;
                     rdfs:comment "Mobile phone number." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#PositionPoint_Location
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#PositionPoint_Location
 :PositionPoint_Location rdf:type owl:ObjectProperty ;
                         owl:inverseOf :Location_PositionPoints ;
                         rdfs:domain :PositionPoint ;
@@ -652,63 +652,63 @@ Example values for 'docStatus.status' are draft, approved, cancelled, etc.""" .
                         rdfs:comment "Location described by this position point.Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ProcedureDataSet_Properties
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ProcedureDataSet_Properties
 :ProcedureDataSet_Properties rdf:type owl:ObjectProperty ;
                              owl:inverseOf :UserAttribute_ProcedureDataSets ;
-                             rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet> ;
+                             rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet> ;
                              rdfs:range :UserAttribute ;
                              rdfs:comment "UserAttributes used to specify further properties of this procedure data set. Use 'name' to specify what kind of property it is, and 'value.value' attribute for the actual value." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Route_Locations
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Route_Locations
 :Route_Locations rdf:type owl:ObjectProperty ;
-                 rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route> ;
+                 rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route> ;
                  rdfs:range :Location ;
                  rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ScheduledEventData_InspectionDataSet
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ScheduledEventData_InspectionDataSet
 :ScheduledEventData_InspectionDataSet rdf:type owl:ObjectProperty ;
                                       rdfs:domain :ScheduledEventData ;
-                                      rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#InspectionDataSet> ;
+                                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#InspectionDataSet> ;
                                       rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ScheduledEventData_ScheduledEvents
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ScheduledEventData_ScheduledEvents
 :ScheduledEventData_ScheduledEvents rdf:type owl:ObjectProperty ;
                                     rdfs:domain :ScheduledEventData ;
                                     rdfs:range :ScheduledEvent ;
                                     rdfs:comment "Specification for this scheduled event.All scheduled events with this specification." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ScheduledEventData_estimatedWindow
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ScheduledEventData_estimatedWindow
 :ScheduledEventData_estimatedWindow rdf:type owl:ObjectProperty ;
                                     rdfs:domain :ScheduledEventData ;
-                                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
+                                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
                                     rdfs:comment "Estimated date and time for activity execution (with earliest possibility of activity initiation and latest possibility of activity completion)." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ScheduledEventData_requestedWindow
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ScheduledEventData_requestedWindow
 :ScheduledEventData_requestedWindow rdf:type owl:ObjectProperty ;
                                     rdfs:domain :ScheduledEventData ;
-                                    rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
+                                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
                                     rdfs:comment "Requested date and time interval for activity execution." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ScheduledEventData_status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ScheduledEventData_status
 :ScheduledEventData_status rdf:type owl:ObjectProperty ;
                            rdfs:domain :ScheduledEventData ;
                            rdfs:range :Status .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ScheduledEvent_Assets
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ScheduledEvent_Assets
 :ScheduledEvent_Assets rdf:type owl:ObjectProperty ;
                        rdfs:domain :ScheduledEvent ;
-                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
+                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
                        rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ScheduledEvent_ScheduledEventData
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ScheduledEvent_ScheduledEventData
 :ScheduledEvent_ScheduledEventData rdf:type owl:ObjectProperty ;
                                    owl:inverseOf :ScheduledEventData_ScheduledEvents ;
                                    rdfs:domain :ScheduledEvent ;
@@ -716,78 +716,78 @@ Example values for 'docStatus.status' are draft, approved, cancelled, etc.""" .
                                    rdfs:comment "Specification for this scheduled event.All scheduled events with this specification." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ScheduledEvent_duration
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ScheduledEvent_duration
 :ScheduledEvent_duration rdf:type owl:ObjectProperty ;
                          rdfs:domain :ScheduledEvent ;
-                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
                          rdfs:comment "Duration of the scheduled event, for example, the time to ramp between values." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ScheduledEvent_status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ScheduledEvent_status
 :ScheduledEvent_status rdf:type owl:ObjectProperty ;
                        rdfs:domain :ScheduledEvent ;
                        rdfs:range :Status .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ServiceCategory_ConfigurationEvents
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ServiceCategory_ConfigurationEvents
 :ServiceCategory_ConfigurationEvents rdf:type owl:ObjectProperty ;
-                                     rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory> ;
+                                     rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory> ;
                                      rdfs:range :ConfigurationEvent ;
                                      rdfs:comment "Service category whose change resulted in this configuration event.All configuration events created for this service category." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Specification_AssetProperites
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Specification_AssetProperites
 :Specification_AssetProperites rdf:type owl:ObjectProperty ;
                                owl:inverseOf :UserAttribute_PropertySpecification ;
-                               rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification> ;
+                               rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification> ;
                                rdfs:range :UserAttribute ;
                                rdfs:comment "UserAttributes used to specify further properties of the asset covered with this specification. Use 'name' to specify what kind of property it is, and 'value.value' attribute for the actual value." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Specification_Ratings
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Specification_Ratings
 :Specification_Ratings rdf:type owl:ObjectProperty ;
                        owl:inverseOf :UserAttribute_RatingSpecification ;
-                       rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification> ;
+                       rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification> ;
                        rdfs:range :UserAttribute ;
                        rdfs:comment "UserAttributes used to specify ratings of the asset covered by this specification. Ratings also can be used to set the initial value of operational measurement limits. Use 'name' to specify what kind of rating it is (e.g., voltage, current), and 'value' attribute for the actual value and unit information of the rating." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetAddress_status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetAddress_status
 :StreetAddress_status rdf:type owl:ObjectProperty ;
                       rdfs:domain :StreetAddress ;
                       rdfs:range :Status ;
                       rdfs:comment "Status of this address." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetAddress_streetDetail
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetAddress_streetDetail
 :StreetAddress_streetDetail rdf:type owl:ObjectProperty ;
                             rdfs:domain :StreetAddress ;
                             rdfs:range :StreetDetail ;
                             rdfs:comment "Street detail." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetAddress_townDetail
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetAddress_townDetail
 :StreetAddress_townDetail rdf:type owl:ObjectProperty ;
                           rdfs:domain :StreetAddress ;
                           rdfs:range :TownDetail ;
                           rdfs:comment "Town detail." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#SwitchingStep_CrewMember
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#SwitchingStep_CrewMember
 :SwitchingStep_CrewMember rdf:type owl:ObjectProperty ;
-                          rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep> ;
+                          rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep> ;
                           rdfs:range :CrewMember ;
                           rdfs:comment "All switching steps this crew member is responsible for.Crew member responsible for this switching step." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#SwitchingStep_Operator
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#SwitchingStep_Operator
 :SwitchingStep_Operator rdf:type owl:ObjectProperty ;
-                        rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep> ;
+                        rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep> ;
                         rdfs:range :Operator ;
                         rdfs:comment "All switching steps this operator is responsible for.Operator responsible for this switching step." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TimePoint_TimeSchedule
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TimePoint_TimeSchedule
 :TimePoint_TimeSchedule rdf:type owl:ObjectProperty ;
                         owl:inverseOf :TimeSchedule_TimePoints ;
                         rdfs:domain :TimePoint ;
@@ -795,28 +795,28 @@ Example values for 'docStatus.status' are draft, approved, cancelled, etc.""" .
                         rdfs:comment "Time schedule owning this time point.Sequence of time points belonging to this time schedule." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TimePoint_relativeTimeInterval
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TimePoint_relativeTimeInterval
 :TimePoint_relativeTimeInterval rdf:type owl:ObjectProperty ;
                                 rdfs:domain :TimePoint ;
-                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
                                 rdfs:comment "(if interval-based) A point in time relative to scheduled start time in 'TimeSchedule.scheduleInterval.start'." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TimePoint_status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TimePoint_status
 :TimePoint_status rdf:type owl:ObjectProperty ;
                   rdfs:domain :TimePoint ;
                   rdfs:range :Status ;
                   rdfs:comment "Status of this time point." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TimePoint_window
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TimePoint_window
 :TimePoint_window rdf:type owl:ObjectProperty ;
                   rdfs:domain :TimePoint ;
-                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
+                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
                   rdfs:comment "Interval defining the window of time that this time point is valid (for example, seasonal, only on weekends, not on weekends, only 8:00 am to 5:00 pm, etc.)." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule_TimePoints
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule_TimePoints
 :TimeSchedule_TimePoints rdf:type owl:ObjectProperty ,
                                   owl:FunctionalProperty ;
                          rdfs:domain :TimeSchedule ;
@@ -824,111 +824,111 @@ Example values for 'docStatus.status' are draft, approved, cancelled, etc.""" .
                          rdfs:comment "Time schedule owning this time point.Sequence of time points belonging to this time schedule." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule_offset
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule_offset
 :TimeSchedule_offset rdf:type owl:ObjectProperty ;
                      rdfs:domain :TimeSchedule ;
-                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
                      rdfs:comment "The offset from midnight (i.e., 0 h, 0 min, 0 s) for the periodic time points to begin. For example, for an interval meter that is set up for five minute intervals ('recurrencePeriod'=300=5 min), setting 'offset'=120=2 min would result in scheduled events to read the meter executing at 2 min, 7 min, 12 min, 17 min, 22 min, 27 min, 32 min, 37 min, 42 min, 47 min, 52 min, and 57 min past each hour." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule_recurrencePeriod
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule_recurrencePeriod
 :TimeSchedule_recurrencePeriod rdf:type owl:ObjectProperty ;
                                rdfs:domain :TimeSchedule ;
-                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
                                rdfs:comment "Duration between time points, from the beginning of one period to the beginning of the next period. Note that a device like a meter may have multiple interval periods (e.g., 1 min, 5 min, 15 min, 30 min, or 60 min)." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule_scheduleInterval
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule_scheduleInterval
 :TimeSchedule_scheduleInterval rdf:type owl:ObjectProperty ;
                                rdfs:domain :TimeSchedule ;
-                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
+                               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> ;
                                rdfs:comment "Schedule date and time interval." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Transaction_UserAttributes
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Transaction_UserAttributes
 :Transaction_UserAttributes rdf:type owl:ObjectProperty ;
                             owl:inverseOf :UserAttribute_Transaction ;
-                            rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction> ;
+                            rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction> ;
                             rdfs:range :UserAttribute ;
                             rdfs:comment "All snapshots of meter parameters recorded at the time of this transaction. Use 'name' and 'value.value' attributes to specify name and value of a parameter from meter.Transaction for which this snapshot has been recorded." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#UsagePoint_ConfigurationEvents
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#UsagePoint_ConfigurationEvents
 :UsagePoint_ConfigurationEvents rdf:type owl:ObjectProperty ;
-                                rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
+                                rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> ;
                                 rdfs:range :ConfigurationEvent ;
                                 rdfs:comment "Usage point whose change resulted in this configuration event.All configuration events created for this usage point." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_ErpInvoiceLineItems
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_ErpInvoiceLineItems
 :UserAttribute_ErpInvoiceLineItems rdf:type owl:ObjectProperty ;
                                    owl:inverseOf :ErpInvoiceLineItem_UserAttributes ;
                                    rdfs:domain :UserAttribute ;
-                                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem> ;
+                                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem> ;
                                    rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_ErpLedgerEntries
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_ErpLedgerEntries
 :UserAttribute_ErpLedgerEntries rdf:type owl:ObjectProperty ;
                                 owl:inverseOf :ErpLedgerEntry_UserAttributes ;
                                 rdfs:domain :UserAttribute ;
-                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry> ;
+                                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry> ;
                                 rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_ProcedureDataSets
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_ProcedureDataSets
 :UserAttribute_ProcedureDataSets rdf:type owl:ObjectProperty ;
                                  rdfs:domain :UserAttribute ;
-                                 rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet> ;
+                                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet> ;
                                  rdfs:comment "UserAttributes used to specify further properties of this procedure data set. Use 'name' to specify what kind of property it is, and 'value.value' attribute for the actual value." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_PropertySpecification
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_PropertySpecification
 :UserAttribute_PropertySpecification rdf:type owl:ObjectProperty ;
                                      rdfs:domain :UserAttribute ;
-                                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification> ;
+                                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification> ;
                                      rdfs:comment "UserAttributes used to specify further properties of the asset covered with this specification. Use 'name' to specify what kind of property it is, and 'value.value' attribute for the actual value." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_RatingSpecification
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_RatingSpecification
 :UserAttribute_RatingSpecification rdf:type owl:ObjectProperty ;
                                    rdfs:domain :UserAttribute ;
-                                   rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification> ;
+                                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification> ;
                                    rdfs:comment "UserAttributes used to specify ratings of the asset covered by this specification. Ratings also can be used to set the initial value of operational measurement limits. Use 'name' to specify what kind of rating it is (e.g., voltage, current), and 'value' attribute for the actual value and unit information of the rating." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_Transaction
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_Transaction
 :UserAttribute_Transaction rdf:type owl:ObjectProperty ;
                            rdfs:domain :UserAttribute ;
-                           rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction> ;
+                           rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction> ;
                            rdfs:comment "All snapshots of meter parameters recorded at the time of this transaction. Use 'name' and 'value.value' attributes to specify name and value of a parameter from meter.Transaction for which this snapshot has been recorded." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_value
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_value
 :UserAttribute_value rdf:type owl:ObjectProperty ;
                      rdfs:domain :UserAttribute ;
-                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#StringQuantity> ;
+                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#StringQuantity> ;
                      rdfs:comment "Value of an attribute, including unit information." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#WorkAsset_Crew
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#WorkAsset_Crew
 :WorkAsset_Crew rdf:type owl:ObjectProperty ;
-                rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkAsset> ;
+                rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkAsset> ;
                 rdfs:range :Crew ;
                 rdfs:comment "All work assets used by this crew.Crew using this work asset." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#WorkTask_Crews
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#WorkTask_Crews
 :WorkTask_Crews rdf:type owl:ObjectProperty ;
-                rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTask> ;
+                rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkTask> ;
                 rdfs:range :Crew ;
                 rdfs:comment "All work tasks this crew participates in.All crews participating in this work task." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Work_Appointments
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Work_Appointments
 :Work_Appointments rdf:type owl:ObjectProperty ;
                    owl:inverseOf :Appointment_Works ;
-                   rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work> ;
+                   rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Work> ;
                    rdfs:range :Appointment ;
                    rdfs:comment "All appointments for this work.All works for this appointment." .
 
@@ -953,7 +953,7 @@ Example values for 'docStatus.status' are draft, approved, cancelled, etc.""" .
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord_createdDateTime
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord_createdDateTime
 :ActivityRecord_createdDateTime rdf:type owl:DatatypeProperty ;
                                 rdfs:domain :ActivityRecord ;
                                 rdfs:range xsd:dateTime ;
@@ -961,21 +961,21 @@ Example values for 'docStatus.status' are draft, approved, cancelled, etc.""" .
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord_reason
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord_reason
 :ActivityRecord_reason rdf:type owl:DatatypeProperty ;
                        rdfs:domain :ActivityRecord ;
                        rdfs:range xsd:string ;
                        rdfs:comment "Reason for event resulting in this activity record, typically supplied when user initiated." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord_severity
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord_severity
 :ActivityRecord_severity rdf:type owl:DatatypeProperty ;
                          rdfs:domain :ActivityRecord ;
                          rdfs:range xsd:string ;
                          rdfs:comment "Severity level of event resulting in this activity record." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord_type
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord_type
 :ActivityRecord_type rdf:type owl:DatatypeProperty ;
                      rdfs:domain :ActivityRecord ;
                      rdfs:range xsd:string ;
@@ -983,7 +983,7 @@ Example values for 'docStatus.status' are draft, approved, cancelled, etc.""" .
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Agreement_signDate
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement_signDate
 :Agreement_signDate rdf:type owl:DatatypeProperty ;
                     rdfs:domain :Agreement ;
                     rdfs:range xsd:date ;
@@ -991,14 +991,14 @@ Example values for 'docStatus.status' are draft, approved, cancelled, etc.""" .
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Appointment_callAhead
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Appointment_callAhead
 :Appointment_callAhead rdf:type owl:DatatypeProperty ;
                        rdfs:domain :Appointment ;
                        rdfs:range xsd:boolean ;
                        rdfs:comment "True if requested to call customer when someone is about to arrive at their premises." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_effectiveDateTime
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_effectiveDateTime
 :ConfigurationEvent_effectiveDateTime rdf:type owl:DatatypeProperty ;
                                       rdfs:domain :ConfigurationEvent ;
                                       rdfs:range xsd:dateTime ;
@@ -1006,7 +1006,7 @@ Example values for 'docStatus.status' are draft, approved, cancelled, etc.""" .
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_modifiedBy
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_modifiedBy
 :ConfigurationEvent_modifiedBy rdf:type owl:DatatypeProperty ;
                                rdfs:domain :ConfigurationEvent ;
                                rdfs:range xsd:string ;
@@ -1014,7 +1014,7 @@ Example values for 'docStatus.status' are draft, approved, cancelled, etc.""" .
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_remark
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent_remark
 :ConfigurationEvent_remark rdf:type owl:DatatypeProperty ;
                            rdfs:domain :ConfigurationEvent ;
                            rdfs:range xsd:string ;
@@ -1022,7 +1022,7 @@ Example values for 'docStatus.status' are draft, approved, cancelled, etc.""" .
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#CoordinateSystem_crsUrn
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#CoordinateSystem_crsUrn
 :CoordinateSystem_crsUrn rdf:type owl:DatatypeProperty ;
                          rdfs:domain :CoordinateSystem ;
                          rdfs:range xsd:string ;
@@ -1031,21 +1031,21 @@ An example would be the European Petroleum Survey Group (EPSG) code for a coordi
 A profile should limit this code to a set of allowed URNs agreed to by all sending and receiving parties.""" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document_authorName
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document_authorName
 :Document_authorName rdf:type owl:DatatypeProperty ;
                      rdfs:domain :Document ;
                      rdfs:range xsd:string ;
                      rdfs:comment "Name of the author of this document." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document_comment
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document_comment
 :Document_comment rdf:type owl:DatatypeProperty ;
                   rdfs:domain :Document ;
                   rdfs:range xsd:string ;
                   rdfs:comment "Free text comment." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document_createdDateTime
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document_createdDateTime
 :Document_createdDateTime rdf:type owl:DatatypeProperty ;
                           rdfs:domain :Document ;
                           rdfs:range xsd:dateTime ;
@@ -1053,7 +1053,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document_lastModifiedDateTime
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document_lastModifiedDateTime
 :Document_lastModifiedDateTime rdf:type owl:DatatypeProperty ;
                                rdfs:domain :Document ;
                                rdfs:range xsd:dateTime ;
@@ -1061,35 +1061,35 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document_revisionNumber
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document_revisionNumber
 :Document_revisionNumber rdf:type owl:DatatypeProperty ;
                          rdfs:domain :Document ;
                          rdfs:range xsd:string ;
                          rdfs:comment "Revision number for this document." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document_subject
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document_subject
 :Document_subject rdf:type owl:DatatypeProperty ;
                   rdfs:domain :Document ;
                   rdfs:range xsd:string ;
                   rdfs:comment "Document subject." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document_title
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document_title
 :Document_title rdf:type owl:DatatypeProperty ;
                 rdfs:domain :Document ;
                 rdfs:range xsd:string ;
                 rdfs:comment "Document title." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document_type
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document_type
 :Document_type rdf:type owl:DatatypeProperty ;
                rdfs:domain :Document ;
                rdfs:range xsd:string ;
                rdfs:comment "Utility-specific classification of this document, according to its corporate standards, practices, and existing IT systems (e.g., for management of assets, maintenance, work, outage, customers, etc.)." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress_email1
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress_email1
 :ElectronicAddress_email1 rdf:type owl:DatatypeProperty ;
                           rdfs:domain :ElectronicAddress ;
                           rdfs:range xsd:string ;
@@ -1097,7 +1097,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress_email2
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress_email2
 :ElectronicAddress_email2 rdf:type owl:DatatypeProperty ;
                           rdfs:domain :ElectronicAddress ;
                           rdfs:range xsd:string ;
@@ -1105,14 +1105,14 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress_lan
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress_lan
 :ElectronicAddress_lan rdf:type owl:DatatypeProperty ;
                        rdfs:domain :ElectronicAddress ;
                        rdfs:range xsd:string ;
                        rdfs:comment "Address on local area network." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress_mac
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress_mac
 :ElectronicAddress_mac rdf:type owl:DatatypeProperty ;
                        rdfs:domain :ElectronicAddress ;
                        rdfs:range xsd:string ;
@@ -1120,28 +1120,28 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress_password
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress_password
 :ElectronicAddress_password rdf:type owl:DatatypeProperty ;
                             rdfs:domain :ElectronicAddress ;
                             rdfs:range xsd:string ;
                             rdfs:comment "Password needed to log in." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress_radio
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress_radio
 :ElectronicAddress_radio rdf:type owl:DatatypeProperty ;
                          rdfs:domain :ElectronicAddress ;
                          rdfs:range xsd:string ;
                          rdfs:comment "Radio address." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress_userID
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress_userID
 :ElectronicAddress_userID rdf:type owl:DatatypeProperty ;
                           rdfs:domain :ElectronicAddress ;
                           rdfs:range xsd:string ;
                           rdfs:comment "User ID needed to log in, which can be for an individual person, an organisation, a location, etc." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress_web
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress_web
 :ElectronicAddress_web rdf:type owl:DatatypeProperty ;
                        rdfs:domain :ElectronicAddress ;
                        rdfs:range xsd:string ;
@@ -1149,14 +1149,14 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Hazard_type
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Hazard_type
 :Hazard_type rdf:type owl:DatatypeProperty ;
              rdfs:domain :Hazard ;
              rdfs:range xsd:string ;
              rdfs:comment "Type of this hazard." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_direction
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_direction
 :Location_direction rdf:type owl:DatatypeProperty ;
                     rdfs:domain :Location ;
                     rdfs:range xsd:string ;
@@ -1164,14 +1164,14 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_geoInfoReference
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_geoInfoReference
 :Location_geoInfoReference rdf:type owl:DatatypeProperty ;
                            rdfs:domain :Location ;
                            rdfs:range xsd:string ;
                            rdfs:comment "(if applicable) Reference to geographical information source, often external to the utility." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location_type
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location_type
 :Location_type rdf:type owl:DatatypeProperty ;
                rdfs:domain :Location ;
                rdfs:range xsd:string ;
@@ -1179,105 +1179,105 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Person_firstName
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Person_firstName
 :Person_firstName rdf:type owl:DatatypeProperty ;
                   rdfs:domain :Person ;
                   rdfs:range xsd:string ;
                   rdfs:comment "Person's first name." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Person_lastName
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Person_lastName
 :Person_lastName rdf:type owl:DatatypeProperty ;
                  rdfs:domain :Person ;
                  rdfs:range xsd:string ;
                  rdfs:comment " Person's last (family, sir) name." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Person_mName
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Person_mName
 :Person_mName rdf:type owl:DatatypeProperty ;
               rdfs:domain :Person ;
               rdfs:range xsd:string ;
               rdfs:comment " Middle name(s) or initial(s)." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Person_prefix
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Person_prefix
 :Person_prefix rdf:type owl:DatatypeProperty ;
                rdfs:domain :Person ;
                rdfs:range xsd:string ;
                rdfs:comment "A prefix or title for the person's name, such as Miss, Mister, Doctor, etc." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Person_specialNeed
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Person_specialNeed
 :Person_specialNeed rdf:type owl:DatatypeProperty ;
                     rdfs:domain :Person ;
                     rdfs:range xsd:string ;
                     rdfs:comment "Special service needs for the person (contact) are described; examples include life support, etc." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Person_suffix
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Person_suffix
 :Person_suffix rdf:type owl:DatatypeProperty ;
                rdfs:domain :Person ;
                rdfs:range xsd:string ;
                rdfs:comment "A suffix for the person's name, such as II, III, etc." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#PositionPoint_groupNumber
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#PositionPoint_groupNumber
 :PositionPoint_groupNumber rdf:type owl:DatatypeProperty ;
                            rdfs:domain :PositionPoint ;
                            rdfs:range xsd:nonNegativeInteger ;
                            rdfs:comment "Zero-relative sequence number of this group within a series of points; used when there is a need to express disjoint groups of points that are considered to be part of a single location." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#PositionPoint_sequenceNumber
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#PositionPoint_sequenceNumber
 :PositionPoint_sequenceNumber rdf:type owl:DatatypeProperty ;
                               rdfs:domain :PositionPoint ;
                               rdfs:range xsd:nonNegativeInteger ;
                               rdfs:comment "Zero-relative sequence number of this point within a series of points." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#PositionPoint_xPosition
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#PositionPoint_xPosition
 :PositionPoint_xPosition rdf:type owl:DatatypeProperty ;
                          rdfs:domain :PositionPoint ;
                          rdfs:range xsd:string ;
                          rdfs:comment "X axis position." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#PositionPoint_yPosition
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#PositionPoint_yPosition
 :PositionPoint_yPosition rdf:type owl:DatatypeProperty ;
                          rdfs:domain :PositionPoint ;
                          rdfs:range xsd:string ;
                          rdfs:comment "Y axis position." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#PositionPoint_zPosition
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#PositionPoint_zPosition
 :PositionPoint_zPosition rdf:type owl:DatatypeProperty ;
                          rdfs:domain :PositionPoint ;
                          rdfs:range xsd:string ;
                          rdfs:comment "(if applicable) Z axis position." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Priority_justification
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Priority_justification
 :Priority_justification rdf:type owl:DatatypeProperty ;
                         rdfs:domain :Priority ;
                         rdfs:range xsd:string ;
                         rdfs:comment "Justification for 'rank'." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Priority_rank
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Priority_rank
 :Priority_rank rdf:type owl:DatatypeProperty ;
                rdfs:domain :Priority ;
                rdfs:range xsd:nonNegativeInteger ;
                rdfs:comment "Priority level; usually, lower number means high priority, but the details are provided in 'type'." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Priority_type
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Priority_type
 :Priority_type rdf:type owl:DatatypeProperty ;
                rdfs:domain :Priority ;
                rdfs:range xsd:string ;
                rdfs:comment "Type describing 'rank'; e.g., high, emergency, etc." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ScheduledEvent_type
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ScheduledEvent_type
 :ScheduledEvent_type rdf:type owl:DatatypeProperty ;
                      rdfs:domain :ScheduledEvent ;
                      rdfs:range xsd:string ;
@@ -1285,21 +1285,21 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status_reason
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status_reason
 :Status_reason rdf:type owl:DatatypeProperty ;
                rdfs:domain :Status ;
                rdfs:range xsd:string ;
                rdfs:comment "Reason code or explanation for why an object went to the current status 'value'." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status_remark
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status_remark
 :Status_remark rdf:type owl:DatatypeProperty ;
                rdfs:domain :Status ;
                rdfs:range xsd:string ;
                rdfs:comment "Pertinent information regarding the current 'value', as free form text." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status_value
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status_value
 :Status_value rdf:type owl:DatatypeProperty ;
               rdfs:domain :Status ;
               rdfs:range xsd:string ;
@@ -1307,224 +1307,224 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetAddress_poBox
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetAddress_poBox
 :StreetAddress_poBox rdf:type owl:DatatypeProperty ;
                      rdfs:domain :StreetAddress ;
                      rdfs:range xsd:string ;
                      rdfs:comment "Post office box." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetAddress_postalCode
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetAddress_postalCode
 :StreetAddress_postalCode rdf:type owl:DatatypeProperty ;
                           rdfs:domain :StreetAddress ;
                           rdfs:range xsd:string ;
                           rdfs:comment "Postal code for the address." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_addressGeneral
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_addressGeneral
 :StreetDetail_addressGeneral rdf:type owl:DatatypeProperty ;
                              rdfs:domain :StreetDetail ;
                              rdfs:range xsd:string ;
                              rdfs:comment "First line of a free form address or some additional address information (for example a mail stop)." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_addressGeneral2
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_addressGeneral2
 :StreetDetail_addressGeneral2 rdf:type owl:DatatypeProperty ;
                               rdfs:domain :StreetDetail ;
                               rdfs:range xsd:string ;
                               rdfs:comment "(if applicable) Second line of a free form address." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_addressGeneral3
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_addressGeneral3
 :StreetDetail_addressGeneral3 rdf:type owl:DatatypeProperty ;
                               rdfs:domain :StreetDetail ;
                               rdfs:range xsd:string ;
                               rdfs:comment "(if applicable) Third line of a free form address." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_buildingName
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_buildingName
 :StreetDetail_buildingName rdf:type owl:DatatypeProperty ;
                            rdfs:domain :StreetDetail ;
                            rdfs:range xsd:string ;
                            rdfs:comment "(if applicable) In certain cases the physical location of the place of interest does not have a direct point of entry from the street, but may be located inside a larger structure such as a building, complex, office block, apartment, etc." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_code
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_code
 :StreetDetail_code rdf:type owl:DatatypeProperty ;
                    rdfs:domain :StreetDetail ;
                    rdfs:range xsd:string ;
                    rdfs:comment "(if applicable) Utilities often make use of external reference systems, such as those of the town-planner's department or surveyor general's mapping system, that allocate global reference codes to streets." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_name
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_name
 :StreetDetail_name rdf:type owl:DatatypeProperty ;
                    rdfs:domain :StreetDetail ;
                    rdfs:range xsd:string ;
                    rdfs:comment "Name of the street." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_number
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_number
 :StreetDetail_number rdf:type owl:DatatypeProperty ;
                      rdfs:domain :StreetDetail ;
                      rdfs:range xsd:string ;
                      rdfs:comment "Designator of the specific location on the street." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_prefix
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_prefix
 :StreetDetail_prefix rdf:type owl:DatatypeProperty ;
                      rdfs:domain :StreetDetail ;
                      rdfs:range xsd:string ;
                      rdfs:comment "Prefix to the street name. For example: North, South, East, West." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_suffix
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_suffix
 :StreetDetail_suffix rdf:type owl:DatatypeProperty ;
                      rdfs:domain :StreetDetail ;
                      rdfs:range xsd:string ;
                      rdfs:comment "Suffix to the street name. For example: North, South, East, West." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_suiteNumber
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_suiteNumber
 :StreetDetail_suiteNumber rdf:type owl:DatatypeProperty ;
                           rdfs:domain :StreetDetail ;
                           rdfs:range xsd:string ;
                           rdfs:comment "Number of the apartment or suite." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_type
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_type
 :StreetDetail_type rdf:type owl:DatatypeProperty ;
                    rdfs:domain :StreetDetail ;
                    rdfs:range xsd:string ;
                    rdfs:comment "Type of street. Examples include: street, circle, boulevard, avenue, road, drive, etc." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_withinTownLimits
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetDetail_withinTownLimits
 :StreetDetail_withinTownLimits rdf:type owl:DatatypeProperty ;
                                rdfs:domain :StreetDetail ;
                                rdfs:range xsd:boolean ;
                                rdfs:comment "True if this street is within the legal geographical boundaries of the specified town (default)." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber_areaCode
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber_areaCode
 :TelephoneNumber_areaCode rdf:type owl:DatatypeProperty ;
                           rdfs:domain :TelephoneNumber ;
                           rdfs:range xsd:string ;
                           rdfs:comment "(if applicable) Area or region code." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber_cityCode
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber_cityCode
 :TelephoneNumber_cityCode rdf:type owl:DatatypeProperty ;
                           rdfs:domain :TelephoneNumber ;
                           rdfs:range xsd:string ;
                           rdfs:comment "City code." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber_countryCode
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber_countryCode
 :TelephoneNumber_countryCode rdf:type owl:DatatypeProperty ;
                              rdfs:domain :TelephoneNumber ;
                              rdfs:range xsd:string ;
                              rdfs:comment "Country code." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber_dialOut
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber_dialOut
 :TelephoneNumber_dialOut rdf:type owl:DatatypeProperty ;
                          rdfs:domain :TelephoneNumber ;
                          rdfs:range xsd:string ;
                          rdfs:comment "(if applicable) Dial out code, for instance to call outside an enterprise." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber_extension
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber_extension
 :TelephoneNumber_extension rdf:type owl:DatatypeProperty ;
                            rdfs:domain :TelephoneNumber ;
                            rdfs:range xsd:string ;
                            rdfs:comment "(if applicable) Extension for this telephone number." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber_internationalPrefix
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber_internationalPrefix
 :TelephoneNumber_internationalPrefix rdf:type owl:DatatypeProperty ;
                                      rdfs:domain :TelephoneNumber ;
                                      rdfs:range xsd:string ;
                                      rdfs:comment "(if applicable) Prefix used when calling an international number." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber_ituPhone
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber_ituPhone
 :TelephoneNumber_ituPhone rdf:type owl:DatatypeProperty ;
                           rdfs:domain :TelephoneNumber ;
                           rdfs:range xsd:string ;
                           rdfs:comment "Phone number according to ITU E.164." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber_localNumber
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber_localNumber
 :TelephoneNumber_localNumber rdf:type owl:DatatypeProperty ;
                              rdfs:domain :TelephoneNumber ;
                              rdfs:range xsd:string ;
                              rdfs:comment "Main (local) part of this telephone number." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TimePoint_sequenceNumber
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TimePoint_sequenceNumber
 :TimePoint_sequenceNumber rdf:type owl:DatatypeProperty ;
                           rdfs:domain :TimePoint ;
                           rdfs:range xsd:nonNegativeInteger ;
                           rdfs:comment "(if sequence-based) Relative sequence number for this time point." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule_disabled
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule_disabled
 :TimeSchedule_disabled rdf:type owl:DatatypeProperty ;
                        rdfs:domain :TimeSchedule ;
                        rdfs:range xsd:boolean ;
                        rdfs:comment "True if this schedule is deactivated (disabled)." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule_recurrencePattern
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule_recurrencePattern
 :TimeSchedule_recurrencePattern rdf:type owl:DatatypeProperty ;
                                 rdfs:domain :TimeSchedule ;
                                 rdfs:range xsd:string ;
                                 rdfs:comment "Interval at which the scheduled action repeats (e.g., first Monday of every month, last day of the month, etc.)." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TownDetail_code
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TownDetail_code
 :TownDetail_code rdf:type owl:DatatypeProperty ;
                  rdfs:domain :TownDetail ;
                  rdfs:range xsd:string ;
                  rdfs:comment "Town code." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TownDetail_country
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TownDetail_country
 :TownDetail_country rdf:type owl:DatatypeProperty ;
                     rdfs:domain :TownDetail ;
                     rdfs:range xsd:string ;
                     rdfs:comment "Name of the country." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TownDetail_name
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TownDetail_name
 :TownDetail_name rdf:type owl:DatatypeProperty ;
                  rdfs:domain :TownDetail ;
                  rdfs:range xsd:string ;
                  rdfs:comment "Town name." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TownDetail_section
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TownDetail_section
 :TownDetail_section rdf:type owl:DatatypeProperty ;
                     rdfs:domain :TownDetail ;
                     rdfs:range xsd:string ;
                     rdfs:comment "Town section. For example, it is common for there to be 36 sections per township." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TownDetail_stateOrProvince
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TownDetail_stateOrProvince
 :TownDetail_stateOrProvince rdf:type owl:DatatypeProperty ;
                             rdfs:domain :TownDetail ;
                             rdfs:range xsd:string ;
                             rdfs:comment "Name of the state or province." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_name
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_name
 :UserAttribute_name rdf:type owl:DatatypeProperty ;
                     rdfs:domain :UserAttribute ;
                     rdfs:range xsd:string ;
                     rdfs:comment "Name of an attribute." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_sequenceNumber
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#UserAttribute_sequenceNumber
 :UserAttribute_sequenceNumber rdf:type owl:DatatypeProperty ;
                               rdfs:domain :UserAttribute ;
                               rdfs:range xsd:nonNegativeInteger ;
@@ -1535,75 +1535,75 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 #    Classes
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset> rdf:type owl:Class ;
-                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                          owl:onProperty :Asset_ConfigurationEvents ;
-                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset>
-                                                                        ] ,
-                                                                        [ rdf:type owl:Restriction ;
-                                                                          owl:onProperty :Asset_Location ;
-                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset>
-                                                                        ] ,
-                                                                        [ rdf:type owl:Restriction ;
-                                                                          owl:onProperty :Asset_Ownerships ;
-                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset>
-                                                                        ] ,
-                                                                        [ rdf:type owl:Restriction ;
-                                                                          owl:onProperty :Asset_ScheduledEvents ;
-                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset>
-                                                                        ] ,
-                                                                        [ rdf:type owl:Restriction ;
-                                                                          owl:onProperty :Asset_ConfigurationEvents ;
-                                                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset>
-                                                                        ] ,
-                                                                        [ rdf:type owl:Restriction ;
-                                                                          owl:onProperty :Asset_Ownerships ;
-                                                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#Asset>
-                                                                        ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty :Asset_ConfigurationEvents ;
+                                                                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset>
+                                                                                  ] ,
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty :Asset_Location ;
+                                                                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset>
+                                                                                  ] ,
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty :Asset_Ownerships ;
+                                                                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset>
+                                                                                  ] ,
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty :Asset_ScheduledEvents ;
+                                                                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset>
+                                                                                  ] ,
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty :Asset_ConfigurationEvents ;
+                                                                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset>
+                                                                                  ] ,
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty :Asset_Ownerships ;
+                                                                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset>
+                                                                                  ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetLocationHazard
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetLocationHazard> rdf:type owl:Class ;
-                                                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                        owl:onProperty :AssetLocationHazard_Locations ;
-                                                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                        owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetLocationHazard>
-                                                                                      ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#AssetLocationHazard
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#AssetLocationHazard> rdf:type owl:Class ;
+                                                                                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                  owl:onProperty :AssetLocationHazard_Locations ;
+                                                                                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#AssetLocationHazard>
+                                                                                                ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetOwner
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetOwner> rdf:type owl:Class ;
-                                                             rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                               owl:onProperty :AssetOwner_Ownerships ;
-                                                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetOwner>
-                                                                             ] ,
-                                                                             [ rdf:type owl:Restriction ;
-                                                                               owl:onProperty :AssetOwner_Ownerships ;
-                                                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#AssetOwner>
-                                                                             ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#AssetOwner
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#AssetOwner> rdf:type owl:Class ;
+                                                                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty :AssetOwner_Ownerships ;
+                                                                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                         owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#AssetOwner>
+                                                                                       ] ,
+                                                                                       [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty :AssetOwner_Ownerships ;
+                                                                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                         owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#AssetOwner>
+                                                                                       ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet> rdf:type owl:Class ;
-                                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                     owl:onProperty :ProcedureDataSet_Properties ;
-                                                                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                     owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet>
-                                                                                   ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet> rdf:type owl:Class ;
+                                                                             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                               owl:onProperty :ProcedureDataSet_Properties ;
+                                                                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet>
+                                                                                             ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord
 :ActivityRecord rdf:type owl:Class ;
-                rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :ActivityRecord_Author ;
                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1662,18 +1662,18 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                 rdfs:comment "Records activity for an entity at a point in time; activity may be for an event that has already occurred or for a planned activity." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Agreement
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement
 :Agreement rdf:type owl:Class ;
            rdfs:subClassOf :Document ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :Agreement_validityInterval ;
                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :Agreement_validityInterval ;
                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :Agreement_signDate ;
@@ -1689,9 +1689,9 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Appointment
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Appointment
 :Appointment rdf:type owl:Class ;
-             rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+             rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty :Appointment_Persons ;
                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1705,12 +1705,12 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                              [ rdf:type owl:Restriction ;
                                owl:onProperty :Appointment_meetingInterval ;
                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
                              ] ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty :Appointment_meetingInterval ;
                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
                              ] ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty :Appointment_callAhead ;
@@ -1725,7 +1725,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
              rdfs:comment "Meeting time and location." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Approver
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Approver
 :Approver rdf:type owl:Class ;
           rdfs:subClassOf :DocumentPersonRole ,
                           [ rdf:type owl:Restriction ;
@@ -1741,7 +1741,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
           rdfs:comment "Person who accepted/signed or rejected the document." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Author
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Author
 :Author rdf:type owl:Class ;
         rdfs:subClassOf :DocumentPersonRole ,
                         [ rdf:type owl:Restriction ;
@@ -1767,7 +1767,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
         rdfs:comment "Person who created document or activity record." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ConfigurationEvent
 :ConfigurationEvent rdf:type owl:Class ;
                     rdfs:subClassOf :ActivityRecord ,
                                     [ rdf:type owl:Restriction ;
@@ -1839,9 +1839,9 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#CoordinateSystem
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#CoordinateSystem
 :CoordinateSystem rdf:type owl:Class ;
-                  rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                  rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty :CoordinateSystem_Locations ;
                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1866,9 +1866,9 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Crew
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Crew
 :Crew rdf:type owl:Class ;
-      rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+      rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                       [ rdf:type owl:Restriction ;
                         owl:onProperty :Crew_CrewMembers ;
                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1912,7 +1912,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
       rdfs:comment "Group of people with specific skills, tools, and vehicles." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#CrewMember
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#CrewMember
 :CrewMember rdf:type owl:Class ;
             rdfs:subClassOf :OperationPersonRole ,
                             [ rdf:type owl:Restriction ;
@@ -1933,9 +1933,9 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
             rdfs:comment "Member of a crew." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#CrewType
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#CrewType
 :CrewType rdf:type owl:Class ;
-          rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+          rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :CrewType_Crews ;
                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -1949,9 +1949,9 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
           rdfs:comment "Custom description of the type of crew. This may be used to determine the type of work the crew can be assigned to. Examples include repair, tree trimming, switching, etc." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Document
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document
 :Document rdf:type owl:Class ;
-          rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+          rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :Document_Approver ;
                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -2095,13 +2095,13 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
           rdfs:comment "Parent class for different groupings of information collected and managed as a part of a business process. It will frequently contain references to other objects, such as assets, people and power system resources." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#DocumentPersonRole
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#DocumentPersonRole
 :DocumentPersonRole rdf:type owl:Class ;
                     rdfs:subClassOf :PersonRole ;
                     rdfs:comment "Person role with respect to documents." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Editor
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Editor
 :Editor rdf:type owl:Class ;
         rdfs:subClassOf :DocumentPersonRole ,
                         [ rdf:type owl:Restriction ;
@@ -2117,7 +2117,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
         rdfs:comment "Person who modified the document." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress
 :ElectronicAddress rdf:type owl:Class ;
                    rdfs:subClassOf [ rdf:type owl:Restriction ;
                                      owl:onProperty :ElectronicAddress_email1 ;
@@ -2202,9 +2202,9 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                    rdfs:comment "Electronic address information." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Hazard
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Hazard
 :Hazard rdf:type owl:Class ;
-        rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+        rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                         [ rdf:type owl:Restriction ;
                           owl:onProperty :Hazard_status ;
                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -2228,7 +2228,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
         rdfs:comment "An object or a condition that is a danger for causing loss or perils to an asset and/or people." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Issuer
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Issuer
 :Issuer rdf:type owl:Class ;
         rdfs:subClassOf :DocumentPersonRole ,
                         [ rdf:type owl:Restriction ;
@@ -2244,9 +2244,9 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
         rdfs:comment " Person who issued the document and is responsible for its content." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location
 :Location rdf:type owl:Class ;
-          rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+          rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :Location_Assets ;
                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -2391,13 +2391,13 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OperationPersonRole
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#OperationPersonRole
 :OperationPersonRole rdf:type owl:Class ;
                      rdfs:subClassOf :PersonRole ;
                      rdfs:comment "Person role in the context of utility operations." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Operator
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Operator
 :Operator rdf:type owl:Class ;
           rdfs:subClassOf :OperationPersonRole ,
                           [ rdf:type owl:Restriction ;
@@ -2423,9 +2423,9 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
           rdfs:comment "Control room operator." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Organisation
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Organisation
 :Organisation rdf:type owl:Class ;
-              rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+              rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :Organisation_Roles ;
                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -2489,9 +2489,9 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
               rdfs:comment "Organisation that might have roles as utility, contractor, supplier, manufacturer, customer, etc." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole
 :OrganisationRole rdf:type owl:Class ;
-                  rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                  rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty :OrganisationRole_ConfigurationEvents ;
                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -2511,9 +2511,9 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Ownership
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Ownership
 :Ownership rdf:type owl:Class ;
-           rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+           rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :Ownership_Asset ;
                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -2527,19 +2527,19 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :Ownership_share ;
                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :Ownership_share ;
                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
                            ] ;
            rdfs:comment "Ownership of e.g. asset." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Person
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Person
 :Person rdf:type owl:Class ;
-        rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+        rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                         [ rdf:type owl:Restriction ;
                           owl:onProperty :Person_Roles ;
                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -2643,9 +2643,9 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
         rdfs:comment "General purpose information for name and other information to contact people." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#PersonRole
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#PersonRole
 :PersonRole rdf:type owl:Class ;
-            rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+            rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :PersonRole_Appointments ;
                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -2668,7 +2668,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                             ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#PositionPoint
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#PositionPoint
 :PositionPoint rdf:type owl:Class ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                  owl:onProperty :PositionPoint_Location ;
@@ -2728,7 +2728,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                rdfs:comment "Set of spatial coordinates that determine a point, defined in the coordinate system specified in 'Location.CoordinateSystem'. Use a single position point instance to desribe a point-oriented location. Use a sequence of position points to describe a line-oriented object (physical location of non-point oriented objects like cables or lines), or area of an object (like a substation or a geographical zone - in this case, have first and last position point with the same values)." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Priority
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Priority
 :Priority rdf:type owl:Class ;
           rdfs:subClassOf [ rdf:type owl:Restriction ;
                             owl:onProperty :Priority_justification ;
@@ -2763,9 +2763,9 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
           rdfs:comment "Priority definition." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ScheduledEvent
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ScheduledEvent
 :ScheduledEvent rdf:type owl:Class ;
-                rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :ScheduledEvent_Assets ;
                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -2779,7 +2779,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :ScheduledEvent_duration ;
                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :ScheduledEvent_status ;
@@ -2789,7 +2789,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :ScheduledEvent_duration ;
                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :ScheduledEvent_status ;
@@ -2809,7 +2809,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                 rdfs:comment "An event to trigger one or more activities, such as reading a meter, recalculating a bill, requesting work, when generating units must be scheduled for maintenance, when a transformer is scheduled to be refurbished, etc." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#ScheduledEventData
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ScheduledEventData
 :ScheduledEventData rdf:type owl:Class ;
                     rdfs:subClassOf [ rdf:type owl:Restriction ;
                                       owl:onProperty :ScheduledEventData_InspectionDataSet ;
@@ -2824,12 +2824,12 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty :ScheduledEventData_estimatedWindow ;
                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
                                     ] ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty :ScheduledEventData_requestedWindow ;
                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
                                     ] ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty :ScheduledEventData_status ;
@@ -2844,12 +2844,12 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty :ScheduledEventData_estimatedWindow ;
                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
                                     ] ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty :ScheduledEventData_requestedWindow ;
                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
                                     ] ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty :ScheduledEventData_status ;
@@ -2860,7 +2860,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status
 :Status rdf:type owl:Class ;
         rdfs:subClassOf [ rdf:type owl:Restriction ;
                           owl:onProperty <Status_dateTime> ;
@@ -2906,7 +2906,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetAddress
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetAddress
 :StreetAddress rdf:type owl:Class ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                  owl:onProperty :StreetAddress_status ;
@@ -2961,7 +2961,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                rdfs:comment "General purpose street and postal address information." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#StreetDetail
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#StreetDetail
 :StreetDetail rdf:type owl:Class ;
               rdfs:subClassOf [ rdf:type owl:Restriction ;
                                 owl:onProperty :StreetDetail_addressGeneral ;
@@ -3087,7 +3087,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TelephoneNumber
 :TelephoneNumber rdf:type owl:Class ;
                  rdfs:subClassOf [ rdf:type owl:Restriction ;
                                    owl:onProperty :TelephoneNumber_areaCode ;
@@ -3172,9 +3172,9 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                  rdfs:comment "Telephone number." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TimePoint
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TimePoint
 :TimePoint rdf:type owl:Class ;
-           rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+           rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :TimePoint_TimeSchedule ;
                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -3183,7 +3183,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :TimePoint_relativeTimeInterval ;
                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :TimePoint_status ;
@@ -3193,12 +3193,12 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :TimePoint_window ;
                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :TimePoint_relativeTimeInterval ;
                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :TimePoint_status ;
@@ -3208,7 +3208,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :TimePoint_window ;
                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty <TimePoint_dateTime> ;
@@ -3233,23 +3233,23 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
            rdfs:comment "A point in time within a sequence of points in time relative to a time schedule." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule
 :TimeSchedule rdf:type owl:Class ;
               rdfs:subClassOf :Document ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :TimeSchedule_offset ;
                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
                               ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :TimeSchedule_recurrencePeriod ;
                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
                               ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :TimeSchedule_scheduleInterval ;
                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
                               ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :TimeSchedule_TimePoints ;
@@ -3259,17 +3259,17 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :TimeSchedule_offset ;
                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
                               ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :TimeSchedule_recurrencePeriod ;
                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
                               ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :TimeSchedule_scheduleInterval ;
                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
+                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval>
                               ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :TimeSchedule_disabled ;
@@ -3295,7 +3295,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#TownDetail
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TownDetail
 :TownDetail rdf:type owl:Class ;
             rdfs:subClassOf [ rdf:type owl:Restriction ;
                               owl:onProperty :TownDetail_code ;
@@ -3351,7 +3351,7 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#UserAttribute
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#UserAttribute
 :UserAttribute rdf:type owl:Class ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                  owl:onProperty :UserAttribute_ErpInvoiceLineItems ;
@@ -3386,12 +3386,12 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty :UserAttribute_value ;
                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#StringQuantity>
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#StringQuantity>
                                ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty :UserAttribute_value ;
                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#StringQuantity>
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#StringQuantity>
                                ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty :UserAttribute_name ;
@@ -3416,204 +3416,204 @@ A profile should limit this code to a set of allowed URNs agreed to by all sendi
                rdfs:comment "Generic name-value pair class, with optional sequence number and units for value; can be used to model parts of information exchange when concrete types are not known in advance." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory> rdf:type owl:Class ;
-                                                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                       owl:onProperty :ServiceCategory_ConfigurationEvents ;
-                                                                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory>
-                                                                                     ] ,
-                                                                                     [ rdf:type owl:Restriction ;
-                                                                                       owl:onProperty :ServiceCategory_ConfigurationEvents ;
-                                                                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory>
-                                                                                     ] .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification> rdf:type owl:Class ;
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory> rdf:type owl:Class ;
                                                                                rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                 owl:onProperty :Specification_AssetProperites ;
+                                                                                                 owl:onProperty :ServiceCategory_ConfigurationEvents ;
                                                                                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification>
+                                                                                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory>
                                                                                                ] ,
                                                                                                [ rdf:type owl:Restriction ;
-                                                                                                 owl:onProperty :Specification_Ratings ;
-                                                                                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification>
-                                                                                               ] ,
-                                                                                               [ rdf:type owl:Restriction ;
-                                                                                                 owl:onProperty :Specification_AssetProperites ;
+                                                                                                 owl:onProperty :ServiceCategory_ConfigurationEvents ;
                                                                                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification>
-                                                                                               ] ,
-                                                                                               [ rdf:type owl:Restriction ;
-                                                                                                 owl:onProperty :Specification_Ratings ;
-                                                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification>
+                                                                                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#ServiceCategory>
                                                                                                ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew> rdf:type owl:Class ;
-                                                                         rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty :OldCrew_Locations ;
-                                                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew>
-                                                                                         ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification> rdf:type owl:Class ;
+                                                                                         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                           owl:onProperty :Specification_AssetProperites ;
+                                                                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification>
+                                                                                                         ] ,
+                                                                                                         [ rdf:type owl:Restriction ;
+                                                                                                           owl:onProperty :Specification_Ratings ;
+                                                                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification>
+                                                                                                         ] ,
+                                                                                                         [ rdf:type owl:Restriction ;
+                                                                                                           owl:onProperty :Specification_AssetProperites ;
+                                                                                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification>
+                                                                                                         ] ,
+                                                                                                         [ rdf:type owl:Restriction ;
+                                                                                                           owl:onProperty :Specification_Ratings ;
+                                                                                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Specification>
+                                                                                                         ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem> rdf:type owl:Class ;
-                                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                          owl:onProperty :ErpInvoiceLineItem_UserAttributes ;
-                                                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem>
-                                                                                                        ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew> rdf:type owl:Class ;
+                                                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                     owl:onProperty :OldCrew_Locations ;
+                                                                                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                     owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldCrew>
+                                                                                                   ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry> rdf:type owl:Class ;
-                                                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                      owl:onProperty :ErpLedgerEntry_UserAttributes ;
-                                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry>
-                                                                                                    ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem> rdf:type owl:Class ;
+                                                                                                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                    owl:onProperty :ErpInvoiceLineItem_UserAttributes ;
+                                                                                                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInvoiceLineItem>
+                                                                                                                  ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty> rdf:type owl:Class ;
-                                                                                 rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                   owl:onProperty :LandProperty_Locations ;
-                                                                                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                   owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty>
-                                                                                                 ] .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route> rdf:type owl:Class ;
-                                                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                            owl:onProperty :Route_Locations ;
-                                                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route>
-                                                                                          ] .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#InspectionDataSet
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#InspectionDataSet> rdf:type owl:Class ;
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry> rdf:type owl:Class ;
                                                                                               rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                owl:onProperty :InspectionDataSet_AccordingToSchedules ;
-                                                                                                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#InspectionDataSet>
+                                                                                                                owl:onProperty :ErpLedgerEntry_UserAttributes ;
+                                                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpLedgerEntry>
                                                                                                               ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> rdf:type owl:Class ;
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty> rdf:type owl:Class ;
+                                                                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                             owl:onProperty :LandProperty_Locations ;
+                                                                                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty>
+                                                                                                           ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route> rdf:type owl:Class ;
+                                                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                      owl:onProperty :Route_Locations ;
+                                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route>
+                                                                                                    ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#InspectionDataSet
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#InspectionDataSet> rdf:type owl:Class ;
+                                                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                          owl:onProperty :InspectionDataSet_AccordingToSchedules ;
+                                                                                                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                                          owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/Sandbox/InfNewAssets#InspectionDataSet>
+                                                                                                                        ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint> rdf:type owl:Class ;
+                                                                         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty :UsagePoint_ConfigurationEvents ;
+                                                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint>
+                                                                                         ] ,
+                                                                                         [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty :UsagePoint_ConfigurationEvents ;
+                                                                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint>
+                                                                                         ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#Incident
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#Incident> rdf:type owl:Class ;
+                                                                         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty :Incident_Location ;
+                                                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#Incident>
+                                                                                         ] ,
+                                                                                         [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty :Incident_Owner ;
+                                                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#Incident>
+                                                                                         ] ,
+                                                                                         [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty :Incident_Location ;
+                                                                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#Incident>
+                                                                                         ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep> rdf:type owl:Class ;
+                                                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty :SwitchingStep_CrewMember ;
+                                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep>
+                                                                                              ] ,
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty :SwitchingStep_Operator ;
+                                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep>
+                                                                                              ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction> rdf:type owl:Class ;
+                                                                                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty :Transaction_UserAttributes ;
+                                                                                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction>
+                                                                                                 ] ,
+                                                                                                 [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty :Transaction_UserAttributes ;
+                                                                                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction>
+                                                                                                 ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Work
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Work> rdf:type owl:Class ;
                                                                rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :UsagePoint_ConfigurationEvents ;
+                                                                                 owl:onProperty :Work_Appointments ;
                                                                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint>
-                                                                               ] ,
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :UsagePoint_ConfigurationEvents ;
-                                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Metering#UsagePoint>
+                                                                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Work>
                                                                                ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Incident
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Incident> rdf:type owl:Class ;
-                                                               rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :Incident_Location ;
-                                                                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Incident>
-                                                                               ] ,
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :Incident_Owner ;
-                                                                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Incident>
-                                                                               ] ,
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :Incident_Location ;
-                                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Incident>
-                                                                               ] .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep> rdf:type owl:Class ;
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkAsset
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkAsset> rdf:type owl:Class ;
                                                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                      owl:onProperty :SwitchingStep_CrewMember ;
+                                                                                      owl:onProperty :WorkAsset_Crew ;
                                                                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep>
-                                                                                    ] ,
-                                                                                    [ rdf:type owl:Restriction ;
-                                                                                      owl:onProperty :SwitchingStep_Operator ;
-                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#SwitchingStep>
+                                                                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkAsset>
                                                                                     ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction> rdf:type owl:Class ;
-                                                                       rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                         owl:onProperty :Transaction_UserAttributes ;
-                                                                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction>
-                                                                                       ] ,
-                                                                                       [ rdf:type owl:Restriction ;
-                                                                                         owl:onProperty :Transaction_UserAttributes ;
-                                                                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/PaymentMetering#Transaction>
-                                                                                       ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkTask
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkTask> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                     owl:onProperty :WorkTask_Crews ;
+                                                                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                     owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkTask>
+                                                                                   ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work> rdf:type owl:Class ;
-                                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                       owl:onProperty :Work_Appointments ;
-                                                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                       owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#Work>
-                                                                     ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkAsset
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkAsset> rdf:type owl:Class ;
-                                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                            owl:onProperty :WorkAsset_Crew ;
-                                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                            owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkAsset>
-                                                                          ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTask
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTask> rdf:type owl:Class ;
-                                                         rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                           owl:onProperty :WorkTask_Crews ;
-                                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Work#WorkTask>
-                                                                         ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#DateTimeInterval> rdf:type owl:Class .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> rdf:type owl:Class .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> rdf:type owl:Class .
-
-
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#StringQuantity
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#StringQuantity> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#StringQuantity
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#StringQuantity> rdf:type owl:Class .
 
 
 ###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

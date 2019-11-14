@@ -1,18 +1,18 @@
-@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#> .
+@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#> .
+@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#> .
 
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#> rdf:type owl:Ontology .
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ConformLoadGroup_ConformLoadSchedules
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ConformLoadGroup_ConformLoadSchedules
 :ConformLoadGroup_ConformLoadSchedules rdf:type owl:ObjectProperty ,
                                                 owl:FunctionalProperty ;
                                        rdfs:domain :ConformLoadGroup ;
@@ -20,14 +20,14 @@
                                        rdfs:comment "The ConformLoadGroup where the ConformLoadSchedule belongs.The ConformLoadSchedules in the ConformLoadGroup." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ConformLoadGroup_EnergyConsumers
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ConformLoadGroup_EnergyConsumers
 :ConformLoadGroup_EnergyConsumers rdf:type owl:ObjectProperty ;
                                   rdfs:domain :ConformLoadGroup ;
                                   rdfs:range :ConformLoad ;
                                   rdfs:comment "Group of this ConformLoad.Conform loads assigned to this ConformLoadGroup." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ConformLoadSchedule_ConformLoadGroup
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ConformLoadSchedule_ConformLoadGroup
 :ConformLoadSchedule_ConformLoadGroup rdf:type owl:ObjectProperty ;
                                       owl:inverseOf :ConformLoadGroup_ConformLoadSchedules ;
                                       rdfs:domain :ConformLoadSchedule ;
@@ -35,7 +35,7 @@
                                       rdfs:comment "The ConformLoadGroup where the ConformLoadSchedule belongs.The ConformLoadSchedules in the ConformLoadGroup." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ConformLoad_LoadGroup
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ConformLoad_LoadGroup
 :ConformLoad_LoadGroup rdf:type owl:ObjectProperty ;
                        owl:inverseOf :ConformLoadGroup_EnergyConsumers ;
                        rdfs:domain :ConformLoad ;
@@ -43,29 +43,29 @@
                        rdfs:comment "Group of this ConformLoad.Conform loads assigned to this ConformLoadGroup." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ControlArea_EnergyArea
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ControlArea_EnergyArea
 :ControlArea_EnergyArea rdf:type owl:ObjectProperty ;
-                        rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea> ;
+                        rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea> ;
                         rdfs:range :EnergyArea ;
                         rdfs:comment "The control area specification that is used for the load forecast.The energy area that is forecast from this control area specification." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#DayType_SeasonDayTypeSchedules
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#DayType_SeasonDayTypeSchedules
 :DayType_SeasonDayTypeSchedules rdf:type owl:ObjectProperty ;
                                 rdfs:domain :DayType ;
                                 rdfs:range :SeasonDayTypeSchedule ;
                                 rdfs:comment "DayType for the Schedule.Schedules that use this DayType." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#EnergyArea_ControlArea
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#EnergyArea_ControlArea
 :EnergyArea_ControlArea rdf:type owl:ObjectProperty ;
                         owl:inverseOf :ControlArea_EnergyArea ;
                         rdfs:domain :EnergyArea ;
-                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea> ;
+                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea> ;
                         rdfs:comment "The control area specification that is used for the load forecast.The energy area that is forecast from this control area specification." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadArea_SubLoadAreas
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadArea_SubLoadAreas
 :LoadArea_SubLoadAreas rdf:type owl:ObjectProperty ,
                                 owl:FunctionalProperty ;
                        rdfs:domain :LoadArea ;
@@ -73,7 +73,7 @@
                        rdfs:comment "The LoadArea where the SubLoadArea belongs.The SubLoadAreas in the LoadArea." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadGroup_SubLoadArea
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadGroup_SubLoadArea
 :LoadGroup_SubLoadArea rdf:type owl:ObjectProperty ;
                        owl:inverseOf :SubLoadArea_LoadGroups ;
                        rdfs:domain :LoadGroup ;
@@ -81,14 +81,14 @@
                        rdfs:comment "The SubLoadArea where the Loadgroup belongs.The Loadgroups in the SubLoadArea." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#NonConformLoadGroup_EnergyConsumers
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#NonConformLoadGroup_EnergyConsumers
 :NonConformLoadGroup_EnergyConsumers rdf:type owl:ObjectProperty ;
                                      rdfs:domain :NonConformLoadGroup ;
                                      rdfs:range :NonConformLoad ;
                                      rdfs:comment "Group of this ConformLoad.Conform loads assigned to this ConformLoadGroup." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#NonConformLoadGroup_NonConformLoadSchedules
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#NonConformLoadGroup_NonConformLoadSchedules
 :NonConformLoadGroup_NonConformLoadSchedules rdf:type owl:ObjectProperty ,
                                                       owl:FunctionalProperty ;
                                              rdfs:domain :NonConformLoadGroup ;
@@ -96,7 +96,7 @@
                                              rdfs:comment "The NonConformLoadGroup where the NonConformLoadSchedule belongs.The NonConformLoadSchedules in the NonConformLoadGroup." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#NonConformLoadSchedule_NonConformLoadGroup
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#NonConformLoadSchedule_NonConformLoadGroup
 :NonConformLoadSchedule_NonConformLoadGroup rdf:type owl:ObjectProperty ;
                                             owl:inverseOf :NonConformLoadGroup_NonConformLoadSchedules ;
                                             rdfs:domain :NonConformLoadSchedule ;
@@ -104,7 +104,7 @@
                                             rdfs:comment "The NonConformLoadGroup where the NonConformLoadSchedule belongs.The NonConformLoadSchedules in the NonConformLoadGroup." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#NonConformLoad_LoadGroup
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#NonConformLoad_LoadGroup
 :NonConformLoad_LoadGroup rdf:type owl:ObjectProperty ;
                           owl:inverseOf :NonConformLoadGroup_EnergyConsumers ;
                           rdfs:domain :NonConformLoad ;
@@ -112,30 +112,30 @@
                           rdfs:comment "Group of this ConformLoad.Conform loads assigned to this ConformLoadGroup." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#PowerCutZone_cutLevel1
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#PowerCutZone_cutLevel1
 :PowerCutZone_cutLevel1 rdf:type owl:ObjectProperty ;
                         rdfs:domain :PowerCutZone ;
-                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
+                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
                         rdfs:comment """First level (amount) of load to cut as a percentage of total zone load.
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#PowerCutZone_cutLevel2
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#PowerCutZone_cutLevel2
 :PowerCutZone_cutLevel2 rdf:type owl:ObjectProperty ;
                         rdfs:domain :PowerCutZone ;
-                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
+                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
                         rdfs:comment """Second level (amount) of load to cut as a percentage of total zone load.
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ScheduledLimitValue_Season
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ScheduledLimitValue_Season
 :ScheduledLimitValue_Season rdf:type owl:ObjectProperty ;
-                            rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledLimitValue> ;
+                            rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledLimitValue> ;
                             rdfs:range :Season ;
                             rdfs:comment "The scheduled limits associated with the season.The season for which the scheduled limits applies.    If not specified, then applicable ot any season." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#SeasonDayTypeSchedule_DayType
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#SeasonDayTypeSchedule_DayType
 :SeasonDayTypeSchedule_DayType rdf:type owl:ObjectProperty ;
                                owl:inverseOf :DayType_SeasonDayTypeSchedules ;
                                rdfs:domain :SeasonDayTypeSchedule ;
@@ -143,7 +143,7 @@
                                rdfs:comment "DayType for the Schedule.Schedules that use this DayType." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#SeasonDayTypeSchedule_Season
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#SeasonDayTypeSchedule_Season
 :SeasonDayTypeSchedule_Season rdf:type owl:ObjectProperty ;
                               owl:inverseOf :Season_SeasonDayTypeSchedules ;
                               rdfs:domain :SeasonDayTypeSchedule ;
@@ -151,36 +151,36 @@
                               rdfs:comment "Season for the Schedule.Schedules that use this Season." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#Season_ScheduledLimits
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#Season_ScheduledLimits
 :Season_ScheduledLimits rdf:type owl:ObjectProperty ;
                         owl:inverseOf :ScheduledLimitValue_Season ;
                         rdfs:domain :Season ;
-                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledLimitValue> ;
+                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledLimitValue> ;
                         rdfs:comment "The scheduled limits associated with the season.The season for which the scheduled limits applies.    If not specified, then applicable ot any season." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#Season_SeasonDayTypeSchedules
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#Season_SeasonDayTypeSchedules
 :Season_SeasonDayTypeSchedules rdf:type owl:ObjectProperty ;
                                rdfs:domain :Season ;
                                rdfs:range :SeasonDayTypeSchedule ;
                                rdfs:comment "Season for the Schedule.Schedules that use this Season." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#Season_endDate
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#Season_endDate
 :Season_endDate rdf:type owl:ObjectProperty ;
                 rdfs:domain :Season ;
-                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#MonthDay> ;
+                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#MonthDay> ;
                 rdfs:comment "Date season ends." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#Season_startDate
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#Season_startDate
 :Season_startDate rdf:type owl:ObjectProperty ;
                   rdfs:domain :Season ;
-                  rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#MonthDay> ;
+                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#MonthDay> ;
                   rdfs:comment "Date season starts." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#SubLoadArea_LoadArea
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#SubLoadArea_LoadArea
 :SubLoadArea_LoadArea rdf:type owl:ObjectProperty ;
                       owl:inverseOf :LoadArea_SubLoadAreas ;
                       rdfs:domain :SubLoadArea ;
@@ -188,7 +188,7 @@
                       rdfs:comment "The LoadArea where the SubLoadArea belongs.The SubLoadAreas in the LoadArea." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#SubLoadArea_LoadGroups
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#SubLoadArea_LoadGroups
 :SubLoadArea_LoadGroups rdf:type owl:ObjectProperty ,
                                  owl:FunctionalProperty ;
                         rdfs:domain :SubLoadArea ;
@@ -200,7 +200,7 @@
 #    Data properties
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_exponentModel
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_exponentModel
 :LoadResponseCharacteristic_exponentModel rdf:type owl:DatatypeProperty ;
                                           rdfs:domain :LoadResponseCharacteristic ;
                                           rdfs:range xsd:boolean ;
@@ -219,28 +219,28 @@ The sum of pConstantImpedance, pConstantCurrent and pConstantPower shall equal 1
 The sum of qConstantImpedance, qConstantCurrent and qConstantPower shall equal 1.""" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_pConstantCurrent
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_pConstantCurrent
 :LoadResponseCharacteristic_pConstantCurrent rdf:type owl:DatatypeProperty ;
                                              rdfs:domain :LoadResponseCharacteristic ;
                                              rdfs:range xsd:float ;
                                              rdfs:comment "Portion of active power load modeled as constant current." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_pConstantImpedance
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_pConstantImpedance
 :LoadResponseCharacteristic_pConstantImpedance rdf:type owl:DatatypeProperty ;
                                                rdfs:domain :LoadResponseCharacteristic ;
                                                rdfs:range xsd:float ;
                                                rdfs:comment "Portion of active power load modeled as constant impedance." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_pConstantPower
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_pConstantPower
 :LoadResponseCharacteristic_pConstantPower rdf:type owl:DatatypeProperty ;
                                            rdfs:domain :LoadResponseCharacteristic ;
                                            rdfs:range xsd:float ;
                                            rdfs:comment "Portion of active power load modeled as constant power." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_pFrequencyExponent
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_pFrequencyExponent
 :LoadResponseCharacteristic_pFrequencyExponent rdf:type owl:DatatypeProperty ;
                                                rdfs:domain :LoadResponseCharacteristic ;
                                                rdfs:range xsd:float ;
@@ -248,35 +248,35 @@ The sum of qConstantImpedance, qConstantCurrent and qConstantPower shall equal 1
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_pVoltageExponent
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_pVoltageExponent
 :LoadResponseCharacteristic_pVoltageExponent rdf:type owl:DatatypeProperty ;
                                              rdfs:domain :LoadResponseCharacteristic ;
                                              rdfs:range xsd:float ;
                                              rdfs:comment "Exponent of per unit voltage effecting real power." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_qConstantCurrent
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_qConstantCurrent
 :LoadResponseCharacteristic_qConstantCurrent rdf:type owl:DatatypeProperty ;
                                              rdfs:domain :LoadResponseCharacteristic ;
                                              rdfs:range xsd:float ;
                                              rdfs:comment "Portion of reactive power load modeled as constant current." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_qConstantImpedance
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_qConstantImpedance
 :LoadResponseCharacteristic_qConstantImpedance rdf:type owl:DatatypeProperty ;
                                                rdfs:domain :LoadResponseCharacteristic ;
                                                rdfs:range xsd:float ;
                                                rdfs:comment "Portion of reactive power load modeled as constant impedance." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_qConstantPower
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_qConstantPower
 :LoadResponseCharacteristic_qConstantPower rdf:type owl:DatatypeProperty ;
                                            rdfs:domain :LoadResponseCharacteristic ;
                                            rdfs:range xsd:float ;
                                            rdfs:comment "Portion of reactive power load modeled as constant power." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_qFrequencyExponent
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_qFrequencyExponent
 :LoadResponseCharacteristic_qFrequencyExponent rdf:type owl:DatatypeProperty ;
                                                rdfs:domain :LoadResponseCharacteristic ;
                                                rdfs:range xsd:float ;
@@ -284,7 +284,7 @@ The sum of qConstantImpedance, qConstantCurrent and qConstantPower shall equal 1
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_qVoltageExponent
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic_qVoltageExponent
 :LoadResponseCharacteristic_qVoltageExponent rdf:type owl:DatatypeProperty ;
                                              rdfs:domain :LoadResponseCharacteristic ;
                                              rdfs:range xsd:float ;
@@ -295,43 +295,43 @@ The sum of qConstantImpedance, qConstantCurrent and qConstantPower shall equal 1
 #    Classes
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea> rdf:type owl:Class ;
-                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                          owl:onProperty :ControlArea_EnergyArea ;
-                                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea>
-                                                                                        ] ,
-                                                                                        [ rdf:type owl:Restriction ;
-                                                                                          owl:onProperty :ControlArea_EnergyArea ;
-                                                                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea>
-                                                                                        ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea> rdf:type owl:Class ;
+                                                                                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                    owl:onProperty :ControlArea_EnergyArea ;
+                                                                                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea>
+                                                                                                  ] ,
+                                                                                                  [ rdf:type owl:Restriction ;
+                                                                                                    owl:onProperty :ControlArea_EnergyArea ;
+                                                                                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/ControlArea#ControlArea>
+                                                                                                  ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#RegularIntervalSchedule
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#RegularIntervalSchedule> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#RegularIntervalSchedule
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#RegularIntervalSchedule> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#MonthDay
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#MonthDay> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#MonthDay
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#MonthDay> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ConformLoad
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ConformLoad
 :ConformLoad rdf:type owl:Class ;
-             rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Wires#EnergyConsumer> ,
+             rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#EnergyConsumer> ,
                              [ rdf:type owl:Restriction ;
                                owl:onProperty :ConformLoad_LoadGroup ;
                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -340,7 +340,7 @@ The sum of qConstantImpedance, qConstantCurrent and qConstantPower shall equal 1
              rdfs:comment "ConformLoad represent loads that follow a daily load change pattern where the pattern can be used to scale the load with a system load." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ConformLoadGroup
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ConformLoadGroup
 :ConformLoadGroup rdf:type owl:Class ;
                   rdfs:subClassOf :LoadGroup ,
                                   [ rdf:type owl:Restriction ;
@@ -361,7 +361,7 @@ The sum of qConstantImpedance, qConstantCurrent and qConstantPower shall equal 1
                   rdfs:comment "A group of loads conforming to an allocation pattern. " .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ConformLoadSchedule
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#ConformLoadSchedule
 :ConformLoadSchedule rdf:type owl:Class ;
                      rdfs:subClassOf :SeasonDayTypeSchedule ,
                                      [ rdf:type owl:Restriction ;
@@ -372,9 +372,9 @@ The sum of qConstantImpedance, qConstantCurrent and qConstantPower shall equal 1
                      rdfs:comment "A curve of load  versus time (X-axis) showing the active power values (Y1-axis) and reactive power (Y2-axis) for each unit of the period covered. This curve represents a typical pattern of load over the time period for a given day type and season." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#DayType
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#DayType
 :DayType rdf:type owl:Class ;
-         rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+         rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :DayType_SeasonDayTypeSchedules ;
                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -389,9 +389,9 @@ The sum of qConstantImpedance, qConstantCurrent and qConstantPower shall equal 1
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#EnergyArea
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#EnergyArea
 :EnergyArea rdf:type owl:Class ;
-            rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+            rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :EnergyArea_ControlArea ;
                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -405,7 +405,7 @@ The sum of qConstantImpedance, qConstantCurrent and qConstantPower shall equal 1
             rdfs:comment "Describes an area having energy production or consumption.  Specializations are intended to support the load allocation function as typically required in energy management systems or planning studies to allocate hypothesized load levels to individual load points for power flow analysis.  Often the energy area can be linked to both measured and forecast load levels." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadArea
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadArea
 :LoadArea rdf:type owl:Class ;
           rdfs:subClassOf :EnergyArea ,
                           [ rdf:type owl:Restriction ;
@@ -416,9 +416,9 @@ The sum of qConstantImpedance, qConstantCurrent and qConstantPower shall equal 1
           rdfs:comment "The class is the root or first level in a hierarchical structure for grouping of loads for the purpose of load flow load scaling." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadGroup
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadGroup
 :LoadGroup rdf:type owl:Class ;
-           rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+           rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :LoadGroup_SubLoadArea ;
                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -427,9 +427,9 @@ The sum of qConstantImpedance, qConstantCurrent and qConstantPower shall equal 1
            rdfs:comment "The class is the third level in a hierarchical structure for grouping of loads for the purpose of load flow load scaling." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#LoadResponseCharacteristic
 :LoadResponseCharacteristic rdf:type owl:Class ;
-                            rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                            rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                                             [ rdf:type owl:Restriction ;
                                               owl:onProperty :LoadResponseCharacteristic_exponentModel ;
                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -551,9 +551,9 @@ Reactive power component = Qnominal * (Voltage/cim:BaseVoltage.nominalVoltage)**
 Where  * means \"multiply\" and ** is \"raised to power of\".""" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#NonConformLoad
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#NonConformLoad
 :NonConformLoad rdf:type owl:Class ;
-                rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Wires#EnergyConsumer> ,
+                rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#EnergyConsumer> ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :NonConformLoad_LoadGroup ;
                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -562,7 +562,7 @@ Where  * means \"multiply\" and ** is \"raised to power of\".""" .
                 rdfs:comment "NonConformLoad represent loads that do not follow a daily load change pattern and changes are not correlated with the daily load change pattern." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#NonConformLoadGroup
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#NonConformLoadGroup
 :NonConformLoadGroup rdf:type owl:Class ;
                      rdfs:subClassOf :LoadGroup ,
                                      [ rdf:type owl:Restriction ;
@@ -583,7 +583,7 @@ Where  * means \"multiply\" and ** is \"raised to power of\".""" .
                      rdfs:comment "Loads that do not follow a daily and seasonal load variation pattern." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#NonConformLoadSchedule
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#NonConformLoadSchedule
 :NonConformLoadSchedule rdf:type owl:Class ;
                         rdfs:subClassOf :SeasonDayTypeSchedule ,
                                         [ rdf:type owl:Restriction ;
@@ -595,35 +595,35 @@ Where  * means \"multiply\" and ** is \"raised to power of\".""" .
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#PowerCutZone
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#PowerCutZone
 :PowerCutZone rdf:type owl:Class ;
-              rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource> ,
+              rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource> ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :PowerCutZone_cutLevel1 ;
                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
                               ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :PowerCutZone_cutLevel2 ;
                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
                               ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :PowerCutZone_cutLevel1 ;
                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
                               ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :PowerCutZone_cutLevel2 ;
                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
                               ] ;
               rdfs:comment "An area or zone of the power system which is used for load shedding purposes." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#Season
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#Season
 :Season rdf:type owl:Class ;
-        rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+        rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                         [ rdf:type owl:Restriction ;
                           owl:onProperty :Season_ScheduledLimits ;
                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -637,12 +637,12 @@ Where  * means \"multiply\" and ** is \"raised to power of\".""" .
                         [ rdf:type owl:Restriction ;
                           owl:onProperty :Season_endDate ;
                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#MonthDay>
+                          owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#MonthDay>
                         ] ,
                         [ rdf:type owl:Restriction ;
                           owl:onProperty :Season_startDate ;
                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#MonthDay>
+                          owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#MonthDay>
                         ] ,
                         [ rdf:type owl:Restriction ;
                           owl:onProperty :Season_ScheduledLimits ;
@@ -657,19 +657,19 @@ Where  * means \"multiply\" and ** is \"raised to power of\".""" .
                         [ rdf:type owl:Restriction ;
                           owl:onProperty :Season_endDate ;
                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#MonthDay>
+                          owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#MonthDay>
                         ] ,
                         [ rdf:type owl:Restriction ;
                           owl:onProperty :Season_startDate ;
                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                          owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#MonthDay>
+                          owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#MonthDay>
                         ] ;
         rdfs:comment "A specified time period of the year." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#SeasonDayTypeSchedule
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#SeasonDayTypeSchedule
 :SeasonDayTypeSchedule rdf:type owl:Class ;
-                       rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#RegularIntervalSchedule> ,
+                       rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#RegularIntervalSchedule> ,
                                        [ rdf:type owl:Restriction ;
                                          owl:onProperty :SeasonDayTypeSchedule_DayType ;
                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -684,13 +684,13 @@ Where  * means \"multiply\" and ** is \"raised to power of\".""" .
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#StationSupply
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#StationSupply
 :StationSupply rdf:type owl:Class ;
-               rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Wires#EnergyConsumer> ;
+               rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#EnergyConsumer> ;
                rdfs:comment "Station supply with load derived from the station output." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/LoadModel#SubLoadArea
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/LoadModel#SubLoadArea
 :SubLoadArea rdf:type owl:Class ;
              rdfs:subClassOf :EnergyArea ,
                              [ rdf:type owl:Restriction ;
@@ -706,17 +706,17 @@ Where  * means \"multiply\" and ** is \"raised to power of\".""" .
              rdfs:comment "The class is the second level in a hierarchical structure for grouping of loads for the purpose of load flow load scaling." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Wires#EnergyConsumer
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Wires#EnergyConsumer> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#EnergyConsumer
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#EnergyConsumer> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledLimitValue
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledLimitValue> rdf:type owl:Class ;
-                                                                                                rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                  owl:onProperty :ScheduledLimitValue_Season ;
-                                                                                                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledLimitValue>
-                                                                                                                ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledLimitValue
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledLimitValue> rdf:type owl:Class ;
+                                                                                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                            owl:onProperty :ScheduledLimitValue_Season ;
+                                                                                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfOperationalLimits#ScheduledLimitValue>
+                                                                                                                          ] .
 
 
 ###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

@@ -1,18 +1,18 @@
-@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#> .
+@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#> .
+@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#> .
 
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#> rdf:type owl:Ontology .
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#> rdf:type owl:Ontology .
 
 #################################################################
 #    Datatypes
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#DemographicKind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#DemographicKind
 :DemographicKind rdf:type rdfs:Datatype ;
                  owl:equivalentClass [ rdf:type rdfs:Datatype ;
                                        owl:oneOf [ rdf:type rdf:List ;
@@ -28,7 +28,7 @@
                                      ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandPropertyKind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandPropertyKind
 :LandPropertyKind rdf:type rdfs:Datatype ;
                   owl:equivalentClass [ rdf:type rdfs:Datatype ;
                                         owl:oneOf [ rdf:type rdf:List ;
@@ -56,7 +56,7 @@
                                       ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#ZoneKind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#ZoneKind
 :ZoneKind rdf:type rdfs:Datatype ;
           owl:equivalentClass [ rdf:type rdfs:Datatype ;
                                 owl:oneOf [ rdf:type rdf:List ;
@@ -79,29 +79,29 @@
 #    Object Properties
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#ErpSiteLevelData_LandProperty
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#ErpSiteLevelData_LandProperty
 :ErpSiteLevelData_LandProperty rdf:type owl:ObjectProperty ;
                                owl:inverseOf :LandProperty_ErpSiteLevelDatas ;
-                               rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpSiteLevelData> ;
+                               rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpSiteLevelData> ;
                                rdfs:range :LandProperty ;
                                rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty_ErpSiteLevelDatas
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty_ErpSiteLevelDatas
 :LandProperty_ErpSiteLevelDatas rdf:type owl:ObjectProperty ;
                                 rdfs:domain :LandProperty ;
-                                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpSiteLevelData> ;
+                                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpSiteLevelData> ;
                                 rdfs:comment "" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty_LocationGrants
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty_LocationGrants
 :LandProperty_LocationGrants rdf:type owl:ObjectProperty ;
                              rdfs:domain :LandProperty ;
                              rdfs:range :LocationGrant ;
                              rdfs:comment "Land property this location grant applies to.All location grants this land property has." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty_RightOfWays
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty_RightOfWays
 :LandProperty_RightOfWays rdf:type owl:ObjectProperty ;
                           owl:inverseOf :RightOfWay_LandProperties ;
                           rdfs:domain :LandProperty ;
@@ -109,13 +109,13 @@
                           rdfs:comment "All rights of way this land property has.All land properties this right of way applies to." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty_status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty_status
 :LandProperty_status rdf:type owl:ObjectProperty ;
                      rdfs:domain :LandProperty ;
-                     rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status> .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LocationGrant_LandProperty
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LocationGrant_LandProperty
 :LocationGrant_LandProperty rdf:type owl:ObjectProperty ;
                             owl:inverseOf :LandProperty_LocationGrants ;
                             rdfs:domain :LocationGrant ;
@@ -123,65 +123,65 @@
                             rdfs:comment "Land property this location grant applies to.All location grants this land property has." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#RedLine_status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#RedLine_status
 :RedLine_status rdf:type owl:ObjectProperty ;
                 rdfs:domain :RedLine ;
-                rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status> .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#RightOfWay_LandProperties
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#RightOfWay_LandProperties
 :RightOfWay_LandProperties rdf:type owl:ObjectProperty ;
                            rdfs:domain :RightOfWay ;
                            rdfs:range :LandProperty ;
                            rdfs:comment "All rights of way this land property has.All land properties this right of way applies to." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route_status
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route_status
 :Route_status rdf:type owl:ObjectProperty ;
               rdfs:domain :Route ;
-              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> .
+              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status> .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty_demographicKind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty_demographicKind
 :LandProperty_demographicKind rdf:type owl:DatatypeProperty ;
                               rdfs:domain :LandProperty ;
                               rdfs:range :DemographicKind ;
                               rdfs:comment "Demographics around the site." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty_externalRecordReference
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty_externalRecordReference
 :LandProperty_externalRecordReference rdf:type owl:DatatypeProperty ;
                                       rdfs:domain :LandProperty ;
                                       rdfs:range xsd:string ;
                                       rdfs:comment "Reference allocated by the governing organisation (such as municipality) to this piece of land that has a formal reference to Surveyor General's records. The governing organisation is specified in associated Organisation." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty_kind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty_kind
 :LandProperty_kind rdf:type owl:DatatypeProperty ;
                    rdfs:domain :LandProperty ;
                    rdfs:range :LandPropertyKind ;
                    rdfs:comment "Kind of (land) property, categorised according to its main functional use from the utility's perspective." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LocationGrant_propertyData
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LocationGrant_propertyData
 :LocationGrant_propertyData rdf:type owl:DatatypeProperty ;
                             rdfs:domain :LocationGrant ;
                             rdfs:range xsd:string ;
                             rdfs:comment "Property related information that describes the Grant's land parcel. For example, it may be a deed book number, deed book page number, and parcel number." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#RightOfWay_propertyData
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#RightOfWay_propertyData
 :RightOfWay_propertyData rdf:type owl:DatatypeProperty ;
                          rdfs:domain :RightOfWay ;
                          rdfs:range xsd:string ;
                          rdfs:comment "Property related information that describes the ROW's land parcel. For example, it may be a deed book number, deed book page number, and parcel number." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route_type
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route_type
 :Route_type rdf:type owl:DatatypeProperty ;
             rdfs:domain :Route ;
             rdfs:range xsd:string ;
@@ -189,7 +189,7 @@
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Zone_kind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Zone_kind
 :Zone_kind rdf:type owl:DatatypeProperty ;
            rdfs:domain :Zone ;
            rdfs:range :ZoneKind ;
@@ -200,30 +200,30 @@
 #    Classes
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Agreement
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Agreement> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpSiteLevelData
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpSiteLevelData> rdf:type owl:Class ;
-                                                                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                        owl:onProperty :ErpSiteLevelData_LandProperty ;
-                                                                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                        owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpSiteLevelData>
-                                                                                                      ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpSiteLevelData
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpSiteLevelData> rdf:type owl:Class ;
+                                                                                                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                  owl:onProperty :ErpSiteLevelData_LandProperty ;
+                                                                                                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpSiteLevelData>
+                                                                                                                ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty
 :LandProperty rdf:type owl:Class ;
-              rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+              rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :LandProperty_ErpSiteLevelDatas ;
                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -242,7 +242,7 @@
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :LandProperty_status ;
                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
                               ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :LandProperty_ErpSiteLevelDatas ;
@@ -257,7 +257,7 @@
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :LandProperty_status ;
                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
                               ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty :LandProperty_demographicKind ;
@@ -292,9 +292,9 @@
               rdfs:comment "Information about a particular piece of (land) property such as its use. Ownership of the property may be determined through associations to Organisations and/or ErpPersons." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LocationGrant
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LocationGrant
 :LocationGrant rdf:type owl:Class ;
-               rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Agreement> ,
+               rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement> ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty :LocationGrant_LandProperty ;
                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -313,25 +313,25 @@
                rdfs:comment "A grant provides a right, as defined by type, for a parcel of land. Note that the association to Location, Asset, Organisation, etc. for the Grant is inherited from Agreement, a type of Document." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#RedLine
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#RedLine
 :RedLine rdf:type owl:Class ;
-         rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+         rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :RedLine_status ;
                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
                          ] ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :RedLine_status ;
                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
                          ] ;
          rdfs:comment "This class is used for handling the accompanying annotations, time stamp, author, etc. of designs, drawings and maps. A red line can be associated with any Location object." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#RightOfWay
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#RightOfWay
 :RightOfWay rdf:type owl:Class ;
-            rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Agreement> ,
+            rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement> ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty :RightOfWay_LandProperties ;
                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -350,18 +350,18 @@
             rdfs:comment " A right-of-way (ROW) is for land where it is lawful to use for a public road, an electric power line, etc. Note that the association to Location, Asset, Organisation, etc. for the Grant is inherited from Agreement, a type of Document." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Route
 :Route rdf:type owl:Class ;
-       rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+       rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :Route_status ;
                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                         owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
                        ] ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :Route_status ;
                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Status>
+                         owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
                        ] ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :Route_type ;
@@ -377,9 +377,9 @@
 """ .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Zone
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#Zone
 :Zone rdf:type owl:Class ;
-      rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61968/Common#Location> ,
+      rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location> ,
                       [ rdf:type owl:Restriction ;
                         owl:onProperty :Zone_kind ;
                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -393,8 +393,8 @@
       rdfs:comment "Area divided off from other areas. It may be part of the electrical network, a land area where special restrictions apply, weather areas, etc. For weather, it is an area where a set of relatively homogenous weather measurements apply." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
 
 
 ###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

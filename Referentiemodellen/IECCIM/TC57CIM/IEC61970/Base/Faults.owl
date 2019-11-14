@@ -1,22 +1,22 @@
-@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#> .
+@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#> .
+@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#> .
 
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#> rdf:type owl:Ontology .
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#> rdf:type owl:Ontology .
 
 #################################################################
 #    Datatypes
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode> rdf:type rdfs:Datatype .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode> rdf:type rdfs:Datatype .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#PhaseConnectedFaultKind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#PhaseConnectedFaultKind
 :PhaseConnectedFaultKind rdf:type rdfs:Datatype ;
                          owl:equivalentClass [ rdf:type rdfs:Datatype ;
                                                owl:oneOf [ rdf:type rdf:List ;
@@ -36,30 +36,30 @@
 #    Object Properties
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#ACLineSegment_LineFaults
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#ACLineSegment_LineFaults
 :ACLineSegment_LineFaults rdf:type owl:ObjectProperty ;
                           owl:inverseOf :LineFault_ACLineSegment ;
-                          rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Wires#ACLineSegment> ;
+                          rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#ACLineSegment> ;
                           rdfs:range :LineFault ;
                           rdfs:comment "The line faults of the line segment.The line segment of this line fault." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#EquipmentFault_Terminal
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#EquipmentFault_Terminal
 :EquipmentFault_Terminal rdf:type owl:ObjectProperty ;
                          rdfs:domain :EquipmentFault ;
-                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Terminal> ;
+                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Terminal> ;
                          rdfs:comment "The equipment faults at this terminal.The terminal connecting to the bus to which the fault is applied." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#Equipment_Faults
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#Equipment_Faults
 :Equipment_Faults rdf:type owl:ObjectProperty ;
                   owl:inverseOf :Fault_FaultyEquipment ;
-                  rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment> ;
+                  rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment> ;
                   rdfs:range :Fault ;
                   rdfs:comment "All faults on this equipment.Equipment carrying this fault." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#FaultCauseType_Faults
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#FaultCauseType_Faults
 :FaultCauseType_Faults rdf:type owl:ObjectProperty ;
                        owl:inverseOf :Fault_FaultCauseTypes ;
                        rdfs:domain :FaultCauseType ;
@@ -67,88 +67,88 @@
                        rdfs:comment "All faults with this cause type.All types of fault cause." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#FaultImpedance_rGround
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#FaultImpedance_rGround
 :FaultImpedance_rGround rdf:type owl:ObjectProperty ;
                         rdfs:domain :FaultImpedance ;
-                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
+                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
                         rdfs:comment "The resistance of the fault between phases and ground." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#FaultImpedance_rLineToLine
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#FaultImpedance_rLineToLine
 :FaultImpedance_rLineToLine rdf:type owl:ObjectProperty ;
                             rdfs:domain :FaultImpedance ;
-                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
+                            rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
                             rdfs:comment "The resistance of the fault between phases." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#FaultImpedance_xGround
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#FaultImpedance_xGround
 :FaultImpedance_xGround rdf:type owl:ObjectProperty ;
                         rdfs:domain :FaultImpedance ;
-                        rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
+                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
                         rdfs:comment "The reactance of the fault between phases and ground." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#FaultImpedance_xLineToLine
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#FaultImpedance_xLineToLine
 :FaultImpedance_xLineToLine rdf:type owl:ObjectProperty ;
                             rdfs:domain :FaultImpedance ;
-                            rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
+                            rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
                             rdfs:comment "The reactance of the fault between phases." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#Fault_FaultCauseTypes
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#Fault_FaultCauseTypes
 :Fault_FaultCauseTypes rdf:type owl:ObjectProperty ;
                        rdfs:domain :Fault ;
                        rdfs:range :FaultCauseType ;
                        rdfs:comment "All faults with this cause type.All types of fault cause." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#Fault_FaultyEquipment
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#Fault_FaultyEquipment
 :Fault_FaultyEquipment rdf:type owl:ObjectProperty ;
                        rdfs:domain :Fault ;
-                       rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment> ;
+                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment> ;
                        rdfs:comment "All faults on this equipment.Equipment carrying this fault." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#Fault_Outage
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#Fault_Outage
 :Fault_Outage rdf:type owl:ObjectProperty ;
               owl:inverseOf :Outage_Faults ;
               rdfs:domain :Fault ;
-              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage> ;
+              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#Outage> ;
               rdfs:comment "Outage associated with this fault.All faults involved in this outage." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#Fault_impedance
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#Fault_impedance
 :Fault_impedance rdf:type owl:ObjectProperty ;
                  rdfs:domain :Fault ;
                  rdfs:range :FaultImpedance ;
                  rdfs:comment "Fault impedance. Its usage is described by 'kind'." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#LineFault_ACLineSegment
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#LineFault_ACLineSegment
 :LineFault_ACLineSegment rdf:type owl:ObjectProperty ;
                          rdfs:domain :LineFault ;
-                         rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Wires#ACLineSegment> ;
+                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#ACLineSegment> ;
                          rdfs:comment "The line faults of the line segment.The line segment of this line fault." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#LineFault_lengthFromTerminal1
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#LineFault_lengthFromTerminal1
 :LineFault_lengthFromTerminal1 rdf:type owl:ObjectProperty ;
                                rdfs:domain :LineFault ;
-                               rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Length> ;
+                               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Length> ;
                                rdfs:comment "The length to the place where the fault is located starting from terminal with sequence number 1 of the faulted line segment." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#Outage_Faults
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#Outage_Faults
 :Outage_Faults rdf:type owl:ObjectProperty ;
-               rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage> ;
+               rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#Outage> ;
                rdfs:range :Fault ;
                rdfs:comment "Outage associated with this fault.All faults involved in this outage." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#Terminal_EquipmentFaults
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#Terminal_EquipmentFaults
 :Terminal_EquipmentFaults rdf:type owl:ObjectProperty ;
                           owl:inverseOf :EquipmentFault_Terminal ;
-                          rdfs:domain <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Terminal> ;
+                          rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Terminal> ;
                           rdfs:range :EquipmentFault ;
                           rdfs:comment "The equipment faults at this terminal.The terminal connecting to the bus to which the fault is applied." .
 
@@ -157,17 +157,17 @@
 #    Data properties
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#Fault_kind
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#Fault_kind
 :Fault_kind rdf:type owl:DatatypeProperty ;
             rdfs:domain :Fault ;
             rdfs:range :PhaseConnectedFaultKind ;
             rdfs:comment "The kind of phase fault." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#Fault_phases
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#Fault_phases
 :Fault_phases rdf:type owl:DatatypeProperty ;
               rdfs:domain :Fault ;
-              rdfs:range <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode> ;
+              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode> ;
               rdfs:comment "The phases participating in the fault. The fault connections into these phases are further specified by the type of fault." .
 
 
@@ -175,65 +175,65 @@
 #    Classes
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage
-<https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage> rdf:type owl:Class ;
-                                                             rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                               owl:onProperty :Outage_Faults ;
-                                                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage>
-                                                                             ] ,
-                                                                             [ rdf:type owl:Restriction ;
-                                                                               owl:onProperty :Outage_Faults ;
-                                                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                               owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61968/Operations#Outage>
-                                                                             ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#Outage
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#Outage> rdf:type owl:Class ;
+                                                                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty :Outage_Faults ;
+                                                                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                         owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#Outage>
+                                                                                       ] ,
+                                                                                       [ rdf:type owl:Restriction ;
+                                                                                         owl:onProperty :Outage_Faults ;
+                                                                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                         owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Operations#Outage>
+                                                                                       ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment> rdf:type owl:Class ;
-                                                               rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :Equipment_Faults ;
-                                                                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment>
-                                                                               ] ,
-                                                                               [ rdf:type owl:Restriction ;
-                                                                                 owl:onProperty :Equipment_Faults ;
-                                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                 owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment>
-                                                                               ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment> rdf:type owl:Class ;
+                                                                         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty :Equipment_Faults ;
+                                                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment>
+                                                                                         ] ,
+                                                                                         [ rdf:type owl:Restriction ;
+                                                                                           owl:onProperty :Equipment_Faults ;
+                                                                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment>
+                                                                                         ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Terminal
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Terminal> rdf:type owl:Class ;
-                                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty :Terminal_EquipmentFaults ;
-                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Terminal>
-                                                                              ] ,
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty :Terminal_EquipmentFaults ;
-                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#Terminal>
-                                                                              ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Terminal
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Terminal> rdf:type owl:Class ;
+                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty :Terminal_EquipmentFaults ;
+                                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                          owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Terminal>
+                                                                                        ] ,
+                                                                                        [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty :Terminal_EquipmentFaults ;
+                                                                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                          owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Terminal>
+                                                                                        ] .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Length
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Length> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Length
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Length> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#EquipmentFault
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#EquipmentFault
 :EquipmentFault rdf:type owl:Class ;
                 rdfs:subClassOf :Fault ,
                                 [ rdf:type owl:Restriction ;
@@ -244,9 +244,9 @@
                 rdfs:comment "A fault applied at the terminal, external to the equipment. This class is not used to specify faults internal to the equipment." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#Fault
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#Fault
 :Fault rdf:type owl:Class ;
-       rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+       rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :Fault_FaultCauseTypes ;
                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -280,7 +280,7 @@
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :Fault_phases ;
                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                         owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode>
+                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode>
                        ] ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :Fault_kind ;
@@ -290,14 +290,14 @@
                        [ rdf:type owl:Restriction ;
                          owl:onProperty :Fault_phases ;
                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                         owl:onDataRange <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode>
+                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode>
                        ] ;
        rdfs:comment "Abnormal condition causing current flow through conducting equipment, such as caused by equipment failure or short circuits from objects not typically modeled (for example, a tree falling on a line)." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#FaultCauseType
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#FaultCauseType
 :FaultCauseType rdf:type owl:Class ;
-                rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :FaultCauseType_Faults ;
                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -306,52 +306,52 @@
                 rdfs:comment "Type of cause of the fault." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#FaultImpedance
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#FaultImpedance
 :FaultImpedance rdf:type owl:Class ;
                 rdfs:subClassOf [ rdf:type owl:Restriction ;
                                   owl:onProperty :FaultImpedance_rGround ;
                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
+                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :FaultImpedance_rLineToLine ;
                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
+                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :FaultImpedance_xGround ;
                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
+                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :FaultImpedance_xLineToLine ;
                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
+                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :FaultImpedance_rGround ;
                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
+                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :FaultImpedance_rLineToLine ;
                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
+                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :FaultImpedance_xGround ;
                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
+                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :FaultImpedance_xLineToLine ;
                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
+                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
                                 ] ;
                 rdfs:comment "Impedance description for the fault." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Faults#LineFault
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Faults#LineFault
 :LineFault rdf:type owl:Class ;
            rdfs:subClassOf :Fault ,
                            [ rdf:type owl:Restriction ;
@@ -362,28 +362,28 @@
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :LineFault_lengthFromTerminal1 ;
                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Length>
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Length>
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty :LineFault_lengthFromTerminal1 ;
                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Domain#Length>
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Length>
                            ] ;
            rdfs:comment "A fault that occurs on an AC line segment at some point along the length." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Wires#ACLineSegment
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Wires#ACLineSegment> rdf:type owl:Class ;
-                                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                      owl:onProperty :ACLineSegment_LineFaults ;
-                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Wires#ACLineSegment>
-                                                                                    ] ,
-                                                                                    [ rdf:type owl:Restriction ;
-                                                                                      owl:onProperty :ACLineSegment_LineFaults ;
-                                                                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                      owl:onClass <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Wires#ACLineSegment>
-                                                                                    ] .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#ACLineSegment
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#ACLineSegment> rdf:type owl:Class ;
+                                                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty :ACLineSegment_LineFaults ;
+                                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#ACLineSegment>
+                                                                                              ] ,
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty :ACLineSegment_LineFaults ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#ACLineSegment>
+                                                                                              ] .
 
 
 ###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

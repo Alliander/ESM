@@ -1,12 +1,12 @@
-@prefix : <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#> .
+@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#> .
+@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#> .
 
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#> rdf:type owl:Ontology .
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#> rdf:type owl:Ontology .
 
 #################################################################
 #    Datatypes
@@ -20,7 +20,7 @@ xsd:date rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#DifferentialModel_PowerSystemProject
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#DifferentialModel_PowerSystemProject
 :DifferentialModel_PowerSystemProject rdf:type owl:ObjectProperty ;
                                       owl:inverseOf :PowerSystemProject_DifferentialModel ;
                                       rdfs:domain :DifferentialModel ;
@@ -28,28 +28,28 @@ xsd:date rdf:type rdfs:Datatype .
                                       rdfs:comment "The project of the details of model changes.The details of model changes for this project." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_AlternativeProject
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_AlternativeProject
 :PowerSystemProject_AlternativeProject rdf:type owl:ObjectProperty ;
                                        rdfs:domain :PowerSystemProject ;
                                        rdfs:range :PowerSystemProject ;
                                        rdfs:comment "The master project for a competing projects.Competing project. Only one of the projects will be commissioned." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_Collection
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_Collection
 :PowerSystemProject_Collection rdf:type owl:ObjectProperty ;
                                rdfs:domain :PowerSystemProject ;
                                rdfs:range :PowerSystemProject ;
                                rdfs:comment "The  project that needs to be finished before the project.Consist of or sub projects that need to be finished before the project is fished." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_DifferentialModel
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_DifferentialModel
 :PowerSystemProject_DifferentialModel rdf:type owl:ObjectProperty ;
                                       rdfs:domain :PowerSystemProject ;
                                       rdfs:range :DifferentialModel ;
                                       rdfs:comment "The project of the details of model changes.The details of model changes for this project." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_PriorityProject
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_PriorityProject
 :PowerSystemProject_PriorityProject rdf:type owl:ObjectProperty ;
                                     owl:inverseOf :PowerSystemProject_AlternativeProject ;
                                     rdfs:domain :PowerSystemProject ;
@@ -57,7 +57,7 @@ xsd:date rdf:type rdfs:Datatype .
                                     rdfs:comment "The master project for a competing projects.Competing project. Only one of the projects will be commissioned." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_Project
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_Project
 :PowerSystemProject_Project rdf:type owl:ObjectProperty ;
                             owl:inverseOf :PowerSystemProject_Collection ;
                             rdfs:domain :PowerSystemProject ;
@@ -65,7 +65,7 @@ xsd:date rdf:type rdfs:Datatype .
                             rdfs:comment "The  project that needs to be finished before the project.Consist of or sub projects that need to be finished before the project is fished." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_ShadowProject
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_ShadowProject
 :PowerSystemProject_ShadowProject rdf:type owl:ObjectProperty ;
                                   owl:inverseOf :PowerSystemProject_SilhouetteProject ;
                                   rdfs:domain :PowerSystemProject ;
@@ -73,21 +73,21 @@ xsd:date rdf:type rdfs:Datatype .
                                   rdfs:comment "A shadowing project that include the same change set, but different timeline.The silhohuete of shadowing project that include the same change set, but different timeline." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_SilhouetteProject
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_SilhouetteProject
 :PowerSystemProject_SilhouetteProject rdf:type owl:ObjectProperty ;
                                       rdfs:domain :PowerSystemProject ;
                                       rdfs:range :PowerSystemProject ;
                                       rdfs:comment "A shadowing project that include the same change set, but different timeline.The silhohuete of shadowing project that include the same change set, but different timeline." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_actualLifecycle
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_actualLifecycle
 :PowerSystemProject_actualLifecycle rdf:type owl:ObjectProperty ;
                                     rdfs:domain :PowerSystemProject ;
                                     rdfs:range :PowerSystemProjectLifecycle ;
                                     rdfs:comment "The actual lifecycle." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_plannedLifecycle
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_plannedLifecycle
 :PowerSystemProject_plannedLifecycle rdf:type owl:ObjectProperty ;
                                      rdfs:domain :PowerSystemProject ;
                                      rdfs:range :PowerSystemProjectLifecycle ;
@@ -98,70 +98,70 @@ xsd:date rdf:type rdfs:Datatype .
 #    Data properties
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_cancelled
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_cancelled
 :PowerSystemProjectLifecycle_cancelled rdf:type owl:DatatypeProperty ;
                                        rdfs:domain :PowerSystemProjectLifecycle ;
                                        rdfs:range xsd:date ;
                                        rdfs:comment "The date the Power System Project is in cancelled stage." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_commissioned
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_commissioned
 :PowerSystemProjectLifecycle_commissioned rdf:type owl:DatatypeProperty ;
                                           rdfs:domain :PowerSystemProjectLifecycle ;
                                           rdfs:range xsd:date ;
                                           rdfs:comment "The date Power System Project is in commissioned stage." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_committed
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_committed
 :PowerSystemProjectLifecycle_committed rdf:type owl:DatatypeProperty ;
                                        rdfs:domain :PowerSystemProjectLifecycle ;
                                        rdfs:range xsd:date ;
                                        rdfs:comment "The date Power System Project is in committed stage." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_inBuild
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_inBuild
 :PowerSystemProjectLifecycle_inBuild rdf:type owl:DatatypeProperty ;
                                      rdfs:domain :PowerSystemProjectLifecycle ;
                                      rdfs:range xsd:date ;
                                      rdfs:comment "The date Power System Project is in build stage." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_inPlan
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_inPlan
 :PowerSystemProjectLifecycle_inPlan rdf:type owl:DatatypeProperty ;
                                     rdfs:domain :PowerSystemProjectLifecycle ;
                                     rdfs:range xsd:date ;
                                     rdfs:comment "The date Power System Project is in planning stage." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_comment
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_comment
 :PowerSystemProject_comment rdf:type owl:DatatypeProperty ;
                             rdfs:domain :PowerSystemProject ;
                             rdfs:range xsd:string ;
                             rdfs:comment "Free text comment." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_priority
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_priority
 :PowerSystemProject_priority rdf:type owl:DatatypeProperty ;
                              rdfs:domain :PowerSystemProject ;
                              rdfs:range xsd:nonNegativeInteger ;
                              rdfs:comment "Priority between competing projects. Use 0 for don t care.  Use 1 for highest priority.  Use 2 as priority is less than 1 and so on." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_type
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_type
 :PowerSystemProject_type rdf:type owl:DatatypeProperty ;
                          rdfs:domain :PowerSystemProject ;
                          rdfs:range xsd:string ;
                          rdfs:comment "Type of project. Multiple tagges can be added with \";\" as separator." .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_version
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_version
 :PowerSystemProject_version rdf:type owl:DatatypeProperty ;
                             rdfs:domain :PowerSystemProject ;
                             rdfs:range xsd:nonNegativeInteger ;
                             rdfs:comment "Version is uniquely identifying the project version. Changes to a project are not modelled. So the project with the highest version is the valid/latest project. Only positive numbers equal or higher than 1 are allowed" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_versionUUID
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_versionUUID
 :PowerSystemProject_versionUUID rdf:type owl:DatatypeProperty ;
                                 rdfs:domain :PowerSystemProject ;
                                 rdfs:range xsd:string ;
@@ -172,11 +172,11 @@ xsd:date rdf:type rdfs:Datatype .
 #    Classes
 #################################################################
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
-<https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#DifferentialModel
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#DifferentialModel
 :DifferentialModel rdf:type owl:Class ;
                    rdfs:subClassOf [ rdf:type owl:Restriction ;
                                      owl:onProperty :DifferentialModel_PowerSystemProject ;
@@ -191,9 +191,9 @@ xsd:date rdf:type rdfs:Datatype .
                    rdfs:comment "A set of statements describing the changes in the network model. The statement is defined in the incremental model. " .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject
 :PowerSystemProject rdf:type owl:Class ;
-                    rdfs:subClassOf <https://w3id.org/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                    rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
                                     [ rdf:type owl:Restriction ;
                                       owl:onProperty :PowerSystemProject_AlternativeProject ;
                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
@@ -327,7 +327,7 @@ xsd:date rdf:type rdfs:Datatype .
                     rdfs:comment "Meta-data for the change set that describe the status and the planned implementation of the changes into the as-build model. A Power System Project can consist of other Power System Projects" .
 
 
-###  https://w3id.org/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle
 :PowerSystemProjectLifecycle rdf:type owl:Class ;
                              rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                owl:onProperty :PowerSystemProjectLifecycle_cancelled ;
