@@ -1,234 +1,369 @@
-@prefix : <https://w3id.org/netbeheer/def/KernObjecten#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix kern: <https://w3id.org/netbeheer/def/KernObjecten> .
-@prefix obda: <https://w3id.org/obda/vocabulary#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/def/KernObjecten> .
-
-<https://w3id.org/netbeheer/def/KernObjecten> rdf:type owl:Ontology ;
-                                               rdfs:comment "KernObjecten ontologie voor netbeheerders"@nl ,
-                                                            "KernObjecten ontology of the Dutch energy grid operators"@en ;
-                                               rdfs:label "KernObjecten Ontologie"@nl .
-
-#################################################################
-#    Annotation properties
-#################################################################
-
-###  http://purl.org/dc/elements/1.1/creator
-<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/elements/1.1/date
-<http://purl.org/dc/elements/1.1/date> rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#example
-<http://www.w3.org/2004/02/skos/core#example> rdf:type owl:AnnotationProperty ;
-                                              rdfs:subPropertyOf rdfs:comment .
-
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/netbeheer/def/KernObjecten#BehoortTot
-:BehoortTot rdf:type owl:ObjectProperty ;
-            owl:inverseOf :Bevat ;
-            rdfs:domain [ rdf:type owl:Restriction ;
-                          owl:onProperty :Bevat ;
-                          owl:someValuesFrom :GeidentificeerdObject
-                        ] ;
-            rdfs:range [ rdf:type owl:Restriction ;
-                         owl:onProperty :Bevat ;
-                         owl:someValuesFrom :GeidentificeerdObject
-                       ] ;
-            rdfs:comment "meest generieke relatie van een element naar een verzameling"@nl .
-
-
-###  https://w3id.org/netbeheer/def/KernObjecten#BetreftOrganisatie
-:BetreftOrganisatie rdf:type owl:ObjectProperty ;
-                    owl:inverseOf :HeeftRol ;
-                    rdfs:domain :OrganisatieRol ;
-                    rdfs:range :Organisatie ;
-                    rdfs:comment "beschrijft door welke organisatied deze rol wordt vervult"@nl .
-
-
-###  https://w3id.org/netbeheer/def/KernObjecten#Bevat
-:Bevat rdf:type owl:ObjectProperty ,
-                owl:TransitiveProperty ;
-       rdfs:domain [ rdf:type owl:Restriction ;
-                     owl:onProperty :BehoortTot ;
-                     owl:someValuesFrom :GeidentificeerdObject
-                   ] ;
-       rdfs:range [ rdf:type owl:Restriction ;
-                    owl:onProperty :BehoortTot ;
-                    owl:someValuesFrom :GeidentificeerdObject
-                  ] ;
-       <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
-       <http://purl.org/dc/elements/1.1/date> "2019-09-18T07:28:38Z"^^xsd:dateTime ;
-       rdfs:comment "Meest generieke relatie van een verzameling naar een element."@nl .
-
-
-###  https://w3id.org/netbeheer/def/KernObjecten#HeeftNaamtype
-:HeeftNaamtype rdf:type owl:ObjectProperty ;
-               rdfs:domain :Name ;
-               rdfs:range :Naamtype .
-
-
-###  https://w3id.org/netbeheer/def/KernObjecten#HeeftNamen
-:HeeftNamen rdf:type owl:ObjectProperty ;
-            rdfs:domain :GeidentificeerdObject ;
-            rdfs:range :Name ;
-            rdfs:comment "relateerd locale/systeem specifieke/human readable identificatie aan een resource"@nl .
-
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/def/KernObjecten#"
+     xml:base="https://w3id.org/netbeheer/def/KernObjecten"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:kern="https://w3id.org/netbeheer/def/KernObjecten"
+     xmlns:obda="https://w3id.org/obda/vocabulary#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/def/KernObjecten">
+        <rdfs:comment xml:lang="nl">KernObjecten ontologie voor netbeheerders</rdfs:comment>
+        <rdfs:comment xml:lang="en">KernObjecten ontology of the Dutch energy grid operators</rdfs:comment>
+        <rdfs:label xml:lang="nl">KernObjecten Ontologie</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#example -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#example">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#BehoortTot -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/def/KernObjecten#BehoortTot">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#Bevat"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#Bevat"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#Bevat"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:comment xml:lang="nl">meest generieke relatie van een element naar een verzameling</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#BetreftOrganisatie -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/def/KernObjecten#BetreftOrganisatie">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#HeeftRol"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#OrganisatieRol"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#Organisatie"/>
+        <rdfs:comment xml:lang="nl">beschrijft door welke organisatied deze rol wordt vervult</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#Bevat -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/def/KernObjecten#Bevat">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#BehoortTot"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#BehoortTot"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AL12686</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-09-18T07:28:38Z</dc:date>
+        <rdfs:comment xml:lang="nl">Meest generieke relatie van een verzameling naar een element.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#HeeftNaamtype -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/def/KernObjecten#HeeftNaamtype">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#Name"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#Naamtype"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#HeeftNamen -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/def/KernObjecten#HeeftNamen">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#Name"/>
+        <rdfs:comment xml:lang="nl">relateerd locale/systeem specifieke/human readable identificatie aan een resource</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#HeeftRol -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/def/KernObjecten#HeeftRol">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#Organisatie"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#OrganisatieRol"/>
+        <rdfs:comment xml:lang="nl">Beschrijft welke rollen de organisatie vervult</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#IsEigendomVan -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/def/KernObjecten#IsEigendomVan"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#VervultFuncties -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/def/KernObjecten#VervultFuncties">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#WordtIngevultDoorAssets"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#WordtIngevultDoorAssets"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#EnergieSysteemFunctie"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#WordtIngevultDoorAssets"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#EnergieSysteemFunctie"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:comment xml:lang="nl">Relatie die asset aan z&apos;n functie koppelt</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/def/KernObjecten#HeeftRol
-:HeeftRol rdf:type owl:ObjectProperty ;
-          rdfs:domain :Organisatie ;
-          rdfs:range :OrganisatieRol ;
-          rdfs:comment "Beschrijft welke rollen de organisatie vervult"@nl .
 
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#WordtIngevultDoorAssets -->
 
-###  https://w3id.org/netbeheer/def/KernObjecten#IsEigendomVan
-:IsEigendomVan rdf:type owl:ObjectProperty .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/def/KernObjecten#WordtIngevultDoorAssets">
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#WordtIngevultDoorAssets"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#EnergieSysteemFunctie"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#WordtIngevultDoorAssets"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#Asset"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:comment xml:lang="nl">Relatie die een EnergieSysteemFunctie koppelt aan de Assets waarmee de functie geimplementeerd is</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/def/KernObjecten#VervultFuncties
-:VervultFuncties rdf:type owl:ObjectProperty ;
-                 owl:inverseOf :WordtIngevultDoorAssets ;
-                 rdfs:domain [ rdf:type owl:Restriction ;
-                               owl:onProperty :WordtIngevultDoorAssets ;
-                               owl:someValuesFrom :EnergieSysteemFunctie
-                             ] ;
-                 rdfs:range [ rdf:type owl:Restriction ;
-                              owl:onProperty :WordtIngevultDoorAssets ;
-                              owl:someValuesFrom :EnergieSysteemFunctie
-                            ] ;
-                 rdfs:comment "Relatie die asset aan z'n functie koppelt"@nl .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
+    
 
-###  https://w3id.org/netbeheer/def/KernObjecten#WordtIngevultDoorAssets
-:WordtIngevultDoorAssets rdf:type owl:ObjectProperty ;
-                         rdfs:domain [ rdf:type owl:Restriction ;
-                                       owl:onProperty :WordtIngevultDoorAssets ;
-                                       owl:someValuesFrom :EnergieSysteemFunctie
-                                     ] ;
-                         rdfs:range [ rdf:type owl:Restriction ;
-                                      owl:onProperty :WordtIngevultDoorAssets ;
-                                      owl:someValuesFrom :Asset
-                                    ] ;
-                         rdfs:comment "Relatie die een EnergieSysteemFunctie koppelt aan de Assets waarmee de functie geimplementeerd is"@nl .
 
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#beschrijving -->
 
-#################################################################
-#    Data properties
-#################################################################
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/def/KernObjecten#beschrijving">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="nl">vrije text voor menselijke consumptie</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
-###  https://w3id.org/netbeheer/def/KernObjecten#beschrijving
-:beschrijving rdf:type owl:DatatypeProperty ;
-              rdfs:domain :GeidentificeerdObject ;
-              rdfs:range xsd:string ;
-              rdfs:comment "vrije text voor menselijke consumptie"@nl .
 
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#mRID -->
 
-###  https://w3id.org/netbeheer/def/KernObjecten#mRID
-:mRID rdf:type owl:DatatypeProperty ;
-      rdfs:comment "Master Recource Identifier, de 'digital twin' sleutel die verweist naar het ding in de werkelijkheid"@nl .
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/def/KernObjecten#mRID">
+        <rdfs:comment xml:lang="nl">Master Recource Identifier, de &apos;digital twin&apos; sleutel die verweist naar het ding in de werkelijkheid</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-###  https://w3id.org/netbeheer/def/KernObjecten#naam
-:naam rdf:type owl:DatatypeProperty ;
-      rdfs:domain :Name ;
-      rdfs:range xsd:string ;
-      rdfs:comment "Locale/systeemspecifieke of human readable identificaitie voor een resource"@nl .
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#naam -->
 
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/def/KernObjecten#naam">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#Name"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="nl">Locale/systeemspecifieke of human readable identificaitie voor een resource</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
-#################################################################
-#    Classes
-#################################################################
 
-###  https://w3id.org/netbeheer/def/KernObjecten#Asset
-:Asset rdf:type owl:Class ;
-       rdfs:subClassOf :GeidentificeerdObject ;
-       rdfs:comment """identiek aan cim:Asset
-De fysieke dingen die we inkopen, op voorraad hebben, aanleggen en/of gebruiken om de taak van netbeheerder uit te voeren. Assets hebben een relatie met een EnergieSysteemFunctie"""@nl .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
+    
 
-###  https://w3id.org/netbeheer/def/KernObjecten#BulkAsset
-:BulkAsset rdf:type owl:Class ;
-           rdfs:subClassOf :Asset ;
-           rdfs:comment "BulkAsset betreft alle assets waarvan de atomaire entiteit bij aankoop niet overeen komt met de entiteit die in het net wordt aangelegd."@nl .
 
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#Asset -->
 
-###  https://w3id.org/netbeheer/def/KernObjecten#Component
-:Component rdf:type owl:Class ;
-           rdfs:subClassOf :EnergieSysteemFunctie .
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/KernObjecten#Asset">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject"/>
+        <rdfs:comment xml:lang="nl">identiek aan cim:Asset
+De fysieke dingen die we inkopen, op voorraad hebben, aanleggen en/of gebruiken om de taak van netbeheerder uit te voeren. Assets hebben een relatie met een EnergieSysteemFunctie</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/def/KernObjecten#ComponentenContainer
-:ComponentenContainer rdf:type owl:Class ;
-                      rdfs:subClassOf :EnergieSysteemFunctie .
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#BulkAsset -->
 
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/KernObjecten#BulkAsset">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#Asset"/>
+        <rdfs:comment xml:lang="nl">BulkAsset betreft alle assets waarvan de atomaire entiteit bij aankoop niet overeen komt met de entiteit die in het net wordt aangelegd.</rdfs:comment>
+    </owl:Class>
+    
 
-###  https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie
-:ElektriciteitSysteemFunctie rdf:type owl:Class ;
-                             rdfs:subClassOf :EnergieSysteemFunctie ;
-                             rdfs:comment "Gebaseerd op cim:PowerSystemResource"@nl .
 
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#Component -->
 
-###  https://w3id.org/netbeheer/def/KernObjecten#EnergieSysteemFunctie
-:EnergieSysteemFunctie rdf:type owl:Class ;
-                       rdfs:subClassOf :GeidentificeerdObject ;
-                       rdfs:comment """Een functionele entiteit in het energie systeem. Deze funcitie wordt ingevuld door een asset
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/KernObjecten#Component">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#EnergieSysteemFunctie"/>
+    </owl:Class>
+    
 
-Gebaseerd op cim:PowerSystemResource maar generieker want bevat zowel gas als elektra."""@nl .
 
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#ComponentenContainer -->
 
-###  https://w3id.org/netbeheer/def/KernObjecten#GasSysteemFunctie
-:GasSysteemFunctie rdf:type owl:Class ;
-                   rdfs:subClassOf :EnergieSysteemFunctie .
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/KernObjecten#ComponentenContainer">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#EnergieSysteemFunctie"/>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject
-:GeidentificeerdObject rdf:type owl:Class ;
-                       <http://purl.org/dc/elements/1.1/creator> "AL12686"^^xsd:string ;
-                       <http://purl.org/dc/elements/1.1/date> "2019-09-18T07:14:57Z"^^xsd:dateTime ;
-                       rdfs:comment "Root object for all (intended) master data objects" .
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie -->
 
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#EnergieSysteemFunctie"/>
+        <rdfs:comment xml:lang="nl">Gebaseerd op cim:PowerSystemResource</rdfs:comment>
+    </owl:Class>
+    
 
-###  https://w3id.org/netbeheer/def/KernObjecten#Installatie
-:Installatie rdf:type owl:Class ;
-             rdfs:subClassOf :ComponentenContainer ;
-             rdfs:comment "Een logische verzameling van functionele componenten"@nl .
 
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#EnergieSysteemFunctie -->
 
-###  https://w3id.org/netbeheer/def/KernObjecten#Naamtype
-:Naamtype rdf:type owl:Class ;
-          rdfs:comment "Beschrijft de metadata van een Naam object"@nl .
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/KernObjecten#EnergieSysteemFunctie">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject"/>
+        <rdfs:comment xml:lang="nl">Een functionele entiteit in het energie systeem. Deze funcitie wordt ingevuld door een asset
 
+Gebaseerd op cim:PowerSystemResource maar generieker want bevat zowel gas als elektra.</rdfs:comment>
+    </owl:Class>
+    
 
-###  https://w3id.org/netbeheer/def/KernObjecten#Name
-:Name rdf:type owl:Class ;
-      rdfs:comment "Locale/systeemspecifieke of human readable identificaitie voor een resource"@nl .
 
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#GasSysteemFunctie -->
 
-###  https://w3id.org/netbeheer/def/KernObjecten#Organisatie
-:Organisatie rdf:type owl:Class ;
-             rdfs:subClassOf :GeidentificeerdObject .
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/KernObjecten#GasSysteemFunctie">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#EnergieSysteemFunctie"/>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/def/KernObjecten#OrganisatieRol
-:OrganisatieRol rdf:type owl:Class ;
-                rdfs:subClassOf :GeidentificeerdObject .
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject -->
 
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject">
+        <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AL12686</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-09-18T07:14:57Z</dc:date>
+        <rdfs:comment>Root object for all (intended) master data objects</rdfs:comment>
+    </owl:Class>
+    
 
-###  https://w3id.org/netbeheer/def/KernObjecten#Stationcomplex
-:Stationcomplex rdf:type owl:Class ;
-                rdfs:subClassOf :ComponentenContainer ;
-                rdfs:comment "Het stationcomplex is een samenstelling van één of meerdere gebouwen en/of terreinen die assetcomponenten bevat(ten) om de stationsfunctie in het energienetwerk voor E en/of G in te kunnen vullen"@nl .
 
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#Installatie -->
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/KernObjecten#Installatie">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#ComponentenContainer"/>
+        <rdfs:comment xml:lang="nl">Een logische verzameling van functionele componenten</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#Naamtype -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/KernObjecten#Naamtype">
+        <rdfs:comment xml:lang="nl">Beschrijft de metadata van een Naam object</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#Name -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/KernObjecten#Name">
+        <rdfs:comment xml:lang="nl">Locale/systeemspecifieke of human readable identificaitie voor een resource</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#Organisatie -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/KernObjecten#Organisatie">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#OrganisatieRol -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/KernObjecten#OrganisatieRol">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#Stationcomplex -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/KernObjecten#Stationcomplex">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#ComponentenContainer"/>
+        <rdfs:comment xml:lang="nl">Het stationcomplex is een samenstelling van één of meerdere gebouwen en/of terreinen die assetcomponenten bevat(ten) om de stationsfunctie in het energienetwerk voor E en/of G in te kunnen vullen</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
