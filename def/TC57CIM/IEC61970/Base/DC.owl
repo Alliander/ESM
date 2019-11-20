@@ -1,0 +1,1563 @@
+@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#> .
+
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#CsOperatingModeKind
+:CsOperatingModeKind rdf:type rdfs:Datatype ;
+                     owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                           owl:oneOf [ rdf:type rdf:List ;
+                                                       rdf:first "inverter" ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first "rectifier" ;
+                                                                  rdf:rest rdf:nil
+                                                                ]
+                                                     ]
+                                         ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#CsPpccControlKind
+:CsPpccControlKind rdf:type rdfs:Datatype ;
+                   owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                         owl:oneOf [ rdf:type rdf:List ;
+                                                     rdf:first "activePower" ;
+                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                rdf:first "dcCurrent" ;
+                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                           rdf:first "dcVoltage" ;
+                                                                           rdf:rest rdf:nil
+                                                                         ]
+                                                              ]
+                                                   ]
+                                       ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCConverterOperatingModeKind
+:DCConverterOperatingModeKind rdf:type rdfs:Datatype ;
+                              owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                                    owl:oneOf [ rdf:type rdf:List ;
+                                                                rdf:first "bipolar" ;
+                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                           rdf:first "monopolarGroundReturn" ;
+                                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                                      rdf:first "monopolarMetallicReturn" ;
+                                                                                      rdf:rest rdf:nil
+                                                                                    ]
+                                                                         ]
+                                                              ]
+                                                  ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCPolarityKind
+:DCPolarityKind rdf:type rdfs:Datatype ;
+                owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                      owl:oneOf [ rdf:type rdf:List ;
+                                                  rdf:first "middle" ;
+                                                  rdf:rest [ rdf:type rdf:List ;
+                                                             rdf:first "negative" ;
+                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                        rdf:first "positive" ;
+                                                                        rdf:rest rdf:nil
+                                                                      ]
+                                                           ]
+                                                ]
+                                    ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#VsPpccControlKind
+:VsPpccControlKind rdf:type rdfs:Datatype ;
+                   owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                         owl:oneOf [ rdf:type rdf:List ;
+                                                     rdf:first "pPcc" ;
+                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                rdf:first "pPccAndUdcDroop" ;
+                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                           rdf:first "pPccAndUdcDroopPilot" ;
+                                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                                      rdf:first "pPccAndUdcDroopWithCompensation" ;
+                                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                                 rdf:first "udc" ;
+                                                                                                 rdf:rest rdf:nil
+                                                                                               ]
+                                                                                    ]
+                                                                         ]
+                                                              ]
+                                                   ]
+                                       ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#VsQpccControlKind
+:VsQpccControlKind rdf:type rdfs:Datatype ;
+                   owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                         owl:oneOf [ rdf:type rdf:List ;
+                                                     rdf:first "powerFactorPcc" ;
+                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                rdf:first "reactivePcc" ;
+                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                           rdf:first "voltagePcc" ;
+                                                                           rdf:rest rdf:nil
+                                                                         ]
+                                                              ]
+                                                   ]
+                                       ] .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverterDCTerminal_DCConductingEquipment
+:ACDCConverterDCTerminal_DCConductingEquipment rdf:type owl:ObjectProperty ;
+                                               rdfs:domain :ACDCConverterDCTerminal ;
+                                               rdfs:range :ACDCConverter ;
+                                               rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_DCTerminals
+:ACDCConverter_DCTerminals rdf:type owl:ObjectProperty ;
+                           owl:inverseOf :ACDCConverterDCTerminal_DCConductingEquipment ;
+                           rdf:type owl:FunctionalProperty ;
+                           rdfs:domain :ACDCConverter ;
+                           rdfs:range :ACDCConverterDCTerminal ;
+                           rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_baseS
+:ACDCConverter_baseS rdf:type owl:ObjectProperty ;
+                     rdfs:domain :ACDCConverter ;
+                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower> ;
+                     rdfs:comment "Base apparent power of the converter pole." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_idc
+:ACDCConverter_idc rdf:type owl:ObjectProperty ;
+                   rdfs:domain :ACDCConverter ;
+                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                   rdfs:comment "Converter DC current, also called Id. Converter state variable, result from power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_idleLoss
+:ACDCConverter_idleLoss rdf:type owl:ObjectProperty ;
+                        rdfs:domain :ACDCConverter ;
+                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
+                        rdfs:comment "Active power loss in pole at no power transfer. Converter configuration data used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_maxUdc
+:ACDCConverter_maxUdc rdf:type owl:ObjectProperty ;
+                      rdfs:domain :ACDCConverter ;
+                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                      rdfs:comment "The maximum voltage on the DC side at which the converter should operate. Converter configuration data used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_minUdc
+:ACDCConverter_minUdc rdf:type owl:ObjectProperty ;
+                      rdfs:domain :ACDCConverter ;
+                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                      rdfs:comment "Min allowed converter DC voltage. Converter configuration data used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_p
+:ACDCConverter_p rdf:type owl:ObjectProperty ;
+                 rdfs:domain :ACDCConverter ;
+                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
+                 rdfs:comment """Active power at the point of common coupling. Load sign convention is used, i.e. positive sign means flow out from a node.
+Starting value for a steady state solution in the case a simplified power flow model is used.""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_poleLossP
+:ACDCConverter_poleLossP rdf:type owl:ObjectProperty ;
+                         rdfs:domain :ACDCConverter ;
+                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
+                         rdfs:comment """The active power loss at a DC Pole 
+= idleLoss + switchingLoss*|Idc| + resitiveLoss*Idc^2
+For lossless operation Pdc=Pac
+For rectifier operation with losses Pdc=Pac-lossP
+For inverter operation with losses Pdc=Pac+lossP
+Converter state variable used in power flow.""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_q
+:ACDCConverter_q rdf:type owl:ObjectProperty ;
+                 rdfs:domain :ACDCConverter ;
+                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> ;
+                 rdfs:comment """Reactive power at the point of common coupling. Load sign convention is used, i.e. positive sign means flow out from a node.
+Starting value for a steady state solution in the case a simplified power flow model is used.""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_ratedUdc
+:ACDCConverter_ratedUdc rdf:type owl:ObjectProperty ;
+                        rdfs:domain :ACDCConverter ;
+                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                        rdfs:comment "Rated converter DC voltage, also called UdN. Converter configuration data used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_resistiveLoss
+:ACDCConverter_resistiveLoss rdf:type owl:ObjectProperty ;
+                             rdfs:domain :ACDCConverter ;
+                             rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
+                             rdfs:comment "Converter configuration data used in power flow. Refer to poleLossP." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_switchingLoss
+:ACDCConverter_switchingLoss rdf:type owl:ObjectProperty ;
+                             rdfs:domain :ACDCConverter ;
+                             rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePowerPerCurrentFlow> ;
+                             rdfs:comment """Switching losses, relative to the base apparent power 'baseS'.
+Refer to poleLossP.""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_targetPpcc
+:ACDCConverter_targetPpcc rdf:type owl:ObjectProperty ;
+                          rdfs:domain :ACDCConverter ;
+                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
+                          rdfs:comment "Real power injection target in AC grid, at point of common coupling." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_targetUdc
+:ACDCConverter_targetUdc rdf:type owl:ObjectProperty ;
+                         rdfs:domain :ACDCConverter ;
+                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                         rdfs:comment "Target value for DC voltage magnitude." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_uc
+:ACDCConverter_uc rdf:type owl:ObjectProperty ;
+                  rdfs:domain :ACDCConverter ;
+                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                  rdfs:comment "Line-to-line converter voltage, the voltage at the AC side of the valve. Converter state variable, result from power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_udc
+:ACDCConverter_udc rdf:type owl:ObjectProperty ;
+                   rdfs:domain :ACDCConverter ;
+                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                   rdfs:comment "Converter voltage at the DC side, also called Ud. Converter state variable, result from power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_valveU0
+:ACDCConverter_valveU0 rdf:type owl:ObjectProperty ;
+                       rdfs:domain :ACDCConverter ;
+                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                       rdfs:comment "Valve threshold voltage, also called Uvalve. Forward voltage drop when the valve is conducting. Used in loss calculations, i.e. the switchLoss depend on numberOfValves * valveU0." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#CsConverter_alpha
+:CsConverter_alpha rdf:type owl:ObjectProperty ;
+                   rdfs:domain :CsConverter ;
+                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees> ;
+                   rdfs:comment "Firing angle, typical value between 10 and 18 degrees for a rectifier. CSC state variable, result from power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#CsConverter_gamma
+:CsConverter_gamma rdf:type owl:ObjectProperty ;
+                   rdfs:domain :CsConverter ;
+                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees> ;
+                   rdfs:comment "Extinction angle. CSC state variable, result from power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#CsConverter_maxAlpha
+:CsConverter_maxAlpha rdf:type owl:ObjectProperty ;
+                      rdfs:domain :CsConverter ;
+                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees> ;
+                      rdfs:comment "Maximum firing angle. CSC configuration data used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#CsConverter_maxGamma
+:CsConverter_maxGamma rdf:type owl:ObjectProperty ;
+                      rdfs:domain :CsConverter ;
+                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees> ;
+                      rdfs:comment "Maximum extinction angle. CSC configuration data used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#CsConverter_maxIdc
+:CsConverter_maxIdc rdf:type owl:ObjectProperty ;
+                    rdfs:domain :CsConverter ;
+                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                    rdfs:comment "The maximum direct current (Id) on the DC side at which the converter should operate. Converter configuration data use in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#CsConverter_minAlpha
+:CsConverter_minAlpha rdf:type owl:ObjectProperty ;
+                      rdfs:domain :CsConverter ;
+                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees> ;
+                      rdfs:comment "Minimum firing angle. CSC configuration data used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#CsConverter_minGamma
+:CsConverter_minGamma rdf:type owl:ObjectProperty ;
+                      rdfs:domain :CsConverter ;
+                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees> ;
+                      rdfs:comment "Minimum extinction angle. CSC configuration data used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#CsConverter_minIdc
+:CsConverter_minIdc rdf:type owl:ObjectProperty ;
+                    rdfs:domain :CsConverter ;
+                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                    rdfs:comment "The minimum direct current (Id) on the DC side at which the converter should operate. CSC configuration data used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#CsConverter_ratedIdc
+:CsConverter_ratedIdc rdf:type owl:ObjectProperty ;
+                      rdfs:domain :CsConverter ;
+                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                      rdfs:comment "Rated converter DC current, also called IdN. Converter configuration data used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#CsConverter_targetAlpha
+:CsConverter_targetAlpha rdf:type owl:ObjectProperty ;
+                         rdfs:domain :CsConverter ;
+                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees> ;
+                         rdfs:comment "Target firing angle. CSC control variable used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#CsConverter_targetGamma
+:CsConverter_targetGamma rdf:type owl:ObjectProperty ;
+                         rdfs:domain :CsConverter ;
+                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees> ;
+                         rdfs:comment "Target extinction angle. CSC  control variable used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#CsConverter_targetIdc
+:CsConverter_targetIdc rdf:type owl:ObjectProperty ;
+                       rdfs:domain :CsConverter ;
+                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                       rdfs:comment "DC current target value. CSC control variable used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCBaseTerminal_DCNode
+:DCBaseTerminal_DCNode rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :DCNode_DCTerminals ;
+                       rdfs:domain :DCBaseTerminal ;
+                       rdfs:range :DCNode ;
+                       rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCConductingEquipment_DCTerminals
+:DCConductingEquipment_DCTerminals rdf:type owl:ObjectProperty ,
+                                            owl:FunctionalProperty ;
+                                   rdfs:domain :DCConductingEquipment ;
+                                   rdfs:range :DCTerminal ;
+                                   rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCConductingEquipment_ProtectiveActionAdjustment
+:DCConductingEquipment_ProtectiveActionAdjustment rdf:type owl:ObjectProperty ;
+                                                  owl:inverseOf :ProtectiveActionAdjustment_DCConductingEquipment ;
+                                                  rdf:type owl:FunctionalProperty ;
+                                                  rdfs:domain :DCConductingEquipment ;
+                                                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#ProtectiveActionAdjustment> ;
+                                                  rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCEquipmentContainer_DCNodes
+:DCEquipmentContainer_DCNodes rdf:type owl:ObjectProperty ;
+                              owl:inverseOf :DCNode_DCEquipmentContainer ;
+                              rdf:type owl:FunctionalProperty ;
+                              rdfs:domain :DCEquipmentContainer ;
+                              rdfs:range :DCNode ;
+                              rdfs:comment "The DC nodes contained in the DC equipment container.The DC container for the DC nodes." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCGround_inductance
+:DCGround_inductance rdf:type owl:ObjectProperty ;
+                     rdfs:domain :DCGround ;
+                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Inductance> ;
+                     rdfs:comment "Inductance to ground." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCGround_r
+:DCGround_r rdf:type owl:ObjectProperty ;
+            rdfs:domain :DCGround ;
+            rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
+            rdfs:comment "Resistance to ground." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCLineSegment_PerLengthParameter
+:DCLineSegment_PerLengthParameter rdf:type owl:ObjectProperty ;
+                                  owl:inverseOf :PerLengthDCLineParameter_DCLineSegments ;
+                                  rdfs:domain :DCLineSegment ;
+                                  rdfs:range :PerLengthDCLineParameter ;
+                                  rdfs:comment "Set of per-length parameters for this line segment.All line segments described by this set of per-length parameters." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCLineSegment_capacitance
+:DCLineSegment_capacitance rdf:type owl:ObjectProperty ;
+                           rdfs:domain :DCLineSegment ;
+                           rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Capacitance> ;
+                           rdfs:comment "Capacitance of the DC line segment. Significant for cables only." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCLineSegment_inductance
+:DCLineSegment_inductance rdf:type owl:ObjectProperty ;
+                          rdfs:domain :DCLineSegment ;
+                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Inductance> ;
+                          rdfs:comment "Inductance of the DC line segment. Neglectable compared with DCSeriesDevice used for smoothing." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCLineSegment_length
+:DCLineSegment_length rdf:type owl:ObjectProperty ;
+                      rdfs:domain :DCLineSegment ;
+                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Length> ;
+                      rdfs:comment "Segment length for calculating line section capabilities." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCLineSegment_resistance
+:DCLineSegment_resistance rdf:type owl:ObjectProperty ;
+                          rdfs:domain :DCLineSegment ;
+                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
+                          rdfs:comment "Resistance of the DC line segment." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCNode_DCEquipmentContainer
+:DCNode_DCEquipmentContainer rdf:type owl:ObjectProperty ;
+                             rdfs:domain :DCNode ;
+                             rdfs:range :DCEquipmentContainer ;
+                             rdfs:comment "The DC nodes contained in the DC equipment container.The DC container for the DC nodes." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCNode_DCTerminals
+:DCNode_DCTerminals rdf:type owl:ObjectProperty ;
+                    rdfs:domain :DCNode ;
+                    rdfs:range :DCBaseTerminal ;
+                    rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCSeriesDevice_inductance
+:DCSeriesDevice_inductance rdf:type owl:ObjectProperty ;
+                           rdfs:domain :DCSeriesDevice ;
+                           rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Inductance> ;
+                           rdfs:comment "Inductance of the device." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCSeriesDevice_ratedUdc
+:DCSeriesDevice_ratedUdc rdf:type owl:ObjectProperty ;
+                         rdfs:domain :DCSeriesDevice ;
+                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                         rdfs:comment "Rated DC device voltage. Converter configuration data used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCSeriesDevice_resistance
+:DCSeriesDevice_resistance rdf:type owl:ObjectProperty ;
+                           rdfs:domain :DCSeriesDevice ;
+                           rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
+                           rdfs:comment "Resistance of the DC device." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCShunt_capacitance
+:DCShunt_capacitance rdf:type owl:ObjectProperty ;
+                     rdfs:domain :DCShunt ;
+                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Capacitance> ;
+                     rdfs:comment "Capacitance of the DC shunt." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCShunt_ratedUdc
+:DCShunt_ratedUdc rdf:type owl:ObjectProperty ;
+                  rdfs:domain :DCShunt ;
+                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                  rdfs:comment "Rated DC device voltage. Converter configuration data used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCShunt_resistance
+:DCShunt_resistance rdf:type owl:ObjectProperty ;
+                    rdfs:domain :DCShunt ;
+                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
+                    rdfs:comment "Resistance of the DC device." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCTerminal_DCConductingEquipment
+:DCTerminal_DCConductingEquipment rdf:type owl:ObjectProperty ;
+                                  owl:inverseOf :DCConductingEquipment_DCTerminals ;
+                                  rdfs:domain :DCTerminal ;
+                                  rdfs:range :DCConductingEquipment ;
+                                  rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#PerLengthDCLineParameter_DCLineSegments
+:PerLengthDCLineParameter_DCLineSegments rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :PerLengthDCLineParameter ;
+                                         rdfs:range :DCLineSegment ;
+                                         rdfs:comment "Set of per-length parameters for this line segment.All line segments described by this set of per-length parameters." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#PerLengthDCLineParameter_capacitance
+:PerLengthDCLineParameter_capacitance rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :PerLengthDCLineParameter ;
+                                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CapacitancePerLength> ;
+                                      rdfs:comment "Capacitance per unit of length of the DC line segment; significant for cables only." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#PerLengthDCLineParameter_inductance
+:PerLengthDCLineParameter_inductance rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :PerLengthDCLineParameter ;
+                                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#InductancePerLength> ;
+                                     rdfs:comment "Inductance per unit of length of the DC line segment." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#PerLengthDCLineParameter_resistance
+:PerLengthDCLineParameter_resistance rdf:type owl:ObjectProperty ;
+                                     rdfs:domain :PerLengthDCLineParameter ;
+                                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ResistancePerLength> ;
+                                     rdfs:comment "Resistance per length of the DC line segment." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ProtectiveActionAdjustment_DCConductingEquipment
+:ProtectiveActionAdjustment_DCConductingEquipment rdf:type owl:ObjectProperty ;
+                                                  rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#ProtectiveActionAdjustment> ;
+                                                  rdfs:range :DCConductingEquipment ;
+                                                  rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#VsCapabilityCurve_VsConverterDCSides
+:VsCapabilityCurve_VsConverterDCSides rdf:type owl:ObjectProperty ;
+                                      owl:inverseOf :VsConverter_CapabilityCurve ;
+                                      rdfs:domain :VsCapabilityCurve ;
+                                      rdfs:range :VsConverter ;
+                                      rdfs:comment "All converters with this capability curve.Capability curve of this converter." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#VsConverter_CapabilityCurve
+:VsConverter_CapabilityCurve rdf:type owl:ObjectProperty ;
+                             rdfs:domain :VsConverter ;
+                             rdfs:range :VsCapabilityCurve ;
+                             rdfs:comment "All converters with this capability curve.Capability curve of this converter." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#VsConverter_delta
+:VsConverter_delta rdf:type owl:ObjectProperty ;
+                   rdfs:domain :VsConverter ;
+                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees> ;
+                   rdfs:comment "Angle between uf and uc. Converter state variable used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#VsConverter_droop
+:VsConverter_droop rdf:type owl:ObjectProperty ;
+                   rdfs:domain :VsConverter ;
+                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                   rdfs:comment "Droop constant; pu value is obtained as D [kV/MW] x Sb / Ubdc." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#VsConverter_droopCompensation
+:VsConverter_droopCompensation rdf:type owl:ObjectProperty ;
+                               rdfs:domain :VsConverter ;
+                               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
+                               rdfs:comment "Compensation constant. Used to compensate for voltage drop when controlling voltage at a distant bus." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#VsConverter_maxValveCurrent
+:VsConverter_maxValveCurrent rdf:type owl:ObjectProperty ;
+                             rdfs:domain :VsConverter ;
+                             rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> ;
+                             rdfs:comment "The maximum current through a valve. This current limit is the basis for calculating the capability diagram. VSC  configuration data." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#VsConverter_qShare
+:VsConverter_qShare rdf:type owl:ObjectProperty ;
+                    rdfs:domain :VsConverter ;
+                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
+                    rdfs:comment "Reactive power sharing factor among parallel converters on Uac control." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#VsConverter_targetQpcc
+:VsConverter_targetQpcc rdf:type owl:ObjectProperty ;
+                        rdfs:domain :VsConverter ;
+                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> ;
+                        rdfs:comment "Reactive power injection target in AC grid, at point of common coupling." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#VsConverter_targetUpcc
+:VsConverter_targetUpcc rdf:type owl:ObjectProperty ;
+                        rdfs:domain :VsConverter ;
+                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                        rdfs:comment "Voltage target in AC grid, at point of common coupling." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#VsConverter_uf
+:VsConverter_uf rdf:type owl:ObjectProperty ;
+                rdfs:domain :VsConverter ;
+                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                rdfs:comment "Line-to-line voltage on the valve side of the converter transformer. Converter state variable, result from power flow." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverterDCTerminal_polarity
+:ACDCConverterDCTerminal_polarity rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :ACDCConverterDCTerminal ;
+                                  rdfs:range :DCPolarityKind ;
+                                  rdfs:comment "Represents the normal network polarity condition." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter_numberOfValves
+:ACDCConverter_numberOfValves rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :ACDCConverter ;
+                              rdfs:range xsd:nonNegativeInteger ;
+                              rdfs:comment "Number of valves in the converter. Used in loss calculations." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#CsConverter_operatingMode
+:CsConverter_operatingMode rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :CsConverter ;
+                           rdfs:range :CsOperatingModeKind ;
+                           rdfs:comment "Indicates whether the DC pole is operating as an inverter or as a rectifier. CSC control variable used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#CsConverter_pPccControl
+:CsConverter_pPccControl rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :CsConverter ;
+                         rdfs:range :CsPpccControlKind .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCConverterUnit_operationMode
+:DCConverterUnit_operationMode rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :DCConverterUnit ;
+                               rdfs:range :DCConverterOperatingModeKind .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#VsConverter_maxModulationIndex
+:VsConverter_maxModulationIndex rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :VsConverter ;
+                                rdfs:range xsd:float ;
+                                rdfs:comment "The max quotient between the AC converter voltage (Uc) and DC voltage (Ud). A factor typically less than 1. VSC configuration data used in power flow." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#VsConverter_pPccControl
+:VsConverter_pPccControl rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :VsConverter ;
+                         rdfs:range :VsPpccControlKind ;
+                         rdfs:comment "Kind of control of real power and/or DC voltage." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#VsConverter_qPccControl
+:VsConverter_qPccControl rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :VsConverter ;
+                         rdfs:range :VsQpccControlKind .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#ACDCTerminal
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#ACDCTerminal> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#ConductingEquipment
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#ConductingEquipment> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Curve
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Curve> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#EquipmentContainer
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#EquipmentContainer> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverter
+:ACDCConverter rdf:type owl:Class ;
+               rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#ConductingEquipment> ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_baseS ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_idc ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_idleLoss ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_maxUdc ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_minUdc ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_p ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_poleLossP ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_q ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_ratedUdc ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_resistiveLoss ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_switchingLoss ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePowerPerCurrentFlow>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_targetPpcc ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_targetUdc ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_uc ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_udc ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_valveU0 ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_DCTerminals ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ACDCConverter
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_baseS ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_idc ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_idleLoss ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_maxUdc ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_minUdc ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_p ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_poleLossP ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_q ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_ratedUdc ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_resistiveLoss ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_switchingLoss ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePowerPerCurrentFlow>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_targetPpcc ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_targetUdc ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_uc ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_udc ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_valveU0 ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_numberOfValves ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ACDCConverter_numberOfValves ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:nonNegativeInteger
+                               ] ;
+               rdfs:comment "A unit with valves for three phases, together with unit control equipment, essential protective and switching devices, DC storage capacitors, phase reactors and auxiliaries, if any, used for conversion." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#ACDCConverterDCTerminal
+:ACDCConverterDCTerminal rdf:type owl:Class ;
+                         rdfs:subClassOf :DCBaseTerminal ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ACDCConverterDCTerminal_DCConductingEquipment ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onClass :ACDCConverterDCTerminal
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ACDCConverterDCTerminal_polarity ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange :DCPolarityKind
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ACDCConverterDCTerminal_polarity ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange :DCPolarityKind
+                                         ] ;
+                         rdfs:comment "A DC electrical connection point at the AC/DC converter. The AC/DC converter is electrically connected also to the AC side. The AC connection is inherited from the AC conducting equipment in the same way as any other AC equipment. The AC/DC converter DC terminal is separate from generic DC terminal to restrict the connection with the AC side to AC/DC converter and so that no other DC conducting equipment can be connected to the AC side." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#CsConverter
+:CsConverter rdf:type owl:Class ;
+             rdfs:subClassOf :ACDCConverter ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_alpha ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_gamma ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_maxAlpha ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_maxGamma ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_maxIdc ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_minAlpha ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_minGamma ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_minIdc ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_ratedIdc ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_targetAlpha ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_targetGamma ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_targetIdc ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_alpha ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_gamma ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_maxAlpha ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_maxGamma ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_maxIdc ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_minAlpha ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_minGamma ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_minIdc ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_ratedIdc ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_targetAlpha ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_targetGamma ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_targetIdc ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_operatingMode ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange :CsOperatingModeKind
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_pPccControl ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange :CsPpccControlKind
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_operatingMode ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange :CsOperatingModeKind
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :CsConverter_pPccControl ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange :CsPpccControlKind
+                             ] ;
+             rdfs:comment "DC side of the current source converter (CSC)." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCBaseTerminal
+:DCBaseTerminal rdf:type owl:Class ;
+                rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#ACDCTerminal> ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :DCBaseTerminal_DCNode ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :DCBaseTerminal
+                                ] ;
+                rdfs:comment "An electrical connection point at a piece of DC conducting equipment. DC terminals are connected at one physical DC node that may have multiple DC terminals connected. A DC node is similar to an AC connectivity node. The model enforces that DC connections are distinct from AC connections. " .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCBreaker
+:DCBreaker rdf:type owl:Class ;
+           rdfs:subClassOf :DCSwitch ;
+           rdfs:comment "A breaker within a DC system. " .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCBusbar
+:DCBusbar rdf:type owl:Class ;
+          rdfs:subClassOf :DCConductingEquipment ;
+          rdfs:comment "A busbar within a DC system." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCChopper
+:DCChopper rdf:type owl:Class ;
+           rdfs:subClassOf :DCConductingEquipment ;
+           rdfs:comment "Low resistance equipment used in the internal DC circuit to balance voltages. It has typically positive and negative pole terminals and a ground." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCConductingEquipment
+:DCConductingEquipment rdf:type owl:Class ;
+                       rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment> ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :DCConductingEquipment_DCTerminals ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :DCConductingEquipment
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :DCConductingEquipment_ProtectiveActionAdjustment ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass :DCConductingEquipment
+                                       ] ;
+                       rdfs:comment "The parts of the DC power system that are designed to carry current or that are conductively connected through DC terminals." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCConverterUnit
+:DCConverterUnit rdf:type owl:Class ;
+                 rdfs:subClassOf :DCEquipmentContainer ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :DCConverterUnit_operationMode ;
+                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange :DCConverterOperatingModeKind
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :DCConverterUnit_operationMode ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange :DCConverterOperatingModeKind
+                                 ] ;
+                 rdfs:comment "Indivisible operative unit comprising all equipment between the point of common coupling on the AC side and the point of common coupling – DC side, essentially one or more converters, together with one or more converter transformers, converter control equipment, essential protective and switching devices and auxiliaries, if any, used for conversion." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCDisconnector
+:DCDisconnector rdf:type owl:Class ;
+                rdfs:subClassOf :DCSwitch ;
+                rdfs:comment "A disconnector within a DC system." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCEquipmentContainer
+:DCEquipmentContainer rdf:type owl:Class ;
+                      rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#EquipmentContainer> ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :DCEquipmentContainer_DCNodes ;
+                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :DCEquipmentContainer
+                                      ] ;
+                      rdfs:comment "A modeling construct to provide a root class for containment of DC as well as AC equipment. The class differ from the EquipmentContaner for AC in that it may also contain DCNodes. Hence it can contain both AC and DC equipment." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCGround
+:DCGround rdf:type owl:Class ;
+          rdfs:subClassOf :DCConductingEquipment ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :DCGround_inductance ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Inductance>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :DCGround_r ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :DCGround_inductance ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Inductance>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :DCGround_r ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
+                          ] ;
+          rdfs:comment "A ground within a DC system." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCLine
+:DCLine rdf:type owl:Class ;
+        rdfs:subClassOf :DCEquipmentContainer ;
+        rdfs:comment "Overhead lines and/or cables connecting two or more HVDC substations." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCLineSegment
+:DCLineSegment rdf:type owl:Class ;
+               rdfs:subClassOf :DCConductingEquipment ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :DCLineSegment_PerLengthParameter ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :DCLineSegment
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :DCLineSegment_capacitance ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Capacitance>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :DCLineSegment_inductance ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Inductance>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :DCLineSegment_length ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Length>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :DCLineSegment_resistance ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :DCLineSegment_capacitance ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Capacitance>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :DCLineSegment_inductance ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Inductance>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :DCLineSegment_length ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Length>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :DCLineSegment_resistance ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
+                               ] ;
+               rdfs:comment "A wire or combination of wires not insulated from one another, with consistent electrical characteristics, used to carry direct current between points in the DC region of the power system." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCNode
+:DCNode rdf:type owl:Class ;
+        rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :DCNode_DCEquipmentContainer ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :DCNode
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :DCNode_DCTerminals ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :DCNode
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :DCNode_DCTerminals ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :DCNode
+                        ] ;
+        rdfs:comment "DC nodes are points where terminals of DC conducting equipment are connected together with zero impedance." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCSeriesDevice
+:DCSeriesDevice rdf:type owl:Class ;
+                rdfs:subClassOf :DCConductingEquipment ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :DCSeriesDevice_inductance ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Inductance>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :DCSeriesDevice_ratedUdc ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :DCSeriesDevice_resistance ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :DCSeriesDevice_inductance ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Inductance>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :DCSeriesDevice_ratedUdc ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :DCSeriesDevice_resistance ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
+                                ] ;
+                rdfs:comment "A series device within the DC system, typically a reactor used for filtering or smoothing.  Needed for transient and short circuit studies." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCShunt
+:DCShunt rdf:type owl:Class ;
+         rdfs:subClassOf :DCConductingEquipment ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :DCShunt_capacitance ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Capacitance>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :DCShunt_ratedUdc ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :DCShunt_resistance ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :DCShunt_capacitance ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Capacitance>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :DCShunt_ratedUdc ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :DCShunt_resistance ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
+                         ] ;
+         rdfs:comment "A shunt device within the DC system, typically used for filtering.  Needed for transient and short circuit studies." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCSwitch
+:DCSwitch rdf:type owl:Class ;
+          rdfs:subClassOf :DCConductingEquipment ;
+          rdfs:comment "A switch within the DC system." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCTerminal
+:DCTerminal rdf:type owl:Class ;
+            rdfs:subClassOf :DCBaseTerminal ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :DCTerminal_DCConductingEquipment ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :DCTerminal
+                            ] ;
+            rdfs:comment "An electrical connection point to generic DC conducting equipment." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#DCTopologicalIsland
+:DCTopologicalIsland rdf:type owl:Class ;
+                     rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ;
+                     rdfs:comment """An electrically connected subset of the network. DC topological islands can change as the current network state changes: e.g. due to 
+- disconnect switches or breakers change state in a SCADA/EMS
+- manual creation, change or deletion of topological nodes in a planning tool.""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#PerLengthDCLineParameter
+:PerLengthDCLineParameter rdf:type owl:Class ;
+                          rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#PerLengthLineParameter> ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PerLengthDCLineParameter_DCLineSegments ;
+                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                            owl:onClass :PerLengthDCLineParameter
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PerLengthDCLineParameter_capacitance ;
+                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CapacitancePerLength>
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PerLengthDCLineParameter_inductance ;
+                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#InductancePerLength>
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PerLengthDCLineParameter_resistance ;
+                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ResistancePerLength>
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PerLengthDCLineParameter_DCLineSegments ;
+                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass :PerLengthDCLineParameter
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PerLengthDCLineParameter_capacitance ;
+                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CapacitancePerLength>
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PerLengthDCLineParameter_inductance ;
+                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#InductancePerLength>
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :PerLengthDCLineParameter_resistance ;
+                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ResistancePerLength>
+                                          ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#VsCapabilityCurve
+:VsCapabilityCurve rdf:type owl:Class ;
+                   rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Curve> ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :VsCapabilityCurve_VsConverterDCSides ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :VsCapabilityCurve
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :VsCapabilityCurve_VsConverterDCSides ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :VsCapabilityCurve
+                                   ] ;
+                   rdfs:comment "The P-Q capability curve for a voltage source converter, with P on x-axis and Qmin and Qmax on y1-axis and y2-axis." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DC#VsConverter
+:VsConverter rdf:type owl:Class ;
+             rdfs:subClassOf :ACDCConverter ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_CapabilityCurve ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :VsConverter
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_delta ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_droop ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_droopCompensation ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_maxValveCurrent ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_qShare ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_targetQpcc ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_targetUpcc ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_uf ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_delta ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_droop ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_droopCompensation ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_maxValveCurrent ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_qShare ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_targetQpcc ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_targetUpcc ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_uf ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_maxModulationIndex ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:float
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_pPccControl ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange :VsPpccControlKind
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_qPccControl ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange :VsQpccControlKind
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_maxModulationIndex ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:float
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_pPccControl ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange :VsPpccControlKind
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :VsConverter_qPccControl ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange :VsQpccControlKind
+                             ] ;
+             rdfs:comment "DC side of the voltage source converter (VSC)." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePowerPerCurrentFlow
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePowerPerCurrentFlow> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ApparentPower> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Capacitance
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Capacitance> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CapacitancePerLength
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CapacitancePerLength> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#CurrentFlow> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Inductance
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Inductance> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#InductancePerLength
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#InductancePerLength> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Length
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Length> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ResistancePerLength
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ResistancePerLength> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#PerLengthLineParameter
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#PerLengthLineParameter> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#ProtectiveActionAdjustment
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#ProtectiveActionAdjustment> rdf:type owl:Class ;
+                                                                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                      owl:onProperty :ProtectiveActionAdjustment_DCConductingEquipment ;
+                                                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#ProtectiveActionAdjustment>
+                                                                                                                    ] .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

@@ -1,0 +1,436 @@
+@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#> .
+
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo> rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#BilateralTransaction_totalTranChargeMax
+:BilateralTransaction_totalTranChargeMax rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :BilateralTransaction ;
+                                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
+                                         rdfs:comment """Maximum total transmission (congestion) charges in monetary units
+""" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#BilateralTransaction_curtailTimeMax
+:BilateralTransaction_curtailTimeMax rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :BilateralTransaction ;
+                                     rdfs:range xsd:nonNegativeInteger ;
+                                     rdfs:comment """Maximum curtailment time in number of trading intervals
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#BilateralTransaction_curtailTimeMin
+:BilateralTransaction_curtailTimeMin rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :BilateralTransaction ;
+                                     rdfs:range xsd:nonNegativeInteger ;
+                                     rdfs:comment """Minimum curtailment time in number of trading intervals
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#BilateralTransaction_marketType
+:BilateralTransaction_marketType rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain :BilateralTransaction ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:comment """Market type (default=DA)
+DA - Day Ahead
+RT - Real Time
+HA - Hour Ahead
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#BilateralTransaction_purchaseTimeMax
+:BilateralTransaction_purchaseTimeMax rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :BilateralTransaction ;
+                                      rdfs:range xsd:nonNegativeInteger ;
+                                      rdfs:comment """Maximum purchase time in number of trading intervals
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#BilateralTransaction_purchaseTimeMin
+:BilateralTransaction_purchaseTimeMin rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :BilateralTransaction ;
+                                      rdfs:range xsd:nonNegativeInteger ;
+                                      rdfs:comment """Minimum purchase time in number of trading intervals
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#BilateralTransaction_scope
+:BilateralTransaction_scope rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :BilateralTransaction ;
+                            rdfs:range xsd:string ;
+                            rdfs:comment """Transaction scope:
+'Internal' (default)
+'External'
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#BilateralTransaction_transactionType
+:BilateralTransaction_transactionType rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :BilateralTransaction ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:comment """Transaction type (default 1)
+1 - Fixed
+2 - Dispatchable continuous
+3 - Dispatchable block-loading
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#Participation_factor
+:Participation_factor rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Participation ;
+                      rdfs:range xsd:float ;
+                      rdfs:comment """Used to calculate \"participation\" of Pnode in an AggregatePnode. For example, for regulation region this factor is 1 and total sum of all factors for a specific regulation region does not have to be 1. For pricing zone the total sum of all factors has to be 1.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#ResourceCertification_certifiedDAM
+:ResourceCertification_certifiedDAM rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :ResourceCertification ;
+                                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo> .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#ResourceCertification_certifiedNonspinDAM
+:ResourceCertification_certifiedNonspinDAM rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :ResourceCertification ;
+                                           rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo> .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#ResourceCertification_certifiedNonspinDAMMw
+:ResourceCertification_certifiedNonspinDAMMw rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain :ResourceCertification ;
+                                             rdfs:range xsd:float .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#ResourceCertification_certifiedNonspinRTM
+:ResourceCertification_certifiedNonspinRTM rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :ResourceCertification ;
+                                           rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo> .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#ResourceCertification_certifiedNonspinRTMMw
+:ResourceCertification_certifiedNonspinRTMMw rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain :ResourceCertification ;
+                                             rdfs:range xsd:float .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#ResourceCertification_certifiedPIRP
+:ResourceCertification_certifiedPIRP rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :ResourceCertification ;
+                                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo> .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#ResourceCertification_certifiedRTM
+:ResourceCertification_certifiedRTM rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :ResourceCertification ;
+                                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo> .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#ResourceCertification_certifiedRUC
+:ResourceCertification_certifiedRUC rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :ResourceCertification ;
+                                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo> .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#ResourceCertification_certifiedRegulation
+:ResourceCertification_certifiedRegulation rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :ResourceCertification ;
+                                           rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo> .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#ResourceCertification_certifiedRegulationMw
+:ResourceCertification_certifiedRegulationMw rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain :ResourceCertification ;
+                                             rdfs:range xsd:float .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#ResourceCertification_certifiedReplaceAS
+:ResourceCertification_certifiedReplaceAS rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :ResourceCertification ;
+                                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo> .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#ResourceCertification_certifiedSpin
+:ResourceCertification_certifiedSpin rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :ResourceCertification ;
+                                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo> .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#ResourceCertification_certifiedSpinMw
+:ResourceCertification_certifiedSpinMw rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :ResourceCertification ;
+                                       rdfs:range xsd:float .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Money
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#BilateralTransaction
+:BilateralTransaction rdf:type owl:Class ;
+                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                        owl:onProperty :BilateralTransaction_totalTranChargeMax ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :BilateralTransaction_totalTranChargeMax ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :BilateralTransaction_curtailTimeMax ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:nonNegativeInteger
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :BilateralTransaction_curtailTimeMin ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:nonNegativeInteger
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :BilateralTransaction_marketType ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:string
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :BilateralTransaction_purchaseTimeMax ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:nonNegativeInteger
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :BilateralTransaction_purchaseTimeMin ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:nonNegativeInteger
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :BilateralTransaction_scope ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:string
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :BilateralTransaction_transactionType ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:string
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :BilateralTransaction_curtailTimeMax ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:nonNegativeInteger
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :BilateralTransaction_curtailTimeMin ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:nonNegativeInteger
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :BilateralTransaction_marketType ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:string
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :BilateralTransaction_purchaseTimeMax ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:nonNegativeInteger
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :BilateralTransaction_purchaseTimeMin ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:nonNegativeInteger
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :BilateralTransaction_scope ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:string
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :BilateralTransaction_transactionType ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:string
+                                      ] ;
+                      rdfs:comment """Bilateral transaction
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#Participation
+:Participation rdf:type owl:Class ;
+               rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :Participation_factor ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :Participation_factor ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ;
+               rdfs:comment """Participation level of a given Pnode in a given AggregatePnode.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketOperations#ResourceCertification
+:ResourceCertification rdf:type owl:Class ;
+                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedDAM ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedNonspinDAM ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedNonspinDAMMw ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:float
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedNonspinRTM ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedNonspinRTMMw ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:float
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedPIRP ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedRTM ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedRUC ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedRegulation ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedRegulationMw ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:float
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedReplaceAS ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedSpin ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedSpinMw ;
+                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:float
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedDAM ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedNonspinDAM ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedNonspinDAMMw ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:float
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedNonspinRTM ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedNonspinRTMMw ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:float
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedPIRP ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedRTM ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedRUC ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedRegulation ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedRegulationMw ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:float
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedReplaceAS ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedSpin ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MktDomain#YesNo>
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :ResourceCertification_certifiedSpinMw ;
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onDataRange xsd:float
+                                       ] ;
+                       rdfs:comment """This class represent the resource certification for a specific product type. For example, a resource is certified for Non-Spinning reserve for RTM.
+""" .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

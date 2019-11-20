@@ -1,0 +1,406 @@
+@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#> .
+
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#RegulationBranchKind
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#RegulationBranchKind> rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#ShuntImpedanceControlKind
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#ShuntImpedanceControlKind> rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#ShuntImpedanceLocalControlKind
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#ShuntImpedanceLocalControlKind> rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode> rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#SVC_capacitiveRating
+:SVC_capacitiveRating rdf:type owl:ObjectProperty ;
+                      rdfs:domain :SVC ;
+                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
+                      rdfs:comment """Maximum capacitive reactive power.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#SVC_inductiveRating
+:SVC_inductiveRating rdf:type owl:ObjectProperty ;
+                     rdfs:domain :SVC ;
+                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
+                     rdfs:comment """Maximum inductive reactive power.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl_cellSize
+:ShuntCompensatorControl_cellSize rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :ShuntCompensatorControl ;
+                                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> ;
+                                  rdfs:comment "The size of the individual units that make up the bank." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl_highVoltageOverride
+:ShuntCompensatorControl_highVoltageOverride rdf:type owl:ObjectProperty ;
+                                             rdfs:domain :ShuntCompensatorControl ;
+                                             rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                             rdfs:comment "For locally controlled shunt impedances which have a voltage override feature, the high voltage override value. If the voltage is above this value, the shunt impedance will be turned off regardless of the other local controller settings." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl_lowVoltageOverride
+:ShuntCompensatorControl_lowVoltageOverride rdf:type owl:ObjectProperty ;
+                                            rdfs:domain :ShuntCompensatorControl ;
+                                            rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+                                            rdfs:comment "For locally controlled shunt impedances which have a voltage override feature, the low voltage override value. If the voltage is below this value, the shunt impedance will be turned on regardless of the other local controller settings." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl_switchOperationCycle
+:ShuntCompensatorControl_switchOperationCycle rdf:type owl:ObjectProperty ;
+                                              rdfs:domain :ShuntCompensatorControl ;
+                                              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Hours> ;
+                                              rdfs:comment "Time interval between consecutive switching operations." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl_branchDirect
+:ShuntCompensatorControl_branchDirect rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :ShuntCompensatorControl ;
+                                      rdfs:range xsd:nonNegativeInteger ;
+                                      rdfs:comment "For VAR, amp, or power factor locally controlled shunt impedances, the flow direction: in, out." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl_controlKind
+:ShuntCompensatorControl_controlKind rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :ShuntCompensatorControl ;
+                                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#ShuntImpedanceControlKind> ;
+                                     rdfs:comment "Kind of control (if any)." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl_localControlKind
+:ShuntCompensatorControl_localControlKind rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :ShuntCompensatorControl ;
+                                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#ShuntImpedanceLocalControlKind> ;
+                                          rdfs:comment "Kind of local controller." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl_localOffLevel
+:ShuntCompensatorControl_localOffLevel rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :ShuntCompensatorControl ;
+                                       rdfs:range xsd:string ;
+                                       rdfs:comment "Upper control setting." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl_localOnLevel
+:ShuntCompensatorControl_localOnLevel rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :ShuntCompensatorControl ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:comment "Lower control setting." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl_localOverride
+:ShuntCompensatorControl_localOverride rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :ShuntCompensatorControl ;
+                                       rdfs:range xsd:boolean ;
+                                       rdfs:comment "True if the locally controlled capacitor has voltage override capability." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl_maxSwitchOperationCount
+:ShuntCompensatorControl_maxSwitchOperationCount rdf:type owl:DatatypeProperty ;
+                                                 rdfs:domain :ShuntCompensatorControl ;
+                                                 rdfs:range xsd:nonNegativeInteger ;
+                                                 rdfs:comment """IdmsShuntImpedanceData.maxNumSwitchOps.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl_normalOpen
+:ShuntCompensatorControl_normalOpen rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :ShuntCompensatorControl ;
+                                    rdfs:range xsd:boolean ;
+                                    rdfs:comment "True if open is normal status for a fixed capacitor bank, otherwise normal status is closed." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl_regBranch
+:ShuntCompensatorControl_regBranch rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain :ShuntCompensatorControl ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:comment "For VAR, amp, or power factor locally controlled shunt impedances, the index of the regulation branch." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl_regBranchEnd
+:ShuntCompensatorControl_regBranchEnd rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :ShuntCompensatorControl ;
+                                      rdfs:range xsd:nonNegativeInteger ;
+                                      rdfs:comment "For VAR, amp, or power factor locally controlled shunt impedances, the end of the branch that is regulated. The field has the following values: from side, to side, and tertiary (only if the branch is a transformer)." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl_regBranchKind
+:ShuntCompensatorControl_regBranchKind rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :ShuntCompensatorControl ;
+                                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#RegulationBranchKind> ;
+                                       rdfs:comment "(For VAR, amp, or power factor locally controlled shunt impedances) Kind of regulation branch." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl_sensingPhaseCode
+:ShuntCompensatorControl_sensingPhaseCode rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :ShuntCompensatorControl ;
+                                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode> ;
+                                          rdfs:comment "Phases that are measured for controlling the device." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl_vRegLineLine
+:ShuntCompensatorControl_vRegLineLine rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :ShuntCompensatorControl ;
+                                      rdfs:range xsd:boolean ;
+                                      rdfs:comment "True if regulated voltages are measured line to line, otherwise they are measured line to ground." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#SVC
+:SVC rdf:type owl:Class ;
+     rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#ShuntCompensator> ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :SVC_capacitiveRating ;
+                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :SVC_inductiveRating ;
+                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :SVC_capacitiveRating ;
+                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :SVC_inductiveRating ;
+                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
+                     ] ;
+     rdfs:comment """SVC asset allows the capacitive and inductive ratings for each phase to be specified individually if required.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWiresExt#ShuntCompensatorControl
+:ShuntCompensatorControl rdf:type owl:Class ;
+                         rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#RegulatingControl> ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_cellSize ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_highVoltageOverride ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_lowVoltageOverride ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_switchOperationCycle ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Hours>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_cellSize ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_highVoltageOverride ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_lowVoltageOverride ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_switchOperationCycle ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Hours>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_branchDirect ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:nonNegativeInteger
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_controlKind ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#ShuntImpedanceControlKind>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_localControlKind ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#ShuntImpedanceLocalControlKind>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_localOffLevel ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:string
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_localOnLevel ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:string
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_localOverride ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:boolean
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_maxSwitchOperationCount ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:nonNegativeInteger
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_normalOpen ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:boolean
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_regBranch ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:string
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_regBranchEnd ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:nonNegativeInteger
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_regBranchKind ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#RegulationBranchKind>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_sensingPhaseCode ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_vRegLineLine ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:boolean
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_branchDirect ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:nonNegativeInteger
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_controlKind ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#ShuntImpedanceControlKind>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_localControlKind ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#ShuntImpedanceLocalControlKind>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_localOffLevel ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:string
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_localOnLevel ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:string
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_localOverride ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:boolean
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_maxSwitchOperationCount ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:nonNegativeInteger
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_normalOpen ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:boolean
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_regBranch ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:string
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_regBranchEnd ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:nonNegativeInteger
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_regBranchKind ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#RegulationBranchKind>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_sensingPhaseCode ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :ShuntCompensatorControl_vRegLineLine ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onDataRange xsd:boolean
+                                         ] ;
+                         rdfs:comment "Distribution capacitor bank control settings." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Hours
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Hours> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#RegulatingControl
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#RegulatingControl> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#ShuntCompensator
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#ShuntCompensator> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

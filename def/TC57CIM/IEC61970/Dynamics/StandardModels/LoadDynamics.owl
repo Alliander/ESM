@@ -1,0 +1,1029 @@
+@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#> .
+
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#GenericNonLinearLoadModelKind
+:GenericNonLinearLoadModelKind rdf:type rdfs:Datatype ;
+                               owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                                     owl:oneOf [ rdf:type rdf:List ;
+                                                                 rdf:first "exponentialRecovery" ;
+                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                            rdf:first "loadAdaptive" ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                   ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#StaticLoadModelKind
+:StaticLoadModelKind rdf:type rdfs:Datatype ;
+                     owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                           owl:oneOf [ rdf:type rdf:List ;
+                                                       rdf:first "constantZ" ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first "exponential" ;
+                                                                  rdf:rest [ rdf:type rdf:List ;
+                                                                             rdf:first "zIP1" ;
+                                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                                        rdf:first "zIP2" ;
+                                                                                        rdf:rest rdf:nil
+                                                                                      ]
+                                                                           ]
+                                                                ]
+                                                     ]
+                                         ] .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadAggregate_LoadMotor
+:LoadAggregate_LoadMotor rdf:type owl:ObjectProperty ;
+                         owl:inverseOf :LoadMotor_LoadAggregate ;
+                         rdf:type owl:FunctionalProperty ;
+                         rdfs:domain :LoadAggregate ;
+                         rdfs:range :LoadMotor ;
+                         rdfs:comment "Aggregate motor (dynamic) load associated with this aggregate load.Aggregate load to which this aggregate motor (dynamic) load belongs." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadAggregate_LoadStatic
+:LoadAggregate_LoadStatic rdf:type owl:ObjectProperty ;
+                          owl:inverseOf :LoadStatic_LoadAggregate ;
+                          rdf:type owl:FunctionalProperty ;
+                          rdfs:domain :LoadAggregate ;
+                          rdfs:range :LoadStatic ;
+                          rdfs:comment "Aggregate static load associated with this aggregate load.Aggregate load to which this aggregate static load belongs." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadComposite_h
+:LoadComposite_h rdf:type owl:ObjectProperty ;
+                 rdfs:domain :LoadComposite ;
+                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                 rdfs:comment "Inertia constant (H).  Typical Value = 2.5." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadGenericNonLinear_tp
+:LoadGenericNonLinear_tp rdf:type owl:ObjectProperty ;
+                         rdfs:domain :LoadGenericNonLinear ;
+                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                         rdfs:comment "Time constant of lag function of active power (T<sub>P</sub>)." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadGenericNonLinear_tq
+:LoadGenericNonLinear_tq rdf:type owl:ObjectProperty ;
+                         rdfs:domain :LoadGenericNonLinear ;
+                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                         rdfs:comment "Time constant of lag function of reactive power (T<sub>Q</sub>)." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadMotor_LoadAggregate
+:LoadMotor_LoadAggregate rdf:type owl:ObjectProperty ;
+                         rdfs:domain :LoadMotor ;
+                         rdfs:range :LoadAggregate ;
+                         rdfs:comment "Aggregate motor (dynamic) load associated with this aggregate load.Aggregate load to which this aggregate motor (dynamic) load belongs." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadMotor_h
+:LoadMotor_h rdf:type owl:ObjectProperty ;
+             rdfs:domain :LoadMotor ;
+             rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+             rdfs:comment "Inertia constant (H) (not=0).  Typical Value = 0.4." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadMotor_lp
+:LoadMotor_lp rdf:type owl:ObjectProperty ;
+              rdfs:domain :LoadMotor ;
+              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+              rdfs:comment "Transient reactance (Lp).  Typical Value = 0.15." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadMotor_lpp
+:LoadMotor_lpp rdf:type owl:ObjectProperty ;
+               rdfs:domain :LoadMotor ;
+               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+               rdfs:comment "Subtransient reactance (Lpp).  Typical Value = 0.15." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadMotor_ls
+:LoadMotor_ls rdf:type owl:ObjectProperty ;
+              rdfs:domain :LoadMotor ;
+              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+              rdfs:comment "Synchronous reactance (Ls).  Typical Value = 3.2." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadMotor_ra
+:LoadMotor_ra rdf:type owl:ObjectProperty ;
+              rdfs:domain :LoadMotor ;
+              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+              rdfs:comment "Stator resistance (Ra).  Typical Value = 0." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadMotor_tbkr
+:LoadMotor_tbkr rdf:type owl:ObjectProperty ;
+                rdfs:domain :LoadMotor ;
+                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                rdfs:comment "Circuit breaker operating time (Tbkr).  Typical Value = 0.08." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadMotor_tpo
+:LoadMotor_tpo rdf:type owl:ObjectProperty ;
+               rdfs:domain :LoadMotor ;
+               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+               rdfs:comment "Transient rotor time constant (Tpo) (not=0).  Typical Value = 1." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadMotor_tppo
+:LoadMotor_tppo rdf:type owl:ObjectProperty ;
+                rdfs:domain :LoadMotor ;
+                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                rdfs:comment "Subtransient rotor time constant (Tppo).  Typical Value = 0.02." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadMotor_tv
+:LoadMotor_tv rdf:type owl:ObjectProperty ;
+              rdfs:domain :LoadMotor ;
+              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+              rdfs:comment "Voltage trip pickup time (Tv).  Typical Value = 0.1." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadMotor_vt
+:LoadMotor_vt rdf:type owl:ObjectProperty ;
+              rdfs:domain :LoadMotor ;
+              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
+              rdfs:comment "Voltage threshold for tripping (Vt).  Typical Value = 0.7." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_LoadAggregate
+:LoadStatic_LoadAggregate rdf:type owl:ObjectProperty ;
+                          rdfs:domain :LoadStatic ;
+                          rdfs:range :LoadAggregate ;
+                          rdfs:comment "Aggregate static load associated with this aggregate load.Aggregate load to which this aggregate static load belongs." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadComposite_epfd
+:LoadComposite_epfd rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :LoadComposite ;
+                    rdfs:range xsd:float ;
+                    rdfs:comment "Active load-frequency dependence index (dynamic) (Epfd).  Typical Value = 1.5." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadComposite_epfs
+:LoadComposite_epfs rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :LoadComposite ;
+                    rdfs:range xsd:float ;
+                    rdfs:comment "Active load-frequency dependence index (static) (Epfs).  Typical Value = 1.5." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadComposite_epvd
+:LoadComposite_epvd rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :LoadComposite ;
+                    rdfs:range xsd:float ;
+                    rdfs:comment "Active load-voltage dependence index (dynamic) (Epvd).  Typical Value = 0.7." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadComposite_epvs
+:LoadComposite_epvs rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :LoadComposite ;
+                    rdfs:range xsd:float ;
+                    rdfs:comment "Active load-voltage dependence index (static) (Epvs).  Typical Value = 0.7." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadComposite_eqfd
+:LoadComposite_eqfd rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :LoadComposite ;
+                    rdfs:range xsd:float ;
+                    rdfs:comment "Reactive load-frequency dependence index (dynamic) (Eqfd).  Typical Value = 0." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadComposite_eqfs
+:LoadComposite_eqfs rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :LoadComposite ;
+                    rdfs:range xsd:float ;
+                    rdfs:comment "Reactive load-frequency dependence index (static) (Eqfs).  Typical Value = 0." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadComposite_eqvd
+:LoadComposite_eqvd rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :LoadComposite ;
+                    rdfs:range xsd:float ;
+                    rdfs:comment "Reactive load-voltage dependence index (dynamic) (Eqvd).  Typical Value = 2." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadComposite_eqvs
+:LoadComposite_eqvs rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :LoadComposite ;
+                    rdfs:range xsd:float ;
+                    rdfs:comment "Reactive load-voltage dependence index (static) (Eqvs).  Typical Value = 2." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadComposite_lfrac
+:LoadComposite_lfrac rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :LoadComposite ;
+                     rdfs:range xsd:float ;
+                     rdfs:comment "Loading factor – ratio of initial P to motor MVA base (Lfrac).  Typical Value = 0.8." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadComposite_pfrac
+:LoadComposite_pfrac rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :LoadComposite ;
+                     rdfs:range xsd:float ;
+                     rdfs:comment "Fraction of constant-power load to be represented by this motor model (Pfrac) (&gt;=0.0 and &lt;=1.0).  Typical Value = 0.5." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadGenericNonLinear_bs
+:LoadGenericNonLinear_bs rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :LoadGenericNonLinear ;
+                         rdfs:range xsd:float ;
+                         rdfs:comment "Steady state voltage index for reactive power (BS)." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadGenericNonLinear_bt
+:LoadGenericNonLinear_bt rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :LoadGenericNonLinear ;
+                         rdfs:range xsd:float ;
+                         rdfs:comment "Transient voltage index for reactive power (BT)." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadGenericNonLinear_genericNonLinearLoadModelType
+:LoadGenericNonLinear_genericNonLinearLoadModelType rdf:type owl:DatatypeProperty ;
+                                                    rdfs:domain :LoadGenericNonLinear ;
+                                                    rdfs:range :GenericNonLinearLoadModelKind ;
+                                                    rdfs:comment "Type of generic non-linear load model." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadGenericNonLinear_ls
+:LoadGenericNonLinear_ls rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :LoadGenericNonLinear ;
+                         rdfs:range xsd:float ;
+                         rdfs:comment "Steady state voltage index for active power (LS)." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadGenericNonLinear_lt
+:LoadGenericNonLinear_lt rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :LoadGenericNonLinear ;
+                         rdfs:range xsd:float ;
+                         rdfs:comment "Transient voltage index for active power (LT)." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadGenericNonLinear_pt
+:LoadGenericNonLinear_pt rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :LoadGenericNonLinear ;
+                         rdfs:range xsd:float ;
+                         rdfs:comment "Dynamic portion of active load (P<sub>T</sub>)." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadGenericNonLinear_qt
+:LoadGenericNonLinear_qt rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :LoadGenericNonLinear ;
+                         rdfs:range xsd:float ;
+                         rdfs:comment "Dynamic portion of reactive load (Q<sub>T</sub>)." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadMotor_d
+:LoadMotor_d rdf:type owl:DatatypeProperty ;
+             rdfs:domain :LoadMotor ;
+             rdfs:range xsd:float ;
+             rdfs:comment "Damping factor (D).  Unit = delta P/delta speed.  Typical Value = 2." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadMotor_lfac
+:LoadMotor_lfac rdf:type owl:DatatypeProperty ;
+                rdfs:domain :LoadMotor ;
+                rdfs:range xsd:float ;
+                rdfs:comment "Loading factor – ratio of initial P to motor MVA base (Lfac).  Typical Value = 0.8." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadMotor_pfrac
+:LoadMotor_pfrac rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :LoadMotor ;
+                 rdfs:range xsd:float ;
+                 rdfs:comment "Fraction of constant-power load to be represented by this motor model (Pfrac) (&gt;=0.0 and &lt;=1.0).  Typical Value = 0.3." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_ep1
+:LoadStatic_ep1 rdf:type owl:DatatypeProperty ;
+                rdfs:domain :LoadStatic ;
+                rdfs:range xsd:float ;
+                rdfs:comment "First term voltage exponent for active power (Ep1).  Used only when .staticLoadModelType = exponential." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_ep2
+:LoadStatic_ep2 rdf:type owl:DatatypeProperty ;
+                rdfs:domain :LoadStatic ;
+                rdfs:range xsd:float ;
+                rdfs:comment "Second term voltage exponent for active power (Ep2).  Used only when .staticLoadModelType = exponential." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_ep3
+:LoadStatic_ep3 rdf:type owl:DatatypeProperty ;
+                rdfs:domain :LoadStatic ;
+                rdfs:range xsd:float ;
+                rdfs:comment "Third term voltage exponent for active power (Ep3).  Used only when .staticLoadModelType = exponential." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_eq1
+:LoadStatic_eq1 rdf:type owl:DatatypeProperty ;
+                rdfs:domain :LoadStatic ;
+                rdfs:range xsd:float ;
+                rdfs:comment "First term voltage exponent for reactive power (Eq1).  Used only when .staticLoadModelType = exponential." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_eq2
+:LoadStatic_eq2 rdf:type owl:DatatypeProperty ;
+                rdfs:domain :LoadStatic ;
+                rdfs:range xsd:float ;
+                rdfs:comment "Second term voltage exponent for reactive power (Eq2).  Used only when .staticLoadModelType = exponential." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_eq3
+:LoadStatic_eq3 rdf:type owl:DatatypeProperty ;
+                rdfs:domain :LoadStatic ;
+                rdfs:range xsd:float ;
+                rdfs:comment "Third term voltage exponent for reactive power (Eq3).  Used only when .staticLoadModelType = exponential." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_kp1
+:LoadStatic_kp1 rdf:type owl:DatatypeProperty ;
+                rdfs:domain :LoadStatic ;
+                rdfs:range xsd:float ;
+                rdfs:comment "First term voltage coefficient for active power (Kp1).  Not used when .staticLoadModelType = constantZ." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_kp2
+:LoadStatic_kp2 rdf:type owl:DatatypeProperty ;
+                rdfs:domain :LoadStatic ;
+                rdfs:range xsd:float ;
+                rdfs:comment "Second term voltage coefficient for active power (Kp2).  Not used when .staticLoadModelType = constantZ." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_kp3
+:LoadStatic_kp3 rdf:type owl:DatatypeProperty ;
+                rdfs:domain :LoadStatic ;
+                rdfs:range xsd:float ;
+                rdfs:comment "Third term voltage coefficient for active power (Kp3).  Not used when .staticLoadModelType = constantZ." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_kp4
+:LoadStatic_kp4 rdf:type owl:DatatypeProperty ;
+                rdfs:domain :LoadStatic ;
+                rdfs:range xsd:float ;
+                rdfs:comment "Frequency coefficient for active power (Kp4).  Must be non-zero when .staticLoadModelType = ZIP2.  Not used for all other values of .staticLoadModelType." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_kpf
+:LoadStatic_kpf rdf:type owl:DatatypeProperty ;
+                rdfs:domain :LoadStatic ;
+                rdfs:range xsd:float ;
+                rdfs:comment "Frequency deviation coefficient for active power (Kpf).  Not used when .staticLoadModelType = constantZ." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_kq1
+:LoadStatic_kq1 rdf:type owl:DatatypeProperty ;
+                rdfs:domain :LoadStatic ;
+                rdfs:range xsd:float ;
+                rdfs:comment "First term voltage coefficient for reactive power (Kq1).  Not used when .staticLoadModelType = constantZ." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_kq2
+:LoadStatic_kq2 rdf:type owl:DatatypeProperty ;
+                rdfs:domain :LoadStatic ;
+                rdfs:range xsd:float ;
+                rdfs:comment "Second term voltage coefficient for reactive power (Kq2).  Not used when .staticLoadModelType = constantZ." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_kq3
+:LoadStatic_kq3 rdf:type owl:DatatypeProperty ;
+                rdfs:domain :LoadStatic ;
+                rdfs:range xsd:float ;
+                rdfs:comment "Third term voltage coefficient for reactive power (Kq3).  Not used when .staticLoadModelType = constantZ." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_kq4
+:LoadStatic_kq4 rdf:type owl:DatatypeProperty ;
+                rdfs:domain :LoadStatic ;
+                rdfs:range xsd:float ;
+                rdfs:comment "Frequency coefficient for reactive power (Kq4).  Must be non-zero when .staticLoadModelType = ZIP2.  Not used for all other values of .staticLoadModelType." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_kqf
+:LoadStatic_kqf rdf:type owl:DatatypeProperty ;
+                rdfs:domain :LoadStatic ;
+                rdfs:range xsd:float ;
+                rdfs:comment "Frequency deviation coefficient for reactive power (Kqf).  Not used when .staticLoadModelType = constantZ." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic_staticLoadModelType
+:LoadStatic_staticLoadModelType rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :LoadStatic ;
+                                rdfs:range :StaticLoadModelKind ;
+                                rdfs:comment "Type of static load model.  Typical Value = constantZ." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadAggregate
+:LoadAggregate rdf:type owl:Class ;
+               rdfs:subClassOf :LoadDynamics ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadAggregate_LoadMotor ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :LoadAggregate
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadAggregate_LoadStatic ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :LoadAggregate
+                               ] ;
+               rdfs:comment "Standard aggregate load model comprised of static and/or dynamic components.  A static load model represents the sensitivity of the real and reactive power consumed by the load to the amplitude and frequency of the bus voltage. A dynamic load model can used to represent the aggregate response of the motor components of the load." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadComposite
+:LoadComposite rdf:type owl:Class ;
+               rdfs:subClassOf :LoadDynamics ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_h ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_h ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_epfd ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_epfs ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_epvd ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_epvs ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_eqfd ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_eqfs ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_eqvd ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_eqvs ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_lfrac ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_pfrac ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_epfd ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_epfs ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_epvd ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_epvs ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_eqfd ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_eqfs ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_eqvd ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_eqvs ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_lfrac ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :LoadComposite_pfrac ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ;
+               rdfs:comment """This models combines static load and induction motor load effects.
+The dynamics of the motor are simplified by linearizing the induction machine equations.""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadDynamics
+:LoadDynamics rdf:type owl:Class ;
+              rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ;
+              rdfs:comment """Load whose behaviour is described by reference to a standard model <font color=\"#0f0f0f\">or by definition of a user-defined model.</font>
+
+A standard feature of dynamic load behaviour modelling is the ability to associate the same behaviour to multiple energy consumers by means of a single aggregate load definition.  Aggregate loads are used to represent all or part of the real and reactive load from one or more loads in the static (power flow) data. This load is usually the aggregation of many individual load devices and the load model is approximate representation of the aggregate response of the load devices to system disturbances. The load model is always applied to individual bus loads (energy consumers) but a single set of load model parameters can used for all loads in the grouping.""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadGenericNonLinear
+:LoadGenericNonLinear rdf:type owl:Class ;
+                      rdfs:subClassOf :LoadDynamics ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_tp ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_tq ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_tp ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_tq ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_bs ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:float
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_bt ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:float
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_genericNonLinearLoadModelType ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange :GenericNonLinearLoadModelKind
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_ls ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:float
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_lt ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:float
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_pt ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:float
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_qt ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:float
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_bs ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:float
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_bt ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:float
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_genericNonLinearLoadModelType ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange :GenericNonLinearLoadModelKind
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_ls ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:float
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_lt ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:float
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_pt ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:float
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :LoadGenericNonLinear_qt ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:float
+                                      ] ;
+                      rdfs:comment "These load models (known also as generic non-linear dynamic (GNLD) load models) can be used in mid-term and long-term voltage stability simulations (i.e., to study voltage collapse), as they can replace a more detailed representation of aggregate load, including induction motors, thermostatically controlled and static loads." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadMotor
+:LoadMotor rdf:type owl:Class ;
+           rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_LoadAggregate ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass :LoadMotor
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_h ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_lp ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_lpp ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_ls ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_ra ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_tbkr ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_tpo ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_tppo ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_tv ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_vt ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_LoadAggregate ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :LoadMotor
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_h ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_lp ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_lpp ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_ls ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_ra ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_tbkr ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_tpo ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_tppo ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_tv ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_vt ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_d ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:float
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_lfac ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:float
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_pfrac ;
+                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:float
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_d ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:float
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_lfac ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:float
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :LoadMotor_pfrac ;
+                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:float
+                           ] ;
+           rdfs:comment """Aggregate induction motor load. This model  is used to represent a fraction of an ordinary load as \"induction motor load\".  It allows load that is treated as ordinary constant power in power flow analysis to be represented by an induction motor in dynamic simulation.  If <b>Lpp</b> = 0. or <b>Lpp</b> = <b>Lp</b>, or <b>Tppo</b> = 0.,  only one cage is represented. Magnetic saturation is not modelled. Either a \"one-cage\" or \"two-cage\" model of the induction machine can be modelled. Magnetic saturation is not modelled.
+
+This model is intended for representation of aggregations of many motors dispersed through a load represented at a high voltage bus but where there is no information on the characteristics of individual motors.
+
+This model treats a fraction of the constant power part of a load as a motor. During initialisation, the initial power drawn by the motor is set equal to <b>Pfrac</b> times the constant <b>P</b> part of the static load.  The remainder of the load is left as static load.
+
+The reactive power demand of the motor is calculated during initialisation as a function of voltage at the load bus. This reactive power demand may be less than or greater than the constant <b>Q</b> component of the load.  If the motor's reactive demand is greater than the constant <b>Q</b> component of the load, the model inserts a shunt capacitor at the terminal of the motor to bring its reactive demand down to equal the constant <b>Q</b> reactive load.  
+If a motor model and a static load model are both present for a load, the motor <b>Pfrac</b> is assumed to be subtracted from the power flow constant <b>P</b> load before the static load model is applied.  The remainder of the load, if any, is then represented by the static load model.""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/LoadDynamics#LoadStatic
+:LoadStatic rdf:type owl:Class ;
+            rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_LoadAggregate ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :LoadStatic
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_LoadAggregate ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :LoadStatic
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_ep1 ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_ep2 ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_ep3 ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_eq1 ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_eq2 ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_eq3 ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kp1 ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kp2 ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kp3 ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kp4 ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kpf ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kq1 ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kq2 ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kq3 ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kq4 ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kqf ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_staticLoadModelType ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange :StaticLoadModelKind
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_ep1 ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_ep2 ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_ep3 ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_eq1 ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_eq2 ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_eq3 ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kp1 ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kp2 ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kp3 ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kp4 ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kpf ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kq1 ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kq2 ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kq3 ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kq4 ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_kqf ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:float
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :LoadStatic_staticLoadModelType ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange :StaticLoadModelKind
+                            ] ;
+            rdfs:comment "General static load model representing the sensitivity of the real and reactive power consumed by the load to the amplitude and frequency of the bus voltage." .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

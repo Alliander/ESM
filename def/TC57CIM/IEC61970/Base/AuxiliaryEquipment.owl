@@ -1,0 +1,269 @@
+@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#> .
+
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#PotentialTransformerKind
+:PotentialTransformerKind rdf:type rdfs:Datatype ;
+                          owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                                owl:oneOf [ rdf:type rdf:List ;
+                                                            rdf:first "capacitiveCoupling" ;
+                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                       rdf:first "inductive" ;
+                                                                       rdf:rest rdf:nil
+                                                                     ]
+                                                          ]
+                                              ] .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#CurrentTransformer_accuracyLimit
+:CurrentTransformer_accuracyLimit rdf:type owl:ObjectProperty ;
+                                  rdfs:domain :CurrentTransformer ;
+                                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
+                                  rdfs:comment """Percent of rated current for which the CT remains accurate within specified limits.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#CurrentTransformer_coreBurden
+:CurrentTransformer_coreBurden rdf:type owl:ObjectProperty ;
+                               rdfs:domain :CurrentTransformer ;
+                               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
+                               rdfs:comment """Power burden of the CT core.
+""" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#CurrentTransformer_accuracyClass
+:CurrentTransformer_accuracyClass rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :CurrentTransformer ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:comment "CT accuracy classification." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#CurrentTransformer_ctClass
+:CurrentTransformer_ctClass rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :CurrentTransformer ;
+                            rdfs:range xsd:string ;
+                            rdfs:comment "CT classification; i.e. class 10P." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#CurrentTransformer_usage
+:CurrentTransformer_usage rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :CurrentTransformer ;
+                          rdfs:range xsd:string ;
+                          rdfs:comment "Intended usage of the CT; i.e. metering, protection." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#PotentialTransformer_accuracyClass
+:PotentialTransformer_accuracyClass rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain :PotentialTransformer ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:comment "PT accuracy classification." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#PotentialTransformer_nominalRatio
+:PotentialTransformer_nominalRatio rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain :PotentialTransformer ;
+                                   rdfs:range xsd:float ;
+                                   rdfs:comment "Nominal ratio between the primary and secondary voltage." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#PotentialTransformer_ptClass
+:PotentialTransformer_ptClass rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :PotentialTransformer ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment "Potential transformer (PT) classification covering burden." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#PotentialTransformer_type
+:PotentialTransformer_type rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :PotentialTransformer ;
+                           rdfs:range :PotentialTransformerKind ;
+                           rdfs:comment "Potential transformer construction type." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#AuxiliaryEquipment
+:AuxiliaryEquipment rdf:type owl:Class ;
+                    rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment> ;
+                    rdfs:comment """AuxiliaryEquipment describe equipment that is not performing any primary functions but support for the equipment performing the primary function.
+AuxiliaryEquipment is attached to primary eqipment via an association with Terminal.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#CurrentTransformer
+:CurrentTransformer rdf:type owl:Class ;
+                    rdfs:subClassOf :Sensor ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :CurrentTransformer_accuracyLimit ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :CurrentTransformer_coreBurden ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :CurrentTransformer_accuracyLimit ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :CurrentTransformer_coreBurden ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :CurrentTransformer_accuracyClass ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :CurrentTransformer_ctClass ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :CurrentTransformer_usage ;
+                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :CurrentTransformer_accuracyClass ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :CurrentTransformer_ctClass ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :CurrentTransformer_usage ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] ;
+                    rdfs:comment "Instrument transformer used to measure electrical qualities of the circuit that is being protected and/or monitored. Typically used as current transducer for the purpose of metering or protection. A typical secondary current rating would be 5A." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#FaultIndicator
+:FaultIndicator rdf:type owl:Class ;
+                rdfs:subClassOf :AuxiliaryEquipment ;
+                rdfs:comment "A FaultIndicator is typically only an indicator (which may or may not be remotely monitored), and not a piece of equipment that actually initiates a protection event. It is used for FLISR (Fault Location, Isolation and Restoration) purposes, assisting with the dispatch of crews to \"most likely\" part of the network (i.e. assists with determining circuit section where the fault most likely happened)." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#FlowSensor
+:FlowSensor rdf:type owl:Class ;
+            rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#ConductingEquipment> ;
+            rdfs:comment "Represents a two terminal and power conducting device of negligible impedance that senses flow through the device." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#PostLineSensor
+:PostLineSensor rdf:type owl:Class ;
+                rdfs:subClassOf :Sensor ;
+                rdfs:comment """ A sensor used mainly in overhead distribution networks as the source of both current and voltage measurements.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#PotentialTransformer
+:PotentialTransformer rdf:type owl:Class ;
+                      rdfs:subClassOf :Sensor ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :PotentialTransformer_accuracyClass ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:string
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :PotentialTransformer_nominalRatio ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:float
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :PotentialTransformer_ptClass ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:string
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :PotentialTransformer_type ;
+                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange :PotentialTransformerKind
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :PotentialTransformer_accuracyClass ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:string
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :PotentialTransformer_nominalRatio ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:float
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :PotentialTransformer_ptClass ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:string
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :PotentialTransformer_type ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange :PotentialTransformerKind
+                                      ] ;
+                      rdfs:comment "Instrument transformer (also known as Voltage Transformer) used to measure electrical qualities of the circuit that is being protected and/or monitored. Typically used as voltage transducer for the purpose of metering, protection, or sometimes auxiliary substation supply. A typical secondary voltage rating would be 120V." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#Sensor
+:Sensor rdf:type owl:Class ;
+        rdfs:subClassOf :AuxiliaryEquipment ;
+        rdfs:comment """This class describe devices that transform a measured quantity into signals that can be presented at displays, used in control or be recorded.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#SurgeArrester
+:SurgeArrester rdf:type owl:Class ;
+               rdfs:subClassOf :AuxiliaryEquipment ;
+               rdfs:comment "Shunt device, installed on the network, usually in the proximity of electrical equipment in order to protect the said equipment against transient voltage transients caused by lightning or switching activity." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/AuxiliaryEquipment#WaveTrap
+:WaveTrap rdf:type owl:Class ;
+          rdfs:subClassOf :AuxiliaryEquipment ;
+          rdfs:comment "Line traps are devices that impede high frequency power line carrier signals yet present a negligible impedance at the main power frequency." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#ConductingEquipment
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#ConductingEquipment> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#Equipment> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

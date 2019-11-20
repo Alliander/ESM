@@ -1,0 +1,401 @@
+@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#> .
+
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#ConnectDisconnectFunction_rcdInfo
+:ConnectDisconnectFunction_rcdInfo rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :ConnectDisconnectFunction ;
+                                   rdfs:range :RemoteConnectDisconnectInfo ;
+                                   rdfs:comment "Information on remote connect disconnect switch." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#RemoteConnectDisconnectInfo_armedTimeout
+:RemoteConnectDisconnectInfo_armedTimeout rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :RemoteConnectDisconnectInfo ;
+                                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                                          rdfs:comment "Setting of the timeout elapsed time." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#RemoteConnectDisconnectInfo_customerVoltageLimit
+:RemoteConnectDisconnectInfo_customerVoltageLimit rdf:type owl:ObjectProperty ;
+                                                  rdfs:domain :RemoteConnectDisconnectInfo ;
+                                                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
+                                                  rdfs:comment "Voltage limit on customer side of RCD switch above which the connect should not be made." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#RemoteConnectDisconnectInfo_energyLimit
+:RemoteConnectDisconnectInfo_energyLimit rdf:type owl:ObjectProperty ;
+                                         rdfs:domain :RemoteConnectDisconnectInfo ;
+                                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy> ;
+                                         rdfs:comment "Limit of energy before disconnect." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#RemoteConnectDisconnectInfo_energyUsageWarning
+:RemoteConnectDisconnectInfo_energyUsageWarning rdf:type owl:ObjectProperty ;
+                                                rdfs:domain :RemoteConnectDisconnectInfo ;
+                                                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy> ;
+                                                rdfs:comment "Warning energy limit, used to trigger event code that energy usage is nearing limit." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#RemoteConnectDisconnectInfo_powerLimit
+:RemoteConnectDisconnectInfo_powerLimit rdf:type owl:ObjectProperty ;
+                                        rdfs:domain :RemoteConnectDisconnectInfo ;
+                                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
+                                        rdfs:comment "Load limit above which the connect should either not take place or should cause an immediate disconnect." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#ConnectDisconnectFunction_eventCount
+:ConnectDisconnectFunction_eventCount rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain :ConnectDisconnectFunction ;
+                                      rdfs:range xsd:nonNegativeInteger ;
+                                      rdfs:comment """Running cumulative count of connect or disconnect events, for the lifetime of this function or until the value is cleared.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#ConnectDisconnectFunction_isConnected
+:ConnectDisconnectFunction_isConnected rdf:type owl:DatatypeProperty ;
+                                       rdfs:domain :ConnectDisconnectFunction ;
+                                       rdfs:range xsd:boolean ;
+                                       rdfs:comment "True if this function is in the connected state." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#ConnectDisconnectFunction_isDelayedDiscon
+:ConnectDisconnectFunction_isDelayedDiscon rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :ConnectDisconnectFunction ;
+                                           rdfs:range xsd:boolean ;
+                                           rdfs:comment "If set true, the switch may disconnect the service at the end of a specified time delay after the disconnect signal has been given. If set false, the switch may disconnect the service immediately after the disconnect signal has been given. This is typically the case for over current circuit-breakers which are classified as either instantaneous or slow acting." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#ConnectDisconnectFunction_isLocalAutoDisconOp
+:ConnectDisconnectFunction_isLocalAutoDisconOp rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain :ConnectDisconnectFunction ;
+                                               rdfs:range xsd:boolean ;
+                                               rdfs:comment """If set true and if disconnection can be operated locally, the operation happens automatically. Otherwise it happens manually.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#ConnectDisconnectFunction_isLocalAutoReconOp
+:ConnectDisconnectFunction_isLocalAutoReconOp rdf:type owl:DatatypeProperty ;
+                                              rdfs:domain :ConnectDisconnectFunction ;
+                                              rdfs:range xsd:boolean ;
+                                              rdfs:comment """If set true and if reconnection can be operated locally, then the operation happens automatically. Otherwise, it happens manually.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#ConnectDisconnectFunction_isRemoteAutoDisconOp
+:ConnectDisconnectFunction_isRemoteAutoDisconOp rdf:type owl:DatatypeProperty ;
+                                                rdfs:domain :ConnectDisconnectFunction ;
+                                                rdfs:range xsd:boolean ;
+                                                rdfs:comment "If set true and if disconnection can be operated remotely, then the operation happens automatically. If set false and if disconnection can be operated remotely, then the operation happens manually." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#ConnectDisconnectFunction_isRemoteAutoReconOp
+:ConnectDisconnectFunction_isRemoteAutoReconOp rdf:type owl:DatatypeProperty ;
+                                               rdfs:domain :ConnectDisconnectFunction ;
+                                               rdfs:range xsd:boolean ;
+                                               rdfs:comment """If set true and if reconnection can be operated remotely, then the operation happens automatically. If set false and if reconnection can be operated remotely, then the operation happens manually.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#RemoteConnectDisconnectInfo_energyUsageStartDateTime
+:RemoteConnectDisconnectInfo_energyUsageStartDateTime rdf:type owl:DatatypeProperty ;
+                                                      rdfs:domain :RemoteConnectDisconnectInfo ;
+                                                      rdfs:range xsd:dateTime ;
+                                                      rdfs:comment """Start date and time to accumulate energy for energy usage limiting.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#RemoteConnectDisconnectInfo_isArmConnect
+:RemoteConnectDisconnectInfo_isArmConnect rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain :RemoteConnectDisconnectInfo ;
+                                          rdfs:range xsd:boolean ;
+                                          rdfs:comment "True if the RCD switch has to be armed before a connect action can be initiated." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#RemoteConnectDisconnectInfo_isArmDisconnect
+:RemoteConnectDisconnectInfo_isArmDisconnect rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain :RemoteConnectDisconnectInfo ;
+                                             rdfs:range xsd:boolean ;
+                                             rdfs:comment "True if the RCD switch has to be armed before a disconnect action can be initiated." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#RemoteConnectDisconnectInfo_isEnergyLimiting
+:RemoteConnectDisconnectInfo_isEnergyLimiting rdf:type owl:DatatypeProperty ;
+                                              rdfs:domain :RemoteConnectDisconnectInfo ;
+                                              rdfs:range xsd:boolean ;
+                                              rdfs:comment "True if the energy usage is limited and the customer will be disconnected if they go over the limit." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#RemoteConnectDisconnectInfo_needsPowerLimitCheck
+:RemoteConnectDisconnectInfo_needsPowerLimitCheck rdf:type owl:DatatypeProperty ;
+                                                  rdfs:domain :RemoteConnectDisconnectInfo ;
+                                                  rdfs:range xsd:boolean ;
+                                                  rdfs:comment "True if load limit has to be checked to issue an immediate disconnect (after a connect) if load is over the limit." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#RemoteConnectDisconnectInfo_needsVoltageLimitCheck
+:RemoteConnectDisconnectInfo_needsVoltageLimitCheck rdf:type owl:DatatypeProperty ;
+                                                    rdfs:domain :RemoteConnectDisconnectInfo ;
+                                                    rdfs:range xsd:boolean ;
+                                                    rdfs:comment "True if voltage limit has to be checked to prevent connect if voltage is over the limit." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#RemoteConnectDisconnectInfo_usePushbutton
+:RemoteConnectDisconnectInfo_usePushbutton rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain :RemoteConnectDisconnectInfo ;
+                                           rdfs:range xsd:boolean ;
+                                           rdfs:comment "True if pushbutton has to be used for connect." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#ConnectDisconnectFunction
+:ConnectDisconnectFunction rdf:type owl:Class ;
+                           rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#EndDeviceFunction> ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConnectDisconnectFunction_rcdInfo ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onClass :RemoteConnectDisconnectInfo
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConnectDisconnectFunction_rcdInfo ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onClass :RemoteConnectDisconnectInfo
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConnectDisconnectFunction_eventCount ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:nonNegativeInteger
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConnectDisconnectFunction_isConnected ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:boolean
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConnectDisconnectFunction_isDelayedDiscon ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:boolean
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConnectDisconnectFunction_isLocalAutoDisconOp ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:boolean
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConnectDisconnectFunction_isLocalAutoReconOp ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:boolean
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConnectDisconnectFunction_isRemoteAutoDisconOp ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:boolean
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConnectDisconnectFunction_isRemoteAutoReconOp ;
+                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:boolean
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConnectDisconnectFunction_eventCount ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:nonNegativeInteger
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConnectDisconnectFunction_isConnected ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:boolean
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConnectDisconnectFunction_isDelayedDiscon ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:boolean
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConnectDisconnectFunction_isLocalAutoDisconOp ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:boolean
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConnectDisconnectFunction_isLocalAutoReconOp ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:boolean
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConnectDisconnectFunction_isRemoteAutoDisconOp ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:boolean
+                                           ] ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty :ConnectDisconnectFunction_isRemoteAutoReconOp ;
+                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                             owl:onDataRange xsd:boolean
+                                           ] ;
+                           rdfs:comment """A function that will disconnect and reconnect the customer's load under defined conditions.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/LoadControl#RemoteConnectDisconnectInfo
+:RemoteConnectDisconnectInfo rdf:type owl:Class ;
+                             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_armedTimeout ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_customerVoltageLimit ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_energyLimit ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_energyUsageWarning ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_powerLimit ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_armedTimeout ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_customerVoltageLimit ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_energyLimit ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_energyUsageWarning ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_powerLimit ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_energyUsageStartDateTime ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onDataRange xsd:dateTime
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_isArmConnect ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onDataRange xsd:boolean
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_isArmDisconnect ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onDataRange xsd:boolean
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_isEnergyLimiting ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onDataRange xsd:boolean
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_needsPowerLimitCheck ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onDataRange xsd:boolean
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_needsVoltageLimitCheck ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onDataRange xsd:boolean
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_usePushbutton ;
+                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                               owl:onDataRange xsd:boolean
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_energyUsageStartDateTime ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onDataRange xsd:dateTime
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_isArmConnect ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onDataRange xsd:boolean
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_isArmDisconnect ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onDataRange xsd:boolean
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_isEnergyLimiting ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onDataRange xsd:boolean
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_needsPowerLimitCheck ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onDataRange xsd:boolean
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_needsVoltageLimitCheck ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onDataRange xsd:boolean
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
+                                               owl:onProperty :RemoteConnectDisconnectInfo_usePushbutton ;
+                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onDataRange xsd:boolean
+                                             ] ;
+                             rdfs:comment """Details of remote connect and disconnect function.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#EndDeviceFunction
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Metering#EndDeviceFunction> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#RealEnergy> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

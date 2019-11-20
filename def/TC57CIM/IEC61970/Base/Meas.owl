@@ -1,0 +1,1998 @@
+@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#> .
+
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode> rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier> rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol> rdf:type rdfs:Datatype .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Validity
+:Validity rdf:type rdfs:Datatype ;
+          owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                owl:oneOf [ rdf:type rdf:List ;
+                                            rdf:first "GOOD" ;
+                                            rdf:rest [ rdf:type rdf:List ;
+                                                       rdf:first "INVALID" ;
+                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                  rdf:first "QUESTIONABLE" ;
+                                                                  rdf:rest rdf:nil
+                                                                ]
+                                                     ]
+                                          ]
+                              ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#Source
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#Source> rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimitSet_Limits
+:AccumulatorLimitSet_Limits rdf:type owl:ObjectProperty ,
+                                     owl:FunctionalProperty ;
+                            rdfs:domain :AccumulatorLimitSet ;
+                            rdfs:range :AccumulatorLimit ;
+                            rdfs:comment "The set of limits.The limit values used for supervision of Measurements." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimitSet_Measurements
+:AccumulatorLimitSet_Measurements rdf:type owl:ObjectProperty ;
+                                  owl:inverseOf :Accumulator_LimitSets ;
+                                  rdfs:domain :AccumulatorLimitSet ;
+                                  rdfs:range :Accumulator ;
+                                  rdfs:comment "The Measurements using the LimitSet.A measurement may have zero or more limit ranges defined for it." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimit_LimitSet
+:AccumulatorLimit_LimitSet rdf:type owl:ObjectProperty ;
+                           owl:inverseOf :AccumulatorLimitSet_Limits ;
+                           rdfs:domain :AccumulatorLimit ;
+                           rdfs:range :AccumulatorLimitSet ;
+                           rdfs:comment "The set of limits.The limit values used for supervision of Measurements." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorReset_AccumulatorValue
+:AccumulatorReset_AccumulatorValue rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :AccumulatorReset ;
+                                   rdfs:range :AccumulatorValue ;
+                                   rdfs:comment "The command that reset the accumulator value.The accumulator value that is reset by the command." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue_Accumulator
+:AccumulatorValue_Accumulator rdf:type owl:ObjectProperty ;
+                              owl:inverseOf :Accumulator_AccumulatorValues ;
+                              rdfs:domain :AccumulatorValue ;
+                              rdfs:range :Accumulator ;
+                              rdfs:comment "Measurement to which this value is connected.The values connected to this measurement." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue_AccumulatorReset
+:AccumulatorValue_AccumulatorReset rdf:type owl:ObjectProperty ;
+                                   owl:inverseOf :AccumulatorReset_AccumulatorValue ;
+                                   rdf:type owl:FunctionalProperty ;
+                                   rdfs:domain :AccumulatorValue ;
+                                   rdfs:range :AccumulatorReset ;
+                                   rdfs:comment "The command that reset the accumulator value.The accumulator value that is reset by the command." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator_AccumulatorValues
+:Accumulator_AccumulatorValues rdf:type owl:ObjectProperty ,
+                                        owl:FunctionalProperty ;
+                               rdfs:domain :Accumulator ;
+                               rdfs:range :AccumulatorValue ;
+                               rdfs:comment "Measurement to which this value is connected.The values connected to this measurement." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator_LimitSets
+:Accumulator_LimitSets rdf:type owl:ObjectProperty ;
+                       rdfs:domain :Accumulator ;
+                       rdfs:range :AccumulatorLimitSet ;
+                       rdfs:comment "The Measurements using the LimitSet.A measurement may have zero or more limit ranges defined for it." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AltGeneratingUnitMeas_AnalogValue
+:AltGeneratingUnitMeas_AnalogValue rdf:type owl:ObjectProperty ;
+                                   rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltGeneratingUnitMeas> ;
+                                   rdfs:range :AnalogValue ;
+                                   rdfs:comment "The alternate generating unit for which this measurement value applies.The specific analog value used as a source." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AltTieMeas_AnalogValue
+:AltTieMeas_AnalogValue rdf:type owl:ObjectProperty ;
+                        rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltTieMeas> ;
+                        rdfs:range :AnalogValue ;
+                        rdfs:comment "The usage of the measurement within the control area specification.The specific analog value used as a source." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl_AnalogValue
+:AnalogControl_AnalogValue rdf:type owl:ObjectProperty ;
+                           owl:inverseOf :AnalogValue_AnalogControl ;
+                           rdfs:domain :AnalogControl ;
+                           rdfs:range :AnalogValue ;
+                           rdfs:comment "The MeasurementValue that is controlled.The Control variable associated with the MeasurementValue." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl_ICCPSetPoint
+:AnalogControl_ICCPSetPoint rdf:type owl:ObjectProperty ,
+                                     owl:FunctionalProperty ;
+                            rdfs:domain :AnalogControl ;
+                            rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint> ;
+                            rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimitSet_Limits
+:AnalogLimitSet_Limits rdf:type owl:ObjectProperty ,
+                                owl:FunctionalProperty ;
+                       rdfs:domain :AnalogLimitSet ;
+                       rdfs:range :AnalogLimit ;
+                       rdfs:comment "The set of limits.The limit values used for supervision of Measurements." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimitSet_Measurements
+:AnalogLimitSet_Measurements rdf:type owl:ObjectProperty ;
+                             owl:inverseOf :Analog_LimitSets ;
+                             rdfs:domain :AnalogLimitSet ;
+                             rdfs:range :Analog ;
+                             rdfs:comment "The Measurements using the LimitSet.A measurement may have zero or more limit ranges defined for it." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimit_LimitSet
+:AnalogLimit_LimitSet rdf:type owl:ObjectProperty ;
+                      owl:inverseOf :AnalogLimitSet_Limits ;
+                      rdfs:domain :AnalogLimit ;
+                      rdfs:range :AnalogLimitSet ;
+                      rdfs:comment "The set of limits.The limit values used for supervision of Measurements." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue_AltGeneratingUnit
+:AnalogValue_AltGeneratingUnit rdf:type owl:ObjectProperty ;
+                               owl:inverseOf :AltGeneratingUnitMeas_AnalogValue ;
+                               rdf:type owl:FunctionalProperty ;
+                               rdfs:domain :AnalogValue ;
+                               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltGeneratingUnitMeas> ;
+                               rdfs:comment "The alternate generating unit for which this measurement value applies.The specific analog value used as a source." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue_AltTieMeas
+:AnalogValue_AltTieMeas rdf:type owl:ObjectProperty ;
+                        owl:inverseOf :AltTieMeas_AnalogValue ;
+                        rdf:type owl:FunctionalProperty ;
+                        rdfs:domain :AnalogValue ;
+                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltTieMeas> ;
+                        rdfs:comment "The usage of the measurement within the control area specification.The specific analog value used as a source." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue_Analog
+:AnalogValue_Analog rdf:type owl:ObjectProperty ;
+                    owl:inverseOf :Analog_AnalogValues ;
+                    rdfs:domain :AnalogValue ;
+                    rdfs:range :Analog ;
+                    rdfs:comment "Measurement to which this value is connected.The values connected to this measurement." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue_AnalogControl
+:AnalogValue_AnalogControl rdf:type owl:ObjectProperty ,
+                                    owl:FunctionalProperty ;
+                           rdfs:domain :AnalogValue ;
+                           rdfs:range :AnalogControl ;
+                           rdfs:comment "The MeasurementValue that is controlled.The Control variable associated with the MeasurementValue." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog_AnalogValues
+:Analog_AnalogValues rdf:type owl:ObjectProperty ,
+                              owl:FunctionalProperty ;
+                     rdfs:domain :Analog ;
+                     rdfs:range :AnalogValue ;
+                     rdfs:comment "Measurement to which this value is connected.The values connected to this measurement." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog_LimitSets
+:Analog_LimitSets rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Analog ;
+                  rdfs:range :AnalogLimitSet ;
+                  rdfs:comment "The Measurements using the LimitSet.A measurement may have zero or more limit ranges defined for it." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Asset_Measurements
+:Asset_Measurements rdf:type owl:ObjectProperty ;
+                    rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
+                    rdfs:range :Measure ;
+                    rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Command_DiscreteValue
+:Command_DiscreteValue rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :DiscreteValue_Command ;
+                       rdfs:domain :Command ;
+                       rdfs:range :DiscreteValue ;
+                       rdfs:comment "The MeasurementValue that is controlled.The Control variable associated with the MeasurementValue." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Command_ICCPCommandPoint
+:Command_ICCPCommandPoint rdf:type owl:ObjectProperty ,
+                                   owl:FunctionalProperty ;
+                          rdfs:domain :Command ;
+                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPCommandPoint> ;
+                          rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Command_ValueAliasSet
+:Command_ValueAliasSet rdf:type owl:ObjectProperty ;
+                       rdfs:domain :Command ;
+                       rdfs:range :ValueAliasSet ;
+                       rdfs:comment "The Commands using the set for translation.The ValueAliasSet used for translation of a Control value to a name." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Control_RemoteControl
+:Control_RemoteControl rdf:type owl:ObjectProperty ;
+                       owl:inverseOf :RemoteControl_Control ;
+                       rdf:type owl:FunctionalProperty ;
+                       rdfs:domain :Control ;
+                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteControl> ;
+                       rdfs:comment "The remote point controlling the physical actuator.The Control for the RemoteControl point." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue_Command
+:DiscreteValue_Command rdf:type owl:ObjectProperty ,
+                                owl:FunctionalProperty ;
+                       rdfs:domain :DiscreteValue ;
+                       rdfs:range :Command ;
+                       rdfs:comment "The MeasurementValue that is controlled.The Control variable associated with the MeasurementValue." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue_Discrete
+:DiscreteValue_Discrete rdf:type owl:ObjectProperty ;
+                        owl:inverseOf :Discrete_DiscreteValues ;
+                        rdfs:domain :DiscreteValue ;
+                        rdfs:range :Discrete ;
+                        rdfs:comment "Measurement to which this value is connected.The values connected to this measurement." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete_DiscreteValues
+:Discrete_DiscreteValues rdf:type owl:ObjectProperty ,
+                                  owl:FunctionalProperty ;
+                         rdfs:domain :Discrete ;
+                         rdfs:range :DiscreteValue ;
+                         rdfs:comment "Measurement to which this value is connected.The values connected to this measurement." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete_ValueAliasSet
+:Discrete_ValueAliasSet rdf:type owl:ObjectProperty ;
+                        owl:inverseOf :ValueAliasSet_Discretes ;
+                        rdfs:domain :Discrete ;
+                        rdfs:range :ValueAliasSet ;
+                        rdfs:comment "The ValueAliasSet used for translation of a MeasurementValue.value to a name.The Measurements using the set for translation." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#ICCPCommandPoint_Command
+:ICCPCommandPoint_Command rdf:type owl:ObjectProperty ;
+                          owl:inverseOf :Command_ICCPCommandPoint ;
+                          rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPCommandPoint> ;
+                          rdfs:range :Command ;
+                          rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#ICCPIndicationPoint_MeasurementValue
+:ICCPIndicationPoint_MeasurementValue rdf:type owl:ObjectProperty ;
+                                      owl:inverseOf :MeasurementValue_ICCPIndicationPoint ;
+                                      rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint> ;
+                                      rdfs:range :MeasurementValue ;
+                                      rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#ICCPSetPoint_AnalogControl
+:ICCPSetPoint_AnalogControl rdf:type owl:ObjectProperty ;
+                            owl:inverseOf :AnalogControl_ICCPSetPoint ;
+                            rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint> ;
+                            rdfs:range :AnalogControl ;
+                            rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Limit_Procedures
+:Limit_Procedures rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :Procedure_Limits ;
+                  rdfs:domain :Limit ;
+                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Procedure> ;
+                  rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Location_Measurements
+:Location_Measurements rdf:type owl:ObjectProperty ;
+                       rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location> ;
+                       rdfs:range :Measure ;
+                       rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure_Asset
+:Measure_Asset rdf:type owl:ObjectProperty ;
+               owl:inverseOf :Asset_Measurements ;
+               rdfs:domain :Measure ;
+               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset> ;
+               rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure_Locations
+:Measure_Locations rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :Location_Measurements ;
+                   rdfs:domain :Measure ;
+                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location> ;
+                   rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure_MeasurementCalculatorInput
+:Measure_MeasurementCalculatorInput rdf:type owl:ObjectProperty ;
+                                    owl:inverseOf :MeasurementCalculatorInput_Measurement ;
+                                    rdf:type owl:FunctionalProperty ;
+                                    rdfs:domain :Measure ;
+                                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#MeasurementCalculatorInput> ;
+                                    rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure_PinMeasurement
+:Measure_PinMeasurement rdf:type owl:ObjectProperty ;
+                        owl:inverseOf :PinMeasurement_Measurement ;
+                        rdfs:domain :Measure ;
+                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#PinMeasurement> ;
+                        rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure_Procedures
+:Measure_Procedures rdf:type owl:ObjectProperty ;
+                    owl:inverseOf :Procedure_Measurements ;
+                    rdfs:domain :Measure ;
+                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Procedure> ;
+                    rdfs:comment "Measurements are specified in types of documents, such as procedures.Document containing this measurement." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure_ProtectiveActionAdjustment
+:Measure_ProtectiveActionAdjustment rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :Measure ;
+                                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#ProtectiveActionAdjustment> ;
+                                    rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementCalculatorInput_Measurement
+:MeasurementCalculatorInput_Measurement rdf:type owl:ObjectProperty ;
+                                        rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#MeasurementCalculatorInput> ;
+                                        rdfs:range :Measure ;
+                                        rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValueQuality_MeasurementValue
+:MeasurementValueQuality_MeasurementValue rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :MeasurementValueQuality ;
+                                          rdfs:range :MeasurementValue ;
+                                          rdfs:comment "A MeasurementValue has a MeasurementValueQuality associated with it.A MeasurementValue has a MeasurementValueQuality associated with it." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValueSource_MeasurementValues
+:MeasurementValueSource_MeasurementValues rdf:type owl:ObjectProperty ,
+                                                   owl:FunctionalProperty ;
+                                          rdfs:domain :MeasurementValueSource ;
+                                          rdfs:range :MeasurementValue ;
+                                          rdfs:comment "A reference to the type of source that updates the MeasurementValue, e.g. SCADA, CCLink, manual, etc. User conventions for the names of sources are contained in the introduction to IEC 61970-301.The MeasurementValues updated by the source." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue_ErpPerson
+:MeasurementValue_ErpPerson rdf:type owl:ObjectProperty ;
+                            owl:inverseOf :OldPerson_MeasurementValues ;
+                            rdfs:domain :MeasurementValue ;
+                            rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson> ;
+                            rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue_ICCPIndicationPoint
+:MeasurementValue_ICCPIndicationPoint rdf:type owl:ObjectProperty ;
+                                      rdfs:domain :MeasurementValue ;
+                                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint> ;
+                                      rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue_MeasurementValueQuality
+:MeasurementValue_MeasurementValueQuality rdf:type owl:ObjectProperty ;
+                                          owl:inverseOf :MeasurementValueQuality_MeasurementValue ;
+                                          rdf:type owl:FunctionalProperty ;
+                                          rdfs:domain :MeasurementValue ;
+                                          rdfs:range :MeasurementValueQuality ;
+                                          rdfs:comment "A MeasurementValue has a MeasurementValueQuality associated with it.A MeasurementValue has a MeasurementValueQuality associated with it." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue_MeasurementValueSource
+:MeasurementValue_MeasurementValueSource rdf:type owl:ObjectProperty ;
+                                         owl:inverseOf :MeasurementValueSource_MeasurementValues ;
+                                         rdfs:domain :MeasurementValue ;
+                                         rdfs:range :MeasurementValueSource ;
+                                         rdfs:comment "A reference to the type of source that updates the MeasurementValue, e.g. SCADA, CCLink, manual, etc. User conventions for the names of sources are contained in the introduction to IEC 61970-301.The MeasurementValues updated by the source." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue_ProcedureDataSets
+:MeasurementValue_ProcedureDataSets rdf:type owl:ObjectProperty ;
+                                    owl:inverseOf :ProcedureDataSet_MeasurementValues ;
+                                    rdfs:domain :MeasurementValue ;
+                                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet> ;
+                                    rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue_RemoteSource
+:MeasurementValue_RemoteSource rdf:type owl:ObjectProperty ,
+                                        owl:FunctionalProperty ;
+                               rdfs:domain :MeasurementValue ;
+                               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteSource> ;
+                               rdfs:comment "Link to the physical telemetered point associated with this measurement.Link to the physical telemetered point associated with this measurement." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue_sensorAccuracy
+:MeasurementValue_sensorAccuracy rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :MeasurementValue ;
+                                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
+                                 rdfs:comment "The limit, expressed as a percentage of the sensor maximum, that errors will not exceed when the sensor is used under  reference conditions." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#OldPerson_MeasurementValues
+:OldPerson_MeasurementValues rdf:type owl:ObjectProperty ;
+                             rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson> ;
+                             rdfs:range :MeasurementValue ;
+                             rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#PinMeasurement_Measurement
+:PinMeasurement_Measurement rdf:type owl:ObjectProperty ;
+                            rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#PinMeasurement> ;
+                            rdfs:range :Measure ;
+                            rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#ProcedureDataSet_MeasurementValues
+:ProcedureDataSet_MeasurementValues rdf:type owl:ObjectProperty ;
+                                    rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet> ;
+                                    rdfs:range :MeasurementValue ;
+                                    rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Procedure_Limits
+:Procedure_Limits rdf:type owl:ObjectProperty ;
+                  rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Procedure> ;
+                  rdfs:range :Limit ;
+                  rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Procedure_Measurements
+:Procedure_Measurements rdf:type owl:ObjectProperty ;
+                        rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Procedure> ;
+                        rdfs:range :Measure ;
+                        rdfs:comment "Measurements are specified in types of documents, such as procedures.Document containing this measurement." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#ProtectiveActionAdjustment_Measurement
+:ProtectiveActionAdjustment_Measurement rdf:type owl:ObjectProperty ;
+                                        owl:inverseOf :Measure_ProtectiveActionAdjustment ;
+                                        rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#ProtectiveActionAdjustment> ;
+                                        rdfs:range :Measure ;
+                                        rdfs:comment "" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#RaiseLowerCommand_ValueAliasSet
+:RaiseLowerCommand_ValueAliasSet rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :RaiseLowerCommand ;
+                                 rdfs:range :ValueAliasSet ;
+                                 rdfs:comment "The Commands using the set for translation.The ValueAliasSet used for translation of a Control value to a name." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#RemoteControl_Control
+:RemoteControl_Control rdf:type owl:ObjectProperty ;
+                       rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteControl> ;
+                       rdfs:range :Control ;
+                       rdfs:comment "The remote point controlling the physical actuator.The Control for the RemoteControl point." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#RemoteSource_MeasurementValue
+:RemoteSource_MeasurementValue rdf:type owl:ObjectProperty ;
+                               owl:inverseOf :MeasurementValue_RemoteSource ;
+                               rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteSource> ;
+                               rdfs:range :MeasurementValue ;
+                               rdfs:comment "Link to the physical telemetered point associated with this measurement.Link to the physical telemetered point associated with this measurement." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurementValue_StringMeasurement
+:StringMeasurementValue_StringMeasurement rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :StringMeasurementValue ;
+                                          rdfs:range :StringMeasurement ;
+                                          rdfs:comment "The values connected to this measurement.Measurement to which this value is connected." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurement_StringMeasurementValues
+:StringMeasurement_StringMeasurementValues rdf:type owl:ObjectProperty ;
+                                           owl:inverseOf :StringMeasurementValue_StringMeasurement ;
+                                           rdf:type owl:FunctionalProperty ;
+                                           rdfs:domain :StringMeasurement ;
+                                           rdfs:range :StringMeasurementValue ;
+                                           rdfs:comment "The values connected to this measurement.Measurement to which this value is connected." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet_Commands
+:ValueAliasSet_Commands rdf:type owl:ObjectProperty ;
+                        owl:inverseOf :Command_ValueAliasSet ;
+                        rdfs:domain :ValueAliasSet ;
+                        rdfs:range :Command ;
+                        rdfs:comment "The Commands using the set for translation.The ValueAliasSet used for translation of a Control value to a name." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet_Discretes
+:ValueAliasSet_Discretes rdf:type owl:ObjectProperty ;
+                         rdfs:domain :ValueAliasSet ;
+                         rdfs:range :Discrete ;
+                         rdfs:comment "The ValueAliasSet used for translation of a MeasurementValue.value to a name.The Measurements using the set for translation." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet_RaiseLowerCommands
+:ValueAliasSet_RaiseLowerCommands rdf:type owl:ObjectProperty ;
+                                  owl:inverseOf :RaiseLowerCommand_ValueAliasSet ;
+                                  rdfs:domain :ValueAliasSet ;
+                                  rdfs:range :RaiseLowerCommand ;
+                                  rdfs:comment "The Commands using the set for translation.The ValueAliasSet used for translation of a Control value to a name." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet_Values
+:ValueAliasSet_Values rdf:type owl:ObjectProperty ,
+                               owl:FunctionalProperty ;
+                      rdfs:domain :ValueAliasSet ;
+                      rdfs:range :ValueToAlias ;
+                      rdfs:comment "The ValueAliasSet having the ValueToAlias mappings.The ValueToAlias mappings included in the set." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueToAlias_ValueAliasSet
+:ValueToAlias_ValueAliasSet rdf:type owl:ObjectProperty ;
+                            owl:inverseOf :ValueAliasSet_Values ;
+                            rdfs:domain :ValueToAlias ;
+                            rdfs:range :ValueAliasSet ;
+                            rdfs:comment "The ValueAliasSet having the ValueToAlias mappings.The ValueToAlias mappings included in the set." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimit_value
+:AccumulatorLimit_value rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :AccumulatorLimit ;
+                        rdfs:range xsd:nonNegativeInteger ;
+                        rdfs:comment "The value to supervise against. The value is positive." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue_value
+:AccumulatorValue_value rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :AccumulatorValue ;
+                        rdfs:range xsd:nonNegativeInteger ;
+                        rdfs:comment "The value to supervise. The value is positive." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator_maxValue
+:Accumulator_maxValue rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Accumulator ;
+                      rdfs:range xsd:nonNegativeInteger ;
+                      rdfs:comment "Normal value range maximum for any of the MeasurementValue.values. Used for scaling, e.g. in bar graphs or of telemetered raw values." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl_maxValue
+:AnalogControl_maxValue rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :AnalogControl ;
+                        rdfs:range xsd:float ;
+                        rdfs:comment "Normal value range maximum for any of the Control.value. Used for scaling, e.g. in bar graphs." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl_minValue
+:AnalogControl_minValue rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :AnalogControl ;
+                        rdfs:range xsd:float ;
+                        rdfs:comment "Normal value range minimum for any of the Control.value. Used for scaling, e.g. in bar graphs." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimit_value
+:AnalogLimit_value rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :AnalogLimit ;
+                   rdfs:range xsd:float ;
+                   rdfs:comment "The value to supervise against." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue_value
+:AnalogValue_value rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :AnalogValue ;
+                   rdfs:range xsd:float ;
+                   rdfs:comment "The value to supervise." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog_maxValue
+:Analog_maxValue rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Analog ;
+                 rdfs:range xsd:float ;
+                 rdfs:comment "Normal value range maximum for any of the MeasurementValue.values. Used for scaling, e.g. in bar graphs or of telemetered raw values." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog_minValue
+:Analog_minValue rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Analog ;
+                 rdfs:range xsd:float ;
+                 rdfs:comment """Normal value range minimum for any of the MeasurementValue.values. Used for scaling, e.g. in bar graphs or of telemetered raw values.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog_normalValue
+:Analog_normalValue rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Analog ;
+                    rdfs:range xsd:float ;
+                    rdfs:comment "Normal measurement value, e.g., used for percentage calculations." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog_positiveFlowIn
+:Analog_positiveFlowIn rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Analog ;
+                       rdfs:range xsd:boolean ;
+                       rdfs:comment "If true then this measurement is an active power, reactive power or current with the convention that a positive value measured at the Terminal means power is flowing into the related PowerSystemResource." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Command_normalValue
+:Command_normalValue rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Command ;
+                     rdfs:range xsd:nonNegativeInteger ;
+                     rdfs:comment """Normal value for Control.value e.g. used for percentage scaling.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Command_value
+:Command_value rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Command ;
+               rdfs:range xsd:nonNegativeInteger ;
+               rdfs:comment """The value representing the actuator output.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Control_controlType
+:Control_controlType rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Control ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment "Specifies the type of Control, e.g. BreakerOn/Off, GeneratorVoltageSetPoint, TieLineFlow etc. The ControlType.name shall be unique among all specified types and describe the type." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Control_operationInProgress
+:Control_operationInProgress rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :Control ;
+                             rdfs:range xsd:boolean ;
+                             rdfs:comment """Indicates that a client is currently sending control commands that has not completed.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Control_timeStamp
+:Control_timeStamp rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Control ;
+                   rdfs:range xsd:dateTime ;
+                   rdfs:comment """The last time a control output was sent.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Control_unitMultiplier
+:Control_unitMultiplier rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Control ;
+                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier> ;
+                        rdfs:comment "The unit multiplier of the controlled quantity." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Control_unitSymbol
+:Control_unitSymbol rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Control ;
+                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol> ;
+                    rdfs:comment "The unit of measure of the controlled quantity." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue_value
+:DiscreteValue_value rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :DiscreteValue ;
+                     rdfs:range xsd:nonNegativeInteger ;
+                     rdfs:comment "The value to supervise." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete_maxValue
+:Discrete_maxValue rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Discrete ;
+                   rdfs:range xsd:nonNegativeInteger ;
+                   rdfs:comment "Normal value range maximum for any of the MeasurementValue.values. Used for scaling, e.g. in bar graphs or of telemetered raw values." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete_minValue
+:Discrete_minValue rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Discrete ;
+                   rdfs:range xsd:nonNegativeInteger ;
+                   rdfs:comment """Normal value range minimum for any of the MeasurementValue.values. Used for scaling, e.g. in bar graphs or of telemetered raw values.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete_normalValue
+:Discrete_normalValue rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Discrete ;
+                      rdfs:range xsd:nonNegativeInteger ;
+                      rdfs:comment "Normal measurement value, e.g., used for percentage calculations." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#LimitSet_isPercentageLimits
+:LimitSet_isPercentageLimits rdf:type owl:DatatypeProperty ;
+                             rdfs:domain :LimitSet ;
+                             rdfs:range xsd:boolean ;
+                             rdfs:comment "Tells if the limit values are in percentage of normalValue or the specified Unit for Measurements and Controls." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure_measurementType
+:Measure_measurementType rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :Measure ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment """Specifies the type of measurement.  For example, this specifies if the measurement represents an indoor temperature, outdoor temperature, bus voltage, line flow, etc.
+
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure_phases
+:Measure_phases rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Measure ;
+                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode> ;
+                rdfs:comment """Indicates to which phases the measurement applies and avoids the need to use 'measurementType' to also encode phase information (which would explode the types). The phase information in Measurement, along with 'measurementType' and 'phases' uniquely defines a Measurement for a device, based on normal network phase. Their meaning will not change when the computed energizing phasing is changed due to jumpers or other reasons.
+If the attribute is missing three phases (ABC) shall be assumed.""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure_unitMultiplier
+:Measure_unitMultiplier rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Measure ;
+                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier> ;
+                        rdfs:comment "The unit multiplier of the measured quantity." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure_unitSymbol
+:Measure_unitSymbol rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Measure ;
+                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol> ;
+                    rdfs:comment "The unit of measure of the measured quantity." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue_timeStamp
+:MeasurementValue_timeStamp rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :MeasurementValue ;
+                            rdfs:range xsd:dateTime ;
+                            rdfs:comment "The time when the value was last updated" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850_badReference
+:Quality61850_badReference rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :Quality61850 ;
+                           rdfs:range xsd:boolean ;
+                           rdfs:comment "Measurement value may be incorrect due to a reference being out of calibration." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850_estimatorReplaced
+:Quality61850_estimatorReplaced rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :Quality61850 ;
+                                rdfs:range xsd:boolean ;
+                                rdfs:comment "Value has been replaced by State Estimator. estimatorReplaced is not an IEC61850 quality bit but has been put in this class for convenience." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850_failure
+:Quality61850_failure rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Quality61850 ;
+                      rdfs:range xsd:boolean ;
+                      rdfs:comment "This identifier indicates that a supervision function has detected an internal or external failure, e.g. communication failure." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850_oldData
+:Quality61850_oldData rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Quality61850 ;
+                      rdfs:range xsd:boolean ;
+                      rdfs:comment "Measurement value is old and possibly invalid, as it has not been successfully updated during a specified time interval." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850_operatorBlocked
+:Quality61850_operatorBlocked rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :Quality61850 ;
+                              rdfs:range xsd:boolean ;
+                              rdfs:comment "Measurement value is blocked and hence unavailable for transmission. " .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850_oscillatory
+:Quality61850_oscillatory rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :Quality61850 ;
+                          rdfs:range xsd:boolean ;
+                          rdfs:comment "To prevent some overload of the communication it is sensible to detect and suppress oscillating (fast changing) binary inputs. If a signal changes in a defined time (tosc) twice in the same direction (from 0 to 1 or from 1 to 0) then oscillation is detected and the detail quality identifier \"oscillatory\" is set. If it is detected a configured numbers of transient changes could be passed by. In this time the validity status \"questionable\" is set. If after this defined numbers of changes the signal is still in the oscillating state the value shall be set either to the opposite state of the previous stable value or to a defined default value. In this case the validity status \"questionable\" is reset and \"invalid\" is set as long as the signal is oscillating. If it is configured such that no transient changes should be passed by then the validity status \"invalid\" is set immediately in addition to the detail quality identifier \"oscillatory\" (used for status information only)." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850_outOfRange
+:Quality61850_outOfRange rdf:type owl:DatatypeProperty ;
+                         rdfs:domain :Quality61850 ;
+                         rdfs:range xsd:boolean ;
+                         rdfs:comment "Measurement value is beyond a predefined range of value." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850_overFlow
+:Quality61850_overFlow rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Quality61850 ;
+                       rdfs:range xsd:boolean ;
+                       rdfs:comment "Measurement value is beyond the capability of being  represented properly. For example, a counter value overflows from maximum count back to a value of zero. " .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850_source
+:Quality61850_source rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Quality61850 ;
+                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#Source> ;
+                     rdfs:comment "Source gives information related to the origin of a value. The value may be acquired from the process, defaulted or substituted." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850_suspect
+:Quality61850_suspect rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :Quality61850 ;
+                      rdfs:range xsd:boolean ;
+                      rdfs:comment "A correlation function has detected that the value is not consitent with other values. Typically set by a network State Estimator." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850_test
+:Quality61850_test rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Quality61850 ;
+                   rdfs:range xsd:boolean ;
+                   rdfs:comment "Measurement value is transmitted for test purposes." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850_validity
+:Quality61850_validity rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :Quality61850 ;
+                       rdfs:range :Validity ;
+                       rdfs:comment "Validity of the measurement value." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#SetPoint_normalValue
+:SetPoint_normalValue rdf:type owl:DatatypeProperty ;
+                      rdfs:domain :SetPoint ;
+                      rdfs:range xsd:float ;
+                      rdfs:comment """Normal value for Control.value e.g. used for percentage scaling.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#SetPoint_value
+:SetPoint_value rdf:type owl:DatatypeProperty ;
+                rdfs:domain :SetPoint ;
+                rdfs:range xsd:float ;
+                rdfs:comment """The value representing the actuator output.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurementValue_value
+:StringMeasurementValue_value rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :StringMeasurementValue ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment "The value to supervise." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueToAlias_value
+:ValueToAlias_value rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :ValueToAlias ;
+                    rdfs:range xsd:nonNegativeInteger ;
+                    rdfs:comment """The value that is mapped.
+""" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty :Asset_Measurements ;
+                                                                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset>
+                                                                                  ] ,
+                                                                                  [ rdf:type owl:Restriction ;
+                                                                                    owl:onProperty :Asset_Measurements ;
+                                                                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset>
+                                                                                  ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Procedure
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Procedure> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                        owl:onProperty :Procedure_Limits ;
+                                                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Procedure>
+                                                                                      ] ,
+                                                                                      [ rdf:type owl:Restriction ;
+                                                                                        owl:onProperty :Procedure_Measurements ;
+                                                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Procedure>
+                                                                                      ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet> rdf:type owl:Class ;
+                                                                             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                               owl:onProperty :ProcedureDataSet_MeasurementValues ;
+                                                                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet>
+                                                                                             ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location> rdf:type owl:Class ;
+                                                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                       owl:onProperty :Location_Measurements ;
+                                                                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location>
+                                                                                     ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson> rdf:type owl:Class ;
+                                                                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty :OldPerson_MeasurementValues ;
+                                                                                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson>
+                                                                                                     ] ,
+                                                                                                     [ rdf:type owl:Restriction ;
+                                                                                                       owl:onProperty :OldPerson_MeasurementValues ;
+                                                                                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson>
+                                                                                                     ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltGeneratingUnitMeas
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltGeneratingUnitMeas> rdf:type owl:Class ;
+                                                                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                              owl:onProperty :AltGeneratingUnitMeas_AnalogValue ;
+                                                                                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                              owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltGeneratingUnitMeas>
+                                                                                                            ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltTieMeas
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltTieMeas> rdf:type owl:Class ;
+                                                                                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                   owl:onProperty :AltTieMeas_AnalogValue ;
+                                                                                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltTieMeas>
+                                                                                                 ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator
+:Accumulator rdf:type owl:Class ;
+             rdfs:subClassOf :Measure ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Accumulator_LimitSets ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Accumulator
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Accumulator_AccumulatorValues ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :Accumulator
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Accumulator_maxValue ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:nonNegativeInteger
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :Accumulator_maxValue ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:nonNegativeInteger
+                             ] ;
+             rdfs:comment "Accumulator represents an accumulated (counted) Measurement, e.g. an energy value." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimit
+:AccumulatorLimit rdf:type owl:Class ;
+                  rdfs:subClassOf :Limit ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AccumulatorLimit_LimitSet ;
+                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :AccumulatorLimit
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AccumulatorLimit_value ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:nonNegativeInteger
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AccumulatorLimit_value ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:nonNegativeInteger
+                                  ] ;
+                  rdfs:comment """Limit values for Accumulator measurements.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimitSet
+:AccumulatorLimitSet rdf:type owl:Class ;
+                     rdfs:subClassOf :LimitSet ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :AccumulatorLimitSet_Measurements ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onClass :AccumulatorLimitSet
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :AccumulatorLimitSet_Limits ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass :AccumulatorLimitSet
+                                     ] ;
+                     rdfs:comment """An AccumulatorLimitSet specifies a set of Limits that are associated with an Accumulator measurement.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorReset
+:AccumulatorReset rdf:type owl:Class ;
+                  rdfs:subClassOf :Control ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AccumulatorReset_AccumulatorValue ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :AccumulatorReset
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AccumulatorReset_AccumulatorValue ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :AccumulatorReset
+                                  ] ;
+                  rdfs:comment "This command reset the counter value to zero." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue
+:AccumulatorValue rdf:type owl:Class ;
+                  rdfs:subClassOf :MeasurementValue ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AccumulatorValue_Accumulator ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :AccumulatorValue
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AccumulatorValue_AccumulatorReset ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :AccumulatorValue
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AccumulatorValue_value ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:nonNegativeInteger
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :AccumulatorValue_value ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:nonNegativeInteger
+                                  ] ;
+                  rdfs:comment """AccumulatorValue represents an accumulated (counted) MeasurementValue.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog
+:Analog rdf:type owl:Class ;
+        rdfs:subClassOf :Measure ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Analog_LimitSets ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Analog
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Analog_AnalogValues ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Analog
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Analog_maxValue ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:float
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Analog_minValue ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:float
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Analog_normalValue ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:float
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Analog_positiveFlowIn ;
+                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:boolean
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Analog_maxValue ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:float
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Analog_minValue ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:float
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Analog_normalValue ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:float
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :Analog_positiveFlowIn ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onDataRange xsd:boolean
+                        ] ;
+        rdfs:comment """Analog represents an analog Measurement.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl
+:AnalogControl rdf:type owl:Class ;
+               rdfs:subClassOf :Control ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AnalogControl_AnalogValue ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :AnalogControl
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AnalogControl_ICCPSetPoint ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :AnalogControl
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AnalogControl_AnalogValue ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :AnalogControl
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AnalogControl_maxValue ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AnalogControl_minValue ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AnalogControl_maxValue ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :AnalogControl_minValue ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ;
+               rdfs:comment "An analog control used for supervisory control." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimit
+:AnalogLimit rdf:type owl:Class ;
+             rdfs:subClassOf :Limit ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :AnalogLimit_LimitSet ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :AnalogLimit
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :AnalogLimit_value ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:float
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :AnalogLimit_value ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:float
+                             ] ;
+             rdfs:comment """Limit values for Analog measurements.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimitSet
+:AnalogLimitSet rdf:type owl:Class ;
+                rdfs:subClassOf :LimitSet ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :AnalogLimitSet_Measurements ;
+                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :AnalogLimitSet
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :AnalogLimitSet_Limits ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :AnalogLimitSet
+                                ] ;
+                rdfs:comment "An AnalogLimitSet specifies a set of Limits that are associated with an Analog measurement." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue
+:AnalogValue rdf:type owl:Class ;
+             rdfs:subClassOf :MeasurementValue ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :AnalogValue_Analog ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :AnalogValue
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :AnalogValue_AltGeneratingUnit ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :AnalogValue
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :AnalogValue_AltTieMeas ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :AnalogValue
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :AnalogValue_AnalogControl ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :AnalogValue
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :AnalogValue_value ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:float
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :AnalogValue_value ;
+                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange xsd:float
+                             ] ;
+             rdfs:comment "AnalogValue represents an analog MeasurementValue." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Command
+:Command rdf:type owl:Class ;
+         rdfs:subClassOf :Control ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Command_DiscreteValue ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Command
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Command_ValueAliasSet ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Command
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Command_ICCPCommandPoint ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Command
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Command_DiscreteValue ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Command
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Command_normalValue ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:nonNegativeInteger
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Command_value ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:nonNegativeInteger
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Command_normalValue ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:nonNegativeInteger
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Command_value ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:nonNegativeInteger
+                         ] ;
+         rdfs:comment "A Command is a discrete control used for supervisory control." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Control
+:Control rdf:type owl:Class ;
+         rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Control_RemoteControl ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Control
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Control_controlType ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Control_operationInProgress ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:boolean
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Control_timeStamp ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:dateTime
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Control_unitMultiplier ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Control_unitSymbol ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Control_controlType ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Control_operationInProgress ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:boolean
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Control_timeStamp ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:dateTime
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Control_unitMultiplier ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Control_unitSymbol ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol>
+                         ] ;
+         rdfs:comment """Control is used for supervisory/device control. It represents control outputs that are used to change the state in a process, e.g. close or open breaker, a set point value or a raise lower command.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete
+:Discrete rdf:type owl:Class ;
+          rdfs:subClassOf :Measure ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Discrete_ValueAliasSet ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Discrete
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Discrete_DiscreteValues ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Discrete
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Discrete_maxValue ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Discrete_minValue ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Discrete_normalValue ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Discrete_maxValue ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Discrete_minValue ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :Discrete_normalValue ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:nonNegativeInteger
+                          ] ;
+          rdfs:comment "Discrete represents a discrete Measurement, i.e. a Measurement representing discrete values, e.g. a Breaker position." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteCommand
+:DiscreteCommand rdf:type owl:Class ;
+                 rdfs:subClassOf :Command .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue
+:DiscreteValue rdf:type owl:Class ;
+               rdfs:subClassOf :MeasurementValue ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :DiscreteValue_Discrete ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :DiscreteValue
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :DiscreteValue_Command ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :DiscreteValue
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :DiscreteValue_value ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :DiscreteValue_value ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:nonNegativeInteger
+                               ] ;
+               rdfs:comment "DiscreteValue represents a discrete MeasurementValue." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Limit
+:Limit rdf:type owl:Class ;
+       rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :Limit_Procedures ;
+                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                         owl:onClass :Limit
+                       ] ;
+       rdfs:comment "Specifies one limit value for a Measurement. A Measurement typically has several limits that are kept together by the LimitSet class. The actual meaning and use of a Limit instance (i.e., if it is an alarm or warning limit or if it is a high or low limit) is not captured in the Limit class. However the name of a Limit instance may indicate both meaning and use." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#LimitSet
+:LimitSet rdf:type owl:Class ;
+          rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :LimitSet_isPercentageLimits ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:boolean
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :LimitSet_isPercentageLimits ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:boolean
+                          ] ;
+          rdfs:comment "Specifies a set of Limits that are associated with a Measurement. A Measurement may have several LimitSets corresponding to seasonal or other changing conditions. The condition is captured in the name and description attributes. The same LimitSet may be used for several Measurements. In particular percentage limits are used this way." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure
+:Measure rdf:type owl:Class ;
+         rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Measure_Asset ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Measure
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Measure_Locations ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Measure
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Measure_PinMeasurement ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Measure
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Measure_Procedures ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Measure
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Measure_ProtectiveActionAdjustment ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Measure
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Measure_MeasurementCalculatorInput ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Measure
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Measure_PinMeasurement ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Measure
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Measure_ProtectiveActionAdjustment ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Measure
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Measure_measurementType ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Measure_phases ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Measure_unitMultiplier ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Measure_unitSymbol ;
+                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Measure_measurementType ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Measure_phases ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Measure_unitMultiplier ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :Measure_unitSymbol ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol>
+                         ] ;
+         rdfs:comment """A Measurement represents any measured, calculated or non-measured non-calculated quantity. Any piece of equipment may contain Measurements, e.g. a substation may have temperature measurements and door open indications, a transformer may have oil temperature and tank pressure measurements, a bay may contain a number of power flow measurements and a Breaker may contain a switch status measurement. 
+The PSR - Measurement association is intended to capture this use of Measurement and is included in the naming hierarchy based on EquipmentContainer. The naming hierarchy typically has Measurements as leafs, e.g. Substation-VoltageLevel-Bay-Switch-Measurement.
+Some Measurements represent quantities related to a particular sensor location in the network, e.g. a voltage transformer (PT) at a busbar or a current transformer (CT) at the bar between a breaker and an isolator. The sensing position is not captured in the PSR - Measurement association. Instead it is captured by the Measurement - Terminal association that is used to define the sensing location in the network topology. The location is defined by the connection of the Terminal to ConductingEquipment. 
+If both a Terminal and PSR are associated, and the PSR is of type ConductingEquipment, the associated Terminal should belong to that ConductingEquipment instance.
+When the sensor location is needed both Measurement-PSR and Measurement-Terminal are used. The Measurement-Terminal association is never used alone.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue
+:MeasurementValue rdf:type owl:Class ;
+                  rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :MeasurementValue_ErpPerson ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :MeasurementValue
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :MeasurementValue_ICCPIndicationPoint ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :MeasurementValue
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :MeasurementValue_MeasurementValueSource ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :MeasurementValue
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :MeasurementValue_ProcedureDataSets ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :MeasurementValue
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :MeasurementValue_sensorAccuracy ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :MeasurementValue_MeasurementValueQuality ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :MeasurementValue
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :MeasurementValue_RemoteSource ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :MeasurementValue
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :MeasurementValue_sensorAccuracy ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :MeasurementValue_timeStamp ;
+                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:dateTime
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :MeasurementValue_timeStamp ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:dateTime
+                                  ] ;
+                  rdfs:comment """The current state for a measurement. A state value is an instance of a measurement from a specific source. Measurements can be associated with many state values, each representing a different source for the measurement.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValueQuality
+:MeasurementValueQuality rdf:type owl:Class ;
+                         rdfs:subClassOf :Quality61850 ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :MeasurementValueQuality_MeasurementValue ;
+                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                           owl:onClass :MeasurementValueQuality
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :MeasurementValueQuality_MeasurementValue ;
+                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass :MeasurementValueQuality
+                                         ] ;
+                         rdfs:comment """Measurement quality flags. Bits 0-10 are defined for substation automation in draft IEC 61850 part 7-3. Bits 11-15 are reserved for future expansion by that document. Bits 16-31 are reserved for EMS applications.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValueSource
+:MeasurementValueSource rdf:type owl:Class ;
+                        rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :MeasurementValueSource_MeasurementValues ;
+                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass :MeasurementValueSource
+                                        ] ;
+                        rdfs:comment "MeasurementValueSource describes the alternative sources updating a MeasurementValue. User conventions for how to use the MeasurementValueSource attributes are described in the introduction to IEC 61970-301." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850
+:Quality61850 rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_badReference ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_estimatorReplaced ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_failure ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_oldData ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_operatorBlocked ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_oscillatory ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_outOfRange ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_overFlow ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_source ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#Source>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_suspect ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_test ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_validity ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange :Validity
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_badReference ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_estimatorReplaced ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_failure ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_oldData ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_operatorBlocked ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_oscillatory ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_outOfRange ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_overFlow ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_source ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#Source>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_suspect ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_test ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:boolean
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :Quality61850_validity ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange :Validity
+                              ] ;
+              rdfs:comment """Quality flags in this class are as defined in IEC 61850, except for estimatorReplaced, which has been included in this class for convenience.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#RaiseLowerCommand
+:RaiseLowerCommand rdf:type owl:Class ;
+                   rdfs:subClassOf :AnalogControl ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :RaiseLowerCommand_ValueAliasSet ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :RaiseLowerCommand
+                                   ] ;
+                   rdfs:comment "An analog control that increase or decrease a set point value with pulses." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#SetPoint
+:SetPoint rdf:type owl:Class ;
+          rdfs:subClassOf :AnalogControl ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :SetPoint_normalValue ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:float
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :SetPoint_value ;
+                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:float
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :SetPoint_normalValue ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:float
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :SetPoint_value ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:float
+                          ] ;
+          rdfs:comment "An analog control that issue a set point value." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurement
+:StringMeasurement rdf:type owl:Class ;
+                   rdfs:subClassOf :Measure ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :StringMeasurement_StringMeasurementValues ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :StringMeasurement
+                                   ] ;
+                   rdfs:comment "StringMeasurement represents a measurement with values of type string." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurementValue
+:StringMeasurementValue rdf:type owl:Class ;
+                        rdfs:subClassOf :MeasurementValue ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :StringMeasurementValue_StringMeasurement ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onClass :StringMeasurementValue
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :StringMeasurementValue_value ;
+                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:string
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :StringMeasurementValue_value ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onDataRange xsd:string
+                                        ] ;
+                        rdfs:comment "StringMeasurementValue represents a measurement value of type string." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet
+:ValueAliasSet rdf:type owl:Class ;
+               rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ValueAliasSet_Commands ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ValueAliasSet
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ValueAliasSet_Discretes ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ValueAliasSet
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ValueAliasSet_RaiseLowerCommands ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ValueAliasSet
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ValueAliasSet_Values ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ValueAliasSet
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ValueAliasSet_Commands ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ValueAliasSet
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ValueAliasSet_Discretes ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ValueAliasSet
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ValueAliasSet_RaiseLowerCommands ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ValueAliasSet
+                               ] ;
+               rdfs:comment "Describes the translation of a set of values into a name and is intendend to facilitate cusom translations. Each ValueAliasSet has a name, description etc. A specific Measurement may represent a discrete state like Open, Closed, Intermediate etc. This requires a translation from the MeasurementValue.value number to a string, e.g. 0-&gt;\"Invalid\", 1-&gt;\"Open\", 2-&gt;\"Closed\", 3-&gt;\"Intermediate\". Each ValueToAlias member in ValueAliasSet.Value describe a mapping for one particular value to a name." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueToAlias
+:ValueToAlias rdf:type owl:Class ;
+              rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :ValueToAlias_ValueAliasSet ;
+                                owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :ValueToAlias
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :ValueToAlias_value ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:nonNegativeInteger
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :ValueToAlias_value ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:nonNegativeInteger
+                              ] ;
+              rdfs:comment "Describes the translation of one particular value into a name, e.g. 1 as \"Open\"." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteControl
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteControl> rdf:type owl:Class ;
+                                                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty :RemoteControl_Control ;
+                                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteControl>
+                                                                                              ] ,
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty :RemoteControl_Control ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteControl>
+                                                                                              ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteSource
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteSource> rdf:type owl:Class ;
+                                                                             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                               owl:onProperty :RemoteSource_MeasurementValue ;
+                                                                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteSource>
+                                                                                             ] ,
+                                                                                             [ rdf:type owl:Restriction ;
+                                                                                               owl:onProperty :RemoteSource_MeasurementValue ;
+                                                                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteSource>
+                                                                                             ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPCommandPoint
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPCommandPoint> rdf:type owl:Class ;
+                                                                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                            owl:onProperty :ICCPCommandPoint_Command ;
+                                                                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPCommandPoint>
+                                                                                                          ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint> rdf:type owl:Class ;
+                                                                                             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                               owl:onProperty :ICCPIndicationPoint_MeasurementValue ;
+                                                                                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint>
+                                                                                                             ] ,
+                                                                                                             [ rdf:type owl:Restriction ;
+                                                                                                               owl:onProperty :ICCPIndicationPoint_MeasurementValue ;
+                                                                                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint>
+                                                                                                             ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint> rdf:type owl:Class ;
+                                                                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                        owl:onProperty :ICCPSetPoint_AnalogControl ;
+                                                                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint>
+                                                                                                      ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#MeasurementCalculatorInput
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#MeasurementCalculatorInput> rdf:type owl:Class ;
+                                                                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                      owl:onProperty :MeasurementCalculatorInput_Measurement ;
+                                                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#MeasurementCalculatorInput>
+                                                                                                                    ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#PinMeasurement
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#PinMeasurement> rdf:type owl:Class ;
+                                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                          owl:onProperty :PinMeasurement_Measurement ;
+                                                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                          owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#PinMeasurement>
+                                                                                                        ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#ProtectiveActionAdjustment
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#ProtectiveActionAdjustment> rdf:type owl:Class ;
+                                                                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                                                                      owl:onProperty :ProtectiveActionAdjustment_Measurement ;
+                                                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                                                                                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#ProtectiveActionAdjustment>
+                                                                                                                    ] .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

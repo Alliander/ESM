@@ -1,0 +1,291 @@
+@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#> .
+
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteUnitType
+:RemoteUnitType rdf:type rdfs:Datatype ;
+                owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                                      owl:oneOf [ rdf:type rdf:List ;
+                                                  rdf:first "ControlCenter" ;
+                                                  rdf:rest [ rdf:type rdf:List ;
+                                                             rdf:first "IED" ;
+                                                             rdf:rest [ rdf:type rdf:List ;
+                                                                        rdf:first "RTU" ;
+                                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                                   rdf:first "SubstationControlSystem" ;
+                                                                                   rdf:rest rdf:nil
+                                                                                 ]
+                                                                      ]
+                                                           ]
+                                                ]
+                                    ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#Source
+:Source rdf:type rdfs:Datatype ;
+        owl:equivalentClass [ rdf:type rdfs:Datatype ;
+                              owl:oneOf [ rdf:type rdf:List ;
+                                          rdf:first "DEFAULTED" ;
+                                          rdf:rest [ rdf:type rdf:List ;
+                                                     rdf:first "PROCESS" ;
+                                                     rdf:rest [ rdf:type rdf:List ;
+                                                                rdf:first "SUBSTITUTED" ;
+                                                                rdf:rest rdf:nil
+                                                              ]
+                                                   ]
+                                        ]
+                            ] .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#CommunicationLink_RemoteUnits
+:CommunicationLink_RemoteUnits rdf:type owl:ObjectProperty ;
+                               rdfs:domain :CommunicationLink ;
+                               rdfs:range :RemoteUnit ;
+                               rdfs:comment "RTUs may be attached to communication links.RTUs may be attached to communication links." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemotePoint_RemoteUnit
+:RemotePoint_RemoteUnit rdf:type owl:ObjectProperty ;
+                        rdfs:domain :RemotePoint ;
+                        rdfs:range :RemoteUnit ;
+                        rdfs:comment "Remote points this Remote unit contains.Remote unit this point belongs to." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteSource_scanInterval
+:RemoteSource_scanInterval rdf:type owl:ObjectProperty ;
+                           rdfs:domain :RemoteSource ;
+                           rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
+                           rdfs:comment "The time interval between scans." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteUnit_CommunicationLinks
+:RemoteUnit_CommunicationLinks rdf:type owl:ObjectProperty ;
+                               owl:inverseOf :CommunicationLink_RemoteUnits ;
+                               rdfs:domain :RemoteUnit ;
+                               rdfs:range :CommunicationLink ;
+                               rdfs:comment "RTUs may be attached to communication links.RTUs may be attached to communication links." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteUnit_RemotePoints
+:RemoteUnit_RemotePoints rdf:type owl:ObjectProperty ;
+                         owl:inverseOf :RemotePoint_RemoteUnit ;
+                         rdf:type owl:FunctionalProperty ;
+                         rdfs:domain :RemoteUnit ;
+                         rdfs:range :RemotePoint ;
+                         rdfs:comment "Remote points this Remote unit contains.Remote unit this point belongs to." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteControl_actuatorMaximum
+:RemoteControl_actuatorMaximum rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :RemoteControl ;
+                               rdfs:range xsd:float ;
+                               rdfs:comment "The maximum set point value accepted by the remote control point." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteControl_actuatorMinimum
+:RemoteControl_actuatorMinimum rdf:type owl:DatatypeProperty ;
+                               rdfs:domain :RemoteControl ;
+                               rdfs:range xsd:float ;
+                               rdfs:comment "The minimum set point value accepted by the remote control point." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteControl_remoteControlled
+:RemoteControl_remoteControlled rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :RemoteControl ;
+                                rdfs:range xsd:boolean ;
+                                rdfs:comment "Set to true if the actuator is remotely controlled." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteSource_deadband
+:RemoteSource_deadband rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :RemoteSource ;
+                       rdfs:range xsd:float ;
+                       rdfs:comment "The smallest change in value to be reported." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteSource_sensorMaximum
+:RemoteSource_sensorMaximum rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :RemoteSource ;
+                            rdfs:range xsd:float ;
+                            rdfs:comment "The maximum value the telemetry item can return." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteSource_sensorMinimum
+:RemoteSource_sensorMinimum rdf:type owl:DatatypeProperty ;
+                            rdfs:domain :RemoteSource ;
+                            rdfs:range xsd:float ;
+                            rdfs:comment "The minimum value the telemetry item can return." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteUnit_remoteUnitType
+:RemoteUnit_remoteUnitType rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :RemoteUnit ;
+                           rdfs:range :RemoteUnitType ;
+                           rdfs:comment "Type of remote unit." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#CommunicationLink
+:CommunicationLink rdf:type owl:Class ;
+                   rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource> ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :CommunicationLink_RemoteUnits ;
+                                     owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :CommunicationLink
+                                   ] ;
+                   rdfs:comment "The connection to remote units is through one or more communication links. Reduntant links may exist. The CommunicationLink class inherit PowerSystemResource. The intention is to allow CommunicationLinks to have Measurements. These Measurements can be used to model link status as operational, out of service, unit failure etc." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteControl
+:RemoteControl rdf:type owl:Class ;
+               rdfs:subClassOf :RemotePoint ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :RemoteControl_actuatorMaximum ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :RemoteControl_actuatorMinimum ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :RemoteControl_remoteControlled ;
+                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:boolean
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :RemoteControl_actuatorMaximum ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :RemoteControl_actuatorMinimum ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:float
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :RemoteControl_remoteControlled ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:boolean
+                               ] ;
+               rdfs:comment "Remote controls are ouputs that are sent by the remote unit to actuators in the process." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemotePoint
+:RemotePoint rdf:type owl:Class ;
+             rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :RemotePoint_RemoteUnit ;
+                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                               owl:onClass :RemotePoint
+                             ] ;
+             rdfs:comment "For a RTU remote points correspond to telemetered values or control outputs. Other units (e.g. control centers) usually also contain calculated values." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteSource
+:RemoteSource rdf:type owl:Class ;
+              rdfs:subClassOf :RemotePoint ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RemoteSource_scanInterval ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RemoteSource_scanInterval ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RemoteSource_deadband ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RemoteSource_sensorMaximum ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RemoteSource_sensorMinimum ;
+                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RemoteSource_deadband ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RemoteSource_sensorMaximum ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :RemoteSource_sensorMinimum ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:float
+                              ] ;
+              rdfs:comment "Remote sources are state variables that are telemetered or calculated within the remote unit." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteUnit
+:RemoteUnit rdf:type owl:Class ;
+            rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource> ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :RemoteUnit_CommunicationLinks ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onClass :RemoteUnit
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :RemoteUnit_RemotePoints ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :RemoteUnit
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :RemoteUnit_remoteUnitType ;
+                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange :RemoteUnitType
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :RemoteUnit_remoteUnitType ;
+                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange :RemoteUnitType
+                            ] ;
+            rdfs:comment "A remote unit can be a RTU, IED, substation control system, control center etc. The communication with the remote unit can be through various standard protocols (e.g. IEC 61870, IEC 61850) or non standard protocols (e.g. DNP, RP570 etc.). A remote unit contain remote data points that might be telemetered, collected or calculated. The RemoteUnit class inherit PowerSystemResource. The intention is to allow RemotUnits to have Measurements. These Measurements can be used to model unit status as operational, out of service, unit failure etc." .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/

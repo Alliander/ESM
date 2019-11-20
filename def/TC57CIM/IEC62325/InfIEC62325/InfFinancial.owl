@@ -1,0 +1,151 @@
+@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#> .
+
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#TransmissionProduct_TransmissionProvider
+:TransmissionProduct_TransmissionProvider rdf:type owl:ObjectProperty ;
+                                          rdfs:domain :TransmissionProduct ;
+                                          rdfs:range :TransmissionProvider ;
+                                          rdfs:comment "A TransmissionProvider offers a TransmissionProduct.A TransmissionProvider offers a TransmissionProduct." .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#TransmissionProvider_TransmissionProducts
+:TransmissionProvider_TransmissionProducts rdf:type owl:ObjectProperty ;
+                                           owl:inverseOf :TransmissionProduct_TransmissionProvider ;
+                                           rdf:type owl:FunctionalProperty ;
+                                           rdfs:domain :TransmissionProvider ;
+                                           rdfs:range :TransmissionProduct ;
+                                           rdfs:comment "A TransmissionProvider offers a TransmissionProduct.A TransmissionProvider offers a TransmissionProduct." .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#IntSchedAgreement_defaultIntegrationMethod
+:IntSchedAgreement_defaultIntegrationMethod rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain :IntSchedAgreement ;
+                                            rdfs:range xsd:string ;
+                                            rdfs:comment """The default method by which interchange schedules are to be integrated to obtain hourly MWh schedules for accounting. Method #1 is to integrate the instantaneous schedule between the hourly boundaries. Method #2 compensates for any up/down ramping that occurs across the hourly boundary (this is called block accounting).
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#TransmissionProduct_transmissionProductType
+:TransmissionProduct_transmissionProductType rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain :TransmissionProduct ;
+                                             rdfs:range xsd:string ;
+                                             rdfs:comment """Type of the transmission product. This could be a transmission service class (firm, total transmission capability, or non-firm), transmission service period (on-peak, full-period, off-peak), transmission service increments (yearly extended, hourly fixed, monthly sliding, etc.), transmission service type (network, available transmission capability, or point-to-point, or a transmission service window (fixed hourly, sliding weekly, extended monthly, etc.).
+""" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Organisation
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Organisation> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
+<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#ControlAreaOperator
+:ControlAreaOperator rdf:type owl:Class ;
+                     rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Organisation> ;
+                     rdfs:comment """Operates the Control Area. Approves and implements energy transactions. Verifies both Inter-Control Area and Intra-Control Area transactions for the power system  before granting approval (and implementing) the transactions.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#CustomerConsumer
+:CustomerConsumer rdf:type owl:Class ;
+                  rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Organisation> ;
+                  rdfs:comment """The energy buyer in the energy marketplace.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#GenerationProvider
+:GenerationProvider rdf:type owl:Class ;
+                    rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Organisation> ;
+                    rdfs:comment """The energy seller in the energy marketplace.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#IntSchedAgreement
+:IntSchedAgreement rdf:type owl:Class ;
+                   rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement> ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :IntSchedAgreement_defaultIntegrationMethod ;
+                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :IntSchedAgreement_defaultIntegrationMethod ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:string
+                                   ] ;
+                   rdfs:comment """A type of agreement that provides the default method by which interchange schedules are to be integrated to obtain hourly MWh schedules for accounting. 
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer
+:Marketer rdf:type owl:Class ;
+          rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Organisation> ;
+          rdfs:comment """Matches buyers and sellers, and secures transmission (and other ancillary services) needed to complete the energy transaction.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#OpenAccessProduct
+:OpenAccessProduct rdf:type owl:Class ;
+                   rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement> ;
+                   rdfs:comment """Contracts for services offered commercially.
+""" .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#TransmissionProduct
+:TransmissionProduct rdf:type owl:Class ;
+                     rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :TransmissionProduct_TransmissionProvider ;
+                                       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass :TransmissionProduct
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :TransmissionProduct_transmissionProductType ;
+                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :TransmissionProduct_transmissionProductType ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onDataRange xsd:string
+                                     ] .
+
+
+###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#TransmissionProvider
+:TransmissionProvider rdf:type owl:Class ;
+                      rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Organisation> ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :TransmissionProvider_TransmissionProducts ;
+                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass :TransmissionProvider
+                                      ] ;
+                      rdfs:comment """Provider of  the transmission capacity (interconnecting wires between Generation and Consumption) required  to fulfill and Energy Transaction's energy exchange. Posts information for transmission paths and AvailableTransmissionCapacities  on a reservation node.  Buys and sells its products and services on the same reservation node.
+""" .
+
+
+###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
