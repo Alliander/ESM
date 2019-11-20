@@ -1,157 +1,251 @@
-@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#> .
-
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#> rdf:type owl:Ontology .
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_baseEnergy
-:FTR_baseEnergy rdf:type owl:ObjectProperty ;
-                rdfs:domain :FTR ;
-                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
-                rdfs:comment """Quantity, typically MWs - Seller owns all rights being offered, MWs over time on same Point of Receipt, Point of Delivery, or Resource.
-""" .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#"
+     xml:base="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#"/>
+    
 
 
-#################################################################
-#    Data properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_action
-:FTR_action rdf:type owl:DatatypeProperty ;
-            rdfs:domain :FTR ;
-            rdfs:range xsd:string ;
-            rdfs:comment """Buy, Sell
-""" .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_class
-:FTR_class rdf:type owl:DatatypeProperty ;
-           rdfs:domain :FTR ;
-           rdfs:range xsd:string ;
-           rdfs:comment """Peak, Off-peak, 24-hour
-""" .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_ftrType
-:FTR_ftrType rdf:type owl:DatatypeProperty ;
-             rdfs:domain :FTR ;
-             rdfs:range xsd:string ;
-             rdfs:comment """Type of rights being offered (product) allowed to be auctioned (option, obligation).
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_baseEnergy -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_optimized
-:FTR_optimized rdf:type owl:DatatypeProperty ;
-               rdfs:domain :FTR ;
-               rdfs:range xsd:string ;
-               rdfs:comment """Fixed (covers re-configuration, grandfathering) or Optimized (up for sale/purchase
-""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_baseEnergy">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+        <rdfs:comment>Quantity, typically MWs - Seller owns all rights being offered, MWs over time on same Point of Receipt, Point of Delivery, or Resource.
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#ViolationLimit_enforced
-:ViolationLimit_enforced rdf:type owl:DatatypeProperty ;
-                         rdfs:domain :ViolationLimit ;
-                         rdfs:range xsd:boolean ;
-                         rdfs:comment """True if limit is enforced. 
-""" .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement> rdf:type owl:Class .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> rdf:type owl:Class .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_action -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Limit
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Limit> rdf:type owl:Class .
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_action">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Buy, Sell
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR
-:FTR rdf:type owl:Class ;
-     rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement> ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :FTR_baseEnergy ;
-                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :FTR_baseEnergy ;
-                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :FTR_action ;
-                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                       owl:onDataRange xsd:string
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :FTR_class ;
-                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                       owl:onDataRange xsd:string
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :FTR_ftrType ;
-                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                       owl:onDataRange xsd:string
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :FTR_optimized ;
-                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                       owl:onDataRange xsd:string
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :FTR_action ;
-                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                       owl:onDataRange xsd:string
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :FTR_class ;
-                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                       owl:onDataRange xsd:string
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :FTR_ftrType ;
-                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                       owl:onDataRange xsd:string
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :FTR_optimized ;
-                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                       owl:onDataRange xsd:string
-                     ] ;
-     rdfs:comment """Financial Transmission Rights (FTR) regarding transmission capacity at a flowgate. 
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_class -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#ViolationLimit
-:ViolationLimit rdf:type owl:Class ;
-                rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Meas#Limit> ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :ViolationLimit_enforced ;
-                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                  owl:onDataRange xsd:boolean
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :ViolationLimit_enforced ;
-                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onDataRange xsd:boolean
-                                ] ;
-                rdfs:comment """A type of limit that indicates if it is enforced and, through association, the organisation responsible for setting the limit.
-""" .
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_class">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Peak, Off-peak, 24-hour
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_ftrType -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_ftrType">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Type of rights being offered (product) allowed to be auctioned (option, obligation).
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_optimized -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_optimized">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Fixed (covers re-configuration, grandfathering) or Optimized (up for sale/purchase
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#ViolationLimit_enforced -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#ViolationLimit_enforced">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#ViolationLimit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>True if limit is enforced. 
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Agreement -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Agreement"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Limit -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Limit"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Agreement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_baseEnergy"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_baseEnergy"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_action"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_class"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_ftrType"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_optimized"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_action"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_class"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_ftrType"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#FTR_optimized"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Financial Transmission Rights (FTR) regarding transmission capacity at a flowgate. 
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#ViolationLimit -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#ViolationLimit">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Limit"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#ViolationLimit_enforced"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfCongestionRevenueRights#ViolationLimit_enforced"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A type of limit that indicates if it is enforced and, through association, the organisation responsible for setting the limit.
+</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
+
+

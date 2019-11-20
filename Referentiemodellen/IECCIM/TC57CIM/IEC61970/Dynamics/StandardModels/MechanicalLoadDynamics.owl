@@ -1,103 +1,167 @@
-@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#> .
-
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#> rdf:type owl:Ontology .
-
-#################################################################
-#    Data properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_a
-:MechLoad1_a rdf:type owl:DatatypeProperty ;
-             rdfs:domain :MechLoad1 ;
-             rdfs:range xsd:float ;
-             rdfs:comment "Speed squared coefficient (a)." .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#"
+     xml:base="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_b
-:MechLoad1_b rdf:type owl:DatatypeProperty ;
-             rdfs:domain :MechLoad1 ;
-             rdfs:range xsd:float ;
-             rdfs:comment "Speed coefficient (b)." .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_d
-:MechLoad1_d rdf:type owl:DatatypeProperty ;
-             rdfs:domain :MechLoad1 ;
-             rdfs:range xsd:float ;
-             rdfs:comment "Speed to the exponent coefficient (d)." .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_e
-:MechLoad1_e rdf:type owl:DatatypeProperty ;
-             rdfs:domain :MechLoad1 ;
-             rdfs:range xsd:float ;
-             rdfs:comment "Exponent (e)." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_a -->
 
 
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1
-:MechLoad1 rdf:type owl:Class ;
-           rdfs:subClassOf :MechanicalLoadDynamics ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :MechLoad1_a ;
-                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange xsd:float
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :MechLoad1_b ;
-                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange xsd:float
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :MechLoad1_d ;
-                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange xsd:float
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :MechLoad1_e ;
-                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange xsd:float
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :MechLoad1_a ;
-                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange xsd:float
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :MechLoad1_b ;
-                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange xsd:float
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :MechLoad1_d ;
-                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange xsd:float
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :MechLoad1_e ;
-                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange xsd:float
-                           ] ;
-           rdfs:comment "Mechanical load model type 1." .
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_a">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Speed squared coefficient (a).</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechanicalLoadDynamics
-:MechanicalLoadDynamics rdf:type owl:Class ;
-                        rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock> ;
-                        rdfs:comment "Mechanical load function block whose behavior is described by reference to a standard model <font color=\"#0f0f0f\">or by definition of a user-defined model.</font>" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_b -->
 
 
-###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_b">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Speed coefficient (b).</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_d -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_d">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Speed to the exponent coefficient (d).</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_e -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_e">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Exponent (e).</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1 -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechanicalLoadDynamics"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_a"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_b"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_d"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_e"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_a"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_b"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_d"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechLoad1_e"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Mechanical load model type 1.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechanicalLoadDynamics -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechanicalLoadDynamics">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock"/>
+        <rdfs:comment>Mechanical load function block whose behavior is described by reference to a standard model &lt;font color=&quot;#0f0f0f&quot;&gt;or by definition of a user-defined model.&lt;/font&gt;</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
+
+

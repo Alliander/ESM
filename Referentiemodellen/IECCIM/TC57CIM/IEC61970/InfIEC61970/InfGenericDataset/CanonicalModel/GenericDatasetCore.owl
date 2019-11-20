@@ -1,243 +1,389 @@
-@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#> .
-
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#> rdf:type owl:Ontology .
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject_Dataset
-:CIMDataObject_Dataset rdf:type owl:ObjectProperty ;
-                       rdfs:domain :CIMDataObject ;
-                       rdfs:range :Dataset ;
-                       rdfs:comment "Data objects contained in the dataset.Dataset containing the data objects." .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#"
+     xml:base="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#DatasetArg_Dataset
-:DatasetArg_Dataset rdf:type owl:ObjectProperty ;
-                    rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#DatasetArg> ;
-                    rdfs:range :Dataset ;
-                    rdfs:comment "The role of a dataset in the context of an operation.Dataset referenced by this argument of a model operation.." .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset_AlternateCIMDataObject
-:Dataset_AlternateCIMDataObject rdf:type owl:ObjectProperty ;
-                                owl:inverseOf :CIMDataObject_Dataset ;
-                                rdf:type owl:FunctionalProperty ;
-                                rdfs:domain :Dataset ;
-                                rdfs:range :CIMDataObject ;
-                                rdfs:comment "Data objects contained in the dataset.Dataset containing the data objects." .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset_DatasetArg
-:Dataset_DatasetArg rdf:type owl:ObjectProperty ;
-                    owl:inverseOf :DatasetArg_Dataset ;
-                    rdf:type owl:FunctionalProperty ;
-                    rdfs:domain :Dataset ;
-                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#DatasetArg> ;
-                    rdfs:comment "The role of a dataset in the context of an operation.Dataset referenced by this argument of a model operation.." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject_Dataset -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalCIMDataObject_IncrementalDataset
-:IncrementalCIMDataObject_IncrementalDataset rdf:type owl:ObjectProperty ;
-                                             rdfs:domain :IncrementalCIMDataObject ;
-                                             rdfs:range :IncrementalDataset ;
-                                             rdfs:comment "" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject_Dataset">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset"/>
+        <rdfs:comment>Data objects contained in the dataset.Dataset containing the data objects.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDatasetArg_IncrementalDataset
-:IncrementalDatasetArg_IncrementalDataset rdf:type owl:ObjectProperty ;
-                                          rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#IncrementalDatasetArg> ;
-                                          rdfs:range :IncrementalDataset ;
-                                          rdfs:comment "" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#DatasetArg_Dataset -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset_IncrementalCIMDataObject
-:IncrementalDataset_IncrementalCIMDataObject rdf:type owl:ObjectProperty ;
-                                             owl:inverseOf :IncrementalCIMDataObject_IncrementalDataset ;
-                                             rdfs:domain :IncrementalDataset ;
-                                             rdfs:range :IncrementalCIMDataObject ;
-                                             rdfs:comment "" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#DatasetArg_Dataset">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#DatasetArg"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset"/>
+        <rdfs:comment>The role of a dataset in the context of an operation.Dataset referenced by this argument of a model operation..</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset_IncrementalDatasetArg
-:IncrementalDataset_IncrementalDatasetArg rdf:type owl:ObjectProperty ;
-                                          owl:inverseOf :IncrementalDatasetArg_IncrementalDataset ;
-                                          rdf:type owl:FunctionalProperty ;
-                                          rdfs:domain :IncrementalDataset ;
-                                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#IncrementalDatasetArg> ;
-                                          rdfs:comment "" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset_AlternateCIMDataObject -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#PreconditionCIMDataObject_UpdateCIMDataObject
-:PreconditionCIMDataObject_UpdateCIMDataObject rdf:type owl:ObjectProperty ;
-                                               rdfs:domain :PreconditionCIMDataObject ;
-                                               rdfs:range :UpdateCIMDataObject ;
-                                               rdfs:comment "The data object holding preconditions of updates.The associated data object representing the update. Normally the associaiton is specifed, but in the case of a proxy object where the association is removed, we might not reference any data object as it would only reference a proxy data object with no associations." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset_AlternateCIMDataObject">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject_Dataset"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject"/>
+        <rdfs:comment>Data objects contained in the dataset.Dataset containing the data objects.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#UpdateCIMDataObject_PreconditionCIMDataObject
-:UpdateCIMDataObject_PreconditionCIMDataObject rdf:type owl:ObjectProperty ;
-                                               owl:inverseOf :PreconditionCIMDataObject_UpdateCIMDataObject ;
-                                               rdfs:domain :UpdateCIMDataObject ;
-                                               rdfs:range :PreconditionCIMDataObject ;
-                                               rdfs:comment "The data object holding preconditions of updates.The associated data object representing the update. Normally the associaiton is specifed, but in the case of a proxy object where the association is removed, we might not reference any data object as it would only reference a proxy data object with no associations." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset_DatasetArg -->
 
 
-#################################################################
-#    Data properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject_proxy
-:CIMDataObject_proxy rdf:type owl:DatatypeProperty ;
-                     rdfs:domain :CIMDataObject ;
-                     rdfs:range xsd:boolean ;
-                     rdfs:comment "The object is acting as a reference proxy." .
-
-
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset_DatasetArg">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#DatasetArg_Dataset"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#DatasetArg"/>
+        <rdfs:comment>The role of a dataset in the context of an operation.Dataset referenced by this argument of a model operation..</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject
-:CIMDataObject rdf:type owl:Class ;
-               rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :CIMDataObject_Dataset ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :CIMDataObject
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :CIMDataObject_proxy ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:boolean
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :CIMDataObject_proxy ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:boolean
-                               ] ;
-               rdfs:comment "A description of a version of instance data." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalCIMDataObject_IncrementalDataset -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CreateCIMDataObject
-:CreateCIMDataObject rdf:type owl:Class ;
-                     rdfs:subClassOf :IncrementalCIMDataObject ;
-                     rdfs:comment "An object is to be created in the context." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalCIMDataObject_IncrementalDataset">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalCIMDataObject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset
-:Dataset rdf:type owl:Class ;
-         rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Dataset_AlternateCIMDataObject ;
-                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onClass :Dataset
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Dataset_DatasetArg ;
-                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onClass :Dataset
-                         ] ;
-         rdfs:comment """Versioned instance of a model part.   This would correspond to a payload of instance data without a header.   The MRID would be used in audit trail, not in reusable script intended to work with new versions of data.
-A dataset could be serialized multiple times and in multiple technologies, yet retain the same identity.""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDatasetArg_IncrementalDataset -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#DeleteCIMDataObject
-:DeleteCIMDataObject rdf:type owl:Class ;
-                     rdfs:subClassOf :IncrementalCIMDataObject .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDatasetArg_IncrementalDataset">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#IncrementalDatasetArg"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalCIMDataObject
-:IncrementalCIMDataObject rdf:type owl:Class ;
-                          rdfs:subClassOf :CIMDataObject ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty :IncrementalCIMDataObject_IncrementalDataset ;
-                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                            owl:onClass :IncrementalCIMDataObject
-                                          ] ;
-                          rdfs:comment "A CRUD style CIM data object." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset_IncrementalCIMDataObject -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset
-:IncrementalDataset rdf:type owl:Class ;
-                    rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :IncrementalDataset_IncrementalCIMDataObject ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :IncrementalDataset
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :IncrementalDataset_IncrementalDatasetArg ;
-                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :IncrementalDataset
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :IncrementalDataset_IncrementalCIMDataObject ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :IncrementalDataset
-                                    ] ;
-                    rdfs:comment "Describes a set of changes that can be applied in different situations.   A given registered MRID may only be referenced once by the contained data objects, except a precondition may also reference the same registered MRID." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset_IncrementalCIMDataObject">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalCIMDataObject_IncrementalDataset"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalCIMDataObject"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#PreconditionCIMDataObject
-:PreconditionCIMDataObject rdf:type owl:Class ;
-                           rdfs:subClassOf :IncrementalCIMDataObject ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty :PreconditionCIMDataObject_UpdateCIMDataObject ;
-                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                             owl:onClass :PreconditionCIMDataObject
-                                           ] ,
-                                           [ rdf:type owl:Restriction ;
-                                             owl:onProperty :PreconditionCIMDataObject_UpdateCIMDataObject ;
-                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                             owl:onClass :PreconditionCIMDataObject
-                                           ] ;
-                           rdfs:comment "Used to specify precondition properties for a preconditioned update." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset_IncrementalDatasetArg -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#UpdateCIMDataObject
-:UpdateCIMDataObject rdf:type owl:Class ;
-                     rdfs:subClassOf :IncrementalCIMDataObject ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :UpdateCIMDataObject_PreconditionCIMDataObject ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onClass :UpdateCIMDataObject
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :UpdateCIMDataObject_PreconditionCIMDataObject ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass :UpdateCIMDataObject
-                                     ] ;
-                     rdfs:comment "The object already exists and is to be modified." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset_IncrementalDatasetArg">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDatasetArg_IncrementalDataset"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#IncrementalDatasetArg"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#DatasetArg
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#DatasetArg> rdf:type owl:Class ;
-                                                                                                                             rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                                               owl:onProperty :DatasetArg_Dataset ;
-                                                                                                                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#DatasetArg>
-                                                                                                                                             ] .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#PreconditionCIMDataObject_UpdateCIMDataObject -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#IncrementalDatasetArg
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#IncrementalDatasetArg> rdf:type owl:Class ;
-                                                                                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                                                          owl:onProperty :IncrementalDatasetArg_IncrementalDataset ;
-                                                                                                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                                                          owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#IncrementalDatasetArg>
-                                                                                                                                                        ] .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#PreconditionCIMDataObject_UpdateCIMDataObject">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#PreconditionCIMDataObject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#UpdateCIMDataObject"/>
+        <rdfs:comment>The data object holding preconditions of updates.The associated data object representing the update. Normally the associaiton is specifed, but in the case of a proxy object where the association is removed, we might not reference any data object as it would only reference a proxy data object with no associations.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#UpdateCIMDataObject_PreconditionCIMDataObject -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#UpdateCIMDataObject_PreconditionCIMDataObject">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#PreconditionCIMDataObject_UpdateCIMDataObject"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#UpdateCIMDataObject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#PreconditionCIMDataObject"/>
+        <rdfs:comment>The data object holding preconditions of updates.The associated data object representing the update. Normally the associaiton is specifed, but in the case of a proxy object where the association is removed, we might not reference any data object as it would only reference a proxy data object with no associations.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject_proxy -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject_proxy">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>The object is acting as a reference proxy.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject_Dataset"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject_proxy"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject_proxy"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A description of a version of instance data.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CreateCIMDataObject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CreateCIMDataObject">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalCIMDataObject"/>
+        <rdfs:comment>An object is to be created in the context.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset_AlternateCIMDataObject"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset_DatasetArg"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Versioned instance of a model part.   This would correspond to a payload of instance data without a header.   The MRID would be used in audit trail, not in reusable script intended to work with new versions of data.
+A dataset could be serialized multiple times and in multiple technologies, yet retain the same identity.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#DeleteCIMDataObject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#DeleteCIMDataObject">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalCIMDataObject"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalCIMDataObject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalCIMDataObject">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#CIMDataObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalCIMDataObject_IncrementalDataset"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalCIMDataObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A CRUD style CIM data object.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset_IncrementalCIMDataObject"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset_IncrementalDatasetArg"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset_IncrementalCIMDataObject"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Describes a set of changes that can be applied in different situations.   A given registered MRID may only be referenced once by the contained data objects, except a precondition may also reference the same registered MRID.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#PreconditionCIMDataObject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#PreconditionCIMDataObject">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalCIMDataObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#PreconditionCIMDataObject_UpdateCIMDataObject"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#PreconditionCIMDataObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#PreconditionCIMDataObject_UpdateCIMDataObject"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#PreconditionCIMDataObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Used to specify precondition properties for a preconditioned update.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#UpdateCIMDataObject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#UpdateCIMDataObject">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalCIMDataObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#UpdateCIMDataObject_PreconditionCIMDataObject"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#UpdateCIMDataObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#UpdateCIMDataObject_PreconditionCIMDataObject"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#UpdateCIMDataObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The object already exists and is to be modified.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#DatasetArg -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#DatasetArg">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#DatasetArg_Dataset"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#DatasetArg"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#IncrementalDatasetArg -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#IncrementalDatasetArg">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#IncrementalDatasetArg_IncrementalDataset"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/ModelOperations#IncrementalDatasetArg"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
+
+

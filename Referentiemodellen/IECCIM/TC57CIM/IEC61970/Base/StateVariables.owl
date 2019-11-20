@@ -1,311 +1,495 @@
-@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#> .
-
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#> rdf:type owl:Ontology .
-
-#################################################################
-#    Datatypes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind> rdf:type rdfs:Datatype .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#"
+     xml:base="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#"/>
+    
 
 
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection_pInjection
-:SvInjection_pInjection rdf:type owl:ObjectProperty ;
-                        rdfs:domain :SvInjection ;
-                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
-                        rdfs:comment "The active power injected into the bus in addition to injections from equipment terminals.  Positive sign means injection into the TopologicalNode (bus)." .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection_qInjection
-:SvInjection_qInjection rdf:type owl:ObjectProperty ;
-                        rdfs:domain :SvInjection ;
-                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> ;
-                        rdfs:comment "The reactive power injected into the bus in addition to injections from equipment terminals. Positive sign means injection into the TopologicalNode (bus)." .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow_p
-:SvPowerFlow_p rdf:type owl:ObjectProperty ;
-               rdfs:domain :SvPowerFlow ;
-               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
-               rdfs:comment "The active power flow. Load sign convention is used, i.e. positive sign means flow out from a TopologicalNode (bus) into the conducting equipment." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow_q
-:SvPowerFlow_q rdf:type owl:ObjectProperty ;
-               rdfs:domain :SvPowerFlow ;
-               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> ;
-               rdfs:comment "The reactive power flow. Load sign convention is used, i.e. positive sign means flow out from a TopologicalNode (bus) into the conducting equipment." .
+    <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage_angle
-:SvVoltage_angle rdf:type owl:ObjectProperty ;
-                 rdfs:domain :SvVoltage ;
-                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees> ;
-                 rdfs:comment """The voltage angle of the topological node complex voltage with respect to system reference.
-""" .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage_v
-:SvVoltage_v rdf:type owl:ObjectProperty ;
-             rdfs:domain :SvVoltage ;
-             rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
-             rdfs:comment "The voltage magnitude at the topological node." .
+    
 
 
-#################################################################
-#    Data properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection_phase
-:SvInjection_phase rdf:type owl:DatatypeProperty ;
-                   rdfs:domain :SvInjection ;
-                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind> ;
-                   rdfs:comment "The terminal phase at which the connection is applied.   If missing, the injection is assumed to be balanced among non-neutral phases." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection_pInjection -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow_phase
-:SvPowerFlow_phase rdf:type owl:DatatypeProperty ;
-                   rdfs:domain :SvPowerFlow ;
-                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind> ;
-                   rdfs:comment "The individual phase of the flow.   If unspecified, then assumed to be balanced among phases." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection_pInjection">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+        <rdfs:comment>The active power injected into the bus in addition to injections from equipment terminals.  Positive sign means injection into the TopologicalNode (bus).</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvShuntCompensatorSections_sections
-:SvShuntCompensatorSections_sections rdf:type owl:DatatypeProperty ;
-                                     rdfs:domain :SvShuntCompensatorSections ;
-                                     rdfs:range xsd:float ;
-                                     rdfs:comment """The number of sections in service as a continous variable. To get integer value scale with ShuntCompensator.bPerSection.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection_qInjection -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvStatus_inService
-:SvStatus_inService rdf:type owl:DatatypeProperty ;
-                    rdfs:domain :SvStatus ;
-                    rdfs:range xsd:boolean ;
-                    rdfs:comment "The in service status as a result of topology processing." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection_qInjection">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+        <rdfs:comment>The reactive power injected into the bus in addition to injections from equipment terminals. Positive sign means injection into the TopologicalNode (bus).</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvStatus_phase
-:SvStatus_phase rdf:type owl:DatatypeProperty ;
-                rdfs:domain :SvStatus ;
-                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind> ;
-                rdfs:comment "The individual phase status.    If the attribute is unspecified, then three phase model is assumed." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow_p -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvTapStep_position
-:SvTapStep_position rdf:type owl:DatatypeProperty ;
-                    rdfs:domain :SvTapStep ;
-                    rdfs:range xsd:float ;
-                    rdfs:comment "The floating point tap position.   This is not the tap ratio, but rather the tap step position as defined by the related tap changer model and normally is constrained to be within the range of minimum and maximum tap positions." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow_p">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+        <rdfs:comment>The active power flow. Load sign convention is used, i.e. positive sign means flow out from a TopologicalNode (bus) into the conducting equipment.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage_phase
-:SvVoltage_phase rdf:type owl:DatatypeProperty ;
-                 rdfs:domain :SvVoltage ;
-                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind> ;
-                 rdfs:comment "If specified the voltage is the line to ground voltage of the individual phase.   If unspecified, then the voltage is assumed balanced.  " .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow_q -->
 
 
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees> rdf:type owl:Class .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow_q">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+        <rdfs:comment>The reactive power flow. Load sign convention is used, i.e. positive sign means flow out from a TopologicalNode (bus) into the conducting equipment.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> rdf:type owl:Class .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage_angle -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> rdf:type owl:Class .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage_angle">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees"/>
+        <rdfs:comment>The voltage angle of the topological node complex voltage with respect to system reference.
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#StateVariable
-:StateVariable rdf:type owl:Class ;
-               rdfs:comment "An abstract class for state variables." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage_v -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection
-:SvInjection rdf:type owl:Class ;
-             rdfs:subClassOf :StateVariable ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :SvInjection_pInjection ;
-                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :SvInjection_qInjection ;
-                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :SvInjection_pInjection ;
-                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :SvInjection_qInjection ;
-                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :SvInjection_phase ;
-                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind>
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :SvInjection_phase ;
-                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind>
-                             ] ;
-             rdfs:comment "The SvInjection is reporting the calculated bus injection minus the sum of the terminal flows. The terminal flow is positive out from the bus (load sign convention) and bus injection has positive flow into the bus. SvInjection may have the remainder after state estimation or slack after power flow calculation." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage_v">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage"/>
+        <rdfs:comment>The voltage magnitude at the topological node.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow
-:SvPowerFlow rdf:type owl:Class ;
-             rdfs:subClassOf :StateVariable ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :SvPowerFlow_p ;
-                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :SvPowerFlow_q ;
-                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :SvPowerFlow_p ;
-                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :SvPowerFlow_q ;
-                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :SvPowerFlow_phase ;
-                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind>
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :SvPowerFlow_phase ;
-                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind>
-                             ] ;
-             rdfs:comment "State variable for power flow. Load convention is used for flow direction. This means flow out from the TopologicalNode into the equipment is positive." .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvShuntCompensatorSections
-:SvShuntCompensatorSections rdf:type owl:Class ;
-                            rdfs:subClassOf :StateVariable ,
-                                            [ rdf:type owl:Restriction ;
-                                              owl:onProperty :SvShuntCompensatorSections_sections ;
-                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                              owl:onDataRange xsd:float
-                                            ] ,
-                                            [ rdf:type owl:Restriction ;
-                                              owl:onProperty :SvShuntCompensatorSections_sections ;
-                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                              owl:onDataRange xsd:float
-                                            ] ;
-                            rdfs:comment "State variable for the number of sections in service for a shunt compensator." .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvStatus
-:SvStatus rdf:type owl:Class ;
-          rdfs:subClassOf :StateVariable ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :SvStatus_inService ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:boolean
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :SvStatus_phase ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind>
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :SvStatus_inService ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:boolean
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :SvStatus_phase ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind>
-                          ] ;
-          rdfs:comment "State variable for status." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection_phase -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvTapStep
-:SvTapStep rdf:type owl:Class ;
-           rdfs:subClassOf :StateVariable ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :SvTapStep_position ;
-                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange xsd:float
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :SvTapStep_position ;
-                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange xsd:float
-                           ] ;
-           rdfs:comment "State variable for transformer tap step.     This class is to be used for taps of LTC (load tap changing) transformers, not fixed tap transformers." .
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection_phase">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind"/>
+        <rdfs:comment>The terminal phase at which the connection is applied.   If missing, the injection is assumed to be balanced among non-neutral phases.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage
-:SvVoltage rdf:type owl:Class ;
-           rdfs:subClassOf :StateVariable ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :SvVoltage_angle ;
-                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :SvVoltage_v ;
-                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :SvVoltage_angle ;
-                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :SvVoltage_v ;
-                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :SvVoltage_phase ;
-                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind>
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :SvVoltage_phase ;
-                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind>
-                           ] ;
-           rdfs:comment "State variable for voltage." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow_phase -->
 
 
-###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow_phase">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind"/>
+        <rdfs:comment>The individual phase of the flow.   If unspecified, then assumed to be balanced among phases.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvShuntCompensatorSections_sections -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvShuntCompensatorSections_sections">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvShuntCompensatorSections"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>The number of sections in service as a continous variable. To get integer value scale with ShuntCompensator.bPerSection.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvStatus_inService -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvStatus_inService">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvStatus"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>The in service status as a result of topology processing.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvStatus_phase -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvStatus_phase">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvStatus"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind"/>
+        <rdfs:comment>The individual phase status.    If the attribute is unspecified, then three phase model is assumed.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvTapStep_position -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvTapStep_position">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvTapStep"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>The floating point tap position.   This is not the tap ratio, but rather the tap step position as defined by the related tap changer model and normally is constrained to be within the range of minimum and maximum tap positions.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage_phase -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage_phase">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind"/>
+        <rdfs:comment>If specified the voltage is the line to ground voltage of the individual phase.   If unspecified, then the voltage is assumed balanced.  </rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#StateVariable -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#StateVariable">
+        <rdfs:comment>An abstract class for state variables.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#StateVariable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection_pInjection"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection_qInjection"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection_pInjection"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection_qInjection"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection_phase"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvInjection_phase"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The SvInjection is reporting the calculated bus injection minus the sum of the terminal flows. The terminal flow is positive out from the bus (load sign convention) and bus injection has positive flow into the bus. SvInjection may have the remainder after state estimation or slack after power flow calculation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#StateVariable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow_p"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow_q"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow_p"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow_q"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow_phase"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvPowerFlow_phase"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>State variable for power flow. Load convention is used for flow direction. This means flow out from the TopologicalNode into the equipment is positive.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvShuntCompensatorSections -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvShuntCompensatorSections">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#StateVariable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvShuntCompensatorSections_sections"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvShuntCompensatorSections_sections"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>State variable for the number of sections in service for a shunt compensator.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvStatus -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvStatus">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#StateVariable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvStatus_inService"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvStatus_phase"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvStatus_inService"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvStatus_phase"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>State variable for status.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvTapStep -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvTapStep">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#StateVariable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvTapStep_position"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvTapStep_position"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>State variable for transformer tap step.     This class is to be used for taps of LTC (load tap changing) transformers, not fixed tap transformers.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#StateVariable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage_angle"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage_v"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage_angle"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage_v"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage_phase"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/StateVariables#SvVoltage_phase"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Wires#SinglePhaseKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>State variable for voltage.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
+
+

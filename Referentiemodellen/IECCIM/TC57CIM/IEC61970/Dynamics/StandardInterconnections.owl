@@ -1,403 +1,652 @@
-@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#> .
-
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#> rdf:type owl:Ontology .
-
-#################################################################
-#    Datatypes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteSignalKind
-:RemoteSignalKind rdf:type rdfs:Datatype ;
-                  owl:equivalentClass [ rdf:type rdfs:Datatype ;
-                                        owl:oneOf [ rdf:type rdf:List ;
-                                                    rdf:first "remoteBranchCurrentAmplitude" ;
-                                                    rdf:rest [ rdf:type rdf:List ;
-                                                               rdf:first "remoteBusFrequency" ;
-                                                               rdf:rest [ rdf:type rdf:List ;
-                                                                          rdf:first "remoteBusFrequencyDeviation" ;
-                                                                          rdf:rest [ rdf:type rdf:List ;
-                                                                                     rdf:first "remoteBusVoltage" ;
-                                                                                     rdf:rest [ rdf:type rdf:List ;
-                                                                                                rdf:first "remoteBusVoltageAmplitude" ;
-                                                                                                rdf:rest [ rdf:type rdf:List ;
-                                                                                                           rdf:first "remoteBusVoltageAmplitudeDerivative" ;
-                                                                                                           rdf:rest [ rdf:type rdf:List ;
-                                                                                                                      rdf:first "remoteBusVoltageFrequency" ;
-                                                                                                                      rdf:rest [ rdf:type rdf:List ;
-                                                                                                                                 rdf:first "remoteBusVoltageFrequencyDeviation" ;
-                                                                                                                                 rdf:rest [ rdf:type rdf:List ;
-                                                                                                                                            rdf:first "remotePuBusVoltageDerivative" ;
-                                                                                                                                            rdf:rest rdf:nil
-                                                                                                                                          ]
-                                                                                                                               ]
-                                                                                                                    ]
-                                                                                                         ]
-                                                                                              ]
-                                                                                   ]
-                                                                        ]
-                                                             ]
-                                                  ]
-                                      ] .
-
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#DiscontinuousExcitationControlDynamics_RemoteInputSignal
-:DiscontinuousExcitationControlDynamics_RemoteInputSignal rdf:type owl:ObjectProperty ;
-                                                          rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/DiscontinuousExcitationControlDynamics#DiscontinuousExcitationControlDynamics> ;
-                                                          rdfs:range :RemoteInputSignal ;
-                                                          rdfs:comment "Discontinuous excitation control model using this remote input signal.Remote input signal used by this discontinuous excitation control system model." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#PFVArControllerType1Dynamics_RemoteInputSignal
-:PFVArControllerType1Dynamics_RemoteInputSignal rdf:type owl:ObjectProperty ;
-                                                rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArControllerType1Dynamics> ;
-                                                rdfs:range :RemoteInputSignal ;
-                                                rdfs:comment "Power Factor or VAr controller Type I model using this remote input signal.Remote input signal used by this Power Factor or VAr controller Type I model." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#PowerSystemStabilizerDynamics_RemoteInputSignal
-:PowerSystemStabilizerDynamics_RemoteInputSignal rdf:type owl:ObjectProperty ;
-                                                 rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PowerSystemStabilizerDynamics#PowerSystemStabilizerDynamics> ;
-                                                 rdfs:range :RemoteInputSignal ;
-                                                 rdfs:comment "Power system stabilizer model using this remote input signal.Remote input signal used by this power system stabilizer model." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_DiscontinuousExcitationControlDynamics
-:RemoteInputSignal_DiscontinuousExcitationControlDynamics rdf:type owl:ObjectProperty ;
-                                                          owl:inverseOf :DiscontinuousExcitationControlDynamics_RemoteInputSignal ;
-                                                          rdfs:domain :RemoteInputSignal ;
-                                                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/DiscontinuousExcitationControlDynamics#DiscontinuousExcitationControlDynamics> ;
-                                                          rdfs:comment "Discontinuous excitation control model using this remote input signal.Remote input signal used by this discontinuous excitation control system model." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_PFVArControllerType1Dynamics
-:RemoteInputSignal_PFVArControllerType1Dynamics rdf:type owl:ObjectProperty ;
-                                                owl:inverseOf :PFVArControllerType1Dynamics_RemoteInputSignal ;
-                                                rdfs:domain :RemoteInputSignal ;
-                                                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArControllerType1Dynamics> ;
-                                                rdfs:comment "Power Factor or VAr controller Type I model using this remote input signal.Remote input signal used by this Power Factor or VAr controller Type I model." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_PowerSystemStabilizerDynamics
-:RemoteInputSignal_PowerSystemStabilizerDynamics rdf:type owl:ObjectProperty ;
-                                                 owl:inverseOf :PowerSystemStabilizerDynamics_RemoteInputSignal ;
-                                                 rdfs:domain :RemoteInputSignal ;
-                                                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PowerSystemStabilizerDynamics#PowerSystemStabilizerDynamics> ;
-                                                 rdfs:comment "Power system stabilizer model using this remote input signal.Remote input signal used by this power system stabilizer model." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_UnderexcitationLimiterDynamics
-:RemoteInputSignal_UnderexcitationLimiterDynamics rdf:type owl:ObjectProperty ;
-                                                  owl:inverseOf :UnderexcitationLimiterDynamics_RemoteInputSignal ;
-                                                  rdfs:domain :RemoteInputSignal ;
-                                                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcitationLimiterDynamics> ;
-                                                  rdfs:comment "Underexcitation limiter model using this remote input signal.Remote input signal used by this underexcitation limiter model." .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#"
+     xml:base="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteSignalKind -->
+
+
+    <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteSignalKind">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>remoteBranchCurrentAmplitude</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>remoteBusFrequency</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>remoteBusFrequencyDeviation</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>remoteBusVoltage</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first>remoteBusVoltageAmplitude</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first>remoteBusVoltageAmplitudeDerivative</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first>remoteBusVoltageFrequency</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first>remoteBusVoltageFrequencyDeviation</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                        <rdf:first>remotePuBusVoltageDerivative</rdf:first>
+                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_VoltageCompensatorDynamics
-:RemoteInputSignal_VoltageCompensatorDynamics rdf:type owl:ObjectProperty ;
-                                              owl:inverseOf :VoltageCompensatorDynamics_RemoteInputSignal ;
-                                              rdfs:domain :RemoteInputSignal ;
-                                              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VoltageCompensatorDynamics> ;
-                                              rdfs:comment "Voltage compensator model using this remote input signal.Remote input signal used by this voltage compensator model." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_WindPlantDynamics
-:RemoteInputSignal_WindPlantDynamics rdf:type owl:ObjectProperty ;
-                                     owl:inverseOf :WindPlantDynamics_RemoteInputSignal ;
-                                     rdfs:domain :RemoteInputSignal ;
-                                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindPlantDynamics> ;
-                                     rdfs:comment "The wind plant using the remote signal.The remote signal with which this power plant is associated." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_WindTurbineType1or2Dynamics
-:RemoteInputSignal_WindTurbineType1or2Dynamics rdf:type owl:ObjectProperty ;
-                                               owl:inverseOf :WindTurbineType1or2Dynamics_RemoteInputSignal ;
-                                               rdfs:domain :RemoteInputSignal ;
-                                               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics> ;
-                                               rdfs:comment "Wind generator Type 1 or Type 2 model using this remote input signal.Remote input signal used by this wind generator Type 1 or Type 2 model." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_WindTurbineType3or4Dynamics
-:RemoteInputSignal_WindTurbineType3or4Dynamics rdf:type owl:ObjectProperty ;
-                                               owl:inverseOf :WindTurbineType3or4Dynamics_RemoteInputSignal ;
-                                               rdfs:domain :RemoteInputSignal ;
-                                               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType3or4Dynamics> ;
-                                               rdfs:comment "Wind turbine Type 3 or 4 models using this remote input signal.Remote input signal used by these wind turbine Type 3 or 4 models." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#UnderexcitationLimiterDynamics_RemoteInputSignal
-:UnderexcitationLimiterDynamics_RemoteInputSignal rdf:type owl:ObjectProperty ;
-                                                  rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcitationLimiterDynamics> ;
-                                                  rdfs:range :RemoteInputSignal ;
-                                                  rdfs:comment "Underexcitation limiter model using this remote input signal.Remote input signal used by this underexcitation limiter model." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#VoltageCompensatorDynamics_RemoteInputSignal
-:VoltageCompensatorDynamics_RemoteInputSignal rdf:type owl:ObjectProperty ;
-                                              rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VoltageCompensatorDynamics> ;
-                                              rdfs:range :RemoteInputSignal ;
-                                              rdfs:comment "Voltage compensator model using this remote input signal.Remote input signal used by this voltage compensator model." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindPlantDynamics_RemoteInputSignal
-:WindPlantDynamics_RemoteInputSignal rdf:type owl:ObjectProperty ;
-                                     rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindPlantDynamics> ;
-                                     rdfs:range :RemoteInputSignal ;
-                                     rdfs:comment "The wind plant using the remote signal.The remote signal with which this power plant is associated." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindTurbineType1or2Dynamics_RemoteInputSignal
-:WindTurbineType1or2Dynamics_RemoteInputSignal rdf:type owl:ObjectProperty ;
-                                               rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics> ;
-                                               rdfs:range :RemoteInputSignal ;
-                                               rdfs:comment "Wind generator Type 1 or Type 2 model using this remote input signal.Remote input signal used by this wind generator Type 1 or Type 2 model." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindTurbineType3or4Dynamics_RemoteInputSignal
-:WindTurbineType3or4Dynamics_RemoteInputSignal rdf:type owl:ObjectProperty ;
-                                               rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType3or4Dynamics> ;
-                                               rdfs:range :RemoteInputSignal ;
-                                               rdfs:comment "Wind turbine Type 3 or 4 models using this remote input signal.Remote input signal used by these wind turbine Type 3 or 4 models." .
-
-
-#################################################################
-#    Data properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_remoteSignalType
-:RemoteInputSignal_remoteSignalType rdf:type owl:DatatypeProperty ;
-                                    rdfs:domain :RemoteInputSignal ;
-                                    rdfs:range :RemoteSignalKind ;
-                                    rdfs:comment "Type of input signal." .
-
-
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal
-:RemoteInputSignal rdf:type owl:Class ;
-                   rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :RemoteInputSignal_DiscontinuousExcitationControlDynamics ;
-                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :RemoteInputSignal
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :RemoteInputSignal_PFVArControllerType1Dynamics ;
-                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :RemoteInputSignal
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :RemoteInputSignal_PowerSystemStabilizerDynamics ;
-                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :RemoteInputSignal
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :RemoteInputSignal_UnderexcitationLimiterDynamics ;
-                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :RemoteInputSignal
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :RemoteInputSignal_VoltageCompensatorDynamics ;
-                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :RemoteInputSignal
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :RemoteInputSignal_WindPlantDynamics ;
-                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :RemoteInputSignal
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :RemoteInputSignal_WindTurbineType1or2Dynamics ;
-                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :RemoteInputSignal
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :RemoteInputSignal_WindTurbineType3or4Dynamics ;
-                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :RemoteInputSignal
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :RemoteInputSignal_DiscontinuousExcitationControlDynamics ;
-                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :RemoteInputSignal
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :RemoteInputSignal_PFVArControllerType1Dynamics ;
-                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :RemoteInputSignal
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :RemoteInputSignal_UnderexcitationLimiterDynamics ;
-                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :RemoteInputSignal
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :RemoteInputSignal_VoltageCompensatorDynamics ;
-                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :RemoteInputSignal
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :RemoteInputSignal_WindPlantDynamics ;
-                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :RemoteInputSignal
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :RemoteInputSignal_WindTurbineType1or2Dynamics ;
-                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :RemoteInputSignal
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :RemoteInputSignal_WindTurbineType3or4Dynamics ;
-                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :RemoteInputSignal
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :RemoteInputSignal_remoteSignalType ;
-                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                     owl:onDataRange :RemoteSignalKind
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :RemoteInputSignal_remoteSignalType ;
-                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onDataRange :RemoteSignalKind
-                                   ] ;
-                   rdfs:comment "Supports connection to a terminal associated with a remote bus from which an input signal of a specific type is coming." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#dynamics model
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#dynamics model> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#static power system model
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#static power system model> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/DiscontinuousExcitationControlDynamics#DiscontinuousExcitationControlDynamics
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/DiscontinuousExcitationControlDynamics#DiscontinuousExcitationControlDynamics> rdf:type owl:Class ;
-                                                                                                                                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                                                                             owl:onProperty :DiscontinuousExcitationControlDynamics_RemoteInputSignal ;
-                                                                                                                                                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                                                                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/DiscontinuousExcitationControlDynamics#DiscontinuousExcitationControlDynamics>
-                                                                                                                                                                           ] ,
-                                                                                                                                                                           [ rdf:type owl:Restriction ;
-                                                                                                                                                                             owl:onProperty :DiscontinuousExcitationControlDynamics_RemoteInputSignal ;
-                                                                                                                                                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                                                                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/DiscontinuousExcitationControlDynamics#DiscontinuousExcitationControlDynamics>
-                                                                                                                                                                           ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArControllerType1Dynamics
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArControllerType1Dynamics> rdf:type owl:Class ;
-                                                                                                                                       rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                                                         owl:onProperty :PFVArControllerType1Dynamics_RemoteInputSignal ;
-                                                                                                                                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                                                         owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArControllerType1Dynamics>
-                                                                                                                                                       ] ,
-                                                                                                                                                       [ rdf:type owl:Restriction ;
-                                                                                                                                                         owl:onProperty :PFVArControllerType1Dynamics_RemoteInputSignal ;
-                                                                                                                                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                                                         owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArControllerType1Dynamics>
-                                                                                                                                                       ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PowerSystemStabilizerDynamics#PowerSystemStabilizerDynamics
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PowerSystemStabilizerDynamics#PowerSystemStabilizerDynamics> rdf:type owl:Class ;
-                                                                                                                                         rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                                                           owl:onProperty :PowerSystemStabilizerDynamics_RemoteInputSignal ;
-                                                                                                                                                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PowerSystemStabilizerDynamics#PowerSystemStabilizerDynamics>
-                                                                                                                                                         ] ,
-                                                                                                                                                         [ rdf:type owl:Restriction ;
-                                                                                                                                                           owl:onProperty :PowerSystemStabilizerDynamics_RemoteInputSignal ;
-                                                                                                                                                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                                                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PowerSystemStabilizerDynamics#PowerSystemStabilizerDynamics>
-                                                                                                                                                         ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcitationLimiterDynamics
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcitationLimiterDynamics> rdf:type owl:Class ;
-                                                                                                                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                                                             owl:onProperty :UnderexcitationLimiterDynamics_RemoteInputSignal ;
-                                                                                                                                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                                                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcitationLimiterDynamics>
-                                                                                                                                                           ] ,
-                                                                                                                                                           [ rdf:type owl:Restriction ;
-                                                                                                                                                             owl:onProperty :UnderexcitationLimiterDynamics_RemoteInputSignal ;
-                                                                                                                                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                                                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcitationLimiterDynamics>
-                                                                                                                                                           ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VoltageCompensatorDynamics
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VoltageCompensatorDynamics> rdf:type owl:Class ;
-                                                                                                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                                                     owl:onProperty :VoltageCompensatorDynamics_RemoteInputSignal ;
-                                                                                                                                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                                                     owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VoltageCompensatorDynamics>
-                                                                                                                                                   ] ,
-                                                                                                                                                   [ rdf:type owl:Restriction ;
-                                                                                                                                                     owl:onProperty :VoltageCompensatorDynamics_RemoteInputSignal ;
-                                                                                                                                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                                                     owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VoltageCompensatorDynamics>
-                                                                                                                                                   ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindPlantDynamics
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindPlantDynamics> rdf:type owl:Class ;
-                                                                                                            rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                              owl:onProperty :WindPlantDynamics_RemoteInputSignal ;
-                                                                                                                              owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                              owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindPlantDynamics>
-                                                                                                                            ] ,
-                                                                                                                            [ rdf:type owl:Restriction ;
-                                                                                                                              owl:onProperty :WindPlantDynamics_RemoteInputSignal ;
-                                                                                                                              owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                              owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindPlantDynamics>
-                                                                                                                            ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics> rdf:type owl:Class ;
-                                                                                                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                                        owl:onProperty :WindTurbineType1or2Dynamics_RemoteInputSignal ;
-                                                                                                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics>
-                                                                                                                                      ] ,
-                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                        owl:onProperty :WindTurbineType1or2Dynamics_RemoteInputSignal ;
-                                                                                                                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics>
-                                                                                                                                      ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType3or4Dynamics
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType3or4Dynamics> rdf:type owl:Class ;
-                                                                                                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                                        owl:onProperty :WindTurbineType3or4Dynamics_RemoteInputSignal ;
-                                                                                                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType3or4Dynamics>
-                                                                                                                                      ] ,
-                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                        owl:onProperty :WindTurbineType3or4Dynamics_RemoteInputSignal ;
-                                                                                                                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType3or4Dynamics>
-                                                                                                                                      ] .
-
-
-###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#DiscontinuousExcitationControlDynamics_RemoteInputSignal -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#DiscontinuousExcitationControlDynamics_RemoteInputSignal">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/DiscontinuousExcitationControlDynamics#DiscontinuousExcitationControlDynamics"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+        <rdfs:comment>Discontinuous excitation control model using this remote input signal.Remote input signal used by this discontinuous excitation control system model.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#PFVArControllerType1Dynamics_RemoteInputSignal -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#PFVArControllerType1Dynamics_RemoteInputSignal">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArControllerType1Dynamics"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+        <rdfs:comment>Power Factor or VAr controller Type I model using this remote input signal.Remote input signal used by this Power Factor or VAr controller Type I model.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#PowerSystemStabilizerDynamics_RemoteInputSignal -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#PowerSystemStabilizerDynamics_RemoteInputSignal">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PowerSystemStabilizerDynamics#PowerSystemStabilizerDynamics"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+        <rdfs:comment>Power system stabilizer model using this remote input signal.Remote input signal used by this power system stabilizer model.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_DiscontinuousExcitationControlDynamics -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_DiscontinuousExcitationControlDynamics">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#DiscontinuousExcitationControlDynamics_RemoteInputSignal"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/DiscontinuousExcitationControlDynamics#DiscontinuousExcitationControlDynamics"/>
+        <rdfs:comment>Discontinuous excitation control model using this remote input signal.Remote input signal used by this discontinuous excitation control system model.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_PFVArControllerType1Dynamics -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_PFVArControllerType1Dynamics">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#PFVArControllerType1Dynamics_RemoteInputSignal"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArControllerType1Dynamics"/>
+        <rdfs:comment>Power Factor or VAr controller Type I model using this remote input signal.Remote input signal used by this Power Factor or VAr controller Type I model.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_PowerSystemStabilizerDynamics -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_PowerSystemStabilizerDynamics">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#PowerSystemStabilizerDynamics_RemoteInputSignal"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PowerSystemStabilizerDynamics#PowerSystemStabilizerDynamics"/>
+        <rdfs:comment>Power system stabilizer model using this remote input signal.Remote input signal used by this power system stabilizer model.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_UnderexcitationLimiterDynamics -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_UnderexcitationLimiterDynamics">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#UnderexcitationLimiterDynamics_RemoteInputSignal"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcitationLimiterDynamics"/>
+        <rdfs:comment>Underexcitation limiter model using this remote input signal.Remote input signal used by this underexcitation limiter model.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_VoltageCompensatorDynamics -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_VoltageCompensatorDynamics">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#VoltageCompensatorDynamics_RemoteInputSignal"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VoltageCompensatorDynamics"/>
+        <rdfs:comment>Voltage compensator model using this remote input signal.Remote input signal used by this voltage compensator model.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_WindPlantDynamics -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_WindPlantDynamics">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindPlantDynamics_RemoteInputSignal"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindPlantDynamics"/>
+        <rdfs:comment>The wind plant using the remote signal.The remote signal with which this power plant is associated.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_WindTurbineType1or2Dynamics -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_WindTurbineType1or2Dynamics">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindTurbineType1or2Dynamics_RemoteInputSignal"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics"/>
+        <rdfs:comment>Wind generator Type 1 or Type 2 model using this remote input signal.Remote input signal used by this wind generator Type 1 or Type 2 model.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_WindTurbineType3or4Dynamics -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_WindTurbineType3or4Dynamics">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindTurbineType3or4Dynamics_RemoteInputSignal"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType3or4Dynamics"/>
+        <rdfs:comment>Wind turbine Type 3 or 4 models using this remote input signal.Remote input signal used by these wind turbine Type 3 or 4 models.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#UnderexcitationLimiterDynamics_RemoteInputSignal -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#UnderexcitationLimiterDynamics_RemoteInputSignal">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcitationLimiterDynamics"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+        <rdfs:comment>Underexcitation limiter model using this remote input signal.Remote input signal used by this underexcitation limiter model.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#VoltageCompensatorDynamics_RemoteInputSignal -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#VoltageCompensatorDynamics_RemoteInputSignal">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VoltageCompensatorDynamics"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+        <rdfs:comment>Voltage compensator model using this remote input signal.Remote input signal used by this voltage compensator model.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindPlantDynamics_RemoteInputSignal -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindPlantDynamics_RemoteInputSignal">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindPlantDynamics"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+        <rdfs:comment>The wind plant using the remote signal.The remote signal with which this power plant is associated.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindTurbineType1or2Dynamics_RemoteInputSignal -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindTurbineType1or2Dynamics_RemoteInputSignal">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+        <rdfs:comment>Wind generator Type 1 or Type 2 model using this remote input signal.Remote input signal used by this wind generator Type 1 or Type 2 model.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindTurbineType3or4Dynamics_RemoteInputSignal -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindTurbineType3or4Dynamics_RemoteInputSignal">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType3or4Dynamics"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+        <rdfs:comment>Wind turbine Type 3 or 4 models using this remote input signal.Remote input signal used by these wind turbine Type 3 or 4 models.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_remoteSignalType -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_remoteSignalType">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteSignalKind"/>
+        <rdfs:comment>Type of input signal.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_DiscontinuousExcitationControlDynamics"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_PFVArControllerType1Dynamics"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_PowerSystemStabilizerDynamics"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_UnderexcitationLimiterDynamics"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_VoltageCompensatorDynamics"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_WindPlantDynamics"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_WindTurbineType1or2Dynamics"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_WindTurbineType3or4Dynamics"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_DiscontinuousExcitationControlDynamics"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_PFVArControllerType1Dynamics"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_UnderexcitationLimiterDynamics"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_VoltageCompensatorDynamics"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_WindPlantDynamics"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_WindTurbineType1or2Dynamics"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_WindTurbineType3or4Dynamics"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_remoteSignalType"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteSignalKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteInputSignal_remoteSignalType"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#RemoteSignalKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Supports connection to a terminal associated with a remote bus from which an input signal of a specific type is coming.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#dynamics model -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#dynamics model"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#static power system model -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#static power system model"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/DiscontinuousExcitationControlDynamics#DiscontinuousExcitationControlDynamics -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/DiscontinuousExcitationControlDynamics#DiscontinuousExcitationControlDynamics">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#DiscontinuousExcitationControlDynamics_RemoteInputSignal"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/DiscontinuousExcitationControlDynamics#DiscontinuousExcitationControlDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#DiscontinuousExcitationControlDynamics_RemoteInputSignal"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/DiscontinuousExcitationControlDynamics#DiscontinuousExcitationControlDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArControllerType1Dynamics -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArControllerType1Dynamics">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#PFVArControllerType1Dynamics_RemoteInputSignal"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArControllerType1Dynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#PFVArControllerType1Dynamics_RemoteInputSignal"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PFVArControllerType1Dynamics#PFVArControllerType1Dynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PowerSystemStabilizerDynamics#PowerSystemStabilizerDynamics -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PowerSystemStabilizerDynamics#PowerSystemStabilizerDynamics">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#PowerSystemStabilizerDynamics_RemoteInputSignal"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PowerSystemStabilizerDynamics#PowerSystemStabilizerDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#PowerSystemStabilizerDynamics_RemoteInputSignal"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/PowerSystemStabilizerDynamics#PowerSystemStabilizerDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcitationLimiterDynamics -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcitationLimiterDynamics">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#UnderexcitationLimiterDynamics_RemoteInputSignal"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcitationLimiterDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#UnderexcitationLimiterDynamics_RemoteInputSignal"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/UnderexcitationLimiterDynamics#UnderexcitationLimiterDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VoltageCompensatorDynamics -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VoltageCompensatorDynamics">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#VoltageCompensatorDynamics_RemoteInputSignal"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VoltageCompensatorDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#VoltageCompensatorDynamics_RemoteInputSignal"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageCompensatorDynamics#VoltageCompensatorDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindPlantDynamics -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindPlantDynamics">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindPlantDynamics_RemoteInputSignal"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindPlantDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindPlantDynamics_RemoteInputSignal"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindPlantDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindTurbineType1or2Dynamics_RemoteInputSignal"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindTurbineType1or2Dynamics_RemoteInputSignal"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType3or4Dynamics -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType3or4Dynamics">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindTurbineType3or4Dynamics_RemoteInputSignal"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType3or4Dynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardInterconnections#WindTurbineType3or4Dynamics_RemoteInputSignal"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType3or4Dynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
+
+

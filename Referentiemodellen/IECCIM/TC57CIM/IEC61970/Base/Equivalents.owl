@@ -1,702 +1,1056 @@
-@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#> .
-
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#> rdf:type owl:Ontology .
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeR12
-:EquivalentBranch_negativeR12 rdf:type owl:ObjectProperty ;
-                              rdfs:domain :EquivalentBranch ;
-                              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
-                              rdfs:comment """Negative sequence series resistance from terminal sequence  1 to terminal sequence 2. Used for short circuit data exchange according to IEC 60909
-EquivalentBranch is a result of network reduction prior to the data exchange """ .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeR21
-:EquivalentBranch_negativeR21 rdf:type owl:ObjectProperty ;
-                              rdfs:domain :EquivalentBranch ;
-                              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
-                              rdfs:comment """Negative sequence series resistance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909
-EquivalentBranch is a result of network reduction prior to the data exchange""" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeX12
-:EquivalentBranch_negativeX12 rdf:type owl:ObjectProperty ;
-                              rdfs:domain :EquivalentBranch ;
-                              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
-                              rdfs:comment """Negative sequence series reactance from terminal sequence  1 to terminal sequence 2. Used for short circuit data exchange according to IEC 60909
-Usage : EquivalentBranch is a result of network reduction prior to the data exchange""" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeX21
-:EquivalentBranch_negativeX21 rdf:type owl:ObjectProperty ;
-                              rdfs:domain :EquivalentBranch ;
-                              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
-                              rdfs:comment """Negative sequence series reactance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909.
-Usage: EquivalentBranch is a result of network reduction prior to the data exchange""" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveR12
-:EquivalentBranch_positiveR12 rdf:type owl:ObjectProperty ;
-                              rdfs:domain :EquivalentBranch ;
-                              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
-                              rdfs:comment """Positive sequence series resistance from terminal sequence  1 to terminal sequence 2 . Used for short circuit data exchange according to IEC 60909. 
-EquivalentBranch is a result of network reduction prior to the data exchange. """ .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveR21
-:EquivalentBranch_positiveR21 rdf:type owl:ObjectProperty ;
-                              rdfs:domain :EquivalentBranch ;
-                              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
-                              rdfs:comment """Positive sequence series resistance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909
-EquivalentBranch is a result of network reduction prior to the data exchange""" .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#"
+     xml:base="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveX12
-:EquivalentBranch_positiveX12 rdf:type owl:ObjectProperty ;
-                              rdfs:domain :EquivalentBranch ;
-                              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
-                              rdfs:comment """Positive sequence series reactance from terminal sequence  1 to terminal sequence 2. Used for short circuit data exchange according to IEC 60909
-Usage : EquivalentBranch is a result of network reduction prior to the data exchange""" .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveX21
-:EquivalentBranch_positiveX21 rdf:type owl:ObjectProperty ;
-                              rdfs:domain :EquivalentBranch ;
-                              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
-                              rdfs:comment """Positive sequence series reactance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909
-Usage : EquivalentBranch is a result of network reduction prior to the data exchange""" .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_r
-:EquivalentBranch_r rdf:type owl:ObjectProperty ;
-                    rdfs:domain :EquivalentBranch ;
-                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
-                    rdfs:comment "Positive sequence series resistance of the reduced branch." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeR12 -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_r21
-:EquivalentBranch_r21 rdf:type owl:ObjectProperty ;
-                      rdfs:domain :EquivalentBranch ;
-                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
-                      rdfs:comment """Resistance from terminal sequence 2 to terminal sequence 1 .Used for steady state power flow. This attribute is optional and represent unbalanced network such as off-nominal phase shifter. If only EquivalentBranch.r is given, then EquivalentBranch.r21 is assumed equal to EquivalentBranch.r.
-Usage rule : EquivalentBranch is a result of network reduction prior to the data exchange.""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeR12">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+        <rdfs:comment>Negative sequence series resistance from terminal sequence  1 to terminal sequence 2. Used for short circuit data exchange according to IEC 60909
+EquivalentBranch is a result of network reduction prior to the data exchange </rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_x
-:EquivalentBranch_x rdf:type owl:ObjectProperty ;
-                    rdfs:domain :EquivalentBranch ;
-                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
-                    rdfs:comment "Positive sequence series reactance of the reduced branch." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeR21 -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_x21
-:EquivalentBranch_x21 rdf:type owl:ObjectProperty ;
-                      rdfs:domain :EquivalentBranch ;
-                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
-                      rdfs:comment """Reactance from terminal sequence 2 to terminal sequence 1 .Used for steady state power flow. This attribute is optional and represent unbalanced network such as off-nominal phase shifter. If only EquivalentBranch.x is given, then EquivalentBranch.x21 is assumed equal to EquivalentBranch.x.
-Usage rule : EquivalentBranch is a result of network reduction prior to the data exchange.""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeR21">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+        <rdfs:comment>Negative sequence series resistance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909
+EquivalentBranch is a result of network reduction prior to the data exchange</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroR12
-:EquivalentBranch_zeroR12 rdf:type owl:ObjectProperty ;
-                          rdfs:domain :EquivalentBranch ;
-                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
-                          rdfs:comment """Zero sequence series resistance from terminal sequence  1 to terminal sequence 2. Used for short circuit data exchange according to IEC 60909
-EquivalentBranch is a result of network reduction prior to the data exchange""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeX12 -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroR21
-:EquivalentBranch_zeroR21 rdf:type owl:ObjectProperty ;
-                          rdfs:domain :EquivalentBranch ;
-                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
-                          rdfs:comment """Zero sequence series resistance from terminal sequence  2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909
-Usage : EquivalentBranch is a result of network reduction prior to the data exchange""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeX12">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+        <rdfs:comment>Negative sequence series reactance from terminal sequence  1 to terminal sequence 2. Used for short circuit data exchange according to IEC 60909
+Usage : EquivalentBranch is a result of network reduction prior to the data exchange</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroX12
-:EquivalentBranch_zeroX12 rdf:type owl:ObjectProperty ;
-                          rdfs:domain :EquivalentBranch ;
-                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
-                          rdfs:comment """Zero sequence series reactance from terminal sequence  1 to terminal sequence 2. Used for short circuit data exchange according to IEC 60909
-Usage : EquivalentBranch is a result of network reduction prior to the data exchange""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeX21 -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroX21
-:EquivalentBranch_zeroX21 rdf:type owl:ObjectProperty ;
-                          rdfs:domain :EquivalentBranch ;
-                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
-                          rdfs:comment """Zero sequence series reactance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909
-Usage : EquivalentBranch is a result of network reduction prior to the data exchange""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeX21">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+        <rdfs:comment>Negative sequence series reactance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909.
+Usage: EquivalentBranch is a result of network reduction prior to the data exchange</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentEquipment_EquivalentNetwork
-:EquivalentEquipment_EquivalentNetwork rdf:type owl:ObjectProperty ;
-                                       rdfs:domain :EquivalentEquipment ;
-                                       rdfs:range :EquivalentNetwork ;
-                                       rdfs:comment "The associated reduced equivalents.The equivalent where the reduced model belongs." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveR12 -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_maxP
-:EquivalentInjection_maxP rdf:type owl:ObjectProperty ;
-                          rdfs:domain :EquivalentInjection ;
-                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
-                          rdfs:comment "Maximum active power of the injection." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveR12">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+        <rdfs:comment>Positive sequence series resistance from terminal sequence  1 to terminal sequence 2 . Used for short circuit data exchange according to IEC 60909. 
+EquivalentBranch is a result of network reduction prior to the data exchange. </rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_maxQ
-:EquivalentInjection_maxQ rdf:type owl:ObjectProperty ;
-                          rdfs:domain :EquivalentInjection ;
-                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> ;
-                          rdfs:comment "Used for modeling of infeed for load flow exchange. Not used for short circuit modeling.  If maxQ and minQ are not used ReactiveCapabilityCurve can be used.   " .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveR21 -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_minP
-:EquivalentInjection_minP rdf:type owl:ObjectProperty ;
-                          rdfs:domain :EquivalentInjection ;
-                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
-                          rdfs:comment "Minimum active power of the injection." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveR21">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+        <rdfs:comment>Positive sequence series resistance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909
+EquivalentBranch is a result of network reduction prior to the data exchange</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_minQ
-:EquivalentInjection_minQ rdf:type owl:ObjectProperty ;
-                          rdfs:domain :EquivalentInjection ;
-                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> ;
-                          rdfs:comment "Used for modeling of infeed for load flow exchange. Not used for short circuit modeling.  If maxQ and minQ are not used ReactiveCapabilityCurve can be used." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveX12 -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_p
-:EquivalentInjection_p rdf:type owl:ObjectProperty ;
-                       rdfs:domain :EquivalentInjection ;
-                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
-                       rdfs:comment """Equivalent active power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
-Starting value for steady state solutions.""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveX12">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+        <rdfs:comment>Positive sequence series reactance from terminal sequence  1 to terminal sequence 2. Used for short circuit data exchange according to IEC 60909
+Usage : EquivalentBranch is a result of network reduction prior to the data exchange</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_q
-:EquivalentInjection_q rdf:type owl:ObjectProperty ;
-                       rdfs:domain :EquivalentInjection ;
-                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> ;
-                       rdfs:comment """Equivalent reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
-Starting value for steady state solutions.""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveX21 -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_r
-:EquivalentInjection_r rdf:type owl:ObjectProperty ;
-                       rdfs:domain :EquivalentInjection ;
-                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
-                       rdfs:comment """Positive sequence resistance. Used to represent Extended-Ward (IEC 60909).
-Usage : Extended-Ward is a result of network reduction prior to the data exchange. """ .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveX21">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+        <rdfs:comment>Positive sequence series reactance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909
+Usage : EquivalentBranch is a result of network reduction prior to the data exchange</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_r0
-:EquivalentInjection_r0 rdf:type owl:ObjectProperty ;
-                        rdfs:domain :EquivalentInjection ;
-                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
-                        rdfs:comment """Zero sequence resistance. Used to represent Extended-Ward (IEC 60909).
-Usage : Extended-Ward is a result of network reduction prior to the data exchange. """ .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_r -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_r2
-:EquivalentInjection_r2 rdf:type owl:ObjectProperty ;
-                        rdfs:domain :EquivalentInjection ;
-                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
-                        rdfs:comment """Negative sequence resistance. Used to represent Extended-Ward (IEC 60909).
-Usage : Extended-Ward is a result of network reduction prior to the data exchange. """ .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_r">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+        <rdfs:comment>Positive sequence series resistance of the reduced branch.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_regulationTarget
-:EquivalentInjection_regulationTarget rdf:type owl:ObjectProperty ;
-                                      rdfs:domain :EquivalentInjection ;
-                                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> ;
-                                      rdfs:comment "The target voltage for voltage regulation." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_r21 -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_x
-:EquivalentInjection_x rdf:type owl:ObjectProperty ;
-                       rdfs:domain :EquivalentInjection ;
-                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
-                       rdfs:comment """Positive sequence reactance. Used to represent Extended-Ward (IEC 60909).
-Usage : Extended-Ward is a result of network reduction prior to the data exchange. """ .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_r21">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+        <rdfs:comment>Resistance from terminal sequence 2 to terminal sequence 1 .Used for steady state power flow. This attribute is optional and represent unbalanced network such as off-nominal phase shifter. If only EquivalentBranch.r is given, then EquivalentBranch.r21 is assumed equal to EquivalentBranch.r.
+Usage rule : EquivalentBranch is a result of network reduction prior to the data exchange.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_x0
-:EquivalentInjection_x0 rdf:type owl:ObjectProperty ;
-                        rdfs:domain :EquivalentInjection ;
-                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
-                        rdfs:comment """Zero sequence reactance. Used to represent Extended-Ward (IEC 60909).
-Usage : Extended-Ward is a result of network reduction prior to the data exchange. """ .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_x -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_x2
-:EquivalentInjection_x2 rdf:type owl:ObjectProperty ;
-                        rdfs:domain :EquivalentInjection ;
-                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
-                        rdfs:comment """Negative sequence reactance. Used to represent Extended-Ward (IEC 60909).
-Usage : Extended-Ward is a result of network reduction prior to the data exchange. """ .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_x">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+        <rdfs:comment>Positive sequence series reactance of the reduced branch.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentNetwork_EquivalentEquipments
-:EquivalentNetwork_EquivalentEquipments rdf:type owl:ObjectProperty ;
-                                        owl:inverseOf :EquivalentEquipment_EquivalentNetwork ;
-                                        rdfs:domain :EquivalentNetwork ;
-                                        rdfs:range :EquivalentEquipment ;
-                                        rdfs:comment "The associated reduced equivalents.The equivalent where the reduced model belongs." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_x21 -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentShunt_b
-:EquivalentShunt_b rdf:type owl:ObjectProperty ;
-                   rdfs:domain :EquivalentShunt ;
-                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Susceptance> ;
-                   rdfs:comment "Positive sequence shunt susceptance." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_x21">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+        <rdfs:comment>Reactance from terminal sequence 2 to terminal sequence 1 .Used for steady state power flow. This attribute is optional and represent unbalanced network such as off-nominal phase shifter. If only EquivalentBranch.x is given, then EquivalentBranch.x21 is assumed equal to EquivalentBranch.x.
+Usage rule : EquivalentBranch is a result of network reduction prior to the data exchange.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentShunt_g
-:EquivalentShunt_g rdf:type owl:ObjectProperty ;
-                   rdfs:domain :EquivalentShunt ;
-                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Conductance> ;
-                   rdfs:comment "Positive sequence shunt conductance." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroR12 -->
 
 
-#################################################################
-#    Data properties
-#################################################################
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroR12">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+        <rdfs:comment>Zero sequence series resistance from terminal sequence  1 to terminal sequence 2. Used for short circuit data exchange according to IEC 60909
+EquivalentBranch is a result of network reduction prior to the data exchange</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_regulationCapability
-:EquivalentInjection_regulationCapability rdf:type owl:DatatypeProperty ;
-                                          rdfs:domain :EquivalentInjection ;
-                                          rdfs:range xsd:boolean ;
-                                          rdfs:comment "Specifies whether or not the EquivalentInjection has the capability to regulate the local voltage." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_regulationStatus
-:EquivalentInjection_regulationStatus rdf:type owl:DatatypeProperty ;
-                                      rdfs:domain :EquivalentInjection ;
-                                      rdfs:range xsd:boolean ;
-                                      rdfs:comment "Specifies the default regulation status of the EquivalentInjection.  True is regulating.  False is not regulating." .
-
-
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#ConductingEquipment
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#ConductingEquipment> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#ConnectivityNodeContainer
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#ConnectivityNodeContainer> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Conductance
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Conductance> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Susceptance
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Susceptance> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch
-:EquivalentBranch rdf:type owl:Class ;
-                  rdfs:subClassOf :EquivalentEquipment ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_negativeR12 ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_negativeR21 ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_negativeX12 ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_negativeX21 ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_positiveR12 ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_positiveR21 ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_positiveX12 ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_positiveX21 ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_r ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_r21 ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_x ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_x21 ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_zeroR12 ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_zeroR21 ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_zeroX12 ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_zeroX21 ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_negativeR12 ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_negativeR21 ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_negativeX12 ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_negativeX21 ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_positiveR12 ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_positiveR21 ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_positiveX12 ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_positiveX21 ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_r ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_r21 ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_x ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_x21 ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_zeroR12 ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_zeroR21 ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_zeroX12 ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :EquivalentBranch_zeroX21 ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                  ] ;
-                  rdfs:comment "The class represents equivalent branches." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentEquipment
-:EquivalentEquipment rdf:type owl:Class ;
-                     rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#ConductingEquipment> ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentEquipment_EquivalentNetwork ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onClass :EquivalentEquipment
-                                     ] ;
-                     rdfs:comment "The class represents equivalent objects that are the result of a network reduction. The class is the base for equivalent objects of different types." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection
-:EquivalentInjection rdf:type owl:Class ;
-                     rdfs:subClassOf :EquivalentEquipment ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_maxP ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_maxQ ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_minP ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_minQ ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_p ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_q ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_r ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_r0 ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_r2 ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_regulationTarget ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_x ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_x0 ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_x2 ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_maxP ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_maxQ ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_minP ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_minQ ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_p ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_q ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_r ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_r0 ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_r2 ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_regulationTarget ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_x ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_x0 ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_x2 ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_regulationCapability ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:boolean
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_regulationStatus ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:boolean
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_regulationCapability ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:boolean
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :EquivalentInjection_regulationStatus ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:boolean
-                                     ] ;
-                     rdfs:comment "This class represents equivalent injections (generation or load).  Voltage regulation is allowed only at the point of connection." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentNetwork
-:EquivalentNetwork rdf:type owl:Class ;
-                   rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#ConnectivityNodeContainer> ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :EquivalentNetwork_EquivalentEquipments ;
-                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :EquivalentNetwork
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :EquivalentNetwork_EquivalentEquipments ;
-                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :EquivalentNetwork
-                                   ] ;
-                   rdfs:comment "A class that represents an external meshed network that has been reduced to an electrically equivalent model. The ConnectivityNodes contained in the equivalent are intended to reflect internal nodes of the equivalent. The boundary Connectivity nodes where the equivalent connects outside itself are NOT contained by the equivalent." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentShunt
-:EquivalentShunt rdf:type owl:Class ;
-                 rdfs:subClassOf :EquivalentEquipment ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :EquivalentShunt_b ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Susceptance>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :EquivalentShunt_g ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Conductance>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :EquivalentShunt_b ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Susceptance>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :EquivalentShunt_g ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Conductance>
-                                 ] ;
-                 rdfs:comment "The class represents equivalent shunts." .
-
-
-###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroR21 -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroR21">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+        <rdfs:comment>Zero sequence series resistance from terminal sequence  2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909
+Usage : EquivalentBranch is a result of network reduction prior to the data exchange</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroX12 -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroX12">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+        <rdfs:comment>Zero sequence series reactance from terminal sequence  1 to terminal sequence 2. Used for short circuit data exchange according to IEC 60909
+Usage : EquivalentBranch is a result of network reduction prior to the data exchange</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroX21 -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroX21">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+        <rdfs:comment>Zero sequence series reactance from terminal sequence 2 to terminal sequence 1. Used for short circuit data exchange according to IEC 60909
+Usage : EquivalentBranch is a result of network reduction prior to the data exchange</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentEquipment_EquivalentNetwork -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentEquipment_EquivalentNetwork">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentEquipment"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentNetwork"/>
+        <rdfs:comment>The associated reduced equivalents.The equivalent where the reduced model belongs.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_maxP -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_maxP">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+        <rdfs:comment>Maximum active power of the injection.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_maxQ -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_maxQ">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+        <rdfs:comment>Used for modeling of infeed for load flow exchange. Not used for short circuit modeling.  If maxQ and minQ are not used ReactiveCapabilityCurve can be used.   </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_minP -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_minP">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+        <rdfs:comment>Minimum active power of the injection.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_minQ -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_minQ">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+        <rdfs:comment>Used for modeling of infeed for load flow exchange. Not used for short circuit modeling.  If maxQ and minQ are not used ReactiveCapabilityCurve can be used.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_p -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_p">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+        <rdfs:comment>Equivalent active power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+Starting value for steady state solutions.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_q -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_q">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+        <rdfs:comment>Equivalent reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node.
+Starting value for steady state solutions.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_r -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_r">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+        <rdfs:comment>Positive sequence resistance. Used to represent Extended-Ward (IEC 60909).
+Usage : Extended-Ward is a result of network reduction prior to the data exchange. </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_r0 -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_r0">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+        <rdfs:comment>Zero sequence resistance. Used to represent Extended-Ward (IEC 60909).
+Usage : Extended-Ward is a result of network reduction prior to the data exchange. </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_r2 -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_r2">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+        <rdfs:comment>Negative sequence resistance. Used to represent Extended-Ward (IEC 60909).
+Usage : Extended-Ward is a result of network reduction prior to the data exchange. </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_regulationTarget -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_regulationTarget">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage"/>
+        <rdfs:comment>The target voltage for voltage regulation.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_x -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_x">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+        <rdfs:comment>Positive sequence reactance. Used to represent Extended-Ward (IEC 60909).
+Usage : Extended-Ward is a result of network reduction prior to the data exchange. </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_x0 -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_x0">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+        <rdfs:comment>Zero sequence reactance. Used to represent Extended-Ward (IEC 60909).
+Usage : Extended-Ward is a result of network reduction prior to the data exchange. </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_x2 -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_x2">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+        <rdfs:comment>Negative sequence reactance. Used to represent Extended-Ward (IEC 60909).
+Usage : Extended-Ward is a result of network reduction prior to the data exchange. </rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentNetwork_EquivalentEquipments -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentNetwork_EquivalentEquipments">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentEquipment_EquivalentNetwork"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentNetwork"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentEquipment"/>
+        <rdfs:comment>The associated reduced equivalents.The equivalent where the reduced model belongs.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentShunt_b -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentShunt_b">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentShunt"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Susceptance"/>
+        <rdfs:comment>Positive sequence shunt susceptance.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentShunt_g -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentShunt_g">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentShunt"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Conductance"/>
+        <rdfs:comment>Positive sequence shunt conductance.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_regulationCapability -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_regulationCapability">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Specifies whether or not the EquivalentInjection has the capability to regulate the local voltage.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_regulationStatus -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_regulationStatus">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Specifies the default regulation status of the EquivalentInjection.  True is regulating.  False is not regulating.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#ConductingEquipment -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#ConductingEquipment"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#ConnectivityNodeContainer -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#ConnectivityNodeContainer"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Conductance -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Conductance"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Susceptance -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Susceptance"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentEquipment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeR12"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeR21"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeX12"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeX21"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveR12"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveR21"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveX12"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveX21"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_r"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_r21"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_x"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_x21"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroR12"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroR21"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroX12"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroX21"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeR12"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeR21"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeX12"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_negativeX21"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveR12"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveR21"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveX12"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_positiveX21"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_r"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_r21"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_x"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_x21"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroR12"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroR21"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroX12"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentBranch_zeroX21"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The class represents equivalent branches.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentEquipment -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentEquipment">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#ConductingEquipment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentEquipment_EquivalentNetwork"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentEquipment"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The class represents equivalent objects that are the result of a network reduction. The class is the base for equivalent objects of different types.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentEquipment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_maxP"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_maxQ"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_minP"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_minQ"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_p"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_q"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_r"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_r0"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_r2"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_regulationTarget"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_x"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_x0"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_x2"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_maxP"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_maxQ"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_minP"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_minQ"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_p"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_q"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_r"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_r0"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_r2"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_regulationTarget"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Voltage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_x"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_x0"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_x2"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_regulationCapability"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_regulationStatus"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_regulationCapability"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentInjection_regulationStatus"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>This class represents equivalent injections (generation or load).  Voltage regulation is allowed only at the point of connection.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentNetwork -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentNetwork">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#ConnectivityNodeContainer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentNetwork_EquivalentEquipments"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentNetwork"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentNetwork_EquivalentEquipments"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentNetwork"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A class that represents an external meshed network that has been reduced to an electrically equivalent model. The ConnectivityNodes contained in the equivalent are intended to reflect internal nodes of the equivalent. The boundary Connectivity nodes where the equivalent connects outside itself are NOT contained by the equivalent.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentShunt -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentShunt">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentEquipment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentShunt_b"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Susceptance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentShunt_g"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Conductance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentShunt_b"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Susceptance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Equivalents#EquivalentShunt_g"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Conductance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The class represents equivalent shunts.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
+
+

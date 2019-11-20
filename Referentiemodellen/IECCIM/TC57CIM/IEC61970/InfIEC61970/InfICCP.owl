@@ -1,687 +1,1092 @@
-@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#> .
-
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#> rdf:type owl:Ontology .
-
-#################################################################
-#    Datatypes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier> rdf:type rdfs:Datatype .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol> rdf:type rdfs:Datatype .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPointDeviceClass
-:ICCPControlPointDeviceClass rdf:type rdfs:Datatype ;
-                             owl:equivalentClass [ rdf:type rdfs:Datatype ;
-                                                   owl:oneOf [ rdf:type rdf:List ;
-                                                               rdf:first "NONSBO" ;
-                                                               rdf:rest [ rdf:type rdf:List ;
-                                                                          rdf:first "SBO" ;
-                                                                          rdf:rest rdf:nil
-                                                                        ]
-                                                             ]
-                                                 ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPointType
-:ICCPIndicationPointType rdf:type rdfs:Datatype ;
-                         owl:equivalentClass [ rdf:type rdfs:Datatype ;
-                                               owl:oneOf [ rdf:type rdf:List ;
-                                                           rdf:first "DISCRETE" ;
-                                                           rdf:rest [ rdf:type rdf:List ;
-                                                                      rdf:first "REAL" ;
-                                                                      rdf:rest [ rdf:type rdf:List ;
-                                                                                 rdf:first "STATE" ;
-                                                                                 rdf:rest rdf:nil
-                                                                               ]
-                                                                    ]
-                                                         ]
-                                             ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPScope
-:ICCPPScope rdf:type rdfs:Datatype ;
-            owl:equivalentClass [ rdf:type rdfs:Datatype ;
-                                  owl:oneOf [ rdf:type rdf:List ;
-                                              rdf:first "ICC" ;
-                                              rdf:rest [ rdf:type rdf:List ;
-                                                         rdf:first "VCC" ;
-                                                         rdf:rest rdf:nil
-                                                       ]
-                                            ]
-                                ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPointType
-:ICCPSetPointType rdf:type rdfs:Datatype ;
-                  owl:equivalentClass [ rdf:type rdfs:Datatype ;
-                                        owl:oneOf [ rdf:type rdf:List ;
-                                                    rdf:first "DISCRETE" ;
-                                                    rdf:rest [ rdf:type rdf:List ;
-                                                               rdf:first "REAL" ;
-                                                               rdf:rest rdf:nil
-                                                             ]
-                                                  ]
-                                      ] .
-
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint_ICCPIndicationPoint
-:ICCPControlPoint_ICCPIndicationPoint rdf:type owl:ObjectProperty ;
-                                      rdfs:domain :ICCPControlPoint ;
-                                      rdfs:range :ICCPIndicationPoint ;
-                                      rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint_ICCPControlPoint
-:ICCPIndicationPoint_ICCPControlPoint rdf:type owl:ObjectProperty ;
-                                      owl:inverseOf :ICCPControlPoint_ICCPIndicationPoint ;
-                                      rdfs:domain :ICCPIndicationPoint ;
-                                      rdfs:range :ICCPControlPoint ;
-                                      rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage_TASE2BilateralTable
-:ICCPInformationMessage_TASE2BilateralTable rdf:type owl:ObjectProperty ;
-                                            rdfs:domain :ICCPInformationMessage ;
-                                            rdfs:range :TASE2BilateralTable ;
-                                            rdfs:comment "" .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#"
+     xml:base="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier -->
+
+
+    <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol -->
+
+
+    <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPointDeviceClass -->
+
+
+    <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPointDeviceClass">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>NONSBO</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>SBO</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPointType -->
+
+
+    <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPointType">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>DISCRETE</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>REAL</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>STATE</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPScope -->
+
+
+    <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPScope">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>ICC</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>VCC</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint_TASE2BilateralTable
-:ICCPPoint_TASE2BilateralTable rdf:type owl:ObjectProperty ;
-                               rdfs:domain :ICCPPoint ;
-                               rdfs:range :TASE2BilateralTable ;
-                               rdfs:comment "THe ICCP points of the bilateral table.The bilateral table of the ICCP points." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPointType -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_TASE2BilateralTable
-:IPAccessPoint_TASE2BilateralTable rdf:type owl:ObjectProperty ;
-                                   rdfs:domain :IPAccessPoint ;
-                                   rdfs:range :TASE2BilateralTable ;
-                                   rdfs:comment "" .
+    <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPointType">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>DISCRETE</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>REAL</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_addressType
-:IPAccessPoint_addressType rdf:type owl:ObjectProperty ;
-                           rdfs:domain :IPAccessPoint ;
-                           rdfs:range :IPAddressType .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_ap
-:ISOUpperLayer_ap rdf:type owl:ObjectProperty ;
-                  rdfs:domain :ISOUpperLayer ;
-                  rdfs:range :ISOAPAddressing .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_ICCPInformationMessage
-:TASE2BilateralTable_ICCPInformationMessage rdf:type owl:ObjectProperty ;
-                                            owl:inverseOf :ICCPInformationMessage_TASE2BilateralTable ;
-                                            rdfs:domain :TASE2BilateralTable ;
-                                            rdfs:range :ICCPInformationMessage ;
-                                            rdfs:comment "" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint_ICCPIndicationPoint -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_ICCPPoint
-:TASE2BilateralTable_ICCPPoint rdf:type owl:ObjectProperty ;
-                               owl:inverseOf :ICCPPoint_TASE2BilateralTable ;
-                               rdf:type owl:FunctionalProperty ;
-                               rdfs:domain :TASE2BilateralTable ;
-                               rdfs:range :ICCPPoint ;
-                               rdfs:comment "THe ICCP points of the bilateral table.The bilateral table of the ICCP points." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint_ICCPIndicationPoint">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_IPAccessPoint
-:TASE2BilateralTable_IPAccessPoint rdf:type owl:ObjectProperty ;
-                                   owl:inverseOf :IPAccessPoint_TASE2BilateralTable ;
-                                   rdf:type owl:FunctionalProperty ;
-                                   rdfs:domain :TASE2BilateralTable ;
-                                   rdfs:range :IPAccessPoint ;
-                                   rdfs:comment "" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint_ICCPControlPoint -->
 
 
-#################################################################
-#    Data properties
-#################################################################
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint_ICCPControlPoint">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint_ICCPIndicationPoint"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint_deviceClass
-:ICCPControlPoint_deviceClass rdf:type owl:DatatypeProperty ;
-                              rdfs:domain :ICCPControlPoint ;
-                              rdfs:range :ICCPControlPointDeviceClass .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage_TASE2BilateralTable -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint_type
-:ICCPIndicationPoint_type rdf:type owl:DatatypeProperty ;
-                          rdfs:domain :ICCPIndicationPoint ;
-                          rdfs:range :ICCPIndicationPointType .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage_TASE2BilateralTable">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage_localReference
-:ICCPInformationMessage_localReference rdf:type owl:DatatypeProperty ;
-                                       rdfs:domain :ICCPInformationMessage ;
-                                       rdfs:range xsd:string ;
-                                       rdfs:comment "The Local Reference attribute specifies a value agreed upon between sender and receiver of the Information Message. It further identifies the Information Message." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint_TASE2BilateralTable -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage_scope
-:ICCPInformationMessage_scope rdf:type owl:DatatypeProperty ;
-                              rdfs:domain :ICCPInformationMessage ;
-                              rdfs:range :ICCPPScope .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint_TASE2BilateralTable">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable"/>
+        <rdfs:comment>THe ICCP points of the bilateral table.The bilateral table of the ICCP points.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint_scope
-:ICCPPoint_scope rdf:type owl:DatatypeProperty ;
-                 rdfs:domain :ICCPPoint ;
-                 rdfs:range :ICCPPScope .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_TASE2BilateralTable -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint_type
-:ICCPSetPoint_type rdf:type owl:DatatypeProperty ;
-                   rdfs:domain :ICCPSetPoint ;
-                   rdfs:range :ICCPSetPointType .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_TASE2BilateralTable">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_address
-:IPAccessPoint_address rdf:type owl:DatatypeProperty ;
-                       rdfs:domain :IPAccessPoint ;
-                       rdfs:range xsd:string .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_addressType -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_gateway
-:IPAccessPoint_gateway rdf:type owl:DatatypeProperty ;
-                       rdfs:domain :IPAccessPoint ;
-                       rdfs:range xsd:string .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_addressType">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType"/>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_subnet
-:IPAccessPoint_subnet rdf:type owl:DatatypeProperty ;
-                      rdfs:domain :IPAccessPoint ;
-                      rdfs:range xsd:string .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_ap -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType_multiplier
-:IPAddressType_multiplier rdf:type owl:DatatypeProperty ;
-                          rdfs:domain :IPAddressType ;
-                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier> .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_ap">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing"/>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType_unit
-:IPAddressType_unit rdf:type owl:DatatypeProperty ;
-                    rdfs:domain :IPAddressType ;
-                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol> .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_ICCPInformationMessage -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType_value
-:IPAddressType_value rdf:type owl:DatatypeProperty ;
-                     rdfs:domain :IPAddressType ;
-                     rdfs:range xsd:string .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_ICCPInformationMessage">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage_TASE2BilateralTable"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing_multiplier
-:ISOAPAddressing_multiplier rdf:type owl:DatatypeProperty ;
-                            rdfs:domain :ISOAPAddressing ;
-                            rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier> .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_ICCPPoint -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing_unit
-:ISOAPAddressing_unit rdf:type owl:DatatypeProperty ;
-                      rdfs:domain :ISOAPAddressing ;
-                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol> .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_ICCPPoint">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint_TASE2BilateralTable"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint"/>
+        <rdfs:comment>THe ICCP points of the bilateral table.The bilateral table of the ICCP points.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing_value
-:ISOAPAddressing_value rdf:type owl:DatatypeProperty ;
-                       rdfs:domain :ISOAPAddressing ;
-                       rdfs:range xsd:string .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_IPAccessPoint -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_osiPsel
-:ISOUpperLayer_osiPsel rdf:type owl:DatatypeProperty ;
-                       rdfs:domain :ISOUpperLayer ;
-                       rdfs:range xsd:string .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_IPAccessPoint">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_TASE2BilateralTable"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_osiSsel
-:ISOUpperLayer_osiSsel rdf:type owl:DatatypeProperty ;
-                       rdfs:domain :ISOUpperLayer ;
-                       rdfs:range xsd:string .
 
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_osiTsel
-:ISOUpperLayer_osiTsel rdf:type owl:DatatypeProperty ;
-                       rdfs:domain :ISOUpperLayer ;
-                       rdfs:range xsd:string .
 
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_bilateralTableID
-:TASE2BilateralTable_bilateralTableID rdf:type owl:DatatypeProperty ;
-                                      rdfs:domain :TASE2BilateralTable ;
-                                      rdfs:range xsd:string ;
-                                      rdfs:comment "Specifies the version of the Bilateral Table configuration that is being exchanged." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint_deviceClass -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_calling
-:TASE2BilateralTable_calling rdf:type owl:DatatypeProperty ;
-                             rdfs:domain :TASE2BilateralTable ;
-                             rdfs:range xsd:boolean ;
-                             rdfs:comment "Used to indicate if the Provider is responsible for initiating the TASE.2 connection.  If the value is TRUE, the provider is responsible for establishing the association.  If the value is FALSE, the peer provider of the Bilateral Table will need to establish the association." .
 
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint_deviceClass">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPointDeviceClass"/>
+    </owl:DatatypeProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_nameOfICC
-:TASE2BilateralTable_nameOfICC rdf:type owl:DatatypeProperty ;
-                               rdfs:domain :TASE2BilateralTable ;
-                               rdfs:range xsd:string ;
-                               rdfs:comment "Specifies the ICC scope name that the remote can use to access the information in the Bilateral Table if the information is not VCC scoped.  This value may not be null." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint_type -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_tase2version
-:TASE2BilateralTable_tase2version rdf:type owl:DatatypeProperty ;
-                                  rdfs:domain :TASE2BilateralTable ;
-                                  rdfs:range xsd:string ;
-                                  rdfs:comment "Specifies the version of the TASE.2 that is needed to access the Bilateral Table information via TASE.2" .
 
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint_type">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPointType"/>
+    </owl:DatatypeProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TCPAcessPoint_keepAliveTime
-:TCPAcessPoint_keepAliveTime rdf:type owl:DatatypeProperty ;
-                             rdfs:domain :TCPAcessPoint ;
-                             rdfs:range xsd:nonNegativeInteger .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TCPAcessPoint_port
-:TCPAcessPoint_port rdf:type owl:DatatypeProperty ;
-                    rdfs:domain :TCPAcessPoint ;
-                    rdfs:range xsd:nonNegativeInteger .
-
-
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPCommandPoint
-:ICCPCommandPoint rdf:type owl:Class ;
-                  rdfs:subClassOf :ICCPControlPoint .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint
-:ICCPControlPoint rdf:type owl:Class ;
-                  rdfs:subClassOf :ICCPPoint ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :ICCPControlPoint_ICCPIndicationPoint ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass :ICCPControlPoint
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :ICCPControlPoint_ICCPIndicationPoint ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass :ICCPControlPoint
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :ICCPControlPoint_deviceClass ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onDataRange :ICCPControlPointDeviceClass
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :ICCPControlPoint_deviceClass ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onDataRange :ICCPControlPointDeviceClass
-                                  ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint
-:ICCPIndicationPoint rdf:type owl:Class ;
-                     rdfs:subClassOf :ICCPPoint ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :ICCPIndicationPoint_ICCPControlPoint ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onClass :ICCPIndicationPoint
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :ICCPIndicationPoint_ICCPControlPoint ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass :ICCPIndicationPoint
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :ICCPIndicationPoint_type ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange :ICCPIndicationPointType
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :ICCPIndicationPoint_type ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange :ICCPIndicationPointType
-                                     ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage
-:ICCPInformationMessage rdf:type owl:Class ;
-                        rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :ICCPInformationMessage_TASE2BilateralTable ;
-                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                          owl:onClass :ICCPInformationMessage
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :ICCPInformationMessage_localReference ;
-                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                          owl:onDataRange xsd:string
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :ICCPInformationMessage_scope ;
-                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                          owl:onDataRange :ICCPPScope
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :ICCPInformationMessage_localReference ;
-                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onDataRange xsd:string
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :ICCPInformationMessage_scope ;
-                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onDataRange :ICCPPScope
-                                        ] ;
-                        rdfs:comment "This class represents the TASE.2 Information Message Object.  The IdentifiedObject.name attribute must be non-null.  The value of the attribute shall be used as the TASE.2 Information Reference, as specified by 60870-6-503." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint
-:ICCPPoint rdf:type owl:Class ;
-           rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :ICCPPoint_TASE2BilateralTable ;
-                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onClass :ICCPPoint
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :ICCPPoint_scope ;
-                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange :ICCPPScope
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :ICCPPoint_scope ;
-                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange :ICCPPScope
-                           ] ;
-           rdfs:comment "The IdentifiedObject.name attribute must have a value.  The name attribute shall be used as the DataValue name used for the exchange." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint
-:ICCPSetPoint rdf:type owl:Class ;
-              rdfs:subClassOf :ICCPControlPoint ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :ICCPSetPoint_type ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onDataRange :ICCPSetPointType
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :ICCPSetPoint_type ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onDataRange :ICCPSetPointType
-                              ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint
-:IPAccessPoint rdf:type owl:Class ;
-               rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                 owl:onProperty :IPAccessPoint_TASE2BilateralTable ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :IPAccessPoint
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :IPAccessPoint_addressType ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :IPAddressType
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :IPAccessPoint_addressType ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :IPAddressType
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :IPAccessPoint_address ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:string
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :IPAccessPoint_gateway ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:string
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :IPAccessPoint_subnet ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:string
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :IPAccessPoint_address ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:string
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :IPAccessPoint_gateway ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:string
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :IPAccessPoint_subnet ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:string
-                               ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType
-:IPAddressType rdf:type owl:Class ;
-               rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                 owl:onProperty :IPAddressType_multiplier ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier>
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :IPAddressType_unit ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol>
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :IPAddressType_value ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:string
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :IPAddressType_multiplier ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier>
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :IPAddressType_unit ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol>
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :IPAddressType_value ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:string
-                               ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing
-:ISOAPAddressing rdf:type owl:Class ;
-                 rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                   owl:onProperty :ISOAPAddressing_multiplier ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :ISOAPAddressing_unit ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :ISOAPAddressing_value ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange xsd:string
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :ISOAPAddressing_multiplier ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :ISOAPAddressing_unit ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :ISOAPAddressing_value ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange xsd:string
-                                 ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer
-:ISOUpperLayer rdf:type owl:Class ;
-               rdfs:subClassOf :TCPAcessPoint ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ISOUpperLayer_ap ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :ISOAPAddressing
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ISOUpperLayer_ap ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :ISOAPAddressing
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ISOUpperLayer_osiPsel ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:string
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ISOUpperLayer_osiSsel ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:string
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ISOUpperLayer_osiTsel ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:string
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ISOUpperLayer_osiPsel ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:string
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ISOUpperLayer_osiSsel ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:string
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ISOUpperLayer_osiTsel ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:string
-                               ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable
-:TASE2BilateralTable rdf:type owl:Class ;
-                     rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :TASE2BilateralTable_ICCPInformationMessage ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onClass :TASE2BilateralTable
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :TASE2BilateralTable_ICCPPoint ;
-                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass :TASE2BilateralTable
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :TASE2BilateralTable_IPAccessPoint ;
-                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass :TASE2BilateralTable
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :TASE2BilateralTable_bilateralTableID ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:string
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :TASE2BilateralTable_calling ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:boolean
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :TASE2BilateralTable_nameOfICC ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:string
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :TASE2BilateralTable_tase2version ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:string
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :TASE2BilateralTable_bilateralTableID ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:string
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :TASE2BilateralTable_calling ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:boolean
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :TASE2BilateralTable_nameOfICC ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:string
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :TASE2BilateralTable_tase2version ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:string
-                                     ] ;
-                     rdfs:comment "This class describe the sending (providing) side in a bilateral ICCP data exchange. Hence the ICCP bilateral (table) descriptions are created by exchanging ICCPProvider data between the parties." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TCPAcessPoint
-:TCPAcessPoint rdf:type owl:Class ;
-               rdfs:subClassOf :IPAccessPoint ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :TCPAcessPoint_keepAliveTime ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:nonNegativeInteger
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :TCPAcessPoint_port ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:nonNegativeInteger
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :TCPAcessPoint_keepAliveTime ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:nonNegativeInteger
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :TCPAcessPoint_port ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:nonNegativeInteger
-                               ] .
-
-
-###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage_localReference -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage_localReference">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The Local Reference attribute specifies a value agreed upon between sender and receiver of the Information Message. It further identifies the Information Message.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage_scope -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage_scope">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPScope"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint_scope -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint_scope">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPScope"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint_type -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint_type">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPointType"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_address -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_address">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_gateway -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_gateway">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_subnet -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_subnet">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType_multiplier -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType_multiplier">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType_unit -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType_unit">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType_value -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType_value">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing_multiplier -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing_multiplier">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing_unit -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing_unit">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing_value -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing_value">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_osiPsel -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_osiPsel">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_osiSsel -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_osiSsel">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_osiTsel -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_osiTsel">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_bilateralTableID -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_bilateralTableID">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Specifies the version of the Bilateral Table configuration that is being exchanged.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_calling -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_calling">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Used to indicate if the Provider is responsible for initiating the TASE.2 connection.  If the value is TRUE, the provider is responsible for establishing the association.  If the value is FALSE, the peer provider of the Bilateral Table will need to establish the association.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_nameOfICC -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_nameOfICC">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Specifies the ICC scope name that the remote can use to access the information in the Bilateral Table if the information is not VCC scoped.  This value may not be null.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_tase2version -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_tase2version">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Specifies the version of the TASE.2 that is needed to access the Bilateral Table information via TASE.2</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TCPAcessPoint_keepAliveTime -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TCPAcessPoint_keepAliveTime">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TCPAcessPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TCPAcessPoint_port -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TCPAcessPoint_port">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TCPAcessPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPCommandPoint -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPCommandPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint_ICCPIndicationPoint"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint_ICCPIndicationPoint"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint_deviceClass"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPointDeviceClass"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint_deviceClass"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPointDeviceClass"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint_ICCPControlPoint"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint_ICCPControlPoint"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint_type"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPointType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint_type"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPointType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage_TASE2BilateralTable"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage_localReference"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage_scope"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPScope"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage_localReference"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPInformationMessage_scope"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPScope"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>This class represents the TASE.2 Information Message Object.  The IdentifiedObject.name attribute must be non-null.  The value of the attribute shall be used as the TASE.2 Information Reference, as specified by 60870-6-503.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint_TASE2BilateralTable"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint_scope"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPScope"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPoint_scope"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPPScope"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The IdentifiedObject.name attribute must have a value.  The name attribute shall be used as the DataValue name used for the exchange.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPControlPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint_type"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPointType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint_type"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPointType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_TASE2BilateralTable"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_addressType"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_addressType"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_address"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_gateway"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_subnet"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_address"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_gateway"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint_subnet"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType_multiplier"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType_unit"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType_value"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType_multiplier"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType_unit"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAddressType_value"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing_multiplier"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing_unit"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing_value"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing_multiplier"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing_unit"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing_value"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TCPAcessPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_ap"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_ap"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOAPAddressing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_osiPsel"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_osiSsel"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_osiTsel"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_osiPsel"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_osiSsel"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ISOUpperLayer_osiTsel"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_ICCPInformationMessage"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_ICCPPoint"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_IPAccessPoint"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_bilateralTableID"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_calling"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_nameOfICC"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_tase2version"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_bilateralTableID"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_calling"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_nameOfICC"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TASE2BilateralTable_tase2version"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>This class describe the sending (providing) side in a bilateral ICCP data exchange. Hence the ICCP bilateral (table) descriptions are created by exchanging ICCPProvider data between the parties.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TCPAcessPoint -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TCPAcessPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#IPAccessPoint"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TCPAcessPoint_keepAliveTime"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TCPAcessPoint_port"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TCPAcessPoint_keepAliveTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#TCPAcessPoint_port"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
+
+

@@ -1,151 +1,245 @@
-@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#> .
-
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#> rdf:type owl:Ontology .
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_taoff
-:VAdjIEEE_taoff rdf:type owl:ObjectProperty ;
-                rdfs:domain :VAdjIEEE ;
-                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
-                rdfs:comment "Time that adjuster pulses are off (<i>T</i><i><sub>AOFF</sub></i>).  Typical Value = 0.5." .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#"
+     xml:base="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_taon
-:VAdjIEEE_taon rdf:type owl:ObjectProperty ;
-               rdfs:domain :VAdjIEEE ;
-               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
-               rdfs:comment "Time that adjuster pulses are on (<i>T</i><i><sub>AON</sub></i>).  Typical Value = 0.1." .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_vadjmax
-:VAdjIEEE_vadjmax rdf:type owl:ObjectProperty ;
-                  rdfs:domain :VAdjIEEE ;
-                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                  rdfs:comment "Maximum output of the adjuster (<i>V</i><i><sub>ADJMAX</sub></i>).  Typical Value = 1.1." .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_vadjmin
-:VAdjIEEE_vadjmin rdf:type owl:ObjectProperty ;
-                  rdfs:domain :VAdjIEEE ;
-                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                  rdfs:comment "Minimum output of the adjuster (<i>V</i><i><sub>ADJMIN</sub></i>).  Typical Value = 0.9." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_taoff -->
 
 
-#################################################################
-#    Data properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_adjslew
-:VAdjIEEE_adjslew rdf:type owl:DatatypeProperty ;
-                  rdfs:domain :VAdjIEEE ;
-                  rdfs:range xsd:float ;
-                  rdfs:comment "Rate at which output of adjuster changes (<i>ADJ_SLEW</i>).  Unit = sec./PU.  Typical Value = 300." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_taoff">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+        <rdfs:comment>Time that adjuster pulses are off (&lt;i&gt;T&lt;/i&gt;&lt;i&gt;&lt;sub&gt;AOFF&lt;/sub&gt;&lt;/i&gt;).  Typical Value = 0.5.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_vadjf
-:VAdjIEEE_vadjf rdf:type owl:DatatypeProperty ;
-                rdfs:domain :VAdjIEEE ;
-                rdfs:range xsd:float ;
-                rdfs:comment "Set high to provide a continuous raise or lower (<i>V</i><i><sub>ADJF</sub></i>)." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_taon -->
 
 
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> rdf:type owl:Class .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_taon">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+        <rdfs:comment>Time that adjuster pulses are on (&lt;i&gt;T&lt;/i&gt;&lt;i&gt;&lt;sub&gt;AON&lt;/sub&gt;&lt;/i&gt;).  Typical Value = 0.1.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock> rdf:type owl:Class .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_vadjmax -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE
-:VAdjIEEE rdf:type owl:Class ;
-          rdfs:subClassOf :VoltageAdjusterDynamics ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :VAdjIEEE_taoff ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :VAdjIEEE_taon ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :VAdjIEEE_vadjmax ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :VAdjIEEE_vadjmin ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :VAdjIEEE_taoff ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :VAdjIEEE_taon ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :VAdjIEEE_vadjmax ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :VAdjIEEE_vadjmin ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :VAdjIEEE_adjslew ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:float
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :VAdjIEEE_vadjf ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:float
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :VAdjIEEE_adjslew ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:float
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :VAdjIEEE_vadjf ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:float
-                          ] ;
-          rdfs:comment """The class represents IEEE Voltage Adjuster which is used to represent the voltage adjuster in either a power factor or var control system.
-
-Reference: IEEE Standard 421.5-2005 Section 11.1.""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_vadjmax">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Maximum output of the adjuster (&lt;i&gt;V&lt;/i&gt;&lt;i&gt;&lt;sub&gt;ADJMAX&lt;/sub&gt;&lt;/i&gt;).  Typical Value = 1.1.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VoltageAdjusterDynamics
-:VoltageAdjusterDynamics rdf:type owl:Class ;
-                         rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock> ;
-                         rdfs:comment "Voltage adjuster function block whose behaviour is described by reference to a standard model <font color=\"#0f0f0f\">or by definition of a user-defined model.</font>" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_vadjmin -->
 
 
-###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_vadjmin">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Minimum output of the adjuster (&lt;i&gt;V&lt;/i&gt;&lt;i&gt;&lt;sub&gt;ADJMIN&lt;/sub&gt;&lt;/i&gt;).  Typical Value = 0.9.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_adjslew -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_adjslew">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Rate at which output of adjuster changes (&lt;i&gt;ADJ_SLEW&lt;/i&gt;).  Unit = sec./PU.  Typical Value = 300.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_vadjf -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_vadjf">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Set high to provide a continuous raise or lower (&lt;i&gt;V&lt;/i&gt;&lt;i&gt;&lt;sub&gt;ADJF&lt;/sub&gt;&lt;/i&gt;).</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VoltageAdjusterDynamics"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_taoff"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_taon"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_vadjmax"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_vadjmin"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_taoff"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_taon"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_vadjmax"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_vadjmin"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_adjslew"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_vadjf"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_adjslew"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VAdjIEEE_vadjf"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The class represents IEEE Voltage Adjuster which is used to represent the voltage adjuster in either a power factor or var control system.
+
+Reference: IEEE Standard 421.5-2005 Section 11.1.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VoltageAdjusterDynamics -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/VoltageAdjusterDynamics#VoltageAdjusterDynamics">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock"/>
+        <rdfs:comment>Voltage adjuster function block whose behaviour is described by reference to a standard model &lt;font color=&quot;#0f0f0f&quot;&gt;or by definition of a user-defined model.&lt;/font&gt;</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
+
+

@@ -1,597 +1,903 @@
-@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#> .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#"
+     xml:base="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#"/>
+    
 
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#> rdf:type owl:Ontology .
 
-#################################################################
-#    Object Properties
-#################################################################
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_ifdlim
-:OverexcLim2_ifdlim rdf:type owl:ObjectProperty ;
-                    rdfs:domain :OverexcLim2 ;
-                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                    rdfs:comment "Limit value of rated field current (I<sub>FDLIM</sub>).  Typical Value = 1.05." .
 
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_koi
-:OverexcLim2_koi rdf:type owl:ObjectProperty ;
-                 rdfs:domain :OverexcLim2 ;
-                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                 rdfs:comment "Gain Over excitation limiter (K<sub>OI</sub>).  Typical Value = 0.1." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_ifdlim -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_voimax
-:OverexcLim2_voimax rdf:type owl:ObjectProperty ;
-                    rdfs:domain :OverexcLim2 ;
-                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                    rdfs:comment "Maximum error signal (V<sub>OIMAX</sub>).  Typical Value = 0." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_ifdlim">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Limit value of rated field current (I&lt;sub&gt;FDLIM&lt;/sub&gt;).  Typical Value = 1.05.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_voimin
-:OverexcLim2_voimin rdf:type owl:ObjectProperty ;
-                    rdfs:domain :OverexcLim2 ;
-                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                    rdfs:comment "Minimum error signal (V<sub>OIMIN</sub>).  Typical Value = -9999." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_koi -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_hyst
-:OverexcLimIEEE_hyst rdf:type owl:ObjectProperty ;
-                     rdfs:domain :OverexcLimIEEE ;
-                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                     rdfs:comment "OEL pickup/drop-out hysteresis (HYST).  Typical Value = 0.03." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_koi">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Gain Over excitation limiter (K&lt;sub&gt;OI&lt;/sub&gt;).  Typical Value = 0.1.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_ifdlim
-:OverexcLimIEEE_ifdlim rdf:type owl:ObjectProperty ;
-                       rdfs:domain :OverexcLimIEEE ;
-                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                       rdfs:comment "OEL timed field current limit (I<sub>FDLIM</sub>).  Typical Value = 1.05." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_voimax -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_ifdmax
-:OverexcLimIEEE_ifdmax rdf:type owl:ObjectProperty ;
-                       rdfs:domain :OverexcLimIEEE ;
-                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                       rdfs:comment "OEL instantaneous field current limit (I<sub>FDMAX</sub>).  Typical Value = 1.5." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_voimax">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Maximum error signal (V&lt;sub&gt;OIMAX&lt;/sub&gt;).  Typical Value = 0.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_itfpu
-:OverexcLimIEEE_itfpu rdf:type owl:ObjectProperty ;
-                      rdfs:domain :OverexcLimIEEE ;
-                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                      rdfs:comment "OEL timed field current limiter pickup level (I<sub>TFPU</sub>).  Typical Value = 1.05." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_voimin -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_kcd
-:OverexcLimIEEE_kcd rdf:type owl:ObjectProperty ;
-                    rdfs:domain :OverexcLimIEEE ;
-                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                    rdfs:comment "OEL cooldown gain (K<sub>CD</sub>).  Typical Value = 1." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_voimin">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Minimum error signal (V&lt;sub&gt;OIMIN&lt;/sub&gt;).  Typical Value = -9999.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efd1
-:OverexcLimX1_efd1 rdf:type owl:ObjectProperty ;
-                   rdfs:domain :OverexcLimX1 ;
-                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                   rdfs:comment "Low voltage point on the inverse time characteristic (EFD<sub>1</sub>).  Typical Value = 1.1." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_hyst -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efd2
-:OverexcLimX1_efd2 rdf:type owl:ObjectProperty ;
-                   rdfs:domain :OverexcLimX1 ;
-                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                   rdfs:comment "Mid voltage point on the inverse time characteristic (EFD<sub>2</sub>).  Typical Value = 1.2." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_hyst">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>OEL pickup/drop-out hysteresis (HYST).  Typical Value = 0.03.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efd3
-:OverexcLimX1_efd3 rdf:type owl:ObjectProperty ;
-                   rdfs:domain :OverexcLimX1 ;
-                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                   rdfs:comment "High voltage point on the inverse time characteristic (EFD<sub>3</sub>).  Typical Value = 1.5." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_ifdlim -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efddes
-:OverexcLimX1_efddes rdf:type owl:ObjectProperty ;
-                     rdfs:domain :OverexcLimX1 ;
-                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                     rdfs:comment "Desired field voltage (EFD<sub>DES</sub>).  Typical Value = 0.9." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_ifdlim">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>OEL timed field current limit (I&lt;sub&gt;FDLIM&lt;/sub&gt;).  Typical Value = 1.05.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efdrated
-:OverexcLimX1_efdrated rdf:type owl:ObjectProperty ;
-                       rdfs:domain :OverexcLimX1 ;
-                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                       rdfs:comment "Rated field voltage (EFD<sub>RATED</sub>).  Typical Value = 1.05." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_ifdmax -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_kmx
-:OverexcLimX1_kmx rdf:type owl:ObjectProperty ;
-                  rdfs:domain :OverexcLimX1 ;
-                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                  rdfs:comment "Gain (K<sub>MX</sub>).  Typical Value = 0.01." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_ifdmax">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>OEL instantaneous field current limit (I&lt;sub&gt;FDMAX&lt;/sub&gt;).  Typical Value = 1.5.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_t1
-:OverexcLimX1_t1 rdf:type owl:ObjectProperty ;
-                 rdfs:domain :OverexcLimX1 ;
-                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
-                 rdfs:comment "Time to trip the exciter at the low voltage point on the inverse time characteristic (TIME<sub>1</sub>).  Typical Value = 120." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_itfpu -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_t2
-:OverexcLimX1_t2 rdf:type owl:ObjectProperty ;
-                 rdfs:domain :OverexcLimX1 ;
-                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
-                 rdfs:comment "Time to trip the exciter at the mid voltage point on the inverse time characteristic (TIME<sub>2</sub>).  Typical Value = 40." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_itfpu">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>OEL timed field current limiter pickup level (I&lt;sub&gt;TFPU&lt;/sub&gt;).  Typical Value = 1.05.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_t3
-:OverexcLimX1_t3 rdf:type owl:ObjectProperty ;
-                 rdfs:domain :OverexcLimX1 ;
-                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
-                 rdfs:comment "Time to trip the exciter at the high voltage point on the inverse time characteristic (TIME<sub>3</sub>).  Typical Value = 15." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_kcd -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_vlow
-:OverexcLimX1_vlow rdf:type owl:ObjectProperty ;
-                   rdfs:domain :OverexcLimX1 ;
-                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                   rdfs:comment "Low voltage limit (V<sub>LOW</sub>) (&gt;0)." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_kcd">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>OEL cooldown gain (K&lt;sub&gt;CD&lt;/sub&gt;).  Typical Value = 1.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efd1
-:OverexcLimX2_efd1 rdf:type owl:ObjectProperty ;
-                   rdfs:domain :OverexcLimX2 ;
-                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                   rdfs:comment "Low voltage or current point on the inverse time characteristic (EFD<sub>1</sub>).  Typical Value = 1.1." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efd1 -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efd2
-:OverexcLimX2_efd2 rdf:type owl:ObjectProperty ;
-                   rdfs:domain :OverexcLimX2 ;
-                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                   rdfs:comment "Mid voltage or current point on the inverse time characteristic (EFD<sub>2</sub>).  Typical Value = 1.2." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efd1">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Low voltage point on the inverse time characteristic (EFD&lt;sub&gt;1&lt;/sub&gt;).  Typical Value = 1.1.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efd3
-:OverexcLimX2_efd3 rdf:type owl:ObjectProperty ;
-                   rdfs:domain :OverexcLimX2 ;
-                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                   rdfs:comment "High voltage or current point on the inverse time characteristic (EFD<sub>3</sub>).  Typical Value = 1.5." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efd2 -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efddes
-:OverexcLimX2_efddes rdf:type owl:ObjectProperty ;
-                     rdfs:domain :OverexcLimX2 ;
-                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                     rdfs:comment "Desired field voltage if m=F or field current if m=T (EFD<sub>DES</sub>).  Typical Value = 1." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efd2">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Mid voltage point on the inverse time characteristic (EFD&lt;sub&gt;2&lt;/sub&gt;).  Typical Value = 1.2.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efdrated
-:OverexcLimX2_efdrated rdf:type owl:ObjectProperty ;
-                       rdfs:domain :OverexcLimX2 ;
-                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                       rdfs:comment "Rated field voltage if m=F or field current if m=T (EFD<sub>RATED</sub>).  Typical Value = 1.05." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efd3 -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_kmx
-:OverexcLimX2_kmx rdf:type owl:ObjectProperty ;
-                  rdfs:domain :OverexcLimX2 ;
-                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                  rdfs:comment "Gain (K<sub>MX</sub>).  Typical Value = 0.002." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efd3">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>High voltage point on the inverse time characteristic (EFD&lt;sub&gt;3&lt;/sub&gt;).  Typical Value = 1.5.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_t1
-:OverexcLimX2_t1 rdf:type owl:ObjectProperty ;
-                 rdfs:domain :OverexcLimX2 ;
-                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
-                 rdfs:comment "Time to trip the exciter at the low voltage or current point on the inverse time characteristic (TIME<sub>1</sub>).  Typical Value = 120." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efddes -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_t2
-:OverexcLimX2_t2 rdf:type owl:ObjectProperty ;
-                 rdfs:domain :OverexcLimX2 ;
-                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
-                 rdfs:comment "Time to trip the exciter at the mid voltage or current point on the inverse time characteristic (TIME<sub>2</sub>).  Typical Value = 40." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efddes">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Desired field voltage (EFD&lt;sub&gt;DES&lt;/sub&gt;).  Typical Value = 0.9.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_t3
-:OverexcLimX2_t3 rdf:type owl:ObjectProperty ;
-                 rdfs:domain :OverexcLimX2 ;
-                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
-                 rdfs:comment "Time to trip the exciter at the high voltage or current point on the inverse time characteristic (TIME<sub>3</sub>).  Typical Value = 15." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efdrated -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_vlow
-:OverexcLimX2_vlow rdf:type owl:ObjectProperty ;
-                   rdfs:domain :OverexcLimX2 ;
-                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                   rdfs:comment "Low voltage limit (V<sub>LOW</sub>) (&gt;0)." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efdrated">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Rated field voltage (EFD&lt;sub&gt;RATED&lt;/sub&gt;).  Typical Value = 1.05.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-#################################################################
-#    Data properties
-#################################################################
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_kramp
-:OverexcLimIEEE_kramp rdf:type owl:DatatypeProperty ;
-                      rdfs:domain :OverexcLimIEEE ;
-                      rdfs:range xsd:float ;
-                      rdfs:comment "OEL ramped limit rate (K<sub>RAMP</sub>).  Unit = PU/sec.  Typical Value = 10." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_kmx -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_m
-:OverexcLimX2_m rdf:type owl:DatatypeProperty ;
-                rdfs:domain :OverexcLimX2 ;
-                rdfs:range xsd:boolean ;
-                rdfs:comment """(m).
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_kmx">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Gain (K&lt;sub&gt;MX&lt;/sub&gt;).  Typical Value = 0.01.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_t1 -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_t1">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+        <rdfs:comment>Time to trip the exciter at the low voltage point on the inverse time characteristic (TIME&lt;sub&gt;1&lt;/sub&gt;).  Typical Value = 120.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_t2 -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_t2">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+        <rdfs:comment>Time to trip the exciter at the mid voltage point on the inverse time characteristic (TIME&lt;sub&gt;2&lt;/sub&gt;).  Typical Value = 40.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_t3 -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_t3">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+        <rdfs:comment>Time to trip the exciter at the high voltage point on the inverse time characteristic (TIME&lt;sub&gt;3&lt;/sub&gt;).  Typical Value = 15.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_vlow -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_vlow">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Low voltage limit (V&lt;sub&gt;LOW&lt;/sub&gt;) (&amp;gt;0).</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efd1 -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efd1">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Low voltage or current point on the inverse time characteristic (EFD&lt;sub&gt;1&lt;/sub&gt;).  Typical Value = 1.1.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efd2 -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efd2">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Mid voltage or current point on the inverse time characteristic (EFD&lt;sub&gt;2&lt;/sub&gt;).  Typical Value = 1.2.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efd3 -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efd3">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>High voltage or current point on the inverse time characteristic (EFD&lt;sub&gt;3&lt;/sub&gt;).  Typical Value = 1.5.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efddes -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efddes">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Desired field voltage if m=F or field current if m=T (EFD&lt;sub&gt;DES&lt;/sub&gt;).  Typical Value = 1.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efdrated -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efdrated">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Rated field voltage if m=F or field current if m=T (EFD&lt;sub&gt;RATED&lt;/sub&gt;).  Typical Value = 1.05.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_kmx -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_kmx">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Gain (K&lt;sub&gt;MX&lt;/sub&gt;).  Typical Value = 0.002.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_t1 -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_t1">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+        <rdfs:comment>Time to trip the exciter at the low voltage or current point on the inverse time characteristic (TIME&lt;sub&gt;1&lt;/sub&gt;).  Typical Value = 120.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_t2 -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_t2">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+        <rdfs:comment>Time to trip the exciter at the mid voltage or current point on the inverse time characteristic (TIME&lt;sub&gt;2&lt;/sub&gt;).  Typical Value = 40.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_t3 -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_t3">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+        <rdfs:comment>Time to trip the exciter at the high voltage or current point on the inverse time characteristic (TIME&lt;sub&gt;3&lt;/sub&gt;).  Typical Value = 15.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_vlow -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_vlow">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Low voltage limit (V&lt;sub&gt;LOW&lt;/sub&gt;) (&amp;gt;0).</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_kramp -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_kramp">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>OEL ramped limit rate (K&lt;sub&gt;RAMP&lt;/sub&gt;).  Unit = PU/sec.  Typical Value = 10.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_m -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_m">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>(m).
 true = IFD limiting
-false = EFD limiting.""" .
+false = EFD limiting.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> rdf:type owl:Class .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock> rdf:type owl:Class .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2
-:OverexcLim2 rdf:type owl:Class ;
-             rdfs:subClassOf :OverexcitationLimiterDynamics ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :OverexcLim2_ifdlim ;
-                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :OverexcLim2_koi ;
-                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :OverexcLim2_voimax ;
-                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :OverexcLim2_voimin ;
-                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :OverexcLim2_ifdlim ;
-                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :OverexcLim2_koi ;
-                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :OverexcLim2_voimax ;
-                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                             ] ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :OverexcLim2_voimin ;
-                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                             ] ;
-             rdfs:comment """Different from LimIEEEOEL, LimOEL2 has a fixed pickup threshold and reduces the excitation set-point by mean of non-windup integral regulator.
-Irated is the rated machine excitation current (calculated from nameplate conditions: V<sub>nom</sub>, P<sub>nom</sub>, CosPhi<sub>nom</sub>).""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE
-:OverexcLimIEEE rdf:type owl:Class ;
-                rdfs:subClassOf :OverexcitationLimiterDynamics ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :OverexcLimIEEE_hyst ;
-                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :OverexcLimIEEE_ifdlim ;
-                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :OverexcLimIEEE_ifdmax ;
-                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :OverexcLimIEEE_itfpu ;
-                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :OverexcLimIEEE_kcd ;
-                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :OverexcLimIEEE_hyst ;
-                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :OverexcLimIEEE_ifdlim ;
-                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :OverexcLimIEEE_ifdmax ;
-                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :OverexcLimIEEE_itfpu ;
-                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :OverexcLimIEEE_kcd ;
-                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :OverexcLimIEEE_kramp ;
-                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                  owl:onDataRange xsd:float
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :OverexcLimIEEE_kramp ;
-                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onDataRange xsd:float
-                                ] ;
-                rdfs:comment """The over excitation limiter model is intended to represent the significant features of OELs necessary for some large-scale system studies. It is the result of a pragmatic approach to obtain a model that can be widely applied with attainable data from generator owners. An attempt to include all variations in the functionality of OELs and duplicate how they interact with the rest of the excitation systems would likely result in a level of application insufficient for the studies for which they are intended.
-
-Reference: IEEE OEL 421.5-2005 Section 9. """ .
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1
-:OverexcLimX1 rdf:type owl:Class ;
-              rdfs:subClassOf :OverexcitationLimiterDynamics ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_efd1 ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_efd2 ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_efd3 ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_efddes ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_efdrated ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_kmx ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_t1 ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_t2 ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_t3 ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_vlow ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_efd1 ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_efd2 ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_efd3 ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_efddes ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_efdrated ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_kmx ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_t1 ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_t2 ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_t3 ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX1_vlow ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ;
-              rdfs:comment "Field voltage over excitation limiter." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2
-:OverexcLimX2 rdf:type owl:Class ;
-              rdfs:subClassOf :OverexcitationLimiterDynamics ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_efd1 ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_efd2 ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_efd3 ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_efddes ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_efdrated ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_kmx ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_t1 ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_t2 ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_t3 ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_vlow ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_efd1 ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_efd2 ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_efd3 ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_efddes ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_efdrated ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_kmx ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_t1 ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_t2 ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_t3 ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_vlow ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_m ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onDataRange xsd:boolean
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :OverexcLimX2_m ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onDataRange xsd:boolean
-                              ] ;
-              rdfs:comment "Field Voltage or Current overexcitation limiter designed to protect the generator field of an AC machine with automatic excitation control from overheating due to prolonged overexcitation." .
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcitationLimiterDynamics
-:OverexcitationLimiterDynamics rdf:type owl:Class ;
-                               rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock> ;
-                               rdfs:comment "<font color=\"#0f0f0f\">O</font>Overexcitation limiter function block whose behaviour is described by reference to a standard model <font color=\"#0f0f0f\">or by definition of a user-defined model.</font>" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock -->
 
 
-###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2 -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcitationLimiterDynamics"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_ifdlim"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_koi"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_voimax"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_voimin"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_ifdlim"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_koi"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_voimax"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLim2_voimin"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Different from LimIEEEOEL, LimOEL2 has a fixed pickup threshold and reduces the excitation set-point by mean of non-windup integral regulator.
+Irated is the rated machine excitation current (calculated from nameplate conditions: V&lt;sub&gt;nom&lt;/sub&gt;, P&lt;sub&gt;nom&lt;/sub&gt;, CosPhi&lt;sub&gt;nom&lt;/sub&gt;).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcitationLimiterDynamics"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_hyst"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_ifdlim"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_ifdmax"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_itfpu"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_kcd"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_hyst"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_ifdlim"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_ifdmax"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_itfpu"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_kcd"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_kramp"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimIEEE_kramp"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The over excitation limiter model is intended to represent the significant features of OELs necessary for some large-scale system studies. It is the result of a pragmatic approach to obtain a model that can be widely applied with attainable data from generator owners. An attempt to include all variations in the functionality of OELs and duplicate how they interact with the rest of the excitation systems would likely result in a level of application insufficient for the studies for which they are intended.
+
+Reference: IEEE OEL 421.5-2005 Section 9. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1 -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcitationLimiterDynamics"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efd1"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efd2"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efd3"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efddes"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efdrated"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_kmx"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_t1"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_t2"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_t3"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_vlow"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efd1"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efd2"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efd3"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efddes"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_efdrated"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_kmx"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_t1"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_t2"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_t3"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX1_vlow"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Field voltage over excitation limiter.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2 -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcitationLimiterDynamics"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efd1"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efd2"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efd3"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efddes"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efdrated"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_kmx"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_t1"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_t2"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_t3"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_vlow"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efd1"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efd2"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efd3"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efddes"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_efdrated"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_kmx"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_t1"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_t2"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_t3"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_vlow"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_m"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcLimX2_m"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Field Voltage or Current overexcitation limiter designed to protect the generator field of an AC machine with automatic excitation control from overheating due to prolonged overexcitation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcitationLimiterDynamics -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/OverexcitationLimiterDynamics#OverexcitationLimiterDynamics">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#DynamicsFunctionBlock"/>
+        <rdfs:comment>&lt;font color=&quot;#0f0f0f&quot;&gt;O&lt;/font&gt;Overexcitation limiter function block whose behaviour is described by reference to a standard model &lt;font color=&quot;#0f0f0f&quot;&gt;or by definition of a user-defined model.&lt;/font&gt;</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
+
+

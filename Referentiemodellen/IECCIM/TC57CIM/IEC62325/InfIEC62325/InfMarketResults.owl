@@ -1,244 +1,376 @@
-@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#> .
-
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#> rdf:type owl:Ontology .
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieClearing_InterTieResults
-:InterTieClearing_InterTieResults rdf:type owl:ObjectProperty ;
-                                  rdfs:domain :InterTieClearing ;
-                                  rdfs:range :InterTieResults ;
-                                  rdfs:comment "" .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#"
+     xml:base="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults_InterTieClearing
-:InterTieResults_InterTieClearing rdf:type owl:ObjectProperty ;
-                                  owl:inverseOf :InterTieClearing_InterTieResults ;
-                                  rdfs:domain :InterTieResults ;
-                                  rdfs:range :InterTieClearing ;
-                                  rdfs:comment "" .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing_mwFlow
-:SecurityConstraintsClearing_mwFlow rdf:type owl:ObjectProperty ;
-                                    rdfs:domain :SecurityConstraintsClearing ;
-                                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
-                                    rdfs:comment """Optimal MW flow
-""" .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing_mwLimit
-:SecurityConstraintsClearing_mwLimit rdf:type owl:ObjectProperty ;
-                                     rdfs:domain :SecurityConstraintsClearing ;
-                                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
-                                     rdfs:comment """Binding MW limit.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieClearing_InterTieResults -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing_shadowPrice
-:SecurityConstraintsClearing_shadowPrice rdf:type owl:ObjectProperty ;
-                                         rdfs:domain :SecurityConstraintsClearing ;
-                                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> ;
-                                         rdfs:comment """Security constraint shadow price.
-""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieClearing_InterTieResults">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieClearing"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-#################################################################
-#    Data properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults_baseMW
-:InterTieResults_baseMW rdf:type owl:DatatypeProperty ;
-                        rdfs:domain :InterTieResults ;
-                        rdfs:range xsd:float ;
-                        rdfs:comment """Net Actual MW Flow
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults_InterTieClearing -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults_clearedValue
-:InterTieResults_clearedValue rdf:type owl:DatatypeProperty ;
-                              rdfs:domain :InterTieResults ;
-                              rdfs:range xsd:float ;
-                              rdfs:comment """Net Dispatched MW
-""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults_InterTieClearing">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieClearing_InterTieResults"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieClearing"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing_caseType
-:MarketCaseClearing_caseType rdf:type owl:DatatypeProperty ;
-                             rdfs:domain :MarketCaseClearing ;
-                             rdfs:range xsd:string ;
-                             rdfs:comment """Settlement period:
-'DA - Bid-in'
-'DA - Reliability'
-'DA - Amp1'
-'DA - Amp2'
-'RT - Ex-Ante'
-'RT - Ex-Post'
-'RT - Amp1'
-'RT - Amp2'
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing_mwFlow -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing_modifiedDate
-:MarketCaseClearing_modifiedDate rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain :MarketCaseClearing ;
-                                 rdfs:range xsd:dateTime ;
-                                 rdfs:comment """Last time and date clearing results were manually modified.
-""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing_mwFlow">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+        <rdfs:comment>Optimal MW flow
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing_postedDate
-:MarketCaseClearing_postedDate rdf:type owl:DatatypeProperty ;
-                               rdfs:domain :MarketCaseClearing ;
-                               rdfs:range xsd:dateTime ;
-                               rdfs:comment """Bid clearing results posted time and date.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing_mwLimit -->
 
 
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Money
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Money> rdf:type owl:Class .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing_mwLimit">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+        <rdfs:comment>Binding MW limit.
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieClearing
-:InterTieClearing rdf:type owl:Class ;
-                  rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketFactors> ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :InterTieClearing_InterTieResults ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass :InterTieClearing
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :InterTieClearing_InterTieResults ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass :InterTieClearing
-                                  ] ;
-                  rdfs:comment """Model of market clearing related to results at the inter-ties. Identifies interval
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing_shadowPrice -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults
-:InterTieResults rdf:type owl:Class ;
-                 rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                   owl:onProperty :InterTieResults_InterTieClearing ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onClass :InterTieResults
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :InterTieResults_baseMW ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange xsd:float
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :InterTieResults_clearedValue ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange xsd:float
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :InterTieResults_baseMW ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange xsd:float
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :InterTieResults_clearedValue ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange xsd:float
-                                 ] ;
-                 rdfs:comment """Provides the tie point specific output from the market applications. Currently, this is defined as the loop flow compensation MW value.
-""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing_shadowPrice">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Money"/>
+        <rdfs:comment>Security constraint shadow price.
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing
-:MarketCaseClearing rdf:type owl:Class ;
-                    rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketFactors> ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :MarketCaseClearing_caseType ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:string
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :MarketCaseClearing_modifiedDate ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:dateTime
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :MarketCaseClearing_postedDate ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:dateTime
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :MarketCaseClearing_caseType ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:string
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :MarketCaseClearing_modifiedDate ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:dateTime
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :MarketCaseClearing_postedDate ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:dateTime
-                                    ] ;
-                    rdfs:comment """Market case clearing results are posted for a given settlement period.
-""" .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing
-:SecurityConstraintsClearing rdf:type owl:Class ;
-                             rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketFactors> ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :SecurityConstraintsClearing_mwFlow ;
-                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :SecurityConstraintsClearing_mwLimit ;
-                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :SecurityConstraintsClearing_shadowPrice ;
-                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :SecurityConstraintsClearing_mwFlow ;
-                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :SecurityConstraintsClearing_mwLimit ;
-                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :SecurityConstraintsClearing_shadowPrice ;
-                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Money>
-                                             ] ;
-                             rdfs:comment """Binding security constrained clearing results posted for a given settlement period.
-""" .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketFactors
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketFactors> rdf:type owl:Class .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults_baseMW -->
 
 
-###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults_baseMW">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Net Actual MW Flow
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults_clearedValue -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults_clearedValue">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Net Dispatched MW
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing_caseType -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing_caseType">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Settlement period:
+&apos;DA - Bid-in&apos;
+&apos;DA - Reliability&apos;
+&apos;DA - Amp1&apos;
+&apos;DA - Amp2&apos;
+&apos;RT - Ex-Ante&apos;
+&apos;RT - Ex-Post&apos;
+&apos;RT - Amp1&apos;
+&apos;RT - Amp2&apos;
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing_modifiedDate -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing_modifiedDate">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment>Last time and date clearing results were manually modified.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing_postedDate -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing_postedDate">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment>Bid clearing results posted time and date.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Money -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Money"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieClearing -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieClearing">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketFactors"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieClearing_InterTieResults"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieClearing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieClearing_InterTieResults"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieClearing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Model of market clearing related to results at the inter-ties. Identifies interval
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults_InterTieClearing"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults_baseMW"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults_clearedValue"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults_baseMW"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#InterTieResults_clearedValue"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Provides the tie point specific output from the market applications. Currently, this is defined as the loop flow compensation MW value.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketFactors"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing_caseType"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing_modifiedDate"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing_postedDate"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing_caseType"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing_modifiedDate"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#MarketCaseClearing_postedDate"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Market case clearing results are posted for a given settlement period.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketFactors"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing_mwFlow"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing_mwLimit"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing_shadowPrice"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Money"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing_mwFlow"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing_mwLimit"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfMarketResults#SecurityConstraintsClearing_shadowPrice"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Money"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Binding security constrained clearing results posted for a given settlement period.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketFactors -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketPlan#MarketFactors"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
+
+

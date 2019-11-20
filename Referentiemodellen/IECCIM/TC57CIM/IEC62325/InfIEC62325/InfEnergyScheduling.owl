@@ -1,630 +1,965 @@
-@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#> .
-
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#> rdf:type owl:Ontology .
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_lowerRegMarginReqt
-:AreaReserveSpec_lowerRegMarginReqt rdf:type owl:ObjectProperty ;
-                                    rdfs:domain :AreaReserveSpec ;
-                                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
-                                    rdfs:comment """Lower regulating margin requirement in MW, the amount of generation that can be dropped by control in 10 minutes
-""" .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#"
+     xml:base="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_opReserveReqt
-:AreaReserveSpec_opReserveReqt rdf:type owl:ObjectProperty ;
-                               rdfs:domain :AreaReserveSpec ;
-                               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
-                               rdfs:comment """Operating reserve requirement in MW, where operating reserve is the generating capability that is fully available within 30 minutes. Operating reserve is composed of primary reserve (t less than 10 min) and secondary reserve (10 less than t less than 30 min).
-""" .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_primaryReserveReqt
-:AreaReserveSpec_primaryReserveReqt rdf:type owl:ObjectProperty ;
-                                    rdfs:domain :AreaReserveSpec ;
-                                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
-                                    rdfs:comment """Primary reserve requirement in MW, where primary reserve is generating capability that is fully available within 10 minutes. Primary reserve is composed of spinning reserve and quick-start reserve.
-""" .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_raiseRegMarginReqt
-:AreaReserveSpec_raiseRegMarginReqt rdf:type owl:ObjectProperty ;
-                                    rdfs:domain :AreaReserveSpec ;
-                                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
-                                    rdfs:comment """Raise regulating margin requirement in MW, the amount of generation that can be picked up by control in 10 minutes
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_lowerRegMarginReqt -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_spinningReserveReqt
-:AreaReserveSpec_spinningReserveReqt rdf:type owl:ObjectProperty ;
-                                     rdfs:domain :AreaReserveSpec ;
-                                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
-                                     rdfs:comment """Spinning reserve requirement in MW, spinning reserve is generating capability that is presently synchronized to the network and is fully available within 10 minutes
-""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_lowerRegMarginReqt">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+        <rdfs:comment>Lower regulating margin requirement in MW, the amount of generation that can be dropped by control in 10 minutes
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#ControlAreaOperator_CAChildOf
-:ControlAreaOperator_CAChildOf rdf:type owl:ObjectProperty ;
-                               rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#ControlAreaOperator> ;
-                               rdfs:range :TieLine ;
-                               rdfs:comment "A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_opReserveReqt -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_InternalControlArea
-:CurrentEmergencyScheduledInterchange_InternalControlArea rdf:type owl:ObjectProperty ;
-                                                          rdfs:domain :CurrentEmergencyScheduledInterchange ;
-                                                          rdfs:range :InternalControlArea ;
-                                                          rdfs:comment "" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_opReserveReqt">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+        <rdfs:comment>Operating reserve requirement in MW, where operating reserve is the generating capability that is fully available within 30 minutes. Operating reserve is composed of primary reserve (t less than 10 min) and secondary reserve (10 less than t less than 30 min).
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange_InternalControlArea
-:CurrentScheduledInterchange_InternalControlArea rdf:type owl:ObjectProperty ;
-                                                 rdfs:domain :CurrentScheduledInterchange ;
-                                                 rdfs:range :InternalControlArea ;
-                                                 rdfs:comment "" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_primaryReserveReqt -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CustomerConsumer_CustChildOf
-:CustomerConsumer_CustChildOf rdf:type owl:ObjectProperty ;
-                              rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#CustomerConsumer> ;
-                              rdfs:range :TieLine ;
-                              rdfs:comment "A CustomerConsumer may ring its perimeter with metering, which can create a unique SubControlArea at the collection of metering points, called a TieLine.A  ControlAreaOperator or CustomerConsumer may ring their perimeter with metering, which can create a unique SubControlArea at the collection of metering points, called a TieLine." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_primaryReserveReqt">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+        <rdfs:comment>Primary reserve requirement in MW, where primary reserve is generating capability that is fully available within 10 minutes. Primary reserve is composed of spinning reserve and quick-start reserve.
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct_GenerationProvider
-:EnergyProduct_GenerationProvider rdf:type owl:ObjectProperty ;
-                                  rdfs:domain :EnergyProduct ;
-                                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#GenerationProvider> ;
-                                  rdfs:comment "" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_raiseRegMarginReqt -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct_ResoldBy_Marketer
-:EnergyProduct_ResoldBy_Marketer rdf:type owl:ObjectProperty ;
-                                 rdfs:domain :EnergyProduct ;
-                                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer> ;
-                                 rdfs:comment "A Marketer may resell an EnergyProduct.A Marketer may resell an EnergyProduct." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_raiseRegMarginReqt">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+        <rdfs:comment>Raise regulating margin requirement in MW, the amount of generation that can be picked up by control in 10 minutes
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct_TitleHeldBy_Marketer
-:EnergyProduct_TitleHeldBy_Marketer rdf:type owl:ObjectProperty ;
-                                    rdfs:domain :EnergyProduct ;
-                                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer> ;
-                                    rdfs:comment "A Marketer holds title to an EnergyProduct.A Marketer holds title to an EnergyProduct." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_spinningReserveReqt -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#GenerationProvider_ProvidedBy
-:GenerationProvider_ProvidedBy rdf:type owl:ObjectProperty ;
-                               owl:inverseOf :EnergyProduct_GenerationProvider ;
-                               rdf:type owl:FunctionalProperty ;
-                               rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#GenerationProvider> ;
-                               rdfs:range :EnergyProduct ;
-                               rdfs:comment "" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_spinningReserveReqt">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+        <rdfs:comment>Spinning reserve requirement in MW, spinning reserve is generating capability that is presently synchronized to the network and is fully available within 10 minutes
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InternalControlArea_CurrentEmergencySI
-:InternalControlArea_CurrentEmergencySI rdf:type owl:ObjectProperty ;
-                                        owl:inverseOf :CurrentEmergencyScheduledInterchange_InternalControlArea ;
-                                        rdf:type owl:FunctionalProperty ;
-                                        rdfs:domain :InternalControlArea ;
-                                        rdfs:range :CurrentEmergencyScheduledInterchange ;
-                                        rdfs:comment "" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#ControlAreaOperator_CAChildOf -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InternalControlArea_CurrentScheduledInterchange
-:InternalControlArea_CurrentScheduledInterchange rdf:type owl:ObjectProperty ;
-                                                 owl:inverseOf :CurrentScheduledInterchange_InternalControlArea ;
-                                                 rdf:type owl:FunctionalProperty ;
-                                                 rdfs:domain :InternalControlArea ;
-                                                 rdfs:range :CurrentScheduledInterchange ;
-                                                 rdfs:comment "" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#ControlAreaOperator_CAChildOf">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#ControlAreaOperator"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TieLine"/>
+        <rdfs:comment>A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#LossProfile_HasLoss_
-:LossProfile_HasLoss_ rdf:type owl:ObjectProperty ;
-                      rdfs:domain :LossProfile ;
-                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#TransmissionProvider> ;
-                      rdfs:comment "Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the TransmissionProvider must be one of the participating entities in the EnergyTransaction.Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the TransmissionProvider must be one of the participating entities in the EnergyTransaction." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_InternalControlArea -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#Marketer_HoldsTitleTo_EnergyProducts
-:Marketer_HoldsTitleTo_EnergyProducts rdf:type owl:ObjectProperty ;
-                                      owl:inverseOf :EnergyProduct_TitleHeldBy_Marketer ;
-                                      rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer> ;
-                                      rdfs:range :EnergyProduct ;
-                                      rdfs:comment "A Marketer holds title to an EnergyProduct.A Marketer holds title to an EnergyProduct." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_InternalControlArea">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InternalControlArea"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#Marketer_Resells_EnergyProduct
-:Marketer_Resells_EnergyProduct rdf:type owl:ObjectProperty ;
-                                owl:inverseOf :EnergyProduct_ResoldBy_Marketer ;
-                                rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer> ;
-                                rdfs:range :EnergyProduct ;
-                                rdfs:comment "A Marketer may resell an EnergyProduct.A Marketer may resell an EnergyProduct." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange_InternalControlArea -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TieLine_ParentOfA
-:TieLine_ParentOfA rdf:type owl:ObjectProperty ;
-                   owl:inverseOf :ControlAreaOperator_CAChildOf ;
-                   rdfs:domain :TieLine ;
-                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#ControlAreaOperator> ;
-                   rdfs:comment "A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange_InternalControlArea">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InternalControlArea"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TieLine_ParentOfB
-:TieLine_ParentOfB rdf:type owl:ObjectProperty ;
-                   owl:inverseOf :CustomerConsumer_CustChildOf ;
-                   rdfs:domain :TieLine ;
-                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#CustomerConsumer> ;
-                   rdfs:comment "A CustomerConsumer may ring its perimeter with metering, which can create a unique SubControlArea at the collection of metering points, called a TieLine.A  ControlAreaOperator or CustomerConsumer may ring their perimeter with metering, which can create a unique SubControlArea at the collection of metering points, called a TieLine." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CustomerConsumer_CustChildOf -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionCorridor_TransmissionRightOfWays
-:TransmissionCorridor_TransmissionRightOfWays rdf:type owl:ObjectProperty ,
-                                                       owl:FunctionalProperty ;
-                                              rdfs:domain :TransmissionCorridor ;
-                                              rdfs:range :TransmissionRightOfWay ;
-                                              rdfs:comment "A transmission right-of-way is a member of a transmission corridorA transmission right-of-way is a member of a transmission corridor" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CustomerConsumer_CustChildOf">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#CustomerConsumer"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TieLine"/>
+        <rdfs:comment>A CustomerConsumer may ring its perimeter with metering, which can create a unique SubControlArea at the collection of metering points, called a TieLine.A  ControlAreaOperator or CustomerConsumer may ring their perimeter with metering, which can create a unique SubControlArea at the collection of metering points, called a TieLine.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionProvider_For
-:TransmissionProvider_For rdf:type owl:ObjectProperty ;
-                          owl:inverseOf :LossProfile_HasLoss_ ;
-                          rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#TransmissionProvider> ;
-                          rdfs:range :LossProfile ;
-                          rdfs:comment "Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the TransmissionProvider must be one of the participating entities in the EnergyTransaction.Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the TransmissionProvider must be one of the participating entities in the EnergyTransaction." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct_GenerationProvider -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionRightOfWay_TransmissionCorridor
-:TransmissionRightOfWay_TransmissionCorridor rdf:type owl:ObjectProperty ;
-                                             owl:inverseOf :TransmissionCorridor_TransmissionRightOfWays ;
-                                             rdfs:domain :TransmissionRightOfWay ;
-                                             rdfs:range :TransmissionCorridor ;
-                                             rdfs:comment "A transmission right-of-way is a member of a transmission corridorA transmission right-of-way is a member of a transmission corridor" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct_GenerationProvider">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#GenerationProvider"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-#################################################################
-#    Data properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_Description
-:AreaReserveSpec_Description rdf:type owl:DatatypeProperty ;
-                             rdfs:domain :AreaReserveSpec ;
-                             rdfs:range xsd:string ;
-                             rdfs:comment """Description of the object or instance.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct_ResoldBy_Marketer -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_emergencyScheduleMW
-:CurrentEmergencyScheduledInterchange_emergencyScheduleMW rdf:type owl:DatatypeProperty ;
-                                                          rdfs:domain :CurrentEmergencyScheduledInterchange ;
-                                                          rdfs:range xsd:float ;
-                                                          rdfs:comment """Net tie MW. These are three entries, the current emergency schedule interchange and the two future schedules if they exist.
-""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct_ResoldBy_Marketer">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer"/>
+        <rdfs:comment>A Marketer may resell an EnergyProduct.A Marketer may resell an EnergyProduct.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_emergencyScheduleRampTime
-:CurrentEmergencyScheduledInterchange_emergencyScheduleRampTime rdf:type owl:DatatypeProperty ;
-                                                                rdfs:domain :CurrentEmergencyScheduledInterchange ;
-                                                                rdfs:range xsd:nonNegativeInteger ;
-                                                                rdfs:comment """Ramp time, the ramping time for a schedule. This is calculated as the remaining time to ramp if a schedule is ramping. Measured in seconds, but can be negattive.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct_TitleHeldBy_Marketer -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_emergencyScheduleStartTime
-:CurrentEmergencyScheduledInterchange_emergencyScheduleStartTime rdf:type owl:DatatypeProperty ;
-                                                                 rdfs:domain :CurrentEmergencyScheduledInterchange ;
-                                                                 rdfs:range xsd:dateTime ;
-                                                                 rdfs:comment """Net tie time,  the start time for a schedule. This is calculated as the current time if a schedule is ramping.
-""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct_TitleHeldBy_Marketer">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer"/>
+        <rdfs:comment>A Marketer holds title to an EnergyProduct.A Marketer holds title to an EnergyProduct.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange_currentNetTieMW
-:CurrentScheduledInterchange_currentNetTieMW rdf:type owl:DatatypeProperty ;
-                                             rdfs:domain :CurrentScheduledInterchange ;
-                                             rdfs:range xsd:float ;
-                                             rdfs:comment """Current control area net tie MW (the sum of the tie line flows, i.e the sum of flows into and out of the control area), the current instantaneous scheduled interchange.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#GenerationProvider_ProvidedBy -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange_useEmergencySchedule
-:CurrentScheduledInterchange_useEmergencySchedule rdf:type owl:DatatypeProperty ;
-                                                  rdfs:domain :CurrentScheduledInterchange ;
-                                                  rdfs:range xsd:boolean ;
-                                                  rdfs:comment """Use Emergency Schedule 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#GenerationProvider_ProvidedBy">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct_GenerationProvider"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#GenerationProvider"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InternalControlArea_CurrentEmergencySI -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InternalControlArea_CurrentEmergencySI">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_InternalControlArea"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InternalControlArea"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InternalControlArea_CurrentScheduledInterchange -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InternalControlArea_CurrentScheduledInterchange">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange_InternalControlArea"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InternalControlArea"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#LossProfile_HasLoss_ -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#LossProfile_HasLoss_">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#LossProfile"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#TransmissionProvider"/>
+        <rdfs:comment>Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the TransmissionProvider must be one of the participating entities in the EnergyTransaction.Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the TransmissionProvider must be one of the participating entities in the EnergyTransaction.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#Marketer_HoldsTitleTo_EnergyProducts -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#Marketer_HoldsTitleTo_EnergyProducts">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct_TitleHeldBy_Marketer"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct"/>
+        <rdfs:comment>A Marketer holds title to an EnergyProduct.A Marketer holds title to an EnergyProduct.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#Marketer_Resells_EnergyProduct -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#Marketer_Resells_EnergyProduct">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct_ResoldBy_Marketer"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct"/>
+        <rdfs:comment>A Marketer may resell an EnergyProduct.A Marketer may resell an EnergyProduct.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TieLine_ParentOfA -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TieLine_ParentOfA">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#ControlAreaOperator_CAChildOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TieLine"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#ControlAreaOperator"/>
+        <rdfs:comment>A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.A ControlAreaOperator has a collection of tie points that ring the ControlArea, called a TieLine.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TieLine_ParentOfB -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TieLine_ParentOfB">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CustomerConsumer_CustChildOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TieLine"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#CustomerConsumer"/>
+        <rdfs:comment>A CustomerConsumer may ring its perimeter with metering, which can create a unique SubControlArea at the collection of metering points, called a TieLine.A  ControlAreaOperator or CustomerConsumer may ring their perimeter with metering, which can create a unique SubControlArea at the collection of metering points, called a TieLine.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionCorridor_TransmissionRightOfWays -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionCorridor_TransmissionRightOfWays">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionCorridor"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionRightOfWay"/>
+        <rdfs:comment>A transmission right-of-way is a member of a transmission corridorA transmission right-of-way is a member of a transmission corridor</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionProvider_For -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionProvider_For">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#LossProfile_HasLoss_"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#TransmissionProvider"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#LossProfile"/>
+        <rdfs:comment>Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the TransmissionProvider must be one of the participating entities in the EnergyTransaction.Part of the LossProfile for an EnergyTransaction may be a loss for a TransmissionProvider. If so, the TransmissionProvider must be one of the participating entities in the EnergyTransaction.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionRightOfWay_TransmissionCorridor -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionRightOfWay_TransmissionCorridor">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionCorridor_TransmissionRightOfWays"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionRightOfWay"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionCorridor"/>
+        <rdfs:comment>A transmission right-of-way is a member of a transmission corridorA transmission right-of-way is a member of a transmission corridor</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_Description -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_Description">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Description of the object or instance.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_emergencyScheduleMW -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_emergencyScheduleMW">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Net tie MW. These are three entries, the current emergency schedule interchange and the two future schedules if they exist.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_emergencyScheduleRampTime -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_emergencyScheduleRampTime">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment>Ramp time, the ramping time for a schedule. This is calculated as the remaining time to ramp if a schedule is ramping. Measured in seconds, but can be negattive.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_emergencyScheduleStartTime -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_emergencyScheduleStartTime">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment>Net tie time,  the start time for a schedule. This is calculated as the current time if a schedule is ramping.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange_currentNetTieMW -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange_currentNetTieMW">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Current control area net tie MW (the sum of the tie line flows, i.e the sum of flows into and out of the control area), the current instantaneous scheduled interchange.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange_useEmergencySchedule -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange_useEmergencySchedule">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Use Emergency Schedule 
 Attribute Usage: Emergency use indicator, false = Emergency Schedular OFF, true = Emergency Schedular ON.
-""" .
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#DynamicSchedule_dynSchedSignRev
-:DynamicSchedule_dynSchedSignRev rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain :DynamicSchedule ;
-                                 rdfs:range xsd:boolean ;
-                                 rdfs:comment """Dynamic schedule sign reversal required (true/false)
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#DynamicSchedule_dynSchedSignRev -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#DynamicSchedule_dynSchedStatus
-:DynamicSchedule_dynSchedStatus rdf:type owl:DatatypeProperty ;
-                                rdfs:domain :DynamicSchedule ;
-                                rdfs:range xsd:string ;
-                                rdfs:comment """The \"active\" or \"inactive\" status of the dynamic schedule
-""" .
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#DynamicSchedule_dynSchedSignRev">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#DynamicSchedule"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Dynamic schedule sign reversal required (true/false)
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement> rdf:type owl:Class .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#DynamicSchedule_dynSchedStatus -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#BasicIntervalSchedule
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#BasicIntervalSchedule> rdf:type owl:Class .
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#DynamicSchedule_dynSchedStatus">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#DynamicSchedule"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The &quot;active&quot; or &quot;inactive&quot; status of the dynamic schedule
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource> rdf:type owl:Class .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> rdf:type owl:Class .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Agreement -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec
-:AreaReserveSpec rdf:type owl:Class ;
-                 rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                   owl:onProperty :AreaReserveSpec_lowerRegMarginReqt ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :AreaReserveSpec_opReserveReqt ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :AreaReserveSpec_primaryReserveReqt ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :AreaReserveSpec_raiseRegMarginReqt ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :AreaReserveSpec_spinningReserveReqt ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :AreaReserveSpec_lowerRegMarginReqt ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :AreaReserveSpec_opReserveReqt ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :AreaReserveSpec_primaryReserveReqt ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :AreaReserveSpec_raiseRegMarginReqt ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :AreaReserveSpec_spinningReserveReqt ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :AreaReserveSpec_Description ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange xsd:string
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :AreaReserveSpec_Description ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange xsd:string
-                                 ] ;
-                 rdfs:comment """The control area's reserve specification.
-""" .
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Agreement"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange
-:CurrentEmergencyScheduledInterchange rdf:type owl:Class ;
-                                      rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty :CurrentEmergencyScheduledInterchange_InternalControlArea ;
-                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                        owl:onClass :CurrentEmergencyScheduledInterchange
-                                                      ] ,
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty :CurrentEmergencyScheduledInterchange_emergencyScheduleMW ;
-                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                        owl:onDataRange xsd:float
-                                                      ] ,
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty :CurrentEmergencyScheduledInterchange_emergencyScheduleRampTime ;
-                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                        owl:onDataRange xsd:nonNegativeInteger
-                                                      ] ,
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty :CurrentEmergencyScheduledInterchange_emergencyScheduleStartTime ;
-                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                        owl:onDataRange xsd:dateTime
-                                                      ] ,
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty :CurrentEmergencyScheduledInterchange_emergencyScheduleMW ;
-                                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                        owl:onDataRange xsd:float
-                                                      ] ,
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty :CurrentEmergencyScheduledInterchange_emergencyScheduleRampTime ;
-                                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                        owl:onDataRange xsd:nonNegativeInteger
-                                                      ] ,
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty :CurrentEmergencyScheduledInterchange_emergencyScheduleStartTime ;
-                                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                        owl:onDataRange xsd:dateTime
-                                                      ] ;
-                                      rdfs:comment """Control area emergency schedules
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#BasicIntervalSchedule -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange
-:CurrentScheduledInterchange rdf:type owl:Class ;
-                             rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                               owl:onProperty :CurrentScheduledInterchange_InternalControlArea ;
-                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                               owl:onClass :CurrentScheduledInterchange
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :CurrentScheduledInterchange_InternalControlArea ;
-                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass :CurrentScheduledInterchange
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :CurrentScheduledInterchange_currentNetTieMW ;
-                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                               owl:onDataRange xsd:float
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :CurrentScheduledInterchange_useEmergencySchedule ;
-                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                               owl:onDataRange xsd:boolean
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :CurrentScheduledInterchange_currentNetTieMW ;
-                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onDataRange xsd:float
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :CurrentScheduledInterchange_useEmergencySchedule ;
-                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onDataRange xsd:boolean
-                                             ] ;
-                             rdfs:comment """Control area current net tie (scheduled interchange) sent to real time dispatch.
-""" .
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#BasicIntervalSchedule"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurtailmentProfile
-:CurtailmentProfile rdf:type owl:Class ;
-                    rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/ExternalInputs#Profile> ;
-                    rdfs:comment """Curtailing entity must be providing at least one service to the EnergyTransaction. The CurtailmentProfile must be completely contained within the EnergyProfile timeframe for this EnergyTransaction.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#DynamicSchedule
-:DynamicSchedule rdf:type owl:Class ;
-                 rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#BasicIntervalSchedule> ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :DynamicSchedule_dynSchedSignRev ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange xsd:boolean
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :DynamicSchedule_dynSchedStatus ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange xsd:string
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :DynamicSchedule_dynSchedSignRev ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange xsd:boolean
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :DynamicSchedule_dynSchedStatus ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange xsd:string
-                                 ] ;
-                 rdfs:comment """A continuously variable component of a control area's MW net interchange schedule. Dynamic schedules are sent and received by control areas.
-""" .
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct
-:EnergyProduct rdf:type owl:Class ;
-               rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Agreement> ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :EnergyProduct_GenerationProvider ;
-                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :EnergyProduct
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :EnergyProduct_ResoldBy_Marketer ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :EnergyProduct
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :EnergyProduct_TitleHeldBy_Marketer ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :EnergyProduct
-                               ] ;
-               rdfs:comment """An EnergyProduct is offered commercially as a ContractOrTariff.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InadvertentAccount
-:InadvertentAccount rdf:type owl:Class ;
-                    rdfs:comment """An account for tracking inadvertent interchange versus time for each control area. A control area may have more than one inadvertent account in order to track inadvertent over one or more specific tie points in addition to the usual overall net inadvertent. Separate accounts would also be used to track designated time periods, such as on-peak and off-peak.
-""" .
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InternalControlArea
-:InternalControlArea rdf:type owl:Class ;
-                     rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :InternalControlArea_CurrentEmergencySI ;
-                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass :InternalControlArea
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :InternalControlArea_CurrentScheduledInterchange ;
-                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass :InternalControlArea
-                                     ] ;
-                     rdfs:comment """There is one internal control area in the system, which is the single control area in the primary network company. Real time generation control affects only the internal control area.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#LossProfile
-:LossProfile rdf:type owl:Class ;
-             rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/ExternalInputs#Profile> ,
-                             [ rdf:type owl:Restriction ;
-                               owl:onProperty :LossProfile_HasLoss_ ;
-                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                               owl:onClass :LossProfile
-                             ] ;
-             rdfs:comment """LossProfile is associated with an EnerrgyTransaction and must be completely contained within the time frame of the EnergyProfile associated with this EnergyTransaction.
-""" .
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TieLine
-:TieLine rdf:type owl:Class ;
-         rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :TieLine_ParentOfA ;
-                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onClass :TieLine
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :TieLine_ParentOfB ;
-                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onClass :TieLine
-                         ] .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionCorridor
-:TransmissionCorridor rdf:type owl:Class ;
-                      rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource> ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty :TransmissionCorridor_TransmissionRightOfWays ;
-                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                        owl:onClass :TransmissionCorridor
-                                      ] ;
-                      rdfs:comment """A corridor containing one or more rights of way
-""" .
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_lowerRegMarginReqt"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_opReserveReqt"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_primaryReserveReqt"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_raiseRegMarginReqt"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_spinningReserveReqt"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_lowerRegMarginReqt"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_opReserveReqt"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_primaryReserveReqt"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_raiseRegMarginReqt"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_spinningReserveReqt"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_Description"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#AreaReserveSpec_Description"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The control area&apos;s reserve specification.
+</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionRightOfWay
-:TransmissionRightOfWay rdf:type owl:Class ;
-                        rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource> ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :TransmissionRightOfWay_TransmissionCorridor ;
-                                          owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass :TransmissionRightOfWay
-                                        ] ;
-                        rdfs:comment """A collection of transmission lines that are close proximity to each other.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#ControlAreaOperator
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#ControlAreaOperator> rdf:type owl:Class ;
-                                                                                                  rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                    owl:onProperty :ControlAreaOperator_CAChildOf ;
-                                                                                                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                    owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#ControlAreaOperator>
-                                                                                                                  ] .
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_InternalControlArea"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_emergencyScheduleMW"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_emergencyScheduleRampTime"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_emergencyScheduleStartTime"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_emergencyScheduleMW"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_emergencyScheduleRampTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentEmergencyScheduledInterchange_emergencyScheduleStartTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Control area emergency schedules
+</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#CustomerConsumer
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#CustomerConsumer> rdf:type owl:Class ;
-                                                                                               rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                 owl:onProperty :CustomerConsumer_CustChildOf ;
-                                                                                                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#CustomerConsumer>
-                                                                                                               ] ,
-                                                                                                               [ rdf:type owl:Restriction ;
-                                                                                                                 owl:onProperty :CustomerConsumer_CustChildOf ;
-                                                                                                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#CustomerConsumer>
-                                                                                                               ] .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#GenerationProvider
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#GenerationProvider> rdf:type owl:Class ;
-                                                                                                 rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                   owl:onProperty :GenerationProvider_ProvidedBy ;
-                                                                                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#GenerationProvider>
-                                                                                                                 ] .
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange_InternalControlArea"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange_InternalControlArea"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange_currentNetTieMW"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange_useEmergencySchedule"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange_currentNetTieMW"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurrentScheduledInterchange_useEmergencySchedule"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Control area current net tie (scheduled interchange) sent to real time dispatch.
+</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer> rdf:type owl:Class ;
-                                                                                       rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                         owl:onProperty :Marketer_HoldsTitleTo_EnergyProducts ;
-                                                                                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                         owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer>
-                                                                                                       ] ,
-                                                                                                       [ rdf:type owl:Restriction ;
-                                                                                                         owl:onProperty :Marketer_Resells_EnergyProduct ;
-                                                                                                         owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                         owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer>
-                                                                                                       ] ,
-                                                                                                       [ rdf:type owl:Restriction ;
-                                                                                                         owl:onProperty :Marketer_HoldsTitleTo_EnergyProducts ;
-                                                                                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                         owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer>
-                                                                                                       ] .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurtailmentProfile -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#TransmissionProvider
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#TransmissionProvider> rdf:type owl:Class ;
-                                                                                                   rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                     owl:onProperty :TransmissionProvider_For ;
-                                                                                                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                     owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#TransmissionProvider>
-                                                                                                                   ] ,
-                                                                                                                   [ rdf:type owl:Restriction ;
-                                                                                                                     owl:onProperty :TransmissionProvider_For ;
-                                                                                                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                     owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#TransmissionProvider>
-                                                                                                                   ] .
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CurtailmentProfile">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/ExternalInputs#Profile"/>
+        <rdfs:comment>Curtailing entity must be providing at least one service to the EnergyTransaction. The CurtailmentProfile must be completely contained within the EnergyProfile timeframe for this EnergyTransaction.
+</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/ExternalInputs#Profile
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/ExternalInputs#Profile> rdf:type owl:Class .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#DynamicSchedule -->
 
 
-###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#DynamicSchedule">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#BasicIntervalSchedule"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#DynamicSchedule_dynSchedSignRev"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#DynamicSchedule_dynSchedStatus"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#DynamicSchedule_dynSchedSignRev"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#DynamicSchedule_dynSchedStatus"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A continuously variable component of a control area&apos;s MW net interchange schedule. Dynamic schedules are sent and received by control areas.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Agreement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct_GenerationProvider"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct_ResoldBy_Marketer"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct_TitleHeldBy_Marketer"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#EnergyProduct"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>An EnergyProduct is offered commercially as a ContractOrTariff.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InadvertentAccount -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InadvertentAccount">
+        <rdfs:comment>An account for tracking inadvertent interchange versus time for each control area. A control area may have more than one inadvertent account in order to track inadvertent over one or more specific tie points in addition to the usual overall net inadvertent. Separate accounts would also be used to track designated time periods, such as on-peak and off-peak.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InternalControlArea -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InternalControlArea">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InternalControlArea_CurrentEmergencySI"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InternalControlArea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InternalControlArea_CurrentScheduledInterchange"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#InternalControlArea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>There is one internal control area in the system, which is the single control area in the primary network company. Real time generation control affects only the internal control area.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#LossProfile -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#LossProfile">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/ExternalInputs#Profile"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#LossProfile_HasLoss_"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#LossProfile"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>LossProfile is associated with an EnerrgyTransaction and must be completely contained within the time frame of the EnergyProfile associated with this EnergyTransaction.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TieLine -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TieLine">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TieLine_ParentOfA"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TieLine"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TieLine_ParentOfB"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TieLine"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionCorridor -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionCorridor">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionCorridor_TransmissionRightOfWays"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionCorridor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A corridor containing one or more rights of way
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionRightOfWay -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionRightOfWay">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#PowerSystemResource"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionRightOfWay_TransmissionCorridor"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionRightOfWay"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A collection of transmission lines that are close proximity to each other.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#ControlAreaOperator -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#ControlAreaOperator">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#ControlAreaOperator_CAChildOf"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#ControlAreaOperator"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#CustomerConsumer -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#CustomerConsumer">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CustomerConsumer_CustChildOf"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#CustomerConsumer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#CustomerConsumer_CustChildOf"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#CustomerConsumer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#GenerationProvider -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#GenerationProvider">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#GenerationProvider_ProvidedBy"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#GenerationProvider"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#Marketer_HoldsTitleTo_EnergyProducts"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#Marketer_Resells_EnergyProduct"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#Marketer_HoldsTitleTo_EnergyProducts"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#Marketer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#TransmissionProvider -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#TransmissionProvider">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionProvider_For"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#TransmissionProvider"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfEnergyScheduling#TransmissionProvider_For"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/InfIEC62325/InfFinancial#TransmissionProvider"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/ExternalInputs#Profile -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC62325/MarketOperations/MarketSystem/ExternalInputs#Profile"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
+
+

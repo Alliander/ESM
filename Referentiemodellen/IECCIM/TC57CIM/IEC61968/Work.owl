@@ -1,1148 +1,1829 @@
-@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#> .
-
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#> rdf:type owl:Ontology .
-
-#################################################################
-#    Datatypes
-#################################################################
-
-###  http://www.w3.org/2001/XMLSchema#date
-xsd:date rdf:type rdfs:Datatype .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#VehicleUsageKind
-:VehicleUsageKind rdf:type rdfs:Datatype ;
-                  owl:equivalentClass [ rdf:type rdfs:Datatype ;
-                                        owl:oneOf [ rdf:type rdf:List ;
-                                                    rdf:first "contractor" ;
-                                                    rdf:rest [ rdf:type rdf:List ;
-                                                               rdf:first "crew" ;
-                                                               rdf:rest [ rdf:type rdf:List ;
-                                                                          rdf:first "other" ;
-                                                                          rdf:rest [ rdf:type rdf:List ;
-                                                                                     rdf:first "user" ;
-                                                                                     rdf:rest rdf:nil
-                                                                                   ]
-                                                                        ]
-                                                             ]
-                                                  ]
-                                      ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkKind
-:WorkKind rdf:type rdfs:Datatype ;
-          owl:equivalentClass [ rdf:type rdfs:Datatype ;
-                                owl:oneOf [ rdf:type rdf:List ;
-                                            rdf:first "connect" ;
-                                            rdf:rest [ rdf:type rdf:List ;
-                                                       rdf:first "construction" ;
-                                                       rdf:rest [ rdf:type rdf:List ;
-                                                                  rdf:first "disconnect" ;
-                                                                  rdf:rest [ rdf:type rdf:List ;
-                                                                             rdf:first "inspection" ;
-                                                                             rdf:rest [ rdf:type rdf:List ;
-                                                                                        rdf:first "maintenance" ;
-                                                                                        rdf:rest [ rdf:type rdf:List ;
-                                                                                                   rdf:first "other" ;
-                                                                                                   rdf:rest [ rdf:type rdf:List ;
-                                                                                                              rdf:first "reconnect" ;
-                                                                                                              rdf:rest [ rdf:type rdf:List ;
-                                                                                                                         rdf:first "repair" ;
-                                                                                                                         rdf:rest [ rdf:type rdf:List ;
-                                                                                                                                    rdf:first "service" ;
-                                                                                                                                    rdf:rest [ rdf:type rdf:List ;
-                                                                                                                                               rdf:first "test" ;
-                                                                                                                                               rdf:rest rdf:nil
-                                                                                                                                             ]
-                                                                                                                                  ]
-                                                                                                                       ]
-                                                                                                            ]
-                                                                                                 ]
-                                                                                      ]
-                                                                           ]
-                                                                ]
-                                                     ]
-                                          ]
-                              ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkStatusKind
-:WorkStatusKind rdf:type rdfs:Datatype ;
-                owl:equivalentClass [ rdf:type rdfs:Datatype ;
-                                      owl:oneOf [ rdf:type rdf:List ;
-                                                  rdf:first "approved" ;
-                                                  rdf:rest [ rdf:type rdf:List ;
-                                                             rdf:first "cancelled" ;
-                                                             rdf:rest [ rdf:type rdf:List ;
-                                                                        rdf:first "closed" ;
-                                                                        rdf:rest [ rdf:type rdf:List ;
-                                                                                   rdf:first "completed" ;
-                                                                                   rdf:rest [ rdf:type rdf:List ;
-                                                                                              rdf:first "dispatched" ;
-                                                                                              rdf:rest [ rdf:type rdf:List ;
-                                                                                                         rdf:first "enroute" ;
-                                                                                                         rdf:rest [ rdf:type rdf:List ;
-                                                                                                                    rdf:first "inProgress" ;
-                                                                                                                    rdf:rest [ rdf:type rdf:List ;
-                                                                                                                               rdf:first "onSite" ;
-                                                                                                                               rdf:rest [ rdf:type rdf:List ;
-                                                                                                                                          rdf:first "scheduled" ;
-                                                                                                                                          rdf:rest [ rdf:type rdf:List ;
-                                                                                                                                                     rdf:first "waitingOnApproval" ;
-                                                                                                                                                     rdf:rest [ rdf:type rdf:List ;
-                                                                                                                                                                rdf:first "waitingOnMaterial" ;
-                                                                                                                                                                rdf:rest [ rdf:type rdf:List ;
-                                                                                                                                                                           rdf:first "waitingToBeScheduled" ;
-                                                                                                                                                                           rdf:rest rdf:nil
-                                                                                                                                                                         ]
-                                                                                                                                                              ]
-                                                                                                                                                   ]
-                                                                                                                                        ]
-                                                                                                                             ]
-                                                                                                                  ]
-                                                                                                       ]
-                                                                                            ]
-                                                                                 ]
-                                                                      ]
-                                                           ]
-                                                ]
-                                    ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkTaskKind
-:WorkTaskKind rdf:type rdfs:Datatype ;
-              owl:equivalentClass [ rdf:type rdfs:Datatype ;
-                                    owl:oneOf [ rdf:type rdf:List ;
-                                                rdf:first "exchange" ;
-                                                rdf:rest [ rdf:type rdf:List ;
-                                                           rdf:first "install" ;
-                                                           rdf:rest [ rdf:type rdf:List ;
-                                                                      rdf:first "investigate" ;
-                                                                      rdf:rest [ rdf:type rdf:List ;
-                                                                                 rdf:first "remove" ;
-                                                                                 rdf:rest rdf:nil
-                                                                               ]
-                                                                    ]
-                                                         ]
-                                              ]
-                                  ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkTimeScheduleKind
-:WorkTimeScheduleKind rdf:type rdfs:Datatype ;
-                      owl:equivalentClass [ rdf:type rdfs:Datatype ;
-                                            owl:oneOf [ rdf:type rdf:List ;
-                                                        rdf:first "actual" ;
-                                                        rdf:rest [ rdf:type rdf:List ;
-                                                                   rdf:first "earliest" ;
-                                                                   rdf:rest [ rdf:type rdf:List ;
-                                                                              rdf:first "estimate" ;
-                                                                              rdf:rest [ rdf:type rdf:List ;
-                                                                                         rdf:first "latest" ;
-                                                                                         rdf:rest [ rdf:type rdf:List ;
-                                                                                                    rdf:first "request" ;
-                                                                                                    rdf:rest rdf:nil
-                                                                                                  ]
-                                                                                       ]
-                                                                            ]
-                                                                 ]
-                                                      ]
-                                          ] .
-
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#BaseWork_TimeSchedules
-:BaseWork_TimeSchedules rdf:type owl:ObjectProperty ;
-                        rdfs:domain :BaseWork ;
-                        rdfs:range :WorkTimeSchedule ;
-                        rdfs:comment "Time schedule for this work or work task.All time schedules for this work or work task." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#BaseWork_WorkActivityRecords
-:BaseWork_WorkActivityRecords rdf:type owl:ObjectProperty ;
-                              rdfs:domain :BaseWork ;
-                              rdfs:range :WorkActivityRecord ;
-                              rdfs:comment "Base work that this activity record tracks.All activity records for this work or work task." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#BaseWork_WorkLocation
-:BaseWork_WorkLocation rdf:type owl:ObjectProperty ;
-                       rdfs:domain :BaseWork ;
-                       rdfs:range :WorkLocation ;
-                       rdfs:comment "All works/tasks at this location.Location for this work/task." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#BaseWork_priority
-:BaseWork_priority rdf:type owl:ObjectProperty ;
-                   rdfs:domain :BaseWork ;
-                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Priority> ;
-                   rdfs:comment "Priority of work." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#BusinessCase_Works
-:BusinessCase_Works rdf:type owl:ObjectProperty ;
-                    rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase> ;
-                    rdfs:range :Work ;
-                    rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#CUWorkEquipmentItem_TypeAsset
-:CUWorkEquipmentItem_TypeAsset rdf:type owl:ObjectProperty ;
-                               rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem> ;
-                               rdfs:range :WorkAsset ;
-                               rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Customer_Works
-:Customer_Works rdf:type owl:ObjectProperty ;
-                rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer> ;
-                rdfs:range :Work ;
-                rdfs:comment "All the customers for which this work is performed.All the works performed for this customer." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#DesignLocation_WorkLocations
-:DesignLocation_WorkLocations rdf:type owl:ObjectProperty ;
-                              rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#DesignLocation> ;
-                              rdfs:range :WorkLocation ;
-                              rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Design_Work
-:Design_Work rdf:type owl:ObjectProperty ;
-             rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Design> ;
-             rdfs:range :Work ;
-             rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#ErpProjectAccounting_Works
-:ErpProjectAccounting_Works rdf:type owl:ObjectProperty ;
-                            owl:inverseOf :Work_ErpProjectAccounting ;
-                            rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting> ;
-                            rdfs:range :Work ;
-                            rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#MaterialItem_TypeMaterial
-:MaterialItem_TypeMaterial rdf:type owl:ObjectProperty ;
-                           owl:inverseOf :TypeMaterial_MaterialItems ;
-                           rdfs:domain :MaterialItem ;
-                           rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial> ;
-                           rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#MaterialItem_WorkTask
-:MaterialItem_WorkTask rdf:type owl:ObjectProperty ;
-                       owl:inverseOf :WorkTask_MaterialItems ;
-                       rdfs:domain :MaterialItem ;
-                       rdfs:range :WorkTask ;
-                       rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#MaterialItem_quantity
-:MaterialItem_quantity rdf:type owl:ObjectProperty ;
-                       rdfs:domain :MaterialItem ;
-                       rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#IntegerQuantity> ;
-                       rdfs:comment "Quantity of material used." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#OneCallRequest_WorkLocations
-:OneCallRequest_WorkLocations rdf:type owl:ObjectProperty ;
-                              owl:inverseOf :WorkLocation_OneCallRequest ;
-                              rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest> ;
-                              rdfs:range :WorkLocation ;
-                              rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Project_Works
-:Project_Works rdf:type owl:ObjectProperty ;
-               owl:inverseOf :Work_Project ;
-               rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project> ;
-               rdfs:range :Work ;
-               rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#TypeMaterial_MaterialItems
-:TypeMaterial_MaterialItems rdf:type owl:ObjectProperty ;
-                            rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial> ;
-                            rdfs:range :MaterialItem ;
-                            rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Vehicle_odometerReading
-:Vehicle_odometerReading rdf:type owl:ObjectProperty ;
-                         rdfs:domain :Vehicle ;
-                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Length> ;
-                         rdfs:comment "Odometer reading of this vehicle as of the 'odometerReadingDateTime'. Refer to associated ActivityRecords for earlier readings." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord_BaseWork
-:WorkActivityRecord_BaseWork rdf:type owl:ObjectProperty ;
-                             owl:inverseOf :BaseWork_WorkActivityRecords ;
-                             rdfs:domain :WorkActivityRecord ;
-                             rdfs:range :BaseWork ;
-                             rdfs:comment "Base work that this activity record tracks.All activity records for this work or work task." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord_percentComplete
-:WorkActivityRecord_percentComplete rdf:type owl:ObjectProperty ;
-                                    rdfs:domain :WorkActivityRecord ;
-                                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> ;
-                                    rdfs:comment "Estimated percentage of completion of this individual work task or overall work order." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkAsset_CUWorkEquipmentAsset
-:WorkAsset_CUWorkEquipmentAsset rdf:type owl:ObjectProperty ;
-                                owl:inverseOf :CUWorkEquipmentItem_TypeAsset ;
-                                rdfs:domain :WorkAsset ;
-                                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem> ;
-                                rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkBillingInfo_Works
-:WorkBillingInfo_Works rdf:type owl:ObjectProperty ;
-                       rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo> ;
-                       rdfs:range :Work ;
-                       rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkCostDetail_Works
-:WorkCostDetail_Works rdf:type owl:ObjectProperty ;
-                      rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkCostDetail> ;
-                      rdfs:range :Work ;
-                      rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkFlowStep_Work
-:WorkFlowStep_Work rdf:type owl:ObjectProperty ;
-                   rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkFlowStep> ;
-                   rdfs:range :Work ;
-                   rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkLocation_BaseWorks
-:WorkLocation_BaseWorks rdf:type owl:ObjectProperty ;
-                        owl:inverseOf :BaseWork_WorkLocation ;
-                        rdfs:domain :WorkLocation ;
-                        rdfs:range :BaseWork ;
-                        rdfs:comment "All works/tasks at this location.Location for this work/task." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkLocation_DesignLocations
-:WorkLocation_DesignLocations rdf:type owl:ObjectProperty ;
-                              owl:inverseOf :DesignLocation_WorkLocations ;
-                              rdfs:domain :WorkLocation ;
-                              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#DesignLocation> ;
-                              rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkLocation_OneCallRequest
-:WorkLocation_OneCallRequest rdf:type owl:ObjectProperty ;
-                             rdfs:domain :WorkLocation ;
-                             rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest> ;
-                             rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkTask_MaterialItems
-:WorkTask_MaterialItems rdf:type owl:ObjectProperty ;
-                        rdfs:domain :WorkTask ;
-                        rdfs:range :MaterialItem ;
-                        rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkTask_Work
-:WorkTask_Work rdf:type owl:ObjectProperty ;
-               owl:inverseOf :Work_WorkTasks ;
-               rdfs:domain :WorkTask ;
-               rdfs:range :Work ;
-               rdfs:comment "Work this task belongs to.All tasks in this work." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule_BaseWork
-:WorkTimeSchedule_BaseWork rdf:type owl:ObjectProperty ;
-                           owl:inverseOf :BaseWork_TimeSchedules ;
-                           rdfs:domain :WorkTimeSchedule ;
-                           rdfs:range :BaseWork ;
-                           rdfs:comment "Time schedule for this work or work task.All time schedules for this work or work task." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Work_BusinessCase
-:Work_BusinessCase rdf:type owl:ObjectProperty ;
-                   owl:inverseOf :BusinessCase_Works ;
-                   rdfs:domain :Work ;
-                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase> ;
-                   rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Work_Customers
-:Work_Customers rdf:type owl:ObjectProperty ;
-                owl:inverseOf :Customer_Works ;
-                rdfs:domain :Work ;
-                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer> ;
-                rdfs:comment "All the customers for which this work is performed.All the works performed for this customer." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Work_Designs
-:Work_Designs rdf:type owl:ObjectProperty ;
-              owl:inverseOf :Design_Work ;
-              rdfs:domain :Work ;
-              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Design> ;
-              rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Work_ErpProjectAccounting
-:Work_ErpProjectAccounting rdf:type owl:ObjectProperty ;
-                           rdfs:domain :Work ;
-                           rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting> ;
-                           rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Work_Project
-:Work_Project rdf:type owl:ObjectProperty ;
-              rdfs:domain :Work ;
-              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project> ;
-              rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Work_WorkBillingInfo
-:Work_WorkBillingInfo rdf:type owl:ObjectProperty ;
-                      owl:inverseOf :WorkBillingInfo_Works ;
-                      rdfs:domain :Work ;
-                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo> ;
-                      rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Work_WorkCostDetails
-:Work_WorkCostDetails rdf:type owl:ObjectProperty ;
-                      owl:inverseOf :WorkCostDetail_Works ;
-                      rdfs:domain :Work ;
-                      rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkCostDetail> ;
-                      rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Work_WorkFlowSteps
-:Work_WorkFlowSteps rdf:type owl:ObjectProperty ;
-                    owl:inverseOf :WorkFlowStep_Work ;
-                    rdfs:domain :Work ;
-                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkFlowStep> ;
-                    rdfs:comment "" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Work_WorkTasks
-:Work_WorkTasks rdf:type owl:ObjectProperty ,
-                         owl:FunctionalProperty ;
-                rdfs:domain :Work ;
-                rdfs:range :WorkTask ;
-                rdfs:comment "Work this task belongs to.All tasks in this work." .
-
-
-#################################################################
-#    Data properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#BaseWork_kind
-:BaseWork_kind rdf:type owl:DatatypeProperty ;
-               rdfs:domain :BaseWork ;
-               rdfs:range :WorkKind ;
-               rdfs:comment "Kind of work." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#BaseWork_statusKind
-:BaseWork_statusKind rdf:type owl:DatatypeProperty ;
-                     rdfs:domain :BaseWork ;
-                     rdfs:range :WorkStatusKind ;
-                     rdfs:comment "Kind of work status." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_block
-:MaintenanceLocation_block rdf:type owl:DatatypeProperty ;
-                           rdfs:domain :MaintenanceLocation ;
-                           rdfs:range xsd:string ;
-                           rdfs:comment "(if applicable) Name, identifier, or description of the block in which work is to occur." .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#"
+     xml:base="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#VehicleUsageKind -->
+
+
+    <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#VehicleUsageKind">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>contractor</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>crew</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>other</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>user</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkKind -->
+
+
+    <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkKind">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>connect</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>construction</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>disconnect</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>inspection</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first>maintenance</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first>other</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first>reconnect</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first>repair</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                        <rdf:first>service</rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                <rdf:first>test</rdf:first>
+                                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkStatusKind -->
+
+
+    <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkStatusKind">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>approved</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>cancelled</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>closed</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>completed</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first>dispatched</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first>enroute</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first>inProgress</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first>onSite</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                        <rdf:first>scheduled</rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                <rdf:first>waitingOnApproval</rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                        <rdf:first>waitingOnMaterial</rdf:first>
+                                                                                                        <rdf:rest>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                <rdf:first>waitingToBeScheduled</rdf:first>
+                                                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:rest>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTaskKind -->
+
+
+    <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTaskKind">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>exchange</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>install</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>investigate</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>remove</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeScheduleKind -->
+
+
+    <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeScheduleKind">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>actual</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>earliest</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>estimate</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>latest</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first>request</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_TimeSchedules -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_TimeSchedules">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule"/>
+        <rdfs:comment>Time schedule for this work or work task.All time schedules for this work or work task.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_WorkActivityRecords -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_WorkActivityRecords">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord"/>
+        <rdfs:comment>Base work that this activity record tracks.All activity records for this work or work task.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_WorkLocation -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_WorkLocation">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation"/>
+        <rdfs:comment>All works/tasks at this location.Location for this work/task.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_priority -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_priority">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Priority"/>
+        <rdfs:comment>Priority of work.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BusinessCase_Works -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BusinessCase_Works">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#CUWorkEquipmentItem_TypeAsset -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#CUWorkEquipmentItem_TypeAsset">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkAsset"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Customer_Works -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Customer_Works">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Customers#Customer"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:comment>All the customers for which this work is performed.All the works performed for this customer.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#DesignLocation_WorkLocations -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#DesignLocation_WorkLocations">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#DesignLocation"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Design_Work -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Design_Work">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Design"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#ErpProjectAccounting_Works -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#ErpProjectAccounting_Works">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_ErpProjectAccounting"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem_TypeMaterial -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem_TypeMaterial">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#TypeMaterial_MaterialItems"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem_WorkTask -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem_WorkTask">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_MaterialItems"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem_quantity -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem_quantity">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#IntegerQuantity"/>
+        <rdfs:comment>Quantity of material used.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#OneCallRequest_WorkLocations -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#OneCallRequest_WorkLocations">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation_OneCallRequest"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Project_Works -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Project_Works">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_Project"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#TypeMaterial_MaterialItems -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#TypeMaterial_MaterialItems">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Vehicle_odometerReading -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Vehicle_odometerReading">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Vehicle"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Length"/>
+        <rdfs:comment>Odometer reading of this vehicle as of the &apos;odometerReadingDateTime&apos;. Refer to associated ActivityRecords for earlier readings.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord_BaseWork -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord_BaseWork">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_WorkActivityRecords"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork"/>
+        <rdfs:comment>Base work that this activity record tracks.All activity records for this work or work task.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord_percentComplete -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord_percentComplete">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent"/>
+        <rdfs:comment>Estimated percentage of completion of this individual work task or overall work order.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkAsset_CUWorkEquipmentAsset -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkAsset_CUWorkEquipmentAsset">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#CUWorkEquipmentItem_TypeAsset"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkAsset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkBillingInfo_Works -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkBillingInfo_Works">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkCostDetail_Works -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkCostDetail_Works">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkCostDetail"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkFlowStep_Work -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkFlowStep_Work">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkFlowStep"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation_BaseWorks -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation_BaseWorks">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_WorkLocation"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork"/>
+        <rdfs:comment>All works/tasks at this location.Location for this work/task.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_lot
-:MaintenanceLocation_lot rdf:type owl:DatatypeProperty ;
-                         rdfs:domain :MaintenanceLocation ;
-                         rdfs:range xsd:string ;
-                         rdfs:comment "(if applicable) Name, identifier, or description of the lot in which work is to occur." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation_DesignLocations -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_nearestIntersection
-:MaintenanceLocation_nearestIntersection rdf:type owl:DatatypeProperty ;
-                                         rdfs:domain :MaintenanceLocation ;
-                                         rdfs:range xsd:string ;
-                                         rdfs:comment "The names of streets at the nearest intersection to work area." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation_DesignLocations">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#DesignLocation_WorkLocations"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#DesignLocation"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_subdivision
-:MaintenanceLocation_subdivision rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain :MaintenanceLocation ;
-                                 rdfs:range xsd:string ;
-                                 rdfs:comment "(if applicable) Name, identifier, or description of the subdivision in which work is to occur." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation_OneCallRequest -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Tool_lastCalibrationDate
-:Tool_lastCalibrationDate rdf:type owl:DatatypeProperty ;
-                          rdfs:domain :Tool ;
-                          rdfs:range xsd:date ;
-                          rdfs:comment "(if applicable) Date the tool was last calibrated." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation_OneCallRequest">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Vehicle_odometerReadDateTime
-:Vehicle_odometerReadDateTime rdf:type owl:DatatypeProperty ;
-                              rdfs:domain :Vehicle ;
-                              rdfs:range xsd:dateTime ;
-                              rdfs:comment """Date and time the last odometer reading was recorded.
-""" .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_MaterialItems -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Vehicle_usageKind
-:Vehicle_usageKind rdf:type owl:DatatypeProperty ;
-                   rdfs:domain :Vehicle ;
-                   rdfs:range :VehicleUsageKind ;
-                   rdfs:comment "Kind of usage of the vehicle." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_MaterialItems">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkTask_crewETA
-:WorkTask_crewETA rdf:type owl:DatatypeProperty ;
-                  rdfs:domain :WorkTask ;
-                  rdfs:range xsd:dateTime ;
-                  rdfs:comment "Estimated time of arrival, so that customer or police/fire department can be informed when the crew will arrive." .
 
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_Work -->
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkTask_instruction
-:WorkTask_instruction rdf:type owl:DatatypeProperty ;
-                      rdfs:domain :WorkTask ;
-                      rdfs:range xsd:string ;
-                      rdfs:comment "Instructions for performing this task." .
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_Work">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_WorkTasks"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:comment>Work this task belongs to.All tasks in this work.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkTask_schedOverride
-:WorkTask_schedOverride rdf:type owl:DatatypeProperty ;
-                        rdfs:domain :WorkTask ;
-                        rdfs:range xsd:string ;
-                        rdfs:comment "If specified, override schedule and perform this task in accordance with instructions specified here." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkTask_taskKind
-:WorkTask_taskKind rdf:type owl:DatatypeProperty ;
-                   rdfs:domain :WorkTask ;
-                   rdfs:range :WorkTaskKind ;
-                   rdfs:comment "Kind of work." .
 
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule_kind
-:WorkTimeSchedule_kind rdf:type owl:DatatypeProperty ;
-                       rdfs:domain :WorkTimeSchedule ;
-                       rdfs:range :WorkTimeScheduleKind ;
-                       rdfs:comment "Kind of this work schedule." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Work_requestDateTime
-:Work_requestDateTime rdf:type owl:DatatypeProperty ;
-                      rdfs:domain :Work ;
-                      rdfs:range xsd:dateTime ;
-                      rdfs:comment """Date and time work was requested.
-""" .
-
-
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Priority
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Priority> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer> rdf:type owl:Class ;
-                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                          owl:onProperty :Customer_Works ;
-                                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                          owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Customers#Customer>
-                                                                                        ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo> rdf:type owl:Class ;
-                                                                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                owl:onProperty :WorkBillingInfo_Works ;
-                                                                                                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo>
-                                                                                                              ] ,
-                                                                                                              [ rdf:type owl:Restriction ;
-                                                                                                                owl:onProperty :WorkBillingInfo_Works ;
-                                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo>
-                                                                                                              ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting> rdf:type owl:Class ;
-                                                                                                    rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                      owl:onProperty :ErpProjectAccounting_Works ;
-                                                                                                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting>
-                                                                                                                    ] ,
-                                                                                                                    [ rdf:type owl:Restriction ;
-                                                                                                                      owl:onProperty :ErpProjectAccounting_Works ;
-                                                                                                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting>
-                                                                                                                    ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase> rdf:type owl:Class ;
-                                                                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                        owl:onProperty :BusinessCase_Works ;
-                                                                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase>
-                                                                                                      ] ,
-                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                        owl:onProperty :BusinessCase_Works ;
-                                                                                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase>
-                                                                                                      ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem> rdf:type owl:Class ;
-                                                                                             rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                               owl:onProperty :CUWorkEquipmentItem_TypeAsset ;
-                                                                                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem>
-                                                                                                             ] ,
-                                                                                                             [ rdf:type owl:Restriction ;
-                                                                                                               owl:onProperty :CUWorkEquipmentItem_TypeAsset ;
-                                                                                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem>
-                                                                                                             ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Design
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Design> rdf:type owl:Class ;
-                                                                                rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                  owl:onProperty :Design_Work ;
-                                                                                                  owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                  owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Design>
-                                                                                                ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#DesignLocation
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#DesignLocation> rdf:type owl:Class ;
-                                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                          owl:onProperty :DesignLocation_WorkLocations ;
-                                                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                          owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#DesignLocation>
-                                                                                                        ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest> rdf:type owl:Class ;
-                                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                          owl:onProperty :OneCallRequest_WorkLocations ;
-                                                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                          owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest>
-                                                                                                        ] ,
-                                                                                                        [ rdf:type owl:Restriction ;
-                                                                                                          owl:onProperty :OneCallRequest_WorkLocations ;
-                                                                                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                          owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest>
-                                                                                                        ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project> rdf:type owl:Class ;
-                                                                                 rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                   owl:onProperty :Project_Works ;
-                                                                                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project>
-                                                                                                 ] ,
-                                                                                                 [ rdf:type owl:Restriction ;
-                                                                                                   owl:onProperty :Project_Works ;
-                                                                                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                   owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project>
-                                                                                                 ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial> rdf:type owl:Class ;
-                                                                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                        owl:onProperty :TypeMaterial_MaterialItems ;
-                                                                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial>
-                                                                                                      ] ,
-                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                        owl:onProperty :TypeMaterial_MaterialItems ;
-                                                                                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial>
-                                                                                                      ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkCostDetail
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkCostDetail> rdf:type owl:Class ;
-                                                                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                          owl:onProperty :WorkCostDetail_Works ;
-                                                                                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                          owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkCostDetail>
-                                                                                                        ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkFlowStep
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkFlowStep> rdf:type owl:Class ;
-                                                                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                        owl:onProperty :WorkFlowStep_Work ;
-                                                                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkFlowStep>
-                                                                                                      ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#BaseWork
-:BaseWork rdf:type owl:Class ;
-          rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Document> ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :BaseWork_TimeSchedules ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onClass :BaseWork
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :BaseWork_WorkActivityRecords ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onClass :BaseWork
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :BaseWork_WorkLocation ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onClass :BaseWork
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :BaseWork_priority ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Priority>
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :BaseWork_TimeSchedules ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass :BaseWork
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :BaseWork_WorkActivityRecords ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass :BaseWork
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :BaseWork_priority ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Priority>
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :BaseWork_kind ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange :WorkKind
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :BaseWork_statusKind ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange :WorkStatusKind
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :BaseWork_kind ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange :WorkKind
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :BaseWork_statusKind ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange :WorkStatusKind
-                          ] ;
-          rdfs:comment "Common representation for work and work tasks." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation
-:MaintenanceLocation rdf:type owl:Class ;
-                     rdfs:subClassOf :WorkLocation ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :MaintenanceLocation_block ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:string
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :MaintenanceLocation_lot ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:string
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :MaintenanceLocation_nearestIntersection ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:string
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :MaintenanceLocation_subdivision ;
-                                       owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:string
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :MaintenanceLocation_block ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:string
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :MaintenanceLocation_lot ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:string
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :MaintenanceLocation_nearestIntersection ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:string
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :MaintenanceLocation_subdivision ;
-                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onDataRange xsd:string
-                                     ] ;
-                     rdfs:comment "Location where to perform maintenance work." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#MaterialItem
-:MaterialItem rdf:type owl:Class ;
-              rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :MaterialItem_TypeMaterial ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass :MaterialItem
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :MaterialItem_WorkTask ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass :MaterialItem
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :MaterialItem_quantity ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#IntegerQuantity>
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :MaterialItem_quantity ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#IntegerQuantity>
-                              ] ;
-              rdfs:comment """The physical consumable supply used for work and other purposes. It includes items such as nuts, bolts, brackets, glue, etc.
-""" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Tool
-:Tool rdf:type owl:Class ;
-      rdfs:subClassOf :WorkAsset ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :Tool_lastCalibrationDate ;
-                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                        owl:onDataRange xsd:date
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :Tool_lastCalibrationDate ;
-                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onDataRange xsd:date
-                      ] ;
-      rdfs:comment """Tool asset.
-""" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Vehicle
-:Vehicle rdf:type owl:Class ;
-         rdfs:subClassOf :WorkAsset ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Vehicle_odometerReading ;
-                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Length>
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Vehicle_odometerReading ;
-                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Length>
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Vehicle_odometerReadDateTime ;
-                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onDataRange xsd:dateTime
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Vehicle_usageKind ;
-                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onDataRange :VehicleUsageKind
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Vehicle_odometerReadDateTime ;
-                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onDataRange xsd:dateTime
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Vehicle_usageKind ;
-                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onDataRange :VehicleUsageKind
-                         ] ;
-         rdfs:comment """Vehicle asset.
-""" .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#Work
-:Work rdf:type owl:Class ;
-      rdfs:subClassOf :BaseWork ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :Work_BusinessCase ;
-                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Work
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :Work_Customers ;
-                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Work
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :Work_Designs ;
-                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Work
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :Work_ErpProjectAccounting ;
-                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Work
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :Work_Project ;
-                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Work
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :Work_WorkBillingInfo ;
-                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Work
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :Work_WorkCostDetails ;
-                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Work
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :Work_WorkFlowSteps ;
-                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Work
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :Work_WorkTasks ;
-                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Work
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :Work_Designs ;
-                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Work
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :Work_WorkFlowSteps ;
-                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onClass :Work
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :Work_requestDateTime ;
-                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                        owl:onDataRange xsd:dateTime
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :Work_requestDateTime ;
-                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                        owl:onDataRange xsd:dateTime
-                      ] ;
-      rdfs:comment "Document used to request, initiate, track and record work." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord
-:WorkActivityRecord rdf:type owl:Class ;
-                    rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord> ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :WorkActivityRecord_BaseWork ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :WorkActivityRecord
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :WorkActivityRecord_percentComplete ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :WorkActivityRecord_percentComplete ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent>
-                                    ] ;
-                    rdfs:comment "Records information about the status of work or work task at a point in time. " .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkAsset
-:WorkAsset rdf:type owl:Class ;
-           rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Assets#Asset> ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :WorkAsset_CUWorkEquipmentAsset ;
-                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                             owl:onClass :WorkAsset
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty :WorkAsset_CUWorkEquipmentAsset ;
-                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onClass :WorkAsset
-                           ] ;
-           rdfs:comment "Asset used to perform work." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkLocation
-:WorkLocation rdf:type owl:Class ;
-              rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Location> ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :WorkLocation_BaseWorks ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass :WorkLocation
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :WorkLocation_DesignLocations ;
-                                owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass :WorkLocation
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :WorkLocation_OneCallRequest ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass :WorkLocation
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :WorkLocation_BaseWorks ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass :WorkLocation
-                              ] ;
-              rdfs:comment "Information about a particular location for various forms of work." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkTask
-:WorkTask rdf:type owl:Class ;
-          rdfs:subClassOf :BaseWork ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :WorkTask_MaterialItems ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onClass :WorkTask
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :WorkTask_Work ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onClass :WorkTask
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :WorkTask_MaterialItems ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onClass :WorkTask
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :WorkTask_crewETA ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:dateTime
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :WorkTask_instruction ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:string
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :WorkTask_schedOverride ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:string
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :WorkTask_taskKind ;
-                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange :WorkTaskKind
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :WorkTask_crewETA ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:dateTime
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :WorkTask_instruction ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:string
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :WorkTask_schedOverride ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:string
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :WorkTask_taskKind ;
-                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange :WorkTaskKind
-                          ] .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule
-:WorkTimeSchedule rdf:type owl:Class ;
-                  rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule> ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :WorkTimeSchedule_BaseWork ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onClass :WorkTimeSchedule
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :WorkTimeSchedule_kind ;
-                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                    owl:onDataRange :WorkTimeScheduleKind
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :WorkTimeSchedule_kind ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onDataRange :WorkTimeScheduleKind
-                                  ] ;
-                  rdfs:comment "Time schedule specific to work." .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#IntegerQuantity
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#IntegerQuantity> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Length
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Length> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent> rdf:type owl:Class .
-
-
-###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule_BaseWork -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule_BaseWork">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_TimeSchedules"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork"/>
+        <rdfs:comment>Time schedule for this work or work task.All time schedules for this work or work task.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_BusinessCase -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_BusinessCase">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BusinessCase_Works"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_Customers -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_Customers">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Customer_Works"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Customers#Customer"/>
+        <rdfs:comment>All the customers for which this work is performed.All the works performed for this customer.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_Designs -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_Designs">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Design_Work"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Design"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_ErpProjectAccounting -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_ErpProjectAccounting">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_Project -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_Project">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_WorkBillingInfo -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_WorkBillingInfo">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkBillingInfo_Works"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_WorkCostDetails -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_WorkCostDetails">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkCostDetail_Works"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkCostDetail"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_WorkFlowSteps -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_WorkFlowSteps">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkFlowStep_Work"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkFlowStep"/>
+        <rdfs:comment></rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_WorkTasks -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_WorkTasks">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask"/>
+        <rdfs:comment>Work this task belongs to.All tasks in this work.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_kind -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_kind">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkKind"/>
+        <rdfs:comment>Kind of work.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_statusKind -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_statusKind">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkStatusKind"/>
+        <rdfs:comment>Kind of work status.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_block -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_block">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>(if applicable) Name, identifier, or description of the block in which work is to occur.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_lot -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_lot">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>(if applicable) Name, identifier, or description of the lot in which work is to occur.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_nearestIntersection -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_nearestIntersection">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The names of streets at the nearest intersection to work area.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_subdivision -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_subdivision">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>(if applicable) Name, identifier, or description of the subdivision in which work is to occur.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Tool_lastCalibrationDate -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Tool_lastCalibrationDate">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Tool"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment>(if applicable) Date the tool was last calibrated.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Vehicle_odometerReadDateTime -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Vehicle_odometerReadDateTime">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Vehicle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment>Date and time the last odometer reading was recorded.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Vehicle_usageKind -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Vehicle_usageKind">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Vehicle"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#VehicleUsageKind"/>
+        <rdfs:comment>Kind of usage of the vehicle.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_crewETA -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_crewETA">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment>Estimated time of arrival, so that customer or police/fire department can be informed when the crew will arrive.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_instruction -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_instruction">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Instructions for performing this task.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_schedOverride -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_schedOverride">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>If specified, override schedule and perform this task in accordance with instructions specified here.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_taskKind -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_taskKind">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTaskKind"/>
+        <rdfs:comment>Kind of work.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule_kind -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule_kind">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeScheduleKind"/>
+        <rdfs:comment>Kind of this work schedule.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_requestDateTime -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_requestDateTime">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment>Date and time work was requested.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Document -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Document"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Location -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Location"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Priority -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Priority"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Customers#Customer -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Customers#Customer">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Customer_Works"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Customers#Customer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkBillingInfo_Works"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkBillingInfo_Works"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCustomers#WorkBillingInfo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#ErpProjectAccounting_Works"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#ErpProjectAccounting_Works"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpProjectAccounting"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BusinessCase_Works"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BusinessCase_Works"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#BusinessCase"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#CUWorkEquipmentItem_TypeAsset"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#CUWorkEquipmentItem_TypeAsset"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CUWorkEquipmentItem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Design -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Design">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Design_Work"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Design"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#DesignLocation -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#DesignLocation">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#DesignLocation_WorkLocations"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#DesignLocation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#OneCallRequest_WorkLocations"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#OneCallRequest_WorkLocations"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#OneCallRequest"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Project_Works"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Project_Works"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#Project"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#TypeMaterial_MaterialItems"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#TypeMaterial_MaterialItems"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#TypeMaterial"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkCostDetail -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkCostDetail">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkCostDetail_Works"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkCostDetail"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkFlowStep -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkFlowStep">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkFlowStep_Work"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#WorkFlowStep"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Document"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_TimeSchedules"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_WorkActivityRecords"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_WorkLocation"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_priority"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Priority"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_TimeSchedules"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_WorkActivityRecords"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_priority"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Priority"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_kind"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_statusKind"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkStatusKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_kind"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork_statusKind"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkStatusKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Common representation for work and work tasks.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_block"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_lot"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_nearestIntersection"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_subdivision"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_block"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_lot"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_nearestIntersection"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaintenanceLocation_subdivision"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Location where to perform maintenance work.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem_TypeMaterial"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem_WorkTask"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem_quantity"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#IntegerQuantity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#MaterialItem_quantity"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#IntegerQuantity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The physical consumable supply used for work and other purposes. It includes items such as nuts, bolts, brackets, glue, etc.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Tool -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Tool">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkAsset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Tool_lastCalibrationDate"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Tool_lastCalibrationDate"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Tool asset.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Vehicle -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Vehicle">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkAsset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Vehicle_odometerReading"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Length"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Vehicle_odometerReading"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Length"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Vehicle_odometerReadDateTime"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Vehicle_usageKind"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#VehicleUsageKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Vehicle_odometerReadDateTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Vehicle_usageKind"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#VehicleUsageKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Vehicle asset.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_BusinessCase"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_Customers"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_Designs"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_ErpProjectAccounting"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_Project"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_WorkBillingInfo"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_WorkCostDetails"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_WorkFlowSteps"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_WorkTasks"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_Designs"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_WorkFlowSteps"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_requestDateTime"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#Work_requestDateTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Document used to request, initiate, track and record work.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#ActivityRecord"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord_BaseWork"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord_percentComplete"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkActivityRecord_percentComplete"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Records information about the status of work or work task at a point in time. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkAsset -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkAsset">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkAsset_CUWorkEquipmentAsset"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkAsset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkAsset_CUWorkEquipmentAsset"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkAsset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Asset used to perform work.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Location"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation_BaseWorks"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation_DesignLocations"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation_OneCallRequest"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation_BaseWorks"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkLocation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Information about a particular location for various forms of work.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#BaseWork"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_MaterialItems"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_Work"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_MaterialItems"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_crewETA"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_instruction"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_schedOverride"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_taskKind"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTaskKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_crewETA"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_instruction"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_schedOverride"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask_taskKind"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTaskKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#TimeSchedule"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule_BaseWork"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule_kind"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeScheduleKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeSchedule_kind"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTimeScheduleKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Time schedule specific to work.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#IntegerQuantity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#IntegerQuantity"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Length -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Length"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
+
+

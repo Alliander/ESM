@@ -1,65 +1,113 @@
-@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#> .
-
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#> rdf:type owl:Ontology .
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#Dataset_ModelPartVersion
-:Dataset_ModelPartVersion rdf:type owl:ObjectProperty ;
-                          owl:inverseOf :ModelPartVersion_FullModelDataset ;
-                          rdf:type owl:FunctionalProperty ;
-                          rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset> ;
-                          rdfs:range :ModelPartVersion ;
-                          rdfs:comment "Model part version corresponding to the dataset.Dataset of the model part version." .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#"
+     xml:base="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#ModelPartVersion_FullModelDataset
-:ModelPartVersion_FullModelDataset rdf:type owl:ObjectProperty ,
-                                            owl:FunctionalProperty ;
-                                   rdfs:domain :ModelPartVersion ;
-                                   rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset> ;
-                                   rdfs:comment "Model part version corresponding to the dataset.Dataset of the model part version." .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#ModelFrameType
-:ModelFrameType rdf:type owl:Class ;
-                rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ;
-                rdfs:comment "Examples would be \"Boundary\" or \"Region\" type of frame." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#Dataset_ModelPartVersion -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#ModelPartVersion
-:ModelPartVersion rdf:type owl:Class ;
-                  rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                    owl:onProperty :ModelPartVersion_FullModelDataset ;
-                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass :ModelPartVersion
-                                  ] ;
-                  rdfs:comment "Versioned instance of a model part. " .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#Dataset_ModelPartVersion">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#ModelPartVersion_FullModelDataset"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#ModelPartVersion"/>
+        <rdfs:comment>Model part version corresponding to the dataset.Dataset of the model part version.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset> rdf:type owl:Class ;
-                                                                                                                             rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                                               owl:onProperty :Dataset_ModelPartVersion ;
-                                                                                                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset>
-                                                                                                                                             ] .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#ModelPartVersion_FullModelDataset -->
 
 
-###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#ModelPartVersion_FullModelDataset">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#ModelPartVersion"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset"/>
+        <rdfs:comment>Model part version corresponding to the dataset.Dataset of the model part version.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#ModelFrameType -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#ModelFrameType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:comment>Examples would be &quot;Boundary&quot; or &quot;Region&quot; type of frame.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#ModelPartVersion -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#ModelPartVersion">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#ModelPartVersion_FullModelDataset"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#ModelPartVersion"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Versioned instance of a model part. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/Frames/unused#Dataset_ModelPartVersion"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfGenericDataset/CanonicalModel/GenericDatasetCore#Dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
+
+

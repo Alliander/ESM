@@ -1,385 +1,596 @@
-@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#> .
-
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#> rdf:type owl:Ontology .
-
-#################################################################
-#    Datatypes
-#################################################################
-
-###  http://www.w3.org/2001/XMLSchema#date
-xsd:date rdf:type rdfs:Datatype .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#"
+     xml:base="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#"/>
+    
 
 
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#DifferentialModel_PowerSystemProject
-:DifferentialModel_PowerSystemProject rdf:type owl:ObjectProperty ;
-                                      owl:inverseOf :PowerSystemProject_DifferentialModel ;
-                                      rdfs:domain :DifferentialModel ;
-                                      rdfs:range :PowerSystemProject ;
-                                      rdfs:comment "The project of the details of model changes.The details of model changes for this project." .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_AlternativeProject
-:PowerSystemProject_AlternativeProject rdf:type owl:ObjectProperty ;
-                                       rdfs:domain :PowerSystemProject ;
-                                       rdfs:range :PowerSystemProject ;
-                                       rdfs:comment "The master project for a competing projects.Competing project. Only one of the projects will be commissioned." .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_Collection
-:PowerSystemProject_Collection rdf:type owl:ObjectProperty ;
-                               rdfs:domain :PowerSystemProject ;
-                               rdfs:range :PowerSystemProject ;
-                               rdfs:comment "The  project that needs to be finished before the project.Consist of or sub projects that need to be finished before the project is fished." .
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_DifferentialModel
-:PowerSystemProject_DifferentialModel rdf:type owl:ObjectProperty ;
-                                      rdfs:domain :PowerSystemProject ;
-                                      rdfs:range :DifferentialModel ;
-                                      rdfs:comment "The project of the details of model changes.The details of model changes for this project." .
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_PriorityProject
-:PowerSystemProject_PriorityProject rdf:type owl:ObjectProperty ;
-                                    owl:inverseOf :PowerSystemProject_AlternativeProject ;
-                                    rdfs:domain :PowerSystemProject ;
-                                    rdfs:range :PowerSystemProject ;
-                                    rdfs:comment "The master project for a competing projects.Competing project. Only one of the projects will be commissioned." .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_Project
-:PowerSystemProject_Project rdf:type owl:ObjectProperty ;
-                            owl:inverseOf :PowerSystemProject_Collection ;
-                            rdfs:domain :PowerSystemProject ;
-                            rdfs:range :PowerSystemProject ;
-                            rdfs:comment "The  project that needs to be finished before the project.Consist of or sub projects that need to be finished before the project is fished." .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_ShadowProject
-:PowerSystemProject_ShadowProject rdf:type owl:ObjectProperty ;
-                                  owl:inverseOf :PowerSystemProject_SilhouetteProject ;
-                                  rdfs:domain :PowerSystemProject ;
-                                  rdfs:range :PowerSystemProject ;
-                                  rdfs:comment "A shadowing project that include the same change set, but different timeline.The silhohuete of shadowing project that include the same change set, but different timeline." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#DifferentialModel_PowerSystemProject -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_SilhouetteProject
-:PowerSystemProject_SilhouetteProject rdf:type owl:ObjectProperty ;
-                                      rdfs:domain :PowerSystemProject ;
-                                      rdfs:range :PowerSystemProject ;
-                                      rdfs:comment "A shadowing project that include the same change set, but different timeline.The silhohuete of shadowing project that include the same change set, but different timeline." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#DifferentialModel_PowerSystemProject">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_DifferentialModel"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#DifferentialModel"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:comment>The project of the details of model changes.The details of model changes for this project.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_actualLifecycle
-:PowerSystemProject_actualLifecycle rdf:type owl:ObjectProperty ;
-                                    rdfs:domain :PowerSystemProject ;
-                                    rdfs:range :PowerSystemProjectLifecycle ;
-                                    rdfs:comment "The actual lifecycle." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_AlternativeProject -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_plannedLifecycle
-:PowerSystemProject_plannedLifecycle rdf:type owl:ObjectProperty ;
-                                     rdfs:domain :PowerSystemProject ;
-                                     rdfs:range :PowerSystemProjectLifecycle ;
-                                     rdfs:comment "The planned lifecycle." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_AlternativeProject">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:comment>The master project for a competing projects.Competing project. Only one of the projects will be commissioned.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-#################################################################
-#    Data properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_cancelled
-:PowerSystemProjectLifecycle_cancelled rdf:type owl:DatatypeProperty ;
-                                       rdfs:domain :PowerSystemProjectLifecycle ;
-                                       rdfs:range xsd:date ;
-                                       rdfs:comment "The date the Power System Project is in cancelled stage." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_Collection -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_commissioned
-:PowerSystemProjectLifecycle_commissioned rdf:type owl:DatatypeProperty ;
-                                          rdfs:domain :PowerSystemProjectLifecycle ;
-                                          rdfs:range xsd:date ;
-                                          rdfs:comment "The date Power System Project is in commissioned stage." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_Collection">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:comment>The  project that needs to be finished before the project.Consist of or sub projects that need to be finished before the project is fished.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_committed
-:PowerSystemProjectLifecycle_committed rdf:type owl:DatatypeProperty ;
-                                       rdfs:domain :PowerSystemProjectLifecycle ;
-                                       rdfs:range xsd:date ;
-                                       rdfs:comment "The date Power System Project is in committed stage." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_DifferentialModel -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_inBuild
-:PowerSystemProjectLifecycle_inBuild rdf:type owl:DatatypeProperty ;
-                                     rdfs:domain :PowerSystemProjectLifecycle ;
-                                     rdfs:range xsd:date ;
-                                     rdfs:comment "The date Power System Project is in build stage." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_DifferentialModel">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#DifferentialModel"/>
+        <rdfs:comment>The project of the details of model changes.The details of model changes for this project.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_inPlan
-:PowerSystemProjectLifecycle_inPlan rdf:type owl:DatatypeProperty ;
-                                    rdfs:domain :PowerSystemProjectLifecycle ;
-                                    rdfs:range xsd:date ;
-                                    rdfs:comment "The date Power System Project is in planning stage." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_PriorityProject -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_comment
-:PowerSystemProject_comment rdf:type owl:DatatypeProperty ;
-                            rdfs:domain :PowerSystemProject ;
-                            rdfs:range xsd:string ;
-                            rdfs:comment "Free text comment." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_PriorityProject">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_AlternativeProject"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:comment>The master project for a competing projects.Competing project. Only one of the projects will be commissioned.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_priority
-:PowerSystemProject_priority rdf:type owl:DatatypeProperty ;
-                             rdfs:domain :PowerSystemProject ;
-                             rdfs:range xsd:nonNegativeInteger ;
-                             rdfs:comment "Priority between competing projects. Use 0 for don t care.  Use 1 for highest priority.  Use 2 as priority is less than 1 and so on." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_Project -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_type
-:PowerSystemProject_type rdf:type owl:DatatypeProperty ;
-                         rdfs:domain :PowerSystemProject ;
-                         rdfs:range xsd:string ;
-                         rdfs:comment "Type of project. Multiple tagges can be added with \";\" as separator." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_Project">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_Collection"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:comment>The  project that needs to be finished before the project.Consist of or sub projects that need to be finished before the project is fished.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_version
-:PowerSystemProject_version rdf:type owl:DatatypeProperty ;
-                            rdfs:domain :PowerSystemProject ;
-                            rdfs:range xsd:nonNegativeInteger ;
-                            rdfs:comment "Version is uniquely identifying the project version. Changes to a project are not modelled. So the project with the highest version is the valid/latest project. Only positive numbers equal or higher than 1 are allowed" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_ShadowProject -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_versionUUID
-:PowerSystemProject_versionUUID rdf:type owl:DatatypeProperty ;
-                                rdfs:domain :PowerSystemProject ;
-                                rdfs:range xsd:string ;
-                                rdfs:comment "Project version identifier issued by a model authority. The versionUUID is globally unique using a UUID,  as specified in RFC 4122." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_ShadowProject">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_SilhouetteProject"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:comment>A shadowing project that include the same change set, but different timeline.The silhohuete of shadowing project that include the same change set, but different timeline.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_SilhouetteProject -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#DifferentialModel
-:DifferentialModel rdf:type owl:Class ;
-                   rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                     owl:onProperty :DifferentialModel_PowerSystemProject ;
-                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :DifferentialModel
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :DifferentialModel_PowerSystemProject ;
-                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onClass :DifferentialModel
-                                   ] ;
-                   rdfs:comment "A set of statements describing the changes in the network model. The statement is defined in the incremental model. " .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_SilhouetteProject">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:comment>A shadowing project that include the same change set, but different timeline.The silhohuete of shadowing project that include the same change set, but different timeline.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject
-:PowerSystemProject rdf:type owl:Class ;
-                    rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_AlternativeProject ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :PowerSystemProject
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_Collection ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :PowerSystemProject
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_DifferentialModel ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :PowerSystemProject
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_PriorityProject ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :PowerSystemProject
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_Project ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :PowerSystemProject
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_ShadowProject ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :PowerSystemProject
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_SilhouetteProject ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :PowerSystemProject
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_actualLifecycle ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :PowerSystemProjectLifecycle
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_plannedLifecycle ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :PowerSystemProjectLifecycle
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_AlternativeProject ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :PowerSystemProject
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_Collection ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :PowerSystemProject
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_DifferentialModel ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :PowerSystemProject
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_ShadowProject ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :PowerSystemProject
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_SilhouetteProject ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :PowerSystemProject
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_actualLifecycle ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :PowerSystemProjectLifecycle
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_plannedLifecycle ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :PowerSystemProjectLifecycle
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_comment ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:string
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_priority ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:nonNegativeInteger
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_type ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:string
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_version ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:nonNegativeInteger
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_versionUUID ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:string
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_comment ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:string
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_priority ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:nonNegativeInteger
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_type ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:string
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_version ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:nonNegativeInteger
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :PowerSystemProject_versionUUID ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:string
-                                    ] ;
-                    rdfs:comment "Meta-data for the change set that describe the status and the planned implementation of the changes into the as-build model. A Power System Project can consist of other Power System Projects" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_actualLifecycle -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle
-:PowerSystemProjectLifecycle rdf:type owl:Class ;
-                             rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                               owl:onProperty :PowerSystemProjectLifecycle_cancelled ;
-                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                               owl:onDataRange xsd:date
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :PowerSystemProjectLifecycle_commissioned ;
-                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                               owl:onDataRange xsd:date
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :PowerSystemProjectLifecycle_committed ;
-                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                               owl:onDataRange xsd:date
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :PowerSystemProjectLifecycle_inBuild ;
-                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                               owl:onDataRange xsd:date
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :PowerSystemProjectLifecycle_inPlan ;
-                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                               owl:onDataRange xsd:date
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :PowerSystemProjectLifecycle_cancelled ;
-                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onDataRange xsd:date
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :PowerSystemProjectLifecycle_commissioned ;
-                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onDataRange xsd:date
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :PowerSystemProjectLifecycle_committed ;
-                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onDataRange xsd:date
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :PowerSystemProjectLifecycle_inBuild ;
-                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onDataRange xsd:date
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :PowerSystemProjectLifecycle_inPlan ;
-                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onDataRange xsd:date
-                                             ] ;
-                             rdfs:comment "Represent the base lifecycle of a functional model change that could be a construction of new elements." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_actualLifecycle">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle"/>
+        <rdfs:comment>The actual lifecycle.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_plannedLifecycle -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_plannedLifecycle">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle"/>
+        <rdfs:comment>The planned lifecycle.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_cancelled -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_cancelled">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment>The date the Power System Project is in cancelled stage.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_commissioned -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_commissioned">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment>The date Power System Project is in commissioned stage.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_committed -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_committed">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment>The date Power System Project is in committed stage.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_inBuild -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_inBuild">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment>The date Power System Project is in build stage.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_inPlan -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_inPlan">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment>The date Power System Project is in planning stage.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_comment -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_comment">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Free text comment.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_priority -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_priority">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment>Priority between competing projects. Use 0 for don t care.  Use 1 for highest priority.  Use 2 as priority is less than 1 and so on.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_type -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_type">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Type of project. Multiple tagges can be added with &quot;;&quot; as separator.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_version -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_version">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment>Version is uniquely identifying the project version. Changes to a project are not modelled. So the project with the highest version is the valid/latest project. Only positive numbers equal or higher than 1 are allowed</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_versionUUID -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_versionUUID">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Project version identifier issued by a model authority. The versionUUID is globally unique using a UUID,  as specified in RFC 4122.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#DifferentialModel -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#DifferentialModel">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#DifferentialModel_PowerSystemProject"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#DifferentialModel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#DifferentialModel_PowerSystemProject"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#DifferentialModel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A set of statements describing the changes in the network model. The statement is defined in the incremental model. </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_AlternativeProject"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_Collection"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_DifferentialModel"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_PriorityProject"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_Project"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_ShadowProject"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_SilhouetteProject"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_actualLifecycle"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_plannedLifecycle"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_AlternativeProject"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_Collection"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_DifferentialModel"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_ShadowProject"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_SilhouetteProject"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_actualLifecycle"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_plannedLifecycle"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_comment"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_priority"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_type"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_version"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_versionUUID"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_comment"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_priority"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_type"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_version"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProject_versionUUID"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Meta-data for the change set that describe the status and the planned implementation of the changes into the as-build model. A Power System Project can consist of other Power System Projects</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_cancelled"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_commissioned"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_committed"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_inBuild"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_inPlan"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_cancelled"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_commissioned"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_committed"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_inBuild"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfPowerSystemProjects#PowerSystemProjectLifecycle_inPlan"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Represent the base lifecycle of a functional model change that could be a construction of new elements.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
+
+

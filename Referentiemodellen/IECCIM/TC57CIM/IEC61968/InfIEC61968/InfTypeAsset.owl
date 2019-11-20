@@ -1,359 +1,545 @@
-@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#> .
-
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#> rdf:type owl:Ontology .
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_maxP
-:GeneratorTypeAsset_maxP rdf:type owl:ObjectProperty ;
-                         rdfs:domain :GeneratorTypeAsset ;
-                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
-                         rdfs:comment "Maximum real power limit." .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#"
+     xml:base="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_maxQ
-:GeneratorTypeAsset_maxQ rdf:type owl:ObjectProperty ;
-                         rdfs:domain :GeneratorTypeAsset ;
-                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> ;
-                         rdfs:comment "Maximum reactive power limit." .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_minP
-:GeneratorTypeAsset_minP rdf:type owl:ObjectProperty ;
-                         rdfs:domain :GeneratorTypeAsset ;
-                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> ;
-                         rdfs:comment "Minimum real power generated." .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_minQ
-:GeneratorTypeAsset_minQ rdf:type owl:ObjectProperty ;
-                         rdfs:domain :GeneratorTypeAsset ;
-                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> ;
-                         rdfs:comment "Minimum reactive power generated." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_maxP -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rDirectSubtrans
-:GeneratorTypeAsset_rDirectSubtrans rdf:type owl:ObjectProperty ;
-                                    rdfs:domain :GeneratorTypeAsset ;
-                                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
-                                    rdfs:comment """Direct-axis subtransient resistance.
-""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_maxP">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+        <rdfs:comment>Maximum real power limit.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rDirectSync
-:GeneratorTypeAsset_rDirectSync rdf:type owl:ObjectProperty ;
-                                rdfs:domain :GeneratorTypeAsset ;
-                                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
-                                rdfs:comment """Direct-axis synchronous resistance.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_maxQ -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rDirectTrans
-:GeneratorTypeAsset_rDirectTrans rdf:type owl:ObjectProperty ;
-                                 rdfs:domain :GeneratorTypeAsset ;
-                                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
-                                 rdfs:comment """Direct-axis transient resistance.
-""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_maxQ">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+        <rdfs:comment>Maximum reactive power limit.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rQuadSubtrans
-:GeneratorTypeAsset_rQuadSubtrans rdf:type owl:ObjectProperty ;
-                                  rdfs:domain :GeneratorTypeAsset ;
-                                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
-                                  rdfs:comment """Quadrature-axis subtransient resistance.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_minP -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rQuadSync
-:GeneratorTypeAsset_rQuadSync rdf:type owl:ObjectProperty ;
-                              rdfs:domain :GeneratorTypeAsset ;
-                              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
-                              rdfs:comment """Quadrature-axis synchronous resistance.
-""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_minP">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+        <rdfs:comment>Minimum real power generated.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rQuadTrans
-:GeneratorTypeAsset_rQuadTrans rdf:type owl:ObjectProperty ;
-                               rdfs:domain :GeneratorTypeAsset ;
-                               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> ;
-                               rdfs:comment """Quadrature-axis transient resistance.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_minQ -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xDirectSubtrans
-:GeneratorTypeAsset_xDirectSubtrans rdf:type owl:ObjectProperty ;
-                                    rdfs:domain :GeneratorTypeAsset ;
-                                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
-                                    rdfs:comment """Direct-axis subtransient reactance.
-""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_minQ">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+        <rdfs:comment>Minimum reactive power generated.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xDirectSync
-:GeneratorTypeAsset_xDirectSync rdf:type owl:ObjectProperty ;
-                                rdfs:domain :GeneratorTypeAsset ;
-                                rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
-                                rdfs:comment """Direct-axis synchronous reactance.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rDirectSubtrans -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xDirectTrans
-:GeneratorTypeAsset_xDirectTrans rdf:type owl:ObjectProperty ;
-                                 rdfs:domain :GeneratorTypeAsset ;
-                                 rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
-                                 rdfs:comment """Direct-axis transient reactance.
-""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rDirectSubtrans">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+        <rdfs:comment>Direct-axis subtransient resistance.
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xQuadSubtrans
-:GeneratorTypeAsset_xQuadSubtrans rdf:type owl:ObjectProperty ;
-                                  rdfs:domain :GeneratorTypeAsset ;
-                                  rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
-                                  rdfs:comment """Quadrature-axis subtransient reactance.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rDirectSync -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xQuadSync
-:GeneratorTypeAsset_xQuadSync rdf:type owl:ObjectProperty ;
-                              rdfs:domain :GeneratorTypeAsset ;
-                              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
-                              rdfs:comment """Quadrature-axis synchronous reactance.
-""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rDirectSync">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+        <rdfs:comment>Direct-axis synchronous resistance.
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xQuadTrans
-:GeneratorTypeAsset_xQuadTrans rdf:type owl:ObjectProperty ;
-                               rdfs:domain :GeneratorTypeAsset ;
-                               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> ;
-                               rdfs:comment "Quadrature-axis transient reactance." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rDirectTrans -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#TypeAssetCatalogue_status
-:TypeAssetCatalogue_status rdf:type owl:ObjectProperty ;
-                           rdfs:domain :TypeAssetCatalogue ;
-                           rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status> .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rDirectTrans">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+        <rdfs:comment>Direct-axis transient resistance.
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status> rdf:type owl:Class .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rQuadSubtrans -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#GenericAssetModel
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#GenericAssetModel> rdf:type owl:Class .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rQuadSubtrans">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+        <rdfs:comment>Quadrature-axis subtransient resistance.
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset
-:GeneratorTypeAsset rdf:type owl:Class ;
-                    rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#GenericAssetModel> ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_maxP ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_maxQ ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_minP ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_minQ ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_rDirectSubtrans ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_rDirectSync ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_rDirectTrans ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_rQuadSubtrans ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_rQuadSync ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_rQuadTrans ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_xDirectSubtrans ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_xDirectSync ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_xDirectTrans ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_xQuadSubtrans ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_xQuadSync ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_xQuadTrans ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_maxP ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_maxQ ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_minP ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_minQ ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_rDirectSubtrans ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_rDirectSync ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_rDirectTrans ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_rQuadSubtrans ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_rQuadSync ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_rQuadTrans ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_xDirectSubtrans ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_xDirectSync ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_xDirectTrans ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_xQuadSubtrans ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_xQuadSync ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :GeneratorTypeAsset_xQuadTrans ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance>
-                                    ] ;
-                    rdfs:comment """Generic generation equipment that may be used for various purposes such as work planning. It defines both the Real and Reactive power properties (modelled at the PSR level as a GeneratingUnit + SynchronousMachine).
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rQuadSync -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#TypeAssetCatalogue
-:TypeAssetCatalogue rdf:type owl:Class ;
-                    rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :TypeAssetCatalogue_status ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :TypeAssetCatalogue_status ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61968/Common#Status>
-                                    ] ;
-                    rdfs:comment "Catalogue of generic types of assets (TypeAsset) that may be used for design purposes. It is not associated with a particular manufacturer." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rQuadSync">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+        <rdfs:comment>Quadrature-axis synchronous resistance.
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rQuadTrans -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower> rdf:type owl:Class .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rQuadTrans">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+        <rdfs:comment>Quadrature-axis transient resistance.
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance> rdf:type owl:Class .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xDirectSubtrans -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower> rdf:type owl:Class .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xDirectSubtrans">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+        <rdfs:comment>Direct-axis subtransient reactance.
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance> rdf:type owl:Class .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xDirectSync -->
 
 
-###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xDirectSync">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+        <rdfs:comment>Direct-axis synchronous reactance.
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xDirectTrans -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xDirectTrans">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+        <rdfs:comment>Direct-axis transient reactance.
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xQuadSubtrans -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xQuadSubtrans">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+        <rdfs:comment>Quadrature-axis subtransient reactance.
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xQuadSync -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xQuadSync">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+        <rdfs:comment>Quadrature-axis synchronous reactance.
+</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xQuadTrans -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xQuadTrans">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+        <rdfs:comment>Quadrature-axis transient reactance.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#TypeAssetCatalogue_status -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#TypeAssetCatalogue_status">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#TypeAssetCatalogue"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Status"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Status -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Status"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#GenericAssetModel -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#GenericAssetModel"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#GenericAssetModel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_maxP"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_maxQ"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_minP"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_minQ"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rDirectSubtrans"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rDirectSync"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rDirectTrans"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rQuadSubtrans"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rQuadSync"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rQuadTrans"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xDirectSubtrans"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xDirectSync"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xDirectTrans"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xQuadSubtrans"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xQuadSync"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xQuadTrans"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_maxP"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_maxQ"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_minP"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_minQ"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rDirectSubtrans"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rDirectSync"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rDirectTrans"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rQuadSubtrans"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rQuadSync"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_rQuadTrans"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xDirectSubtrans"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xDirectSync"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xDirectTrans"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xQuadSubtrans"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xQuadSync"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#GeneratorTypeAsset_xQuadTrans"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Generic generation equipment that may be used for various purposes such as work planning. It defines both the Real and Reactive power properties (modelled at the PSR level as a GeneratingUnit + SynchronousMachine).
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#TypeAssetCatalogue -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#TypeAssetCatalogue">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#TypeAssetCatalogue_status"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Status"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfTypeAsset#TypeAssetCatalogue_status"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Status"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Catalogue of generic types of assets (TypeAsset) that may be used for design purposes. It is not associated with a particular manufacturer.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ActivePower"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Reactance"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#ReactivePower"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Resistance"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
+
+

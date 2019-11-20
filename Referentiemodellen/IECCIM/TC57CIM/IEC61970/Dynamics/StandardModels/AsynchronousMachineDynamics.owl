@@ -1,371 +1,551 @@
-@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#> .
-
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#> rdf:type owl:Ontology .
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics_MechanicalLoadDynamics
-:AsynchronousMachineDynamics_MechanicalLoadDynamics rdf:type owl:ObjectProperty ;
-                                                    owl:inverseOf :MechanicalLoadDynamics_AsynchronousMachineDynamics ;
-                                                    rdfs:domain :AsynchronousMachineDynamics ;
-                                                    rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechanicalLoadDynamics> ;
-                                                    rdfs:comment "Mechanical load model associated with this asynchronous machine model.Asynchronous machine model with which this mechanical load model is associated." .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#"
+     xml:base="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#"/>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics_TurbineGovernorDynamics
-:AsynchronousMachineDynamics_TurbineGovernorDynamics rdf:type owl:ObjectProperty ;
-                                                     owl:inverseOf :TurbineGovernorDynamics_AsynchronousMachineDynamics ;
-                                                     rdfs:domain :AsynchronousMachineDynamics ;
-                                                     rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineGovernorDynamics#TurbineGovernorDynamics> ;
-                                                     rdfs:comment "Turbine-governor model associated with this asynchronous machine model.Asynchronous machine model with which this turbine-governor model is associated." .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics_WindTurbineType1or2Dynamics
-:AsynchronousMachineDynamics_WindTurbineType1or2Dynamics rdf:type owl:ObjectProperty ;
-                                                         owl:inverseOf :WindTurbineType1or2Dynamics_AsynchronousMachineDynamics ;
-                                                         rdf:type owl:FunctionalProperty ;
-                                                         rdfs:domain :AsynchronousMachineDynamics ;
-                                                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics> ;
-                                                         rdfs:comment "Wind generator type 1 or 2 model associated with this asynchronous machine model.Asynchronous machine model with which this wind generator type 1 or 2 model is associated." .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_rr1
-:AsynchronousMachineEquivalentCircuit_rr1 rdf:type owl:ObjectProperty ;
-                                          rdfs:domain :AsynchronousMachineEquivalentCircuit ;
-                                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                                          rdfs:comment "Damper 1 winding resistance." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics_MechanicalLoadDynamics -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_rr2
-:AsynchronousMachineEquivalentCircuit_rr2 rdf:type owl:ObjectProperty ;
-                                          rdfs:domain :AsynchronousMachineEquivalentCircuit ;
-                                          rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                                          rdfs:comment "Damper 2 winding resistance." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics_MechanicalLoadDynamics">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#MechanicalLoadDynamics_AsynchronousMachineDynamics"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechanicalLoadDynamics"/>
+        <rdfs:comment>Mechanical load model associated with this asynchronous machine model.Asynchronous machine model with which this mechanical load model is associated.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_xlr1
-:AsynchronousMachineEquivalentCircuit_xlr1 rdf:type owl:ObjectProperty ;
-                                           rdfs:domain :AsynchronousMachineEquivalentCircuit ;
-                                           rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                                           rdfs:comment "Damper 1 winding leakage reactance." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics_TurbineGovernorDynamics -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_xlr2
-:AsynchronousMachineEquivalentCircuit_xlr2 rdf:type owl:ObjectProperty ;
-                                           rdfs:domain :AsynchronousMachineEquivalentCircuit ;
-                                           rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                                           rdfs:comment "Damper 2 winding leakage reactance." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics_TurbineGovernorDynamics">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#TurbineGovernorDynamics_AsynchronousMachineDynamics"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineGovernorDynamics#TurbineGovernorDynamics"/>
+        <rdfs:comment>Turbine-governor model associated with this asynchronous machine model.Asynchronous machine model with which this turbine-governor model is associated.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_xm
-:AsynchronousMachineEquivalentCircuit_xm rdf:type owl:ObjectProperty ;
-                                         rdfs:domain :AsynchronousMachineEquivalentCircuit ;
-                                         rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                                         rdfs:comment "Magnetizing reactance." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics_WindTurbineType1or2Dynamics -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_tpo
-:AsynchronousMachineTimeConstantReactance_tpo rdf:type owl:ObjectProperty ;
-                                              rdfs:domain :AsynchronousMachineTimeConstantReactance ;
-                                              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
-                                              rdfs:comment "Transient rotor time constant (T'o) (&gt; T''o).  Typical Value = 5." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics_WindTurbineType1or2Dynamics">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#WindTurbineType1or2Dynamics_AsynchronousMachineDynamics"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics"/>
+        <rdfs:comment>Wind generator type 1 or 2 model associated with this asynchronous machine model.Asynchronous machine model with which this wind generator type 1 or 2 model is associated.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_tppo
-:AsynchronousMachineTimeConstantReactance_tppo rdf:type owl:ObjectProperty ;
-                                               rdfs:domain :AsynchronousMachineTimeConstantReactance ;
-                                               rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> ;
-                                               rdfs:comment "Subtransient rotor time constant (T''o) (&gt; 0).  Typical Value = 0.03." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_rr1 -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_xp
-:AsynchronousMachineTimeConstantReactance_xp rdf:type owl:ObjectProperty ;
-                                             rdfs:domain :AsynchronousMachineTimeConstantReactance ;
-                                             rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                                             rdfs:comment "Transient reactance (unsaturated) (X') (&gt;=X'').  Typical Value = 0.5." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_rr1">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Damper 1 winding resistance.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_xpp
-:AsynchronousMachineTimeConstantReactance_xpp rdf:type owl:ObjectProperty ;
-                                              rdfs:domain :AsynchronousMachineTimeConstantReactance ;
-                                              rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                                              rdfs:comment "Subtransient reactance (unsaturated) (X'') (&gt; Xl).  Typical Value = 0.2." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_rr2 -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_xs
-:AsynchronousMachineTimeConstantReactance_xs rdf:type owl:ObjectProperty ;
-                                             rdfs:domain :AsynchronousMachineTimeConstantReactance ;
-                                             rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> ;
-                                             rdfs:comment "Synchronous reactance (Xs) (&gt;= X').  Typical Value = 1.8." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_rr2">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Damper 2 winding resistance.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#MechanicalLoadDynamics_AsynchronousMachineDynamics
-:MechanicalLoadDynamics_AsynchronousMachineDynamics rdf:type owl:ObjectProperty ;
-                                                    rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechanicalLoadDynamics> ;
-                                                    rdfs:range :AsynchronousMachineDynamics ;
-                                                    rdfs:comment "Mechanical load model associated with this asynchronous machine model.Asynchronous machine model with which this mechanical load model is associated." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_xlr1 -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#TurbineGovernorDynamics_AsynchronousMachineDynamics
-:TurbineGovernorDynamics_AsynchronousMachineDynamics rdf:type owl:ObjectProperty ;
-                                                     rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineGovernorDynamics#TurbineGovernorDynamics> ;
-                                                     rdfs:range :AsynchronousMachineDynamics ;
-                                                     rdfs:comment "Turbine-governor model associated with this asynchronous machine model.Asynchronous machine model with which this turbine-governor model is associated." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_xlr1">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Damper 1 winding leakage reactance.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#WindTurbineType1or2Dynamics_AsynchronousMachineDynamics
-:WindTurbineType1or2Dynamics_AsynchronousMachineDynamics rdf:type owl:ObjectProperty ;
-                                                         rdfs:domain <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics> ;
-                                                         rdfs:range :AsynchronousMachineDynamics ;
-                                                         rdfs:comment "Wind generator type 1 or 2 model associated with this asynchronous machine model.Asynchronous machine model with which this wind generator type 1 or 2 model is associated." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_xlr2 -->
 
 
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds> rdf:type owl:Class .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_xlr2">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Damper 2 winding leakage reactance.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#RotatingMachineDynamics
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#RotatingMachineDynamics> rdf:type owl:Class .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_xm -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics
-:AsynchronousMachineDynamics rdf:type owl:Class ;
-                             rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#RotatingMachineDynamics> ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :AsynchronousMachineDynamics_MechanicalLoadDynamics ;
-                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                               owl:onClass :AsynchronousMachineDynamics
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :AsynchronousMachineDynamics_TurbineGovernorDynamics ;
-                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                               owl:onClass :AsynchronousMachineDynamics
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :AsynchronousMachineDynamics_WindTurbineType1or2Dynamics ;
-                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass :AsynchronousMachineDynamics
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :AsynchronousMachineDynamics_MechanicalLoadDynamics ;
-                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass :AsynchronousMachineDynamics
-                                             ] ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty :AsynchronousMachineDynamics_TurbineGovernorDynamics ;
-                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                               owl:onClass :AsynchronousMachineDynamics
-                                             ] ;
-                             rdfs:comment """Asynchronous machine whose behaviour is described by reference to a standard model expressed in either time constant reactance form or equivalent circuit form <font color=\"#0f0f0f\">or by definition of a user-defined model.</font>
-
-<b>Parameter Notes:</b>
-<ol>
- <li>Asynchronous machine parameters such as <b>Xl, Xs</b> etc. are actually used as inductances (L) in the model, but are commonly referred to as reactances since, at nominal frequency, the per unit values are the same. However, some references use the symbol L instead of X. </li>
-</ol>""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_xm">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Magnetizing reactance.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit
-:AsynchronousMachineEquivalentCircuit rdf:type owl:Class ;
-                                      rdfs:subClassOf :AsynchronousMachineDynamics ,
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty :AsynchronousMachineEquivalentCircuit_rr1 ;
-                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                                      ] ,
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty :AsynchronousMachineEquivalentCircuit_rr2 ;
-                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                                      ] ,
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty :AsynchronousMachineEquivalentCircuit_xlr1 ;
-                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                                      ] ,
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty :AsynchronousMachineEquivalentCircuit_xlr2 ;
-                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                                      ] ,
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty :AsynchronousMachineEquivalentCircuit_xm ;
-                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                                      ] ,
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty :AsynchronousMachineEquivalentCircuit_rr1 ;
-                                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                                      ] ,
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty :AsynchronousMachineEquivalentCircuit_rr2 ;
-                                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                                      ] ,
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty :AsynchronousMachineEquivalentCircuit_xlr1 ;
-                                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                                      ] ,
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty :AsynchronousMachineEquivalentCircuit_xlr2 ;
-                                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                                      ] ,
-                                                      [ rdf:type owl:Restriction ;
-                                                        owl:onProperty :AsynchronousMachineEquivalentCircuit_xm ;
-                                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                                      ] ;
-                                      rdfs:comment """The electrical equations of all variations of the asynchronous model are based on the AsynchronousEquivalentCircuit diagram for the direct and quadrature axes, with two equivalent rotor windings in each axis.  
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_tpo -->
 
-<b>Equations for conversion between Equivalent Circuit and Time Constant Reactance forms:</b>
-<b>Xs</b> = <b>Xm</b> + <b>Xl</b>
-<b>X'</b> = <b>Xl</b> + <b>Xm</b> * <b>Xlr1</b> / (<b>Xm</b> + <b>Xlr1</b>)
-<b>X''</b> = <b>Xl</b> + <b>Xm</b> * <b>Xlr1</b>* <b>Xlr2</b> / (<b>Xm</b> * <b>Xlr1</b> + <b>Xm</b> * <b>Xlr2</b> + <b>Xlr1</b> * <b>Xlr2</b>)
-<b>T'o</b> = (<b>Xm</b> + <b>Xlr1</b>) / (<b>omega</b><b><sub>0</sub></b> * <b>Rr1</b>)
-<b>T''o</b> = (<b>Xm</b> * <b>Xlr1</b> + <b>Xm</b> * <b>Xlr2</b> + <b>Xlr1</b> * <b>Xlr2</b>) / (<b>omega</b><b><sub>0</sub></b> * <b>Rr2</b> * (<b>Xm </b>+ <b>Xlr1</b>)
-<b>
-</b>Same equations using CIM attributes from AsynchronousMachineTimeConstantReactance class on left of = sign and AsynchronousMachineEquivalentCircuit class on right (except as noted):
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_tpo">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+        <rdfs:comment>Transient rotor time constant (T&apos;o) (&amp;gt; T&apos;&apos;o).  Typical Value = 5.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_tppo -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_tppo">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+        <rdfs:comment>Subtransient rotor time constant (T&apos;&apos;o) (&amp;gt; 0).  Typical Value = 0.03.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_xp -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_xp">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Transient reactance (unsaturated) (X&apos;) (&amp;gt;=X&apos;&apos;).  Typical Value = 0.5.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_xpp -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_xpp">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Subtransient reactance (unsaturated) (X&apos;&apos;) (&amp;gt; Xl).  Typical Value = 0.2.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_xs -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_xs">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+        <rdfs:comment>Synchronous reactance (Xs) (&amp;gt;= X&apos;).  Typical Value = 1.8.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#MechanicalLoadDynamics_AsynchronousMachineDynamics -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#MechanicalLoadDynamics_AsynchronousMachineDynamics">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechanicalLoadDynamics"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics"/>
+        <rdfs:comment>Mechanical load model associated with this asynchronous machine model.Asynchronous machine model with which this mechanical load model is associated.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#TurbineGovernorDynamics_AsynchronousMachineDynamics -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#TurbineGovernorDynamics_AsynchronousMachineDynamics">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineGovernorDynamics#TurbineGovernorDynamics"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics"/>
+        <rdfs:comment>Turbine-governor model associated with this asynchronous machine model.Asynchronous machine model with which this turbine-governor model is associated.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#WindTurbineType1or2Dynamics_AsynchronousMachineDynamics -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#WindTurbineType1or2Dynamics_AsynchronousMachineDynamics">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics"/>
+        <rdfs:comment>Wind generator type 1 or 2 model associated with this asynchronous machine model.Asynchronous machine model with which this wind generator type 1 or 2 model is associated.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#RotatingMachineDynamics -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#RotatingMachineDynamics"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels#RotatingMachineDynamics"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics_MechanicalLoadDynamics"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics_TurbineGovernorDynamics"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics_WindTurbineType1or2Dynamics"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics_MechanicalLoadDynamics"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics_TurbineGovernorDynamics"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Asynchronous machine whose behaviour is described by reference to a standard model expressed in either time constant reactance form or equivalent circuit form &lt;font color=&quot;#0f0f0f&quot;&gt;or by definition of a user-defined model.&lt;/font&gt;
+
+&lt;b&gt;Parameter Notes:&lt;/b&gt;
+&lt;ol&gt;
+ &lt;li&gt;Asynchronous machine parameters such as &lt;b&gt;Xl, Xs&lt;/b&gt; etc. are actually used as inductances (L) in the model, but are commonly referred to as reactances since, at nominal frequency, the per unit values are the same. However, some references use the symbol L instead of X. &lt;/li&gt;
+&lt;/ol&gt;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_rr1"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_rr2"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_xlr1"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_xlr2"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_xm"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_rr1"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_rr2"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_xlr1"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_xlr2"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineEquivalentCircuit_xm"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The electrical equations of all variations of the asynchronous model are based on the AsynchronousEquivalentCircuit diagram for the direct and quadrature axes, with two equivalent rotor windings in each axis.  
+
+&lt;b&gt;Equations for conversion between Equivalent Circuit and Time Constant Reactance forms:&lt;/b&gt;
+&lt;b&gt;Xs&lt;/b&gt; = &lt;b&gt;Xm&lt;/b&gt; + &lt;b&gt;Xl&lt;/b&gt;
+&lt;b&gt;X&apos;&lt;/b&gt; = &lt;b&gt;Xl&lt;/b&gt; + &lt;b&gt;Xm&lt;/b&gt; * &lt;b&gt;Xlr1&lt;/b&gt; / (&lt;b&gt;Xm&lt;/b&gt; + &lt;b&gt;Xlr1&lt;/b&gt;)
+&lt;b&gt;X&apos;&apos;&lt;/b&gt; = &lt;b&gt;Xl&lt;/b&gt; + &lt;b&gt;Xm&lt;/b&gt; * &lt;b&gt;Xlr1&lt;/b&gt;* &lt;b&gt;Xlr2&lt;/b&gt; / (&lt;b&gt;Xm&lt;/b&gt; * &lt;b&gt;Xlr1&lt;/b&gt; + &lt;b&gt;Xm&lt;/b&gt; * &lt;b&gt;Xlr2&lt;/b&gt; + &lt;b&gt;Xlr1&lt;/b&gt; * &lt;b&gt;Xlr2&lt;/b&gt;)
+&lt;b&gt;T&apos;o&lt;/b&gt; = (&lt;b&gt;Xm&lt;/b&gt; + &lt;b&gt;Xlr1&lt;/b&gt;) / (&lt;b&gt;omega&lt;/b&gt;&lt;b&gt;&lt;sub&gt;0&lt;/sub&gt;&lt;/b&gt; * &lt;b&gt;Rr1&lt;/b&gt;)
+&lt;b&gt;T&apos;&apos;o&lt;/b&gt; = (&lt;b&gt;Xm&lt;/b&gt; * &lt;b&gt;Xlr1&lt;/b&gt; + &lt;b&gt;Xm&lt;/b&gt; * &lt;b&gt;Xlr2&lt;/b&gt; + &lt;b&gt;Xlr1&lt;/b&gt; * &lt;b&gt;Xlr2&lt;/b&gt;) / (&lt;b&gt;omega&lt;/b&gt;&lt;b&gt;&lt;sub&gt;0&lt;/sub&gt;&lt;/b&gt; * &lt;b&gt;Rr2&lt;/b&gt; * (&lt;b&gt;Xm &lt;/b&gt;+ &lt;b&gt;Xlr1&lt;/b&gt;)
+&lt;b&gt;
+&lt;/b&gt;Same equations using CIM attributes from AsynchronousMachineTimeConstantReactance class on left of = sign and AsynchronousMachineEquivalentCircuit class on right (except as noted):
 xs = xm + RotatingMachineDynamics.statorLeakageReactance
 xp = RotatingMachineDynamics.statorLeakageReactance + xm * xlr1 / (xm + xlr1)
 xpp = RotatingMachineDynamics.statorLeakageReactance + xm * xlr1* xlr2 / (xm * xlr1 + xm * xlr2 + xlr1 * xlr2)
 tpo = (xm + xlr1) / (2*pi*nominal frequency * rr1)
-tppo = (xm * xlr1 + xm * xlr2 + xlr1 * xlr2) / (2*pi*nominal frequency * rr2 * (xm + xlr1).""" .
+tppo = (xm * xlr1 + xm * xlr2 + xlr1 * xlr2) / (2*pi*nominal frequency * rr2 * (xm + xlr1).</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance
-:AsynchronousMachineTimeConstantReactance rdf:type owl:Class ;
-                                          rdfs:subClassOf :AsynchronousMachineDynamics ,
-                                                          [ rdf:type owl:Restriction ;
-                                                            owl:onProperty :AsynchronousMachineTimeConstantReactance_tpo ;
-                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                                                          ] ,
-                                                          [ rdf:type owl:Restriction ;
-                                                            owl:onProperty :AsynchronousMachineTimeConstantReactance_tppo ;
-                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                                                          ] ,
-                                                          [ rdf:type owl:Restriction ;
-                                                            owl:onProperty :AsynchronousMachineTimeConstantReactance_xp ;
-                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                                          ] ,
-                                                          [ rdf:type owl:Restriction ;
-                                                            owl:onProperty :AsynchronousMachineTimeConstantReactance_xpp ;
-                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                                          ] ,
-                                                          [ rdf:type owl:Restriction ;
-                                                            owl:onProperty :AsynchronousMachineTimeConstantReactance_xs ;
-                                                            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                                          ] ,
-                                                          [ rdf:type owl:Restriction ;
-                                                            owl:onProperty :AsynchronousMachineTimeConstantReactance_tpo ;
-                                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                                                          ] ,
-                                                          [ rdf:type owl:Restriction ;
-                                                            owl:onProperty :AsynchronousMachineTimeConstantReactance_tppo ;
-                                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds>
-                                                          ] ,
-                                                          [ rdf:type owl:Restriction ;
-                                                            owl:onProperty :AsynchronousMachineTimeConstantReactance_xp ;
-                                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                                          ] ,
-                                                          [ rdf:type owl:Restriction ;
-                                                            owl:onProperty :AsynchronousMachineTimeConstantReactance_xpp ;
-                                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                                          ] ,
-                                                          [ rdf:type owl:Restriction ;
-                                                            owl:onProperty :AsynchronousMachineTimeConstantReactance_xs ;
-                                                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                            owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#PU>
-                                                          ] ;
-                                          rdfs:comment """<b>Parameter Notes:</b>
-<ol>
- <li>If <b>X''</b> = <b>X'</b>, a single cage (one equivalent rotor winding per axis) is modelled.</li>
- <li>The “p” in the attribute names is a substitution for a “prime” in the usual parameter notation, e.g. tpo refers to T'o.</li>
-</ol>
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineDynamics"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_tpo"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_tppo"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_xp"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_xpp"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_xs"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_tpo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_tppo"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Seconds"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_xp"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_xpp"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#AsynchronousMachineTimeConstantReactance_xs"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>&lt;b&gt;Parameter Notes:&lt;/b&gt;
+&lt;ol&gt;
+ &lt;li&gt;If &lt;b&gt;X&apos;&apos;&lt;/b&gt; = &lt;b&gt;X&apos;&lt;/b&gt;, a single cage (one equivalent rotor winding per axis) is modelled.&lt;/li&gt;
+ &lt;li&gt;The “p” in the attribute names is a substitution for a “prime” in the usual parameter notation, e.g. tpo refers to T&apos;o.&lt;/li&gt;
+&lt;/ol&gt;
 
 The parameters used for models expressed in time constant reactance form include:
-<ul>
- <li>RotatingMachine.ratedS (MVAbase)</li>
- <li>RotatingMachineDynamics.damping (D)</li>
- <li>RotatingMachineDynamics.inertia (H)</li>
- <li>RotatingMachineDynamics.saturationFactor (S1)</li>
- <li>RotatingMachineDynamics.saturationFactor120 (S12)</li>
- <li>RotatingMachineDynamics.statorLeakageReactance (Xl)</li>
- <li>RotatingMachineDynamics.statorResistance (Rs)</li>
- <li>.xs (Xs)</li>
- <li>.xp (X')</li>
- <li>.xpp (X'')</li>
- <li>.tpo (T'o)</li>
- <li>.tppo (T''o).</li>
-</ul>""" .
+&lt;ul&gt;
+ &lt;li&gt;RotatingMachine.ratedS (MVAbase)&lt;/li&gt;
+ &lt;li&gt;RotatingMachineDynamics.damping (D)&lt;/li&gt;
+ &lt;li&gt;RotatingMachineDynamics.inertia (H)&lt;/li&gt;
+ &lt;li&gt;RotatingMachineDynamics.saturationFactor (S1)&lt;/li&gt;
+ &lt;li&gt;RotatingMachineDynamics.saturationFactor120 (S12)&lt;/li&gt;
+ &lt;li&gt;RotatingMachineDynamics.statorLeakageReactance (Xl)&lt;/li&gt;
+ &lt;li&gt;RotatingMachineDynamics.statorResistance (Rs)&lt;/li&gt;
+ &lt;li&gt;.xs (Xs)&lt;/li&gt;
+ &lt;li&gt;.xp (X&apos;)&lt;/li&gt;
+ &lt;li&gt;.xpp (X&apos;&apos;)&lt;/li&gt;
+ &lt;li&gt;.tpo (T&apos;o)&lt;/li&gt;
+ &lt;li&gt;.tppo (T&apos;&apos;o).&lt;/li&gt;
+&lt;/ul&gt;</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechanicalLoadDynamics
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechanicalLoadDynamics> rdf:type owl:Class ;
-                                                                                                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                                             owl:onProperty :MechanicalLoadDynamics_AsynchronousMachineDynamics ;
-                                                                                                                                             owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechanicalLoadDynamics>
-                                                                                                                                           ] ,
-                                                                                                                                           [ rdf:type owl:Restriction ;
-                                                                                                                                             owl:onProperty :MechanicalLoadDynamics_AsynchronousMachineDynamics ;
-                                                                                                                                             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                                             owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechanicalLoadDynamics>
-                                                                                                                                           ] .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechanicalLoadDynamics -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineGovernorDynamics#TurbineGovernorDynamics
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineGovernorDynamics#TurbineGovernorDynamics> rdf:type owl:Class ;
-                                                                                                                             rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                                               owl:onProperty :TurbineGovernorDynamics_AsynchronousMachineDynamics ;
-                                                                                                                                               owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineGovernorDynamics#TurbineGovernorDynamics>
-                                                                                                                                             ] ,
-                                                                                                                                             [ rdf:type owl:Restriction ;
-                                                                                                                                               owl:onProperty :TurbineGovernorDynamics_AsynchronousMachineDynamics ;
-                                                                                                                                               owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                                               owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineGovernorDynamics#TurbineGovernorDynamics>
-                                                                                                                                             ] .
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechanicalLoadDynamics">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#MechanicalLoadDynamics_AsynchronousMachineDynamics"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechanicalLoadDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#MechanicalLoadDynamics_AsynchronousMachineDynamics"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/MechanicalLoadDynamics#MechanicalLoadDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics> rdf:type owl:Class ;
-                                                                                                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                                                                                                        owl:onProperty :WindTurbineType1or2Dynamics_AsynchronousMachineDynamics ;
-                                                                                                                                        owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                                                                                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics>
-                                                                                                                                      ] ,
-                                                                                                                                      [ rdf:type owl:Restriction ;
-                                                                                                                                        owl:onProperty :WindTurbineType1or2Dynamics_AsynchronousMachineDynamics ;
-                                                                                                                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                                                                                        owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics>
-                                                                                                                                      ] .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineGovernorDynamics#TurbineGovernorDynamics -->
 
 
-###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineGovernorDynamics#TurbineGovernorDynamics">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#TurbineGovernorDynamics_AsynchronousMachineDynamics"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineGovernorDynamics#TurbineGovernorDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#TurbineGovernorDynamics_AsynchronousMachineDynamics"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/TurbineGovernorDynamics#TurbineGovernorDynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#WindTurbineType1or2Dynamics_AsynchronousMachineDynamics"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/AsynchronousMachineDynamics#WindTurbineType1or2Dynamics_AsynchronousMachineDynamics"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Dynamics/StandardModels/WindDynamics#WindTurbineType1or2Dynamics"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
+
+

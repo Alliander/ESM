@@ -1,561 +1,856 @@
-@prefix : <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#> .
-
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#> rdf:type owl:Ontology .
-
-#################################################################
-#    Datatypes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#OrientationKind
-:OrientationKind rdf:type rdfs:Datatype ;
-                 owl:equivalentClass [ rdf:type rdfs:Datatype ;
-                                       owl:oneOf [ rdf:type rdf:List ;
-                                                   rdf:first "negative" ;
-                                                   rdf:rest [ rdf:type rdf:List ;
-                                                              rdf:first "positive" ;
-                                                              rdf:rest rdf:nil
-                                                            ]
-                                                 ]
-                                     ] .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#"
+     xml:base="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#"/>
+    
 
 
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectGluePoint_DiagramObjectPoints
-:DiagramObjectGluePoint_DiagramObjectPoints rdf:type owl:ObjectProperty ;
-                                            owl:inverseOf :DiagramObjectPoint_DiagramObjectGluePoint ;
-                                            rdfs:domain :DiagramObjectGluePoint ;
-                                            rdfs:range :DiagramObjectPoint ;
-                                            rdfs:comment "A diagram object glue point is associated with 2 or more object points that are considered to be 'glued' together.The 'glue' point to which this point is associated." .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_DiagramObject
-:DiagramObjectPoint_DiagramObject rdf:type owl:ObjectProperty ;
-                                  owl:inverseOf :DiagramObject_DiagramObjectPoints ;
-                                  rdfs:domain :DiagramObjectPoint ;
-                                  rdfs:range :DiagramObject ;
-                                  rdfs:comment "The diagram object with which the points are associated.A diagram object can have 0 or more points to reflect its layout position, routing (for polylines) or boundary (for polygons)." .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_DiagramObjectGluePoint
-:DiagramObjectPoint_DiagramObjectGluePoint rdf:type owl:ObjectProperty ;
-                                           rdfs:domain :DiagramObjectPoint ;
-                                           rdfs:range :DiagramObjectGluePoint ;
-                                           rdfs:comment "A diagram object glue point is associated with 2 or more object points that are considered to be 'glued' together.The 'glue' point to which this point is associated." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#OrientationKind -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectStyle_StyledObjects
-:DiagramObjectStyle_StyledObjects rdf:type owl:ObjectProperty ;
-                                  owl:inverseOf :DiagramObject_DiagramObjectStyle ;
-                                  rdfs:domain :DiagramObjectStyle ;
-                                  rdfs:range :DiagramObject ;
-                                  rdfs:comment "A style can be assigned to multiple diagram objects.A diagram object has a style associated that provides a reference for the style used in the originating system." .
+    <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#OrientationKind">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>negative</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>positive</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_Diagram
-:DiagramObject_Diagram rdf:type owl:ObjectProperty ;
-                       rdfs:domain :DiagramObject ;
-                       rdfs:range :Diagram ;
-                       rdfs:comment "A diagram is made up of multiple diagram objects.A diagram object is part of a diagram." .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_DiagramObjectPoints
-:DiagramObject_DiagramObjectPoints rdf:type owl:ObjectProperty ,
-                                            owl:FunctionalProperty ;
-                                   rdfs:domain :DiagramObject ;
-                                   rdfs:range :DiagramObjectPoint ;
-                                   rdfs:comment "The diagram object with which the points are associated.A diagram object can have 0 or more points to reflect its layout position, routing (for polylines) or boundary (for polygons)." .
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_DiagramObjectStyle
-:DiagramObject_DiagramObjectStyle rdf:type owl:ObjectProperty ;
-                                  rdfs:domain :DiagramObject ;
-                                  rdfs:range :DiagramObjectStyle ;
-                                  rdfs:comment "A style can be assigned to multiple diagram objects.A diagram object has a style associated that provides a reference for the style used in the originating system." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectGluePoint_DiagramObjectPoints -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_VisibilityLayers
-:DiagramObject_VisibilityLayers rdf:type owl:ObjectProperty ;
-                                rdfs:domain :DiagramObject ;
-                                rdfs:range :VisibilityLayer ;
-                                rdfs:comment "A visibility layer can contain one or more diagram objects.A diagram object can be part of multiple visibility layers." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectGluePoint_DiagramObjectPoints">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_DiagramObjectGluePoint"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectGluePoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint"/>
+        <rdfs:comment>A diagram object glue point is associated with 2 or more object points that are considered to be &apos;glued&apos; together.The &apos;glue&apos; point to which this point is associated.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_rotation
-:DiagramObject_rotation rdf:type owl:ObjectProperty ;
-                        rdfs:domain :DiagramObject ;
-                        rdfs:range <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees> ;
-                        rdfs:comment "Sets the angle of rotation of the diagram object.  Zero degrees is pointing to the top of the diagram.  Rotation is clockwise." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_DiagramObject -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramStyle_Diagram
-:DiagramStyle_Diagram rdf:type owl:ObjectProperty ;
-                      rdfs:domain :DiagramStyle ;
-                      rdfs:range :Diagram ;
-                      rdfs:comment "A Diagram may have a DiagramStyle.A DiagramStyle can be used by many Diagrams." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_DiagramObject">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_DiagramObjectPoints"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+        <rdfs:comment>The diagram object with which the points are associated.A diagram object can have 0 or more points to reflect its layout position, routing (for polylines) or boundary (for polygons).</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_DiagramElements
-:Diagram_DiagramElements rdf:type owl:ObjectProperty ;
-                         owl:inverseOf :DiagramObject_Diagram ;
-                         rdfs:domain :Diagram ;
-                         rdfs:range :DiagramObject ;
-                         rdfs:comment "A diagram is made up of multiple diagram objects.A diagram object is part of a diagram." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_DiagramObjectGluePoint -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_DiagramStyle
-:Diagram_DiagramStyle rdf:type owl:ObjectProperty ;
-                      owl:inverseOf :DiagramStyle_Diagram ;
-                      rdfs:domain :Diagram ;
-                      rdfs:range :DiagramStyle ;
-                      rdfs:comment "A Diagram may have a DiagramStyle.A DiagramStyle can be used by many Diagrams." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_DiagramObjectGluePoint">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectGluePoint"/>
+        <rdfs:comment>A diagram object glue point is associated with 2 or more object points that are considered to be &apos;glued&apos; together.The &apos;glue&apos; point to which this point is associated.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#VisibilityLayer_VisibleObjects
-:VisibilityLayer_VisibleObjects rdf:type owl:ObjectProperty ;
-                                owl:inverseOf :DiagramObject_VisibilityLayers ;
-                                rdfs:domain :VisibilityLayer ;
-                                rdfs:range :DiagramObject ;
-                                rdfs:comment "A visibility layer can contain one or more diagram objects.A diagram object can be part of multiple visibility layers." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectStyle_StyledObjects -->
 
 
-#################################################################
-#    Data properties
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_sequenceNumber
-:DiagramObjectPoint_sequenceNumber rdf:type owl:DatatypeProperty ;
-                                   rdfs:domain :DiagramObjectPoint ;
-                                   rdfs:range xsd:nonNegativeInteger ;
-                                   rdfs:comment """The sequence position of the point, used for defining the order of points for diagram objects acting as a polyline or polygon with more than one point.
-""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectStyle_StyledObjects">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_DiagramObjectStyle"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectStyle"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+        <rdfs:comment>A style can be assigned to multiple diagram objects.A diagram object has a style associated that provides a reference for the style used in the originating system.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_xPosition
-:DiagramObjectPoint_xPosition rdf:type owl:DatatypeProperty ;
-                              rdfs:domain :DiagramObjectPoint ;
-                              rdfs:range xsd:float ;
-                              rdfs:comment """The X coordinate of this point.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_Diagram -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_yPosition
-:DiagramObjectPoint_yPosition rdf:type owl:DatatypeProperty ;
-                              rdfs:domain :DiagramObjectPoint ;
-                              rdfs:range xsd:float ;
-                              rdfs:comment """The Y coordinate of this point.
-""" .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_Diagram">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram"/>
+        <rdfs:comment>A diagram is made up of multiple diagram objects.A diagram object is part of a diagram.</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_zPosition
-:DiagramObjectPoint_zPosition rdf:type owl:DatatypeProperty ;
-                              rdfs:domain :DiagramObjectPoint ;
-                              rdfs:range xsd:float ;
-                              rdfs:comment """The Z coordinate of this point.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_DiagramObjectPoints -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_drawingOrder
-:DiagramObject_drawingOrder rdf:type owl:DatatypeProperty ;
-                            rdfs:domain :DiagramObject ;
-                            rdfs:range xsd:nonNegativeInteger ;
-                            rdfs:comment "The drawing order of this element. The higher the number, the later the element is drawn in sequence. This is used to ensure that elements that overlap are rendered in the correct order." .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_DiagramObjectPoints">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint"/>
+        <rdfs:comment>The diagram object with which the points are associated.A diagram object can have 0 or more points to reflect its layout position, routing (for polylines) or boundary (for polygons).</rdfs:comment>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_isPolygon
-:DiagramObject_isPolygon rdf:type owl:DatatypeProperty ;
-                         rdfs:domain :DiagramObject ;
-                         rdfs:range xsd:boolean ;
-                         rdfs:comment "Defines whether or not the diagram objects points define the boundaries of a polygon or the routing of a polyline. If this value is true then a receiving application should consider the first and last points to be connected." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_DiagramObjectStyle -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_offsetX
-:DiagramObject_offsetX rdf:type owl:DatatypeProperty ;
-                       rdfs:domain :DiagramObject ;
-                       rdfs:range xsd:float ;
-                       rdfs:comment """The offset in the X direction. This is used for defining the offset from centre for rendering an icon (the default is that a single point specifies the centre of the icon).
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_DiagramObjectStyle">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectStyle"/>
+        <rdfs:comment>A style can be assigned to multiple diagram objects.A diagram object has a style associated that provides a reference for the style used in the originating system.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_VisibilityLayers -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_VisibilityLayers">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#VisibilityLayer"/>
+        <rdfs:comment>A visibility layer can contain one or more diagram objects.A diagram object can be part of multiple visibility layers.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_rotation -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_rotation">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees"/>
+        <rdfs:comment>Sets the angle of rotation of the diagram object.  Zero degrees is pointing to the top of the diagram.  Rotation is clockwise.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramStyle_Diagram -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramStyle_Diagram">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramStyle"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram"/>
+        <rdfs:comment>A Diagram may have a DiagramStyle.A DiagramStyle can be used by many Diagrams.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_DiagramElements -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_DiagramElements">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_Diagram"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+        <rdfs:comment>A diagram is made up of multiple diagram objects.A diagram object is part of a diagram.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_DiagramStyle -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_DiagramStyle">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramStyle_Diagram"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramStyle"/>
+        <rdfs:comment>A Diagram may have a DiagramStyle.A DiagramStyle can be used by many Diagrams.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#VisibilityLayer_VisibleObjects -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#VisibilityLayer_VisibleObjects">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_VisibilityLayers"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#VisibilityLayer"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+        <rdfs:comment>A visibility layer can contain one or more diagram objects.A diagram object can be part of multiple visibility layers.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_sequenceNumber -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_sequenceNumber">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment>The sequence position of the point, used for defining the order of points for diagram objects acting as a polyline or polygon with more than one point.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_xPosition -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_xPosition">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>The X coordinate of this point.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_yPosition -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_yPosition">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>The Y coordinate of this point.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_zPosition -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_zPosition">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>The Z coordinate of this point.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_drawingOrder -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_drawingOrder">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment>The drawing order of this element. The higher the number, the later the element is drawn in sequence. This is used to ensure that elements that overlap are rendered in the correct order.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_isPolygon -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_isPolygon">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Defines whether or not the diagram objects points define the boundaries of a polygon or the routing of a polyline. If this value is true then a receiving application should consider the first and last points to be connected.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_offsetX -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_offsetX">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>The offset in the X direction. This is used for defining the offset from centre for rendering an icon (the default is that a single point specifies the centre of the icon).
 
 The offset is in per-unit with 0 indicating there is no offset from the horizontal centre of the icon.  -0.5 indicates it is offset by 50% to the left and 0.5 indicates an offset of 50% to the right.
-""" .
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_offsetY
-:DiagramObject_offsetY rdf:type owl:DatatypeProperty ;
-                       rdfs:domain :DiagramObject ;
-                       rdfs:range xsd:float ;
-                       rdfs:comment """The offset in the Y direction. This is used for defining the offset from centre for rendering an icon (the default is that a single point specifies the centre of the icon).
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_offsetY -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_offsetY">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>The offset in the Y direction. This is used for defining the offset from centre for rendering an icon (the default is that a single point specifies the centre of the icon).
 
 The offset is in per-unit with 0 indicating there is no offset from the vertical centre of the icon.  The offset direction is dependent on the orientation of the diagram, with -0.5 and 0.5 indicating an offset of +/- 50% on the vertical axis.
-""" .
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_orientation
-:Diagram_orientation rdf:type owl:DatatypeProperty ;
-                     rdfs:domain :Diagram ;
-                     rdfs:range :OrientationKind ;
-                     rdfs:comment """Coordinate system orientation of the diagram.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_orientation -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_x1InitialView
-:Diagram_x1InitialView rdf:type owl:DatatypeProperty ;
-                       rdfs:domain :Diagram ;
-                       rdfs:range xsd:float ;
-                       rdfs:comment """X coordinate of the first corner of the initial view.
-""" .
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_orientation">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#OrientationKind"/>
+        <rdfs:comment>Coordinate system orientation of the diagram.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_x2InitialView
-:Diagram_x2InitialView rdf:type owl:DatatypeProperty ;
-                       rdfs:domain :Diagram ;
-                       rdfs:range xsd:float ;
-                       rdfs:comment """X coordinate of the second corner of the initial view.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_x1InitialView -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_y1InitialView
-:Diagram_y1InitialView rdf:type owl:DatatypeProperty ;
-                       rdfs:domain :Diagram ;
-                       rdfs:range xsd:float ;
-                       rdfs:comment """Y coordinate of the first corner of the initial view.
-""" .
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_x1InitialView">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>X coordinate of the first corner of the initial view.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_y2InitialView
-:Diagram_y2InitialView rdf:type owl:DatatypeProperty ;
-                       rdfs:domain :Diagram ;
-                       rdfs:range xsd:float ;
-                       rdfs:comment """Y coordinate of the second corner of the initial view.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_x2InitialView -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#TextDiagramObject_text
-:TextDiagramObject_text rdf:type owl:DatatypeProperty ;
-                        rdfs:domain :TextDiagramObject ;
-                        rdfs:range xsd:string ;
-                        rdfs:comment """The text that is displayed by this text diagram object.
-""" .
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_x2InitialView">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>X coordinate of the second corner of the initial view.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#VisibilityLayer_drawingOrder
-:VisibilityLayer_drawingOrder rdf:type owl:DatatypeProperty ;
-                              rdfs:domain :VisibilityLayer ;
-                              rdfs:range xsd:nonNegativeInteger ;
-                              rdfs:comment """The drawing order for this layer.  The higher the number, the later the layer and the objects within it are rendered.
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_y1InitialView -->
 
 
-#################################################################
-#    Classes
-#################################################################
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> rdf:type owl:Class .
-
-
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram
-:Diagram rdf:type owl:Class ;
-         rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Diagram_DiagramElements ;
-                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onClass :Diagram
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Diagram_DiagramStyle ;
-                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onClass :Diagram
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Diagram_DiagramElements ;
-                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onClass :Diagram
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Diagram_orientation ;
-                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onDataRange :OrientationKind
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Diagram_x1InitialView ;
-                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onDataRange xsd:float
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Diagram_x2InitialView ;
-                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onDataRange xsd:float
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Diagram_y1InitialView ;
-                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onDataRange xsd:float
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Diagram_y2InitialView ;
-                           owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                           owl:onDataRange xsd:float
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Diagram_orientation ;
-                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onDataRange :OrientationKind
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Diagram_x1InitialView ;
-                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onDataRange xsd:float
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Diagram_x2InitialView ;
-                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onDataRange xsd:float
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Diagram_y1InitialView ;
-                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onDataRange xsd:float
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :Diagram_y2InitialView ;
-                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onDataRange xsd:float
-                         ] ;
-         rdfs:comment """The diagram being exchanged.  The coordinate system is a standard Cartesian coordinate system and the orientation attribute defines the orientation.
-""" .
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_y1InitialView">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Y coordinate of the first corner of the initial view.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject
-:DiagramObject rdf:type owl:Class ;
-               rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :DiagramObject_Diagram ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :DiagramObject
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :DiagramObject_DiagramObjectStyle ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :DiagramObject
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :DiagramObject_VisibilityLayers ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :DiagramObject
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :DiagramObject_rotation ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :DiagramObject_DiagramObjectPoints ;
-                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onClass :DiagramObject
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :DiagramObject_rotation ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onClass <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees>
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :DiagramObject_drawingOrder ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:nonNegativeInteger
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :DiagramObject_isPolygon ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:boolean
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :DiagramObject_offsetX ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:float
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :DiagramObject_offsetY ;
-                                 owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:float
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :DiagramObject_drawingOrder ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:nonNegativeInteger
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :DiagramObject_isPolygon ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:boolean
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :DiagramObject_offsetX ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:float
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :DiagramObject_offsetY ;
-                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onDataRange xsd:float
-                               ] ;
-               rdfs:comment "An object that defines one or more points in a given space. This object can be associated with anything that specializes IdentifiedObject. For single line diagrams such objects typically include such items as analog values, breakers, disconnectors, power transformers, and transmission lines." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_y2InitialView -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectGluePoint
-:DiagramObjectGluePoint rdf:type owl:Class ;
-                        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                          owl:onProperty :DiagramObjectGluePoint_DiagramObjectPoints ;
-                                          owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                          owl:onClass :DiagramObjectGluePoint
-                                        ] ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :DiagramObjectGluePoint_DiagramObjectPoints ;
-                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass :DiagramObjectGluePoint
-                                        ] ;
-                        rdfs:comment """This is used for grouping diagram object points from different diagram objects that are considered to be glued together in a diagram even if they are not at the exact same coordinates.
-""" .
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_y2InitialView">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Y coordinate of the second corner of the initial view.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint
-:DiagramObjectPoint rdf:type owl:Class ;
-                    rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                      owl:onProperty :DiagramObjectPoint_DiagramObject ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :DiagramObjectPoint
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :DiagramObjectPoint_DiagramObjectGluePoint ;
-                                      owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :DiagramObjectPoint
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :DiagramObjectPoint_sequenceNumber ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:nonNegativeInteger
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :DiagramObjectPoint_xPosition ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:float
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :DiagramObjectPoint_yPosition ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:float
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :DiagramObjectPoint_zPosition ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:float
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :DiagramObjectPoint_sequenceNumber ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:nonNegativeInteger
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :DiagramObjectPoint_xPosition ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:float
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :DiagramObjectPoint_yPosition ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:float
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :DiagramObjectPoint_zPosition ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onDataRange xsd:float
-                                    ] ;
-                    rdfs:comment """A point in a given space defined by 3 coordinates and associated to a diagram object.  The coordinates may be positive or negative as the origin does not have to be in the corner of a diagram.  
-""" .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#TextDiagramObject_text -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectStyle
-:DiagramObjectStyle rdf:type owl:Class ;
-                    rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :DiagramObjectStyle_StyledObjects ;
-                                      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :DiagramObjectStyle
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
-                                      owl:onProperty :DiagramObjectStyle_StyledObjects ;
-                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass :DiagramObjectStyle
-                                    ] ;
-                    rdfs:comment """A reference to a style used by the originating system for a diagram object.  A diagram object style describes information such as line thickness, shape such as circle or rectangle etc, and color.
-""" .
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#TextDiagramObject_text">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#TextDiagramObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The text that is displayed by this text diagram object.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramStyle
-:DiagramStyle rdf:type owl:Class ;
-              rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :DiagramStyle_Diagram ;
-                                owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                owl:onClass :DiagramStyle
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty :DiagramStyle_Diagram ;
-                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onClass :DiagramStyle
-                              ] ;
-              rdfs:comment "The diagram style refer to a style used by the originating system for a diagram.  A diagram style describes information such as schematic, geographic, bus-branch etc." .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#VisibilityLayer_drawingOrder -->
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#TextDiagramObject
-:TextDiagramObject rdf:type owl:Class ;
-                   rdfs:subClassOf :DiagramObject ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :TextDiagramObject_text ;
-                                     owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                     owl:onDataRange xsd:string
-                                   ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :TextDiagramObject_text ;
-                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onDataRange xsd:string
-                                   ] ;
-                   rdfs:comment "A diagram object for placing free-text or text derived from an associated domain object." .
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#VisibilityLayer_drawingOrder">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#VisibilityLayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment>The drawing order for this layer.  The higher the number, the later the layer and the objects within it are rendered.
+</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#VisibilityLayer
-:VisibilityLayer rdf:type owl:Class ;
-                 rdfs:subClassOf <https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject> ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :VisibilityLayer_VisibleObjects ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onClass :VisibilityLayer
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :VisibilityLayer_drawingOrder ;
-                                   owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange xsd:nonNegativeInteger
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :VisibilityLayer_drawingOrder ;
-                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                   owl:onDataRange xsd:nonNegativeInteger
-                                 ] ;
-                 rdfs:comment """Layers are typically used for grouping diagram objects according to themes and scales. Themes are used to display or hide certain information (e.g., lakes, borders), while scales are used for hiding or displaying information depending on the current zoom level (hide text when it is too small to be read, or when it exceeds the screen size). This is also called de-cluttering.
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_DiagramElements"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_DiagramStyle"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_DiagramElements"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_orientation"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#OrientationKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_x1InitialView"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_x2InitialView"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_y1InitialView"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_y2InitialView"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_orientation"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#OrientationKind"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_x1InitialView"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_x2InitialView"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_y1InitialView"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#Diagram_y2InitialView"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The diagram being exchanged.  The coordinate system is a standard Cartesian coordinate system and the orientation attribute defines the orientation.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_Diagram"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_DiagramObjectStyle"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_VisibilityLayers"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_rotation"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_DiagramObjectPoints"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_rotation"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_drawingOrder"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_isPolygon"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_offsetX"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_offsetY"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_drawingOrder"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_isPolygon"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_offsetX"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject_offsetY"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>An object that defines one or more points in a given space. This object can be associated with anything that specializes IdentifiedObject. For single line diagrams such objects typically include such items as analog values, breakers, disconnectors, power transformers, and transmission lines.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectGluePoint -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectGluePoint">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectGluePoint_DiagramObjectPoints"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectGluePoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectGluePoint_DiagramObjectPoints"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectGluePoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>This is used for grouping diagram object points from different diagram objects that are considered to be glued together in a diagram even if they are not at the exact same coordinates.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_DiagramObject"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_DiagramObjectGluePoint"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_sequenceNumber"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_xPosition"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_yPosition"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_zPosition"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_sequenceNumber"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_xPosition"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_yPosition"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectPoint_zPosition"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A point in a given space defined by 3 coordinates and associated to a diagram object.  The coordinates may be positive or negative as the origin does not have to be in the corner of a diagram.  
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectStyle -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectStyle">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectStyle_StyledObjects"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectStyle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectStyle_StyledObjects"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObjectStyle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A reference to a style used by the originating system for a diagram object.  A diagram object style describes information such as line thickness, shape such as circle or rectangle etc, and color.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramStyle -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramStyle">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramStyle_Diagram"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramStyle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramStyle_Diagram"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramStyle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The diagram style refer to a style used by the originating system for a diagram.  A diagram style describes information such as schematic, geographic, bus-branch etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#TextDiagramObject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#TextDiagramObject">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#DiagramObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#TextDiagramObject_text"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#TextDiagramObject_text"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A diagram object for placing free-text or text derived from an associated domain object.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#VisibilityLayer -->
+
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#VisibilityLayer">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#VisibilityLayer_VisibleObjects"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#VisibilityLayer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#VisibilityLayer_drawingOrder"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/DiagramLayout#VisibilityLayer_drawingOrder"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Layers are typically used for grouping diagram objects according to themes and scales. Themes are used to display or hide certain information (e.g., lakes, borders), while scales are used for hiding or displaying information depending on the current zoom level (hide text when it is too small to be read, or when it exceeds the screen size). This is also called de-cluttering.
 
 CIM based graphics exchange will support an m:n relationship between diagram objects and layers. It will be the task of the importing system to convert an m:n case into an appropriate 1:n representation if the importing system does not support m:n.
-""" .
+</rdfs:comment>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees
-<https://w3id.org/netbeheer/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees> rdf:type owl:Class .
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees -->
 
 
-###  Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#AngleDegrees"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
+
+
