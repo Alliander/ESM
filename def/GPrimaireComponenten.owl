@@ -1,175 +1,253 @@
-@prefix : <https://w3id.org/netbeheer/def/GPrimaireComponenten#> .
-@prefix gpc: <https://w3id.org/netbeheer/def/GPrimaireComponenten#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix obda: <https://w3id.org/obda/vocabulary#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/netbeheer/def/GPrimaireComponenten> .
-
-<https://w3id.org/netbeheer/def/GPrimaireComponenten> rdf:type owl:Ontology ;
-                                                       owl:imports <https://w3id.org/netbeheer/def/GStationcomplex> ,
-                                                                   <https://w3id.org/netbeheer/def/KernObjecten> .
-
-#################################################################
-#    Data properties
-#################################################################
-
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#Drukniveau
-gpc:Drukniveau rdf:type owl:DatatypeProperty ;
-               rdfs:domain gpc:GPrimairComponent ;
-               rdfs:range xsd:double ;
-               rdfs:comment "Betreft de overdruk in Bar."@nl .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/def/GPrimaireComponenten#"
+     xml:base="https://w3id.org/netbeheer/def/GPrimaireComponenten"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:gpc="https://w3id.org/netbeheer/def/GPrimaireComponenten#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:obda="https://w3id.org/obda/vocabulary#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten">
+        <owl:imports rdf:resource="https://w3id.org/netbeheer/def/GStationcomplex"/>
+        <owl:imports rdf:resource="https://w3id.org/netbeheer/def/KernObjecten"/>
+    </owl:Ontology>
+    
 
 
-#################################################################
-#    Classes
-#################################################################
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
 
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#Blaasgatzadel
-gpc:Blaasgatzadel rdf:type owl:Class ;
-                  rdfs:subClassOf gpc:GHulpstuk .
-
-
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#GAfblaaspunt
-gpc:GAfblaaspunt rdf:type owl:Class ;
-                 rdfs:subClassOf gpc:GPrimairComponent ;
-                 rdfs:comment """Het punt waar een net afgeblazen kan worden. 
-Het Symbool bevindt zich altijd op het eind van een afblaas leiding"""@nl ;
-                 rdfs:label "Afblaaspunt"@nl .
+    
 
 
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#GAfsluiter
-gpc:GAfsluiter rdf:type owl:Class ;
-               rdfs:subClassOf gpc:GOnderbreker ;
-               rdfs:comment "Een component waarmee de gastoevoer afgelsoten kan worden"@nl ;
-               rdfs:label "Afsluiter"@nl .
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#Drukniveau -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#Drukniveau">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GPrimairComponent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:comment xml:lang="nl">Betreft de overdruk in Bar.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
 
 
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#GAftakzadel
-gpc:GAftakzadel rdf:type owl:Class ;
-                rdfs:subClassOf gpc:GConnector ;
-                rdfs:comment """Constructie voor het maken van een aftakking  op het hoofdleidingnet ten bate van een geconstrueerde aansluitleiding.  
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#Blaasgatzadel -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#Blaasgatzadel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GHulpstuk"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#GAfblaaspunt -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#GAfblaaspunt">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GPrimairComponent"/>
+        <rdfs:comment xml:lang="nl">Het punt waar een net afgeblazen kan worden. 
+Het Symbool bevindt zich altijd op het eind van een afblaas leiding</rdfs:comment>
+        <rdfs:label xml:lang="nl">Afblaaspunt</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#GAfsluiter -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#GAfsluiter">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GOnderbreker"/>
+        <rdfs:comment xml:lang="nl">Een component waarmee de gastoevoer afgelsoten kan worden</rdfs:comment>
+        <rdfs:label xml:lang="nl">Afsluiter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#GAftakzadel -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#GAftakzadel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GConnector"/>
+        <rdfs:comment xml:lang="nl">Constructie voor het maken van een aftakking  op het hoofdleidingnet ten bate van een geconstrueerde aansluitleiding.  
  
 In het verleden is het Aftakzadel ook toegepast voor het koppelen van hoofdleidingen. 
 
-Object kan zowel op een leiding eindpunt worden geplaatst als halverwege een leiding."""@nl ;
-                rdfs:label "Aftakzadel"@nl .
+Object kan zowel op een leiding eindpunt worden geplaatst als halverwege een leiding.</rdfs:comment>
+        <rdfs:label xml:lang="nl">Aftakzadel</rdfs:label>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#GConnector
-gpc:GConnector rdf:type owl:Class ;
-               rdfs:subClassOf gpc:GPrimairComponent ;
-               rdfs:comment "Connectors zijn componenten die bedoelt zijn om andere primaire componenten aan elkaar vast te maken. Denk hierbij aan Kruisstukken, aftakzadels of T-Stukken. Connector krijgt een eigen klassen door de afweikende rol die ze in een connectiviteitsmodel vervullen: een connector heeft maximaal 1 terminal en zit daarmee aan maximaal 1 verbindingsnode verbonden"@nl ;
-               rdfs:label "Connector"@nl .
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#GConnector -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#GConnector">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GPrimairComponent"/>
+        <rdfs:comment xml:lang="nl">Connectors zijn componenten die bedoelt zijn om andere primaire componenten aan elkaar vast te maken. Denk hierbij aan Kruisstukken, aftakzadels of T-Stukken. Connector krijgt een eigen klassen door de afweikende rol die ze in een connectiviteitsmodel vervullen: een connector heeft maximaal 1 terminal en zit daarmee aan maximaal 1 verbindingsnode verbonden</rdfs:comment>
+        <rdfs:label xml:lang="nl">Connector</rdfs:label>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#GEindstuk
-gpc:GEindstuk rdf:type owl:Class ;
-              rdfs:subClassOf gpc:GConnector ;
-              rdfs:comment """Appendage waarmee leiding duurzaam kan worden afgesloten. 
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#GEindstuk -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#GEindstuk">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GConnector"/>
+        <rdfs:comment xml:lang="nl">Appendage waarmee leiding duurzaam kan worden afgesloten. 
 (bron: uitspraak Specialist Asset Management, 8-2-2010) 
 
 Weergave: Identiek symbool voor alle typen 
-Oude naam: G Eindkap"""@nl ;
-              rdfs:label "Eindstuk"@nl .
+Oude naam: G Eindkap</rdfs:comment>
+        <rdfs:label xml:lang="nl">Eindstuk</rdfs:label>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#GFilterElement
-gpc:GFilterElement rdf:type owl:Class ;
-                   rdfs:subClassOf gpc:GHulpstuk ;
-                   rdfs:comment "Component in gasinstallaties om leidingen en componenten te beschermen tegen vervuilingen en/of beschadiging door stof en of vuil. Het component betreft uitsluitend het filter element en niet de behuizing."@nl ;
-                   rdfs:label "FilterElement"@nl .
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#GFilterElement -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#GFilterElement">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GHulpstuk"/>
+        <rdfs:comment xml:lang="nl">Component in gasinstallaties om leidingen en componenten te beschermen tegen vervuilingen en/of beschadiging door stof en of vuil. Het component betreft uitsluitend het filter element en niet de behuizing.</rdfs:comment>
+        <rdfs:label xml:lang="nl">FilterElement</rdfs:label>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#GHulpstuk
-gpc:GHulpstuk rdf:type owl:Class ;
-              rdfs:subClassOf gpc:GPrimairComponent ;
-              rdfs:comment "Generiek Leidingobject voor verschillende types, zoals: Reparatie, Stoppeling, Verticale Bocht, Blaasgatzadel, etc."@nl ;
-              rdfs:label "Hulpstuk"@nl .
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#GHulpstuk -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#GHulpstuk">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GPrimairComponent"/>
+        <rdfs:comment xml:lang="nl">Generiek Leidingobject voor verschillende types, zoals: Reparatie, Stoppeling, Verticale Bocht, Blaasgatzadel, etc.</rdfs:comment>
+        <rdfs:label xml:lang="nl">Hulpstuk</rdfs:label>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#GKruisstuk
-gpc:GKruisstuk rdf:type owl:Class ;
-               rdfs:subClassOf gpc:GConnector ;
-               rdfs:comment """Appendage voor het maken van twee tegenover elkaar gelegen aftakkingen. Op kruisstuk worden vier eindpunten (van leidingen) met elkaar verbonden. 
-(bron: uitspraak Specialist Asset Management, 8-2-2010)"""@nl ;
-               rdfs:label "Kruisstuk"@nl .
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#GKruisstuk -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#GKruisstuk">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GConnector"/>
+        <rdfs:comment xml:lang="nl">Appendage voor het maken van twee tegenover elkaar gelegen aftakkingen. Op kruisstuk worden vier eindpunten (van leidingen) met elkaar verbonden. 
+(bron: uitspraak Specialist Asset Management, 8-2-2010)</rdfs:comment>
+        <rdfs:label xml:lang="nl">Kruisstuk</rdfs:label>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#GLeiding
-gpc:GLeiding rdf:type owl:Class ;
-             rdfs:subClassOf gpc:GPrimairComponent ;
-             rdfs:comment """(Gas) Leiding 
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#GLeiding -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#GLeiding">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GPrimairComponent"/>
+        <rdfs:comment xml:lang="nl">(Gas) Leiding 
  
 Een leiding bestaat uit 1 of meer (onderling verbonden) buis stukken met dezelfde materiaalsoort, diameter, wanddikte (sdr-klasse) en legdatum. 
 De leiding wordt begrensd door een eindpunt of samenkomst van leidingen of overgang naar andere leiding. 
-(bron: uitspraak Specialist Asset Management, 8-2-2010)"""@nl ;
-             rdfs:label "Leiding"@nl .
+(bron: uitspraak Specialist Asset Management, 8-2-2010)</rdfs:comment>
+        <rdfs:label xml:lang="nl">Leiding</rdfs:label>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#GOnderbreker
-gpc:GOnderbreker rdf:type owl:Class ;
-                 rdfs:subClassOf gpc:GPrimairComponent ;
-                 rdfs:comment "Gas Onderbrekers betreffen de primaire componenten die de gasstroom kunnen onderbreken. Denk hierbij aan afsluiters of Veiligheidsafsluiters"@nl ;
-                 rdfs:label "Onderbreker"@nl .
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#GOnderbreker -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#GOnderbreker">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GPrimairComponent"/>
+        <rdfs:comment xml:lang="nl">Gas Onderbrekers betreffen de primaire componenten die de gasstroom kunnen onderbreken. Denk hierbij aan afsluiters of Veiligheidsafsluiters</rdfs:comment>
+        <rdfs:label xml:lang="nl">Onderbreker</rdfs:label>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#GOvergangsstuk
-gpc:GOvergangsstuk rdf:type owl:Class ;
-                   rdfs:subClassOf gpc:GConnector ;
-                   rdfs:comment """Markering van overgang tussen twee G Leidingen met verschillende  
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#GOvergangsstuk -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#GOvergangsstuk">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GConnector"/>
+        <rdfs:comment xml:lang="nl">Markering van overgang tussen twee G Leidingen met verschillende  
 - Diameter Binnen,  
 - Materiaalsoort of  
 - Jaar(Datum Aanleg). 
 
-Het kan en/ook gebruikt wordt voor de vastlegging van bijzondere verbindingsstukken."""@nl ;
-                   rdfs:label "Overgangsstuk"@nl .
+Het kan en/ook gebruikt wordt voor de vastlegging van bijzondere verbindingsstukken.</rdfs:comment>
+        <rdfs:label xml:lang="nl">Overgangsstuk</rdfs:label>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#GPrimairComponent
-gpc:GPrimairComponent rdf:type owl:Class ;
-                      rdfs:subClassOf <https://w3id.org/netbeheer/def/KernObjecten#GasSysteemFunctie> ;
-                      rdfs:comment "Primaire componenten in het gasdomein zijn de componenten die gas vervoeren ten behoeve van transport en distributie van energie. Let op, dit is een subclasse van GasSysteemfunctie, het gaat dus om de functionele entititeit, niet de asset zelf."@nl ;
-                      rdfs:label "PrimairComponent"@nl .
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#GPrimairComponent -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#GPrimairComponent">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#GasSysteemFunctie"/>
+        <rdfs:comment xml:lang="nl">Primaire componenten in het gasdomein zijn de componenten die gas vervoeren ten behoeve van transport en distributie van energie. Let op, dit is een subclasse van GasSysteemfunctie, het gaat dus om de functionele entititeit, niet de asset zelf.</rdfs:comment>
+        <rdfs:label xml:lang="nl">PrimairComponent</rdfs:label>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#GRegelaar
-gpc:GRegelaar rdf:type owl:Class ;
-              rdfs:subClassOf gpc:GPrimairComponent ;
-              rdfs:comment """Drukregelaar met inbegrip van de daarbij behorende onderdelen aangesloten op een gasleidingnet die de 
-hierin heersende (niet-constante) gasdruk (inlaatdruk) automatisch regelt tot een binnen vooraf vastgestelde grenzen liggende lagere uitlaatdruk."""@nl ;
-              rdfs:label "Regelaar"@nl .
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#GRegelaar -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#GRegelaar">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GPrimairComponent"/>
+        <rdfs:comment xml:lang="nl">Drukregelaar met inbegrip van de daarbij behorende onderdelen aangesloten op een gasleidingnet die de 
+hierin heersende (niet-constante) gasdruk (inlaatdruk) automatisch regelt tot een binnen vooraf vastgestelde grenzen liggende lagere uitlaatdruk.</rdfs:comment>
+        <rdfs:label xml:lang="nl">Regelaar</rdfs:label>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#GSifon
-gpc:GSifon rdf:type owl:Class ;
-           rdfs:subClassOf gpc:GHulpstuk ;
-           rdfs:comment "Hulpstuk in de hoofdleiding voor de opvang van vloeistoffen die in het gasnet zijn gekomen. (bron: uitspraak Specialist Asset Management, 8-2-2010)"@nl ;
-           rdfs:label "Sifon"@nl .
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#GSifon -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#GSifon">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GHulpstuk"/>
+        <rdfs:comment xml:lang="nl">Hulpstuk in de hoofdleiding voor de opvang van vloeistoffen die in het gasnet zijn gekomen. (bron: uitspraak Specialist Asset Management, 8-2-2010)</rdfs:comment>
+        <rdfs:label xml:lang="nl">Sifon</rdfs:label>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#GTStuk
-gpc:GTStuk rdf:type owl:Class ;
-           rdfs:subClassOf gpc:GConnector ;
-           rdfs:comment """Constructie voor het maken van een  aftakking  in het hoofdleiding net  
-Verbonden met de eindpunten van 3 Hoofdleidingen"""@nl ;
-           rdfs:label "TStuk"@nl .
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#GTStuk -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#GTStuk">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GConnector"/>
+        <rdfs:comment xml:lang="nl">Constructie voor het maken van een  aftakking  in het hoofdleiding net  
+Verbonden met de eindpunten van 3 Hoofdleidingen</rdfs:comment>
+        <rdfs:label xml:lang="nl">TStuk</rdfs:label>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#GTerugslagklep
-gpc:GTerugslagklep rdf:type owl:Class ;
-                   rdfs:subClassOf gpc:GPrimairComponent ;
-                   rdfs:comment "Een appendage in de uitlaatleiding die terugstroming voorkomt."@nl ;
-                   rdfs:label "Terugslagklep"@nl .
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#GTerugslagklep -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#GTerugslagklep">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GPrimairComponent"/>
+        <rdfs:comment xml:lang="nl">Een appendage in de uitlaatleiding die terugstroming voorkomt.</rdfs:comment>
+        <rdfs:label xml:lang="nl">Terugslagklep</rdfs:label>
+    </owl:Class>
+    
 
 
-###  https://w3id.org/netbeheer/def/GPrimaireComponenten#GVeiligheidsafsluiter
-gpc:GVeiligheidsafsluiter rdf:type owl:Class ;
-                          rdfs:subClassOf gpc:GAfsluiter ;
-                          rdfs:comment "Een toestel dat zorgdraagt voor het afsluiten van de gasstroom onmiddellijk afsluit als een ongewenste waarde van de druk wordt gedetecteerd in het te beschermen systeem."@nl ;
-                          rdfs:label "Veiligheidsafsluiter"@nl .
+    <!-- https://w3id.org/netbeheer/def/GPrimaireComponenten#GVeiligheidsafsluiter -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/GPrimaireComponenten#GVeiligheidsafsluiter">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/GPrimaireComponenten#GAfsluiter"/>
+        <rdfs:comment xml:lang="nl">Een toestel dat zorgdraagt voor het afsluiten van de gasstroom onmiddellijk afsluit als een ongewenste waarde van de druk wordt gedetecteerd in het te beschermen systeem.</rdfs:comment>
+        <rdfs:label xml:lang="nl">Veiligheidsafsluiter</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

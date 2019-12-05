@@ -1,105 +1,162 @@
-@prefix : <https://w3id.org/netbeheer/def/EStationcomplex#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix obda: <https://w3id.org/obda/vocabulary#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix estat: <https://w3id.org/netbeheer/def/EStationcomplex#> .
-@base <https://w3id.org/netbeheer/def/EStationcomplex> .
-
-<https://w3id.org/netbeheer/def/EStationcomplex> rdf:type owl:Ontology ;
-                                                  owl:imports <https://w3id.org/netbeheer/def/EPrimaireComponenten> ,
-                                                              <https://w3id.org/netbeheer/def/KernObjecten> ;
-                                                  rdfs:comment "Deze ontologie beschrijft hoogover de functionele opbouw van een Stationcomplex in het elektriciteitsnet."@nl ;
-                                                  rdfs:label "Stationcomplex Elektriciteit"@nl .
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/netbeheer/def/EStationcomplex#BehoortTotEInstallatie
-estat:BehoortTotEInstallatie rdf:type owl:ObjectProperty ;
-                             rdfs:subPropertyOf <https://w3id.org/netbeheer/def/KernObjecten#BehoortTot> ;
-                             rdf:type owl:FunctionalProperty ;
-                             rdfs:domain [ rdf:type owl:Restriction ;
-                                           owl:onProperty estat:BehoortTotEInstallatie ;
-                                           owl:someValuesFrom <https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie>
-                                         ] ;
-                             rdfs:range [ rdf:type owl:Restriction ;
-                                          owl:onProperty estat:BehoortTotEInstallatie ;
-                                          owl:someValuesFrom estat:EInstallatie
-                                        ] ;
-                             rdfs:label "BehoortTotInstallatie"@nl .
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/netbeheer/def/EStationcomplex#"
+     xml:base="https://w3id.org/netbeheer/def/EStationcomplex"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:obda="https://w3id.org/obda/vocabulary#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:estat="https://w3id.org/netbeheer/def/EStationcomplex#">
+    <owl:Ontology rdf:about="https://w3id.org/netbeheer/def/EStationcomplex">
+        <owl:imports rdf:resource="https://w3id.org/netbeheer/def/EPrimaireComponenten"/>
+        <owl:imports rdf:resource="https://w3id.org/netbeheer/def/KernObjecten"/>
+        <rdfs:comment xml:lang="nl">Deze ontologie beschrijft hoogover de functionele opbouw van een Stationcomplex in het elektriciteitsnet.</rdfs:comment>
+        <rdfs:label xml:lang="nl">Stationcomplex Elektriciteit</rdfs:label>
+    </owl:Ontology>
+    
 
 
-###  https://w3id.org/netbeheer/def/EStationcomplex#BehoortTotEStationcomplex
-estat:BehoortTotEStationcomplex rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf <https://w3id.org/netbeheer/def/KernObjecten#BehoortTot> ;
-                                rdf:type owl:FunctionalProperty ;
-                                rdfs:domain [ rdf:type owl:Restriction ;
-                                              owl:onProperty estat:BehoortTotEStationcomplex ;
-                                              owl:someValuesFrom <https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie>
-                                            ] ;
-                                rdfs:range [ rdf:type owl:Restriction ;
-                                             owl:onProperty estat:BehoortTotEStationcomplex ;
-                                             owl:someValuesFrom estat:EStationcomplex
-                                           ] ;
-                                rdfs:label "BehoortTotStationcomplex"@nl .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
 
 
-###  https://w3id.org/netbeheer/def/EStationcomplex#BehoortTotEVeld
-estat:BehoortTotEVeld rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf <https://w3id.org/netbeheer/def/KernObjecten#BehoortTot> ;
-                      rdf:type owl:FunctionalProperty ;
-                      rdfs:domain [ rdf:type owl:Restriction ;
-                                    owl:onProperty estat:BehoortTotEInstallatie ;
-                                    owl:someValuesFrom <https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie>
-                                  ] ;
-                      rdfs:range [ rdf:type owl:Restriction ;
-                                   owl:onProperty estat:BehoortTotEVeld ;
-                                   owl:someValuesFrom estat:EVeld
-                                 ] ;
-                      rdfs:label "BehoortTotVeld"@nl .
+    <!-- https://w3id.org/netbeheer/def/EStationcomplex#BehoortTotEInstallatie -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/def/EStationcomplex#BehoortTotEInstallatie">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#BehoortTot"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/def/EStationcomplex#BehoortTotEInstallatie"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/def/EStationcomplex#BehoortTotEInstallatie"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/netbeheer/def/EStationcomplex#EInstallatie"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:label xml:lang="nl">BehoortTotInstallatie</rdfs:label>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/def/KernObjecten#BehoortTot
-<https://w3id.org/netbeheer/def/KernObjecten#BehoortTot> rdf:type owl:ObjectProperty .
+    <!-- https://w3id.org/netbeheer/def/EStationcomplex#BehoortTotEStationcomplex -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/def/EStationcomplex#BehoortTotEStationcomplex">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#BehoortTot"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/def/EStationcomplex#BehoortTotEStationcomplex"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/def/EStationcomplex#BehoortTotEStationcomplex"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/netbeheer/def/EStationcomplex#EStationcomplex"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:label xml:lang="nl">BehoortTotStationcomplex</rdfs:label>
+    </owl:ObjectProperty>
+    
 
 
-#################################################################
-#    Classes
-#################################################################
+    <!-- https://w3id.org/netbeheer/def/EStationcomplex#BehoortTotEVeld -->
 
-###  https://w3id.org/netbeheer/def/EStationcomplex#EInstallatie
-estat:EInstallatie rdf:type owl:Class ;
-                   rdfs:subClassOf <https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie> ;
-                   rdfs:comment """Een verzameling apparatuur met één gemeenschappelijke systeemspanning die een schakelinstallatie vormt. Het doel van een installatie is om elektriciteit uit 1 voedende verbinding te verdelen over meerdere verbindingen.
-
-De opbouw bestaat typisch uit onderbrekers, rails, instrumentatie-, controle-, regel- en beveiligingsinrichtingen, evenals samenstellingen van al deze."""@nl ;
-                   rdfs:label "Installatie"@nl .
-
-
-###  https://w3id.org/netbeheer/def/EStationcomplex#EStationcomplex
-estat:EStationcomplex rdf:type owl:Class ;
-                      rdfs:subClassOf <https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie> ;
-                      rdfs:comment "Een verzameling van apparatuur, niet direct gebruikt voor opwekking of verbruik, waar grote volumes elektrische energie wordt doorgegeven met het doel te schakelen en/of de de eigenschappen ervan te wijzigen."@nl ;
-                      rdfs:label "Stationcomplex"@nl .
-
-
-###  https://w3id.org/netbeheer/def/EStationcomplex#EVeld
-estat:EVeld rdf:type owl:Class ;
-            rdfs:subClassOf <https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie> ;
-            rdfs:comment "Een veld is een samenstel bestaande uit een combinatie van een of meer: ScheidersVermogensschakelaarsAarders Stroomtransformator Spanningstransformator Overspanningafleiders Een veld kan verbonden worden met een 1 of meerdere Rails."@nl ;
-            rdfs:label "Veld"@nl .
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/def/EStationcomplex#BehoortTotEVeld">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#BehoortTot"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/def/EStationcomplex#BehoortTotEInstallatie"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/def/EStationcomplex#BehoortTotEVeld"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/netbeheer/def/EStationcomplex#EVeld"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:label xml:lang="nl">BehoortTotVeld</rdfs:label>
+    </owl:ObjectProperty>
+    
 
 
-###  https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie
-<https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie> rdf:type owl:Class .
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#BehoortTot -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/def/KernObjecten#BehoortTot"/>
+    
 
 
-###  https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject
-<https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject> rdf:type owl:Class .
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
 
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+    <!-- https://w3id.org/netbeheer/def/EStationcomplex#EInstallatie -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/EStationcomplex#EInstallatie">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie"/>
+        <rdfs:comment xml:lang="nl">Een verzameling apparatuur met één gemeenschappelijke systeemspanning die een schakelinstallatie vormt. Het doel van een installatie is om elektriciteit uit 1 voedende verbinding te verdelen over meerdere verbindingen.
+
+De opbouw bestaat typisch uit onderbrekers, rails, instrumentatie-, controle-, regel- en beveiligingsinrichtingen, evenals samenstellingen van al deze.</rdfs:comment>
+        <rdfs:label xml:lang="nl">Installatie</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/EStationcomplex#EStationcomplex -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/EStationcomplex#EStationcomplex">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie"/>
+        <rdfs:comment xml:lang="nl">Een verzameling van apparatuur, niet direct gebruikt voor opwekking of verbruik, waar grote volumes elektrische energie wordt doorgegeven met het doel te schakelen en/of de de eigenschappen ervan te wijzigen.</rdfs:comment>
+        <rdfs:label xml:lang="nl">Stationcomplex</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/EStationcomplex#EVeld -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/EStationcomplex#EVeld">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie"/>
+        <rdfs:comment xml:lang="nl">Een veld is een samenstel bestaande uit een combinatie van een of meer: ScheidersVermogensschakelaarsAarders Stroomtransformator Spanningstransformator Overspanningafleiders Een veld kan verbonden worden met een 1 of meerdere Rails.</rdfs:comment>
+        <rdfs:label xml:lang="nl">Veld</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/KernObjecten#ElektriciteitSysteemFunctie"/>
+    
+
+
+    <!-- https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject -->
+
+    <owl:Class rdf:about="https://w3id.org/netbeheer/def/KernObjecten#GeidentificeerdObject"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
