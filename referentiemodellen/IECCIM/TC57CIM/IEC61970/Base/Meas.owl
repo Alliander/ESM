@@ -18,12 +18,10 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode -->
-
 
     <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode"/>
     
@@ -31,20 +29,17 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier -->
 
-
     <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier"/>
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol -->
 
-
     <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol"/>
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Validity -->
-
 
     <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Validity">
         <owl:equivalentClass>
@@ -76,7 +71,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/SCADA#Source -->
 
-
     <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/SCADA#Source"/>
     
 
@@ -89,14 +83,13 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator.AccumulatorValues -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator.AccumulatorValues">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue.Accumulator"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue"/>
@@ -107,8 +100,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator.LimitSets -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator.LimitSets">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimitSet.Measurements"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimitSet"/>
         <rdfs:comment>The Measurements using the LimitSet.A measurement may have zero or more limit ranges defined for it.</rdfs:comment>
@@ -117,7 +110,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimit.LimitSet -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimit.LimitSet">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimitSet.Limits"/>
@@ -130,7 +122,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimitSet.Limits -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimitSet.Limits">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimitSet"/>
@@ -142,9 +133,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimitSet.Measurements -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimitSet.Measurements">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator.LimitSets"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimitSet"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator"/>
         <rdfs:comment>The Measurements using the LimitSet.A measurement may have zero or more limit ranges defined for it.</rdfs:comment>
@@ -154,8 +143,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorReset.AccumulatorValue -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorReset.AccumulatorValue">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue.AccumulatorReset"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorReset"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue"/>
         <rdfs:comment>The command that reset the accumulator value.The accumulator value that is reset by the command.</rdfs:comment>
@@ -165,9 +154,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue.Accumulator -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue.Accumulator">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator.AccumulatorValues"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator"/>
         <rdfs:comment>Measurement to which this value is connected.The values connected to this measurement.</rdfs:comment>
@@ -177,9 +164,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue.AccumulatorReset -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue.AccumulatorReset">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorReset.AccumulatorValue"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorReset"/>
@@ -190,8 +175,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AltGeneratingUnitMeas.AnalogValue -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AltGeneratingUnitMeas.AnalogValue">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue.AltGeneratingUnit"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltGeneratingUnitMeas"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue"/>
         <rdfs:comment>The alternate generating unit for which this measurement value applies.The specific analog value used as a source.</rdfs:comment>
@@ -201,8 +186,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AltTieMeas.AnalogValue -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AltTieMeas.AnalogValue">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue.AltTieMeas"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltTieMeas"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue"/>
         <rdfs:comment>The usage of the measurement within the control area specification.The specific analog value used as a source.</rdfs:comment>
@@ -212,8 +197,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog.AnalogValues -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog.AnalogValues">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue.Analog"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue"/>
@@ -224,8 +209,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog.LimitSets -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog.LimitSets">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimitSet.Measurements"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimitSet"/>
         <rdfs:comment>The Measurements using the LimitSet.A measurement may have zero or more limit ranges defined for it.</rdfs:comment>
@@ -234,7 +219,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl.AnalogValue -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl.AnalogValue">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue.AnalogControl"/>
@@ -247,8 +231,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl.ICCPSetPoint -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl.ICCPSetPoint">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ICCPSetPoint.AnalogControl"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint"/>
@@ -258,7 +242,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimit.LimitSet -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimit.LimitSet">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimitSet.Limits"/>
@@ -271,7 +254,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimitSet.Limits -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimitSet.Limits">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimitSet"/>
@@ -283,9 +265,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimitSet.Measurements -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimitSet.Measurements">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog.LimitSets"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimitSet"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog"/>
         <rdfs:comment>The Measurements using the LimitSet.A measurement may have zero or more limit ranges defined for it.</rdfs:comment>
@@ -295,9 +275,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue.AltGeneratingUnit -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue.AltGeneratingUnit">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AltGeneratingUnitMeas.AnalogValue"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltGeneratingUnitMeas"/>
@@ -308,9 +286,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue.AltTieMeas -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue.AltTieMeas">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AltTieMeas.AnalogValue"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltTieMeas"/>
@@ -321,9 +297,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue.Analog -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue.Analog">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog.AnalogValues"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog"/>
         <rdfs:comment>Measurement to which this value is connected.The values connected to this measurement.</rdfs:comment>
@@ -332,7 +306,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue.AnalogControl -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue.AnalogControl">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
@@ -345,17 +318,16 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Asset.Measurements -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Asset.Measurements">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.Asset"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
-        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:comment></rdfs:comment>
     </owl:ObjectProperty>
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command.DiscreteValue -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command.DiscreteValue">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue.Command"/>
@@ -368,8 +340,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command.ICCPCommandPoint -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command.ICCPCommandPoint">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ICCPCommandPoint.Command"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPCommandPoint"/>
@@ -380,8 +352,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command.ValueAliasSet -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command.ValueAliasSet">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet.Commands"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet"/>
         <rdfs:comment>The Commands using the set for translation.The ValueAliasSet used for translation of a Control value to a name.</rdfs:comment>
@@ -390,7 +362,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control.RemoteControl -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control.RemoteControl">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#RemoteControl.Control"/>
@@ -404,8 +375,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete.DiscreteValues -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete.DiscreteValues">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue.Discrete"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue"/>
@@ -415,7 +386,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete.ValueAliasSet -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete.ValueAliasSet">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet.Discretes"/>
@@ -428,7 +398,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue.Command -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue.Command">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue"/>
@@ -440,9 +409,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue.Discrete -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue.Discrete">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete.DiscreteValues"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete"/>
         <rdfs:comment>Measurement to which this value is connected.The values connected to this measurement.</rdfs:comment>
@@ -452,9 +419,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ICCPCommandPoint.Command -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ICCPCommandPoint.Command">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command.ICCPCommandPoint"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPCommandPoint"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command"/>
         <rdfs:comment></rdfs:comment>
@@ -463,7 +428,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ICCPIndicationPoint.MeasurementValue -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ICCPIndicationPoint.MeasurementValue">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.ICCPIndicationPoint"/>
@@ -476,9 +440,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ICCPSetPoint.AnalogControl -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ICCPSetPoint.AnalogControl">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl.ICCPSetPoint"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl"/>
         <rdfs:comment></rdfs:comment>
@@ -487,7 +449,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Limit.Procedures -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Limit.Procedures">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Procedure.Limits"/>
@@ -500,10 +461,10 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Location.Measurements -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Location.Measurements">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.Locations"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Location"/>
-        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:comment></rdfs:comment>
     </owl:ObjectProperty>
     
@@ -511,10 +472,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.Asset -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.Asset">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Asset.Measurements"/>
-        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:comment></rdfs:comment>
     </owl:ObjectProperty>
@@ -523,10 +482,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.Locations -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.Locations">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Location.Measurements"/>
-        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Location"/>
         <rdfs:comment></rdfs:comment>
     </owl:ObjectProperty>
@@ -535,11 +492,10 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.MeasurementCalculatorInput -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.MeasurementCalculatorInput">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementCalculatorInput.Measurement"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#MeasurementCalculatorInput"/>
         <rdfs:comment></rdfs:comment>
     </owl:ObjectProperty>
@@ -548,10 +504,9 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.PinMeasurement -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.PinMeasurement">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#PinMeasurement.Measurement"/>
-        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#PinMeasurement"/>
         <rdfs:comment></rdfs:comment>
     </owl:ObjectProperty>
@@ -560,10 +515,9 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.Procedures -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.Procedures">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Procedure.Measurements"/>
-        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure"/>
         <rdfs:comment>Measurements are specified in types of documents, such as procedures.Document containing this measurement.</rdfs:comment>
     </owl:ObjectProperty>
@@ -572,9 +526,9 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.ProtectiveActionAdjustment -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.ProtectiveActionAdjustment">
-        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ProtectiveActionAdjustment.Measurement"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#ProtectiveActionAdjustment"/>
         <rdfs:comment></rdfs:comment>
     </owl:ObjectProperty>
@@ -583,17 +537,15 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementCalculatorInput.Measurement -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementCalculatorInput.Measurement">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#MeasurementCalculatorInput"/>
-        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:comment></rdfs:comment>
     </owl:ObjectProperty>
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.ErpPerson -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.ErpPerson">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#OldPerson.MeasurementValues"/>
@@ -606,7 +558,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.ICCPIndicationPoint -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.ICCPIndicationPoint">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint"/>
@@ -616,7 +567,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.MeasurementValueQuality -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.MeasurementValueQuality">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValueQuality.MeasurementValue"/>
@@ -630,7 +580,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.MeasurementValueSource -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.MeasurementValueSource">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValueSource.MeasurementValues"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue"/>
@@ -641,7 +590,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.ProcedureDataSets -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.ProcedureDataSets">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ProcedureDataSet.MeasurementValues"/>
@@ -654,8 +602,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.RemoteSource -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.RemoteSource">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#RemoteSource.MeasurementValue"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteSource"/>
@@ -665,7 +613,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.sensorAccuracy -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.sensorAccuracy">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue"/>
@@ -677,7 +624,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValueQuality.MeasurementValue -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValueQuality.MeasurementValue">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValueQuality"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue"/>
@@ -687,7 +633,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValueSource.MeasurementValues -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValueSource.MeasurementValues">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
@@ -700,7 +645,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#OldPerson.MeasurementValues -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#OldPerson.MeasurementValues">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue"/>
@@ -711,17 +655,15 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#PinMeasurement.Measurement -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#PinMeasurement.Measurement">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#PinMeasurement"/>
-        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:comment></rdfs:comment>
     </owl:ObjectProperty>
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Procedure.Limits -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Procedure.Limits">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure"/>
@@ -731,19 +673,26 @@
     
 
 
-    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Procedure.Measurements -->
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Procedure.MeasurementValue -->
 
+    <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Procedure.MeasurementValue">
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Procedure.Measurements -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Procedure.Measurements">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure"/>
-        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:comment>Measurements are specified in types of documents, such as procedures.Document containing this measurement.</rdfs:comment>
     </owl:ObjectProperty>
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ProcedureDataSet.MeasurementValues -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ProcedureDataSet.MeasurementValues">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet"/>
@@ -755,11 +704,9 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ProtectiveActionAdjustment.Measurement -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ProtectiveActionAdjustment.Measurement">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.ProtectiveActionAdjustment"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#ProtectiveActionAdjustment"/>
-        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:comment></rdfs:comment>
     </owl:ObjectProperty>
     
@@ -767,8 +714,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#RaiseLowerCommand.ValueAliasSet -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#RaiseLowerCommand.ValueAliasSet">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet.RaiseLowerCommands"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#RaiseLowerCommand"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet"/>
         <rdfs:comment>The Commands using the set for translation.The ValueAliasSet used for translation of a Control value to a name.</rdfs:comment>
@@ -777,7 +724,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#RemoteControl.Control -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#RemoteControl.Control">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteControl"/>
@@ -789,9 +735,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#RemoteSource.MeasurementValue -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#RemoteSource.MeasurementValue">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.RemoteSource"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteSource"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue"/>
         <rdfs:comment>Link to the physical telemetered point associated with this measurement.Link to the physical telemetered point associated with this measurement.</rdfs:comment>
@@ -800,7 +744,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurement.StringMeasurementValues -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurement.StringMeasurementValues">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurementValue.StringMeasurement"/>
@@ -814,7 +757,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurementValue.StringMeasurement -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurementValue.StringMeasurement">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurementValue"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurement"/>
@@ -825,9 +767,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet.Commands -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet.Commands">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command.ValueAliasSet"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command"/>
         <rdfs:comment>The Commands using the set for translation.The ValueAliasSet used for translation of a Control value to a name.</rdfs:comment>
@@ -836,7 +776,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet.Discretes -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet.Discretes">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet"/>
@@ -848,9 +787,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet.RaiseLowerCommands -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet.RaiseLowerCommands">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#RaiseLowerCommand.ValueAliasSet"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#RaiseLowerCommand"/>
         <rdfs:comment>The Commands using the set for translation.The ValueAliasSet used for translation of a Control value to a name.</rdfs:comment>
@@ -860,8 +797,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet.Values -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet.Values">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueToAlias.ValueAliasSet"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueToAlias"/>
@@ -872,9 +809,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueToAlias.ValueAliasSet -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueToAlias.ValueAliasSet">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet.Values"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueToAlias"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet"/>
         <rdfs:comment>The ValueAliasSet having the ValueToAlias mappings.The ValueToAlias mappings included in the set.</rdfs:comment>
@@ -890,12 +825,10 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator.maxValue -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator.maxValue">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator"/>
@@ -907,7 +840,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimit.value -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimit.value">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimit"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
@@ -917,7 +849,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue.value -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue.value">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue"/>
@@ -929,7 +860,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog.maxValue -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog.maxValue">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
@@ -939,7 +869,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog.minValue -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog.minValue">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog"/>
@@ -952,7 +881,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog.normalValue -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog.normalValue">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
@@ -962,7 +890,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog.positiveFlowIn -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog.positiveFlowIn">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog"/>
@@ -974,7 +901,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl.maxValue -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl.maxValue">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
@@ -984,7 +910,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl.minValue -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl.minValue">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl"/>
@@ -996,7 +921,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimit.value -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimit.value">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimit"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
@@ -1007,7 +931,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue.value -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue.value">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
@@ -1017,7 +940,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command.normalValue -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command.normalValue">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command"/>
@@ -1030,7 +952,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command.value -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command.value">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
@@ -1042,7 +963,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control.controlType -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control.controlType">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1052,7 +972,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control.operationInProgress -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control.operationInProgress">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control"/>
@@ -1065,7 +984,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control.timeStamp -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control.timeStamp">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
@@ -1077,7 +995,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control.unitMultiplier -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control.unitMultiplier">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier"/>
@@ -1087,7 +1004,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control.unitSymbol -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control.unitSymbol">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control"/>
@@ -1099,7 +1015,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete.maxValue -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete.maxValue">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
@@ -1109,7 +1024,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete.minValue -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete.minValue">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete"/>
@@ -1122,7 +1036,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete.normalValue -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete.normalValue">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
@@ -1132,7 +1045,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue.value -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue.value">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue"/>
@@ -1144,7 +1056,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#LimitSet.isPercentageLimits -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#LimitSet.isPercentageLimits">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#LimitSet"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
@@ -1155,9 +1066,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.measurementType -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.measurementType">
-        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>Specifies the type of measurement.  For example, this specifies if the measurement represents an indoor temperature, outdoor temperature, bus voltage, line flow, etc.
 
@@ -1168,9 +1078,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.phases -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.phases">
-        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#PhaseCode"/>
         <rdfs:comment>Indicates to which phases the measurement applies and avoids the need to use &apos;measurementType&apos; to also encode phase information (which would explode the types). The phase information in Measurement, along with &apos;measurementType&apos; and &apos;phases&apos; uniquely defines a Measurement for a device, based on normal network phase. Their meaning will not change when the computed energizing phasing is changed due to jumpers or other reasons.
 If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
@@ -1180,9 +1089,8 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.unitMultiplier -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.unitMultiplier">
-        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitMultiplier"/>
         <rdfs:comment>The unit multiplier of the measured quantity.</rdfs:comment>
     </owl:DatatypeProperty>
@@ -1191,9 +1099,8 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.unitSymbol -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.unitSymbol">
-        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#UnitSymbol"/>
         <rdfs:comment>The unit of measure of the measured quantity.</rdfs:comment>
     </owl:DatatypeProperty>
@@ -1201,7 +1108,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.timeStamp -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue.timeStamp">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue"/>
@@ -1213,7 +1119,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.badReference -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.badReference">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
@@ -1223,7 +1128,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.estimatorReplaced -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.estimatorReplaced">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850"/>
@@ -1235,7 +1139,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.failure -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.failure">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
@@ -1245,7 +1148,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.oldData -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.oldData">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850"/>
@@ -1257,7 +1159,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.operatorBlocked -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.operatorBlocked">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
@@ -1267,7 +1168,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.oscillatory -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.oscillatory">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850"/>
@@ -1279,7 +1179,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.outOfRange -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.outOfRange">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
@@ -1289,7 +1188,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.overFlow -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.overFlow">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850"/>
@@ -1301,7 +1199,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.source -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.source">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/SCADA#Source"/>
@@ -1311,7 +1208,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.suspect -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.suspect">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850"/>
@@ -1323,7 +1219,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.test -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.test">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
@@ -1334,7 +1229,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.validity -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850.validity">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Validity"/>
@@ -1344,7 +1238,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#SetPoint.normalValue -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#SetPoint.normalValue">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#SetPoint"/>
@@ -1357,7 +1250,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#SetPoint.value -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#SetPoint.value">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#SetPoint"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
@@ -1369,7 +1261,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurementValue.value -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurementValue.value">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurementValue"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1379,7 +1270,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueToAlias.value -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueToAlias.value">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueToAlias"/>
@@ -1398,12 +1288,10 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset">
         <rdfs:subClassOf>
@@ -1426,7 +1314,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure">
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1448,7 +1335,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet">
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1463,7 +1349,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Location -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Location">
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1477,7 +1362,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfCommon#OldPerson">
         <rdfs:subClassOf>
@@ -1500,7 +1384,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltGeneratingUnitMeas -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltGeneratingUnitMeas">
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -1514,7 +1397,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltTieMeas -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/ControlArea#AltTieMeas">
         <rdfs:subClassOf>
@@ -1530,13 +1412,11 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent"/>
     
@@ -1544,9 +1424,8 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Accumulator.LimitSets"/>
@@ -1582,7 +1461,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimit -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimit">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Limit"/>
         <rdfs:subClassOf>
@@ -1614,7 +1492,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimitSet -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorLimitSet">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#LimitSet"/>
         <rdfs:subClassOf>
@@ -1639,7 +1516,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorReset -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorReset">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control"/>
         <rdfs:subClassOf>
@@ -1662,7 +1538,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AccumulatorValue">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue"/>
@@ -1702,9 +1577,8 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Analog.LimitSets"/>
@@ -1783,7 +1657,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control"/>
         <rdfs:subClassOf>
@@ -1842,7 +1715,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimit -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimit">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Limit"/>
         <rdfs:subClassOf>
@@ -1874,7 +1746,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimitSet -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogLimitSet">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#LimitSet"/>
         <rdfs:subClassOf>
@@ -1897,7 +1768,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogValue">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue"/>
@@ -1949,7 +1819,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control"/>
@@ -2015,7 +1884,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Control">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
@@ -2104,9 +1972,8 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Discrete.ValueAliasSet"/>
@@ -2170,7 +2037,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteCommand -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteCommand">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Command"/>
     </owl:Class>
@@ -2178,7 +2044,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#DiscreteValue">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue"/>
@@ -2217,7 +2082,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Limit -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Limit">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
         <rdfs:subClassOf>
@@ -2233,7 +2097,6 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#LimitSet -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#LimitSet">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
@@ -2256,65 +2119,64 @@ If the attribute is missing three phases (ABC) shall be assumed.</rdfs:comment>
     
 
 
-    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure -->
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement -->
 
-
-    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure">
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.Asset"/>
                 <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.Locations"/>
                 <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.PinMeasurement"/>
                 <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.Procedures"/>
                 <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.ProtectiveActionAdjustment"/>
                 <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.MeasurementCalculatorInput"/>
                 <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.PinMeasurement"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure.ProtectiveActionAdjustment"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+                <owl:onClass rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -2384,7 +2246,6 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
@@ -2466,7 +2327,6 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValueQuality -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValueQuality">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850"/>
         <rdfs:subClassOf>
@@ -2491,7 +2351,6 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValueSource -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValueSource">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
         <rdfs:subClassOf>
@@ -2507,7 +2366,6 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850 -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Quality61850">
         <rdfs:subClassOf>
@@ -2686,7 +2544,6 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#RaiseLowerCommand -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#RaiseLowerCommand">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl"/>
         <rdfs:subClassOf>
@@ -2702,7 +2559,6 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#SetPoint -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#SetPoint">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#AnalogControl"/>
@@ -2741,9 +2597,8 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurement -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurement">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measure"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#Measurement"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurement.StringMeasurementValues"/>
@@ -2757,7 +2612,6 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurementValue -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#StringMeasurementValue">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#MeasurementValue"/>
@@ -2788,7 +2642,6 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueAliasSet">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
@@ -2848,7 +2701,6 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueToAlias -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Meas#ValueToAlias">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
         <rdfs:subClassOf>
@@ -2879,7 +2731,6 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteControl -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteControl">
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -2900,7 +2751,6 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteSource -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/SCADA#RemoteSource">
         <rdfs:subClassOf>
@@ -2923,7 +2773,6 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPCommandPoint -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPCommandPoint">
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -2937,7 +2786,6 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPIndicationPoint">
         <rdfs:subClassOf>
@@ -2960,7 +2808,6 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfICCP#ICCPSetPoint">
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -2974,7 +2821,6 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#MeasurementCalculatorInput -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#MeasurementCalculatorInput">
         <rdfs:subClassOf>
@@ -2990,7 +2836,6 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#PinMeasurement -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#PinMeasurement">
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -3005,7 +2850,6 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#ProtectiveActionAdjustment -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/InfIEC61970/InfSIPS#ProtectiveActionAdjustment">
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -3019,6 +2863,5 @@ When the sensor location is needed both Measurement-PSR and Measurement-Terminal
 
 
 
-<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
-
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 
