@@ -18,19 +18,16 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
     
 
 
     <!-- http://www.w3.org/2001/XMLSchema#date -->
-
 
     <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetModelUsageKind -->
-
 
     <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetModelUsageKind">
         <owl:equivalentClass>
@@ -92,7 +89,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#CorporateStandardKind -->
 
-
     <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#CorporateStandardKind">
         <owl:equivalentClass>
             <rdfs:Datatype>
@@ -128,7 +124,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureKind -->
-
 
     <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureKind">
         <owl:equivalentClass>
@@ -172,7 +167,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#SealConditionKind -->
 
-
     <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#SealConditionKind">
         <owl:equivalentClass>
             <rdfs:Datatype>
@@ -214,7 +208,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#SealKind -->
-
 
     <rdfs:Datatype rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#SealKind">
         <owl:equivalentClass>
@@ -258,14 +251,13 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.AssetContainer -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.AssetContainer">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetContainer.Assets"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetContainer"/>
         <rdfs:comment>All assets within this container asset.Container of this asset.</rdfs:comment>
@@ -275,8 +267,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.AssetInfo -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.AssetInfo">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetInfo.Assets"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetInfo"/>
         <rdfs:comment>All assets described by this data.Data applicable to this asset.</rdfs:comment>
@@ -286,8 +278,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.AssetPropertyCurves -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.AssetPropertyCurves">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetPropertyCurve.Assets"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#AssetPropertyCurve"/>
         <rdfs:comment></rdfs:comment>
@@ -297,8 +289,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.ErpInventory -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.ErpInventory">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ErpInventory.Asset"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInventory"/>
         <rdfs:comment></rdfs:comment>
@@ -307,7 +299,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.ErpItemMaster -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.ErpItemMaster">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ErpItemMaster.Asset"/>
@@ -320,8 +311,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.ErpRecDeliveryItems -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.ErpRecDeliveryItems">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ErpRecDelvLineItem.Assets"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpRecDelvLineItem"/>
         <rdfs:comment></rdfs:comment>
@@ -330,7 +321,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.FinancialInfo -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.FinancialInfo">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#FinancialInfo.Asset"/>
@@ -343,7 +333,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.Mediums -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.Mediums">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Medium.Assets"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
@@ -355,8 +344,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.OrganisationRoles -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.OrganisationRoles">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetOrganisationRole.Assets"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetOrganisationRole"/>
         <rdfs:comment>All assets for this organisation role.All roles an organisation plays for this asset.</rdfs:comment>
@@ -365,7 +354,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.Procedures -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.Procedures">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure.Assets"/>
@@ -378,8 +366,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.Reconditionings -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.Reconditionings">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Reconditioning.Asset"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Reconditioning"/>
         <rdfs:comment></rdfs:comment>
@@ -388,7 +376,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.ReliabilityInfos -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.ReliabilityInfos">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ReliabilityInfo.Assets"/>
@@ -401,7 +388,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.ReplacementWorkTasks -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.ReplacementWorkTasks">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#WorkTask.OldAsset"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
@@ -412,7 +398,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.WorkTasks -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.WorkTasks">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#WorkTask.Assets"/>
@@ -425,7 +410,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.acceptanceTest -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.acceptanceTest">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AcceptanceTest"/>
@@ -435,7 +419,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.electronicAddress -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.electronicAddress">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
@@ -447,7 +430,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.initialLossOfLife -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.initialLossOfLife">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent"/>
@@ -457,7 +439,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.lifecycle -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.lifecycle">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
@@ -470,7 +451,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.purchasePrice -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.purchasePrice">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Money"/>
@@ -480,7 +460,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.status -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.status">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
@@ -492,9 +471,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetContainer.Assets -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetContainer.Assets">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.AssetContainer"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetContainer"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:comment>All assets within this container asset.Container of this asset.</rdfs:comment>
@@ -503,7 +480,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetContainer.LandProperties -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetContainer.LandProperties">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LandProperty.AssetContainers"/>
@@ -516,8 +492,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetContainer.Seals -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetContainer.Seals">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal.AssetContainer"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetContainer"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal"/>
         <rdfs:comment>Asset container to which this seal is applied.All seals applied to this asset container.</rdfs:comment>
@@ -526,7 +502,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetInfo.AssetModel -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetInfo.AssetModel">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetModel.AssetInfo"/>
@@ -539,9 +514,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetInfo.Assets -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetInfo.Assets">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.AssetInfo"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetInfo"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:comment>All assets described by this data.Data applicable to this asset.</rdfs:comment>
@@ -550,7 +523,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetModel.AssetInfo -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetModel.AssetInfo">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetModel"/>
@@ -561,7 +533,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetModel.ErpInventoryCounts -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetModel.ErpInventoryCounts">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ErpInventoryCount.AssetModel"/>
@@ -574,7 +545,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetModelCatalogueItem.AssetModel -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetModelCatalogueItem.AssetModel">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.AssetModelCatalogueItems"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#AssetModelCatalogueItem"/>
@@ -586,9 +556,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetOrganisationRole.Assets -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetOrganisationRole.Assets">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.OrganisationRoles"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetOrganisationRole"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:comment>All assets for this organisation role.All roles an organisation plays for this asset.</rdfs:comment>
@@ -598,9 +566,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetPropertyCurve.Assets -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetPropertyCurve.Assets">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.AssetPropertyCurves"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#AssetPropertyCurve"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:comment></rdfs:comment>
@@ -610,8 +576,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#CompatibleUnit.Procedures -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#CompatibleUnit.Procedures">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure.CompatibleUnits"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CompatibleUnit"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure"/>
         <rdfs:comment></rdfs:comment>
@@ -621,9 +587,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ErpInventory.Asset -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ErpInventory.Asset">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.ErpInventory"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInventory"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:comment></rdfs:comment>
@@ -632,7 +596,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ErpInventoryCount.AssetModel -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ErpInventoryCount.AssetModel">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInventoryCount"/>
@@ -644,7 +607,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ErpItemMaster.Asset -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ErpItemMaster.Asset">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpItemMaster"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
@@ -655,9 +617,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ErpRecDelvLineItem.Assets -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ErpRecDelvLineItem.Assets">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.ErpRecDeliveryItems"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpRecDelvLineItem"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:comment></rdfs:comment>
@@ -666,7 +626,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#FinancialInfo.Asset -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#FinancialInfo.Asset">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#FinancialInfo"/>
@@ -678,8 +637,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#GenericAssetModel.ProductAssetModels -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#GenericAssetModel.ProductAssetModels">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.GenericAssetModelOrMaterial"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#GenericAssetModel"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel"/>
         <rdfs:comment>Generic asset model or material satisified by this product asset model.All product asset models satisfying this generic asset model.</rdfs:comment>
@@ -688,7 +647,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LandProperty.AssetContainers -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LandProperty.AssetContainers">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty"/>
@@ -699,7 +657,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Manufacturer.ProductAssetModels -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Manufacturer.ProductAssetModels">
         <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.Manufacturer"/>
@@ -712,7 +669,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Medium.Assets -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Medium.Assets">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Medium"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
@@ -722,7 +678,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure.Assets -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure.Assets">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure"/>
@@ -734,9 +689,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure.CompatibleUnits -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure.CompatibleUnits">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#CompatibleUnit.Procedures"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CompatibleUnit"/>
         <rdfs:comment></rdfs:comment>
@@ -746,8 +699,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure.ProcedureDataSets -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure.ProcedureDataSets">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet.Procedure"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet"/>
         <rdfs:comment>Procedure capturing this data set.All data sets captured by this procedure.</rdfs:comment>
@@ -757,9 +710,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet.Procedure -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet.Procedure">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure.ProcedureDataSets"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure"/>
         <rdfs:comment>Procedure capturing this data set.All data sets captured by this procedure.</rdfs:comment>
@@ -769,8 +720,8 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet.TransformerObservations -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet.TransformerObservations">
+        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#TransformerObservation.ProcedureDataSets"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#TransformerObservation"/>
         <rdfs:comment></rdfs:comment>
@@ -779,7 +730,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.AssetModelCatalogueItems -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.AssetModelCatalogueItems">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel"/>
@@ -791,9 +741,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.GenericAssetModelOrMaterial -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.GenericAssetModelOrMaterial">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#GenericAssetModel.ProductAssetModels"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#GenericAssetModel"/>
         <rdfs:comment>Generic asset model or material satisified by this product asset model.All product asset models satisfying this generic asset model.</rdfs:comment>
@@ -802,7 +750,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.Manufacturer -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.Manufacturer">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel"/>
@@ -814,7 +761,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.weightTotal -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.weightTotal">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Weight"/>
@@ -825,9 +771,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Reconditioning.Asset -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Reconditioning.Asset">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.Reconditionings"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Reconditioning"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:comment></rdfs:comment>
@@ -836,7 +780,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ReliabilityInfo.Assets -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ReliabilityInfo.Assets">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#ReliabilityInfo"/>
@@ -848,9 +791,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal.AssetContainer -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal.AssetContainer">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetContainer.Seals"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetContainer"/>
         <rdfs:comment>Asset container to which this seal is applied.All seals applied to this asset container.</rdfs:comment>
@@ -860,9 +801,7 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#TransformerObservation.ProcedureDataSets -->
 
-
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#TransformerObservation.ProcedureDataSets">
-        <owl:inverseOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet.TransformerObservations"/>
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#TransformerObservation"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet"/>
         <rdfs:comment></rdfs:comment>
@@ -871,7 +810,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#WorkTask.Assets -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#WorkTask.Assets">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask"/>
@@ -882,7 +820,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#WorkTask.OldAsset -->
-
 
     <owl:ObjectProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#WorkTask.OldAsset">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask"/>
@@ -900,14 +837,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
     
 
 
-    <!-- AcceptanceTest.dateTime -->
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/AcceptanceTest.dateTime -->
 
-
-    <owl:DatatypeProperty rdf:about="AcceptanceTest.dateTime">
+    <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/AcceptanceTest.dateTime">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AcceptanceTest"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
         <rdfs:comment>Date and time the asset was last tested using the &apos;type&apos; of test and yielding the current status in &apos;success&apos; attribute.
@@ -917,7 +852,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AcceptanceTest.success -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AcceptanceTest.success">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AcceptanceTest"/>
@@ -929,7 +863,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AcceptanceTest.type -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AcceptanceTest.type">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AcceptanceTest"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -939,7 +872,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.critical -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.critical">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
@@ -951,7 +883,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.initialCondition -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.initialCondition">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -961,7 +892,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.lotNumber -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.lotNumber">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
@@ -973,7 +903,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.serialNumber -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.serialNumber">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -983,7 +912,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.type -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.type">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
@@ -996,7 +924,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.utcNumber -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset.utcNumber">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1008,7 +935,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetFunction.configID -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetFunction.configID">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetFunction"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1018,7 +944,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetFunction.firmwareID -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetFunction.firmwareID">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetFunction"/>
@@ -1030,7 +955,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetFunction.hardwareID -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetFunction.hardwareID">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetFunction"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1040,7 +964,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetFunction.password -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetFunction.password">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetFunction"/>
@@ -1052,7 +975,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetFunction.programID -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetFunction.programID">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetFunction"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1062,7 +984,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate.installationDate -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate.installationDate">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate"/>
@@ -1075,7 +996,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate.manufacturedDate -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate.manufacturedDate">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
@@ -1086,7 +1006,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate.purchaseDate -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate.purchaseDate">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate"/>
@@ -1099,7 +1018,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate.receivedDate -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate.receivedDate">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
@@ -1110,7 +1028,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate.removalDate -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate.removalDate">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate"/>
@@ -1123,7 +1040,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate.retiredDate -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate.retiredDate">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
@@ -1135,7 +1051,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure.instruction -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure.instruction">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1145,7 +1060,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure.kind -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure.kind">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure"/>
@@ -1157,7 +1071,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure.sequenceNumber -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure.sequenceNumber">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1167,7 +1080,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet.completedDateTime -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet.completedDateTime">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet"/>
@@ -1180,7 +1092,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.corporateStandardKind -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.corporateStandardKind">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#CorporateStandardKind"/>
@@ -1190,7 +1101,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.modelNumber -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.modelNumber">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel"/>
@@ -1202,7 +1112,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.modelVersion -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.modelVersion">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -1213,7 +1122,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.usageKind -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel.usageKind">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetModelUsageKind"/>
@@ -1223,7 +1131,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal.appliedDateTime -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal.appliedDateTime">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal"/>
@@ -1236,7 +1143,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal.condition -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal.condition">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#SealConditionKind"/>
@@ -1247,7 +1153,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal.kind -->
 
-
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal.kind">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal"/>
         <rdfs:range rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#SealKind"/>
@@ -1257,7 +1162,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal.sealNumber -->
-
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal.sealNumber">
         <rdfs:domain rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal"/>
@@ -1275,17 +1179,15 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AcceptanceTest -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AcceptanceTest">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="AcceptanceTest.dateTime"/>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/AcceptanceTest.dateTime"/>
                 <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
             </owl:Restriction>
@@ -1306,7 +1208,7 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="AcceptanceTest.dateTime"/>
+                <owl:onProperty rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/AcceptanceTest.dateTime"/>
                 <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
             </owl:Restriction>
@@ -1332,7 +1234,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
@@ -1644,7 +1545,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetContainer -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetContainer">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:subClassOf>
@@ -1688,7 +1588,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetFunction -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetFunction">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
@@ -1770,7 +1669,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetInfo -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetInfo">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
         <rdfs:subClassOf>
@@ -1811,7 +1709,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetLocationHazard -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetLocationHazard">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Hazard"/>
         <rdfs:comment>Potential hazard related to the location of an asset. Examples are trees growing under overhead power lines, a park being located by a substation (i.e., children climb fence to recover a ball), a lake near an overhead distribution line (fishing pole/line contacting power lines), dangerous neighbour, etc.</rdfs:comment>
@@ -1820,7 +1717,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetModel -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetModel">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
@@ -1859,7 +1755,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetOrganisationRole -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetOrganisationRole">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole"/>
         <rdfs:subClassOf>
@@ -1877,7 +1772,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetOwner -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetOwner">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetOrganisationRole"/>
         <rdfs:comment>Owner of the asset.
@@ -1887,7 +1781,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetUser -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetUser">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetOrganisationRole"/>
@@ -1899,7 +1792,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ComMedia -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ComMedia">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Asset"/>
         <rdfs:comment>Communication media such as fibre optic cable, power-line, telephone, etc.
@@ -1908,8 +1800,16 @@
     
 
 
-    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate -->
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#InspectionDataSet -->
 
+    <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#InspectionDataSet">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet"/>
+        <rdfs:comment>Documents the result of one inspection, for a given attribute of an asset.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate -->
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#LifecycleDate">
         <rdfs:subClassOf>
@@ -2004,7 +1904,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Maintainer -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Maintainer">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetOrganisationRole"/>
         <rdfs:comment>Organisation that maintains assets.
@@ -2014,7 +1913,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Manufacturer -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Manufacturer">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole"/>
@@ -2039,7 +1937,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Procedure">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Document"/>
@@ -2120,7 +2017,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProcedureDataSet">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Document"/>
         <rdfs:subClassOf>
@@ -2157,7 +2053,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#ProductAssetModel">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#AssetModel"/>
@@ -2267,7 +2162,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Assets#Seal">
         <rdfs:subClassOf rdf:resource="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
         <rdfs:subClassOf>
@@ -2341,13 +2235,11 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Document -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Document"/>
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#ElectronicAddress"/>
     
@@ -2355,13 +2247,11 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Hazard -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Hazard"/>
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#OrganisationRole"/>
     
@@ -2369,13 +2259,11 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Status -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Common#Status"/>
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#AssetModelCatalogueItem -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssetInfo#AssetModelCatalogueItem">
         <rdfs:subClassOf>
@@ -2391,7 +2279,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#AssetPropertyCurve -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#AssetPropertyCurve">
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -2405,7 +2292,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#FinancialInfo -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#FinancialInfo">
         <rdfs:subClassOf>
@@ -2428,7 +2314,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#GenericAssetModel -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#GenericAssetModel">
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -2450,7 +2335,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Medium -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Medium">
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -2464,7 +2348,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Reconditioning -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#Reconditioning">
         <rdfs:subClassOf>
@@ -2480,7 +2363,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#ReliabilityInfo -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#ReliabilityInfo">
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -2495,7 +2377,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#TransformerObservation -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfAssets#TransformerObservation">
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -2509,7 +2390,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInventory -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInventory">
         <rdfs:subClassOf>
@@ -2532,7 +2412,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInventoryCount -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpInventoryCount">
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -2546,7 +2425,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpItemMaster -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpItemMaster">
         <rdfs:subClassOf>
@@ -2569,7 +2447,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpRecDelvLineItem -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfERPSupport#ErpRecDelvLineItem">
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -2583,7 +2460,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfLocations#LandProperty">
         <rdfs:subClassOf>
@@ -2599,7 +2475,6 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CompatibleUnit -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/InfIEC61968/InfWork#CompatibleUnit">
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -2613,7 +2488,6 @@
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61968/Work#WorkTask">
         <rdfs:subClassOf>
@@ -2636,13 +2510,11 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Core#IdentifiedObject"/>
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Money -->
-
 
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Money"/>
     
@@ -2650,19 +2522,16 @@
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#PerCent"/>
     
 
 
     <!-- https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Weight -->
 
-
     <owl:Class rdf:about="https://w3id.org/netbeheer/referentiemodellen/IECCIM/TC57CIM/IEC61970/Base/Domain#Weight"/>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 5.1.10.2019-03-12T22:31:15Z) https://github.com/owlcs/owlapi/ -->
-
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 
